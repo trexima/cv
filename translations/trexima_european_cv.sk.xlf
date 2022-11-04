@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="sk" target-language="sk" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="1" resname="trexima_european_cv.form_placeholder.language">
+        <source>trexima_european_cv.form_placeholder.language</source>
+        <target>Vyberte jazyk</target>
+      </trans-unit>
+      <trans-unit id="2" resname="trexima_european_cv.form_label.language">
+        <source>trexima_european_cv.form_label.language</source>
+        <target>Jazyk životopisu</target>
+      </trans-unit>
+      <trans-unit id="lang-en" resname="trexima_european_cv.form_label.language_en">
+        <source>trexima_european_cv.form_label.language_en</source>
+        <target>Anglický</target>
+      </trans-unit>
+      <trans-unit id="lang-sk" resname="trexima_european_cv.form_label.language_sk">
+        <source>trexima_european_cv.form_label.language_sk</source>
+        <target>Slovenský</target>
+      </trans-unit>
+      <trans-unit id="lang-cs" resname="trexima_european_cv.form_label.language_cs">
+        <source>trexima_european_cv.form_label.language_cs</source>
+        <target>Český</target>
+      </trans-unit>
+      <trans-unit id="lang-de" resname="trexima_european_cv.form_label.language_de">
+        <source>trexima_european_cv.form_label.language_de</source>
+        <target>Nemecký</target>
+      </trans-unit>
+      <trans-unit id="lang-hu" resname="trexima_european_cv.form_label.language_hu">
+        <source>trexima_european_cv.form_label.language_hu</source>
+        <target>Maďarský</target>
+      </trans-unit>
+      <trans-unit id="lang-ru" resname="trexima_european_cv.form_label.language_ru">
+        <source>trexima_european_cv.form_label.language_ru</source>
+        <target>Ruský</target>
+      </trans-unit>
+      <trans-unit id="lang-uk" resname="trexima_european_cv.form_label.language_uk">
+        <source>trexima_european_cv.form_label.language_uk</source>
+        <target>Ukrajinský</target>
+      </trans-unit>
+      <trans-unit id="lang-pl" resname="trexima_european_cv.form_label.language_pl">
+        <source>trexima_european_cv.form_label.language_pl</source>
+        <target>Poľský</target>
+      </trans-unit>
+      <trans-unit id="lang-it" resname="trexima_european_cv.form_label.language_it">
+        <source>trexima_european_cv.form_label.language_it</source>
+        <target>Taliansky</target>
+      </trans-unit>
+      <trans-unit id="lang-fr" resname="trexima_european_cv.form_label.language_fr">
+        <source>trexima_european_cv.form_label.language_fr</source>
+        <target>Francúzsky</target>
+      </trans-unit>
+      <trans-unit id="lang-es" resname="trexima_european_cv.form_label.language_es">
+        <source>trexima_european_cv.form_label.language_es</source>
+        <target>Španielsky</target>
+      </trans-unit>
+      <trans-unit id="lang-pt" resname="trexima_european_cv.form_label.language_pt">
+        <source>trexima_european_cv.form_label.language_pt</source>
+        <target>Portugalský</target>
+      </trans-unit>
+      <trans-unit id="lang-nl" resname="trexima_european_cv.form_label.language_nl">
+        <source>trexima_european_cv.form_label.language_nl</source>
+        <target>Holandský</target>
+      </trans-unit>
+      <trans-unit id="lang-da" resname="trexima_european_cv.form_label.language_da">
+        <source>trexima_european_cv.form_label.language_da</source>
+        <target>Dánsky</target>
+      </trans-unit>
+      <trans-unit id="lang-fi" resname="trexima_european_cv.form_label.language_fi">
+        <source>trexima_european_cv.form_label.language_fi</source>
+        <target>Fínsky</target>
+      </trans-unit>
+      <trans-unit id="lang-sv" resname="trexima_european_cv.form_label.language_sv">
+        <source>trexima_european_cv.form_label.language_sv</source>
+        <target>Švédsky</target>
+      </trans-unit>
+      <trans-unit id="lang-no" resname="trexima_european_cv.form_label.language_no">
+        <source>trexima_european_cv.form_label.language_no</source>
+        <target>Nórsky</target>
+      </trans-unit>
+      <trans-unit id="lang-el" resname="trexima_european_cv.form_label.language_el">
+        <source>trexima_european_cv.form_label.language_el</source>
+        <target>Grécky</target>
+      </trans-unit>
+      <trans-unit id="lang-is" resname="trexima_european_cv.form_label.language_is">
+        <source>trexima_european_cv.form_label.language_is</source>
+        <target>Islandský</target>
+      </trans-unit>
+      <trans-unit id="lang-ga" resname="trexima_european_cv.form_label.language_ga">
+        <source>trexima_european_cv.form_label.language_ga</source>
+        <target>Írsky</target>
+      </trans-unit>
+      <trans-unit id="lang-lv" resname="trexima_european_cv.form_label.language_lv">
+        <source>trexima_european_cv.form_label.language_lv</source>
+        <target>Lotyšský</target>
+      </trans-unit>
+      <trans-unit id="lang-et" resname="trexima_european_cv.form_label.language_et">
+        <source>trexima_european_cv.form_label.language_et</source>
+        <target>Estónsky</target>
+      </trans-unit>
+      <trans-unit id="lang-lt" resname="trexima_european_cv.form_label.language_lt">
+        <source>trexima_european_cv.form_label.language_lt</source>
+        <target>Litovský</target>
+      </trans-unit>
+      <trans-unit id="lang-sl" resname="trexima_european_cv.form_label.language_sl">
+        <source>trexima_european_cv.form_label.language_sl</source>
+        <target>Slovinský</target>
+      </trans-unit>
+      <trans-unit id="lang-mt" resname="trexima_european_cv.form_label.language_mt">
+        <source>trexima_european_cv.form_label.language_mt</source>
+        <target>Maltský</target>
+      </trans-unit>
+      <trans-unit id="lang-ro" resname="trexima_european_cv.form_label.language_ro">
+        <source>trexima_european_cv.form_label.language_ro</source>
+        <target>Rumunský</target>
+      </trans-unit>
+      <trans-unit id="lang-bg" resname="trexima_european_cv.form_label.language_bg">
+        <source>trexima_european_cv.form_label.language_bg</source>
+        <target>Bulharský</target>
+      </trans-unit>
+      <trans-unit id="lang-hr" resname="trexima_european_cv.form_label.language_hr">
+        <source>trexima_european_cv.form_label.language_hr</source>
+        <target>Chorvátsky</target>
+      </trans-unit>
+      <trans-unit id="lang-sr" resname="trexima_european_cv.form_label.language_sr">
+        <source>trexima_european_cv.form_label.language_sr</source>
+        <target>Srbský</target>
+      </trans-unit>
+      <trans-unit id="lang-la" resname="trexima_european_cv.form_label.language_la">
+        <source>trexima_european_cv.form_label.language_la</source>
+        <target>Latinský</target>
+      </trans-unit>
+      <trans-unit id="lang-zh" resname="trexima_european_cv.form_label.language_zh">
+        <source>trexima_european_cv.form_label.language_zh</source>
+        <target>Čínsky (mandarínčina)</target>
+      </trans-unit>
+      <trans-unit id="lang-vi" resname="trexima_european_cv.form_label.language_vi">
+        <source>trexima_european_cv.form_label.language_vi</source>
+        <target>Vietnamský</target>
+      </trans-unit>
+      <trans-unit id="lang-ja" resname="trexima_european_cv.form_label.language_ja">
+        <source>trexima_european_cv.form_label.language_ja</source>
+        <target>Japonský</target>
+      </trans-unit>
+      <trans-unit id="lang-ko" resname="trexima_european_cv.form_label.language_ko">
+        <source>trexima_european_cv.form_label.language_ko</source>
+        <target>Kórejský</target>
+      </trans-unit>
+      <trans-unit id="lang-other" resname="trexima_european_cv.form_label.language_other">
+        <source>trexima_european_cv.form_label.language_other</source>
+        <target>Iný</target>
+      </trans-unit>
+      <trans-unit id="nationality-en" resname="trexima_european_cv.form_label.nationality_en">
+        <source>trexima_european_cv.form_label.nationality_en</source>
+        <target>Anglická</target>
+      </trans-unit>
+      <trans-unit id="nationality-sk" resname="trexima_european_cv.form_label.nationality_sk">
+        <source>trexima_european_cv.form_label.nationality_sk</source>
+        <target>Slovenská</target>
+      </trans-unit>
+      <trans-unit id="nationality-cs" resname="trexima_european_cv.form_label.nationality_cs">
+        <source>trexima_european_cv.form_label.nationality_cs</source>
+        <target>Česká</target>
+      </trans-unit>
+      <trans-unit id="nationality-de" resname="trexima_european_cv.form_label.nationality_de">
+        <source>trexima_european_cv.form_label.nationality_de</source>
+        <target>Nemecká</target>
+      </trans-unit>
+      <trans-unit id="nationality-hu" resname="trexima_european_cv.form_label.nationality_hu">
+        <source>trexima_european_cv.form_label.nationality_hu</source>
+        <target>Maďarská</target>
+      </trans-unit>
+      <trans-unit id="nationality-ru" resname="trexima_european_cv.form_label.nationality_ru">
+        <source>trexima_european_cv.form_label.nationality_ru</source>
+        <target>Ruská</target>
+      </trans-unit>
+      <trans-unit id="nationality-uk" resname="trexima_european_cv.form_label.nationality_uk">
+        <source>trexima_european_cv.form_label.nationality_uk</source>
+        <target>Ukrajinská</target>
+      </trans-unit>
+      <trans-unit id="nationality-pl" resname="trexima_european_cv.form_label.nationality_pl">
+        <source>trexima_european_cv.form_label.nationality_pl</source>
+        <target>Poľská</target>
+      </trans-unit>
+      <trans-unit id="nationality-it" resname="trexima_european_cv.form_label.nationality_it">
+        <source>trexima_european_cv.form_label.nationality_it</source>
+        <target>Talianska</target>
+      </trans-unit>
+      <trans-unit id="nationality-fr" resname="trexima_european_cv.form_label.nationality_fr">
+        <source>trexima_european_cv.form_label.nationality_fr</source>
+        <target>Francúzska</target>
+      </trans-unit>
+      <trans-unit id="nationality-es" resname="trexima_european_cv.form_label.nationality_es">
+        <source>trexima_european_cv.form_label.nationality_es</source>
+        <target>Španielska</target>
+      </trans-unit>
+      <trans-unit id="nationality-pt" resname="trexima_european_cv.form_label.nationality_pt">
+        <source>trexima_european_cv.form_label.nationality_pt</source>
+        <target>Portugalská</target>
+      </trans-unit>
+      <trans-unit id="nationality-nl" resname="trexima_european_cv.form_label.nationality_nl">
+        <source>trexima_european_cv.form_label.nationality_nl</source>
+        <target>Holandská</target>
+      </trans-unit>
+      <trans-unit id="nationality-da" resname="trexima_european_cv.form_label.nationality_da">
+        <source>trexima_european_cv.form_label.nationality_da</source>
+        <target>Dánska</target>
+      </trans-unit>
+      <trans-unit id="nationality-fi" resname="trexima_european_cv.form_label.nationality_fi">
+        <source>trexima_european_cv.form_label.nationality_fi</source>
+        <target>Fínska</target>
+      </trans-unit>
+      <trans-unit id="nationality-sv" resname="trexima_european_cv.form_label.nationality_sv">
+        <source>trexima_european_cv.form_label.nationality_sv</source>
+        <target>Švédska</target>
+      </trans-unit>
+      <trans-unit id="nationality-no" resname="trexima_european_cv.form_label.nationality_no">
+        <source>trexima_european_cv.form_label.nationality_no</source>
+        <target>Nórska</target>
+      </trans-unit>
+      <trans-unit id="nationality-el" resname="trexima_european_cv.form_label.nationality_el">
+        <source>trexima_european_cv.form_label.nationality_el</source>
+        <target>Grécka</target>
+      </trans-unit>
+      <trans-unit id="nationality-is" resname="trexima_european_cv.form_label.nationality_is">
+        <source>trexima_european_cv.form_label.nationality_is</source>
+        <target>Islandská</target>
+      </trans-unit>
+      <trans-unit id="nationality-ga" resname="trexima_european_cv.form_label.nationality_ga">
+        <source>trexima_european_cv.form_label.nationality_ga</source>
+        <target>Írska</target>
+      </trans-unit>
+      <trans-unit id="nationality-lv" resname="trexima_european_cv.form_label.nationality_lv">
+        <source>trexima_european_cv.form_label.nationality_lv</source>
+        <target>Lotyšská</target>
+      </trans-unit>
+      <trans-unit id="nationality-et" resname="trexima_european_cv.form_label.nationality_et">
+        <source>trexima_european_cv.form_label.nationality_et</source>
+        <target>Estónska</target>
+      </trans-unit>
+      <trans-unit id="nationality-lt" resname="trexima_european_cv.form_label.nationality_lt">
+        <source>trexima_european_cv.form_label.nationality_lt</source>
+        <target>Litovská</target>
+      </trans-unit>
+      <trans-unit id="nationality-sl" resname="trexima_european_cv.form_label.nationality_sl">
+        <source>trexima_european_cv.form_label.nationality_sl</source>
+        <target>Slovinská</target>
+      </trans-unit>
+      <trans-unit id="nationality-mt" resname="trexima_european_cv.form_label.nationality_mt">
+        <source>trexima_european_cv.form_label.nationality_mt</source>
+        <target>Maltská</target>
+      </trans-unit>
+      <trans-unit id="nationality-ro" resname="trexima_european_cv.form_label.nationality_ro">
+        <source>trexima_european_cv.form_label.nationality_ro</source>
+        <target>Rumunská</target>
+      </trans-unit>
+      <trans-unit id="nationality-bg" resname="trexima_european_cv.form_label.nationality_bg">
+        <source>trexima_european_cv.form_label.nationality_bg</source>
+        <target>Bulharská</target>
+      </trans-unit>
+      <trans-unit id="nationality-hr" resname="trexima_european_cv.form_label.nationality_hr">
+        <source>trexima_european_cv.form_label.nationality_hr</source>
+        <target>Chorvátska</target>
+      </trans-unit>
+      <trans-unit id="nationality-sr" resname="trexima_european_cv.form_label.nationality_sr">
+        <source>trexima_european_cv.form_label.nationality_sr</source>
+        <target>Srbská</target>
+      </trans-unit>
+      <trans-unit id="nationality-la" resname="trexima_european_cv.form_label.nationality_la">
+        <source>trexima_european_cv.form_label.nationality_la</source>
+        <target>Latinská</target>
+      </trans-unit>
+      <trans-unit id="nationality-zh" resname="trexima_european_cv.form_label.nationality_zh">
+        <source>trexima_european_cv.form_label.nationality_zh</source>
+        <target>Čínsky (mandarínčina)</target>
+      </trans-unit>
+      <trans-unit id="nationality-vi" resname="trexima_european_cv.form_label.nationality_vi">
+        <source>trexima_european_cv.form_label.nationality_vi</source>
+        <target>Vietnamská</target>
+      </trans-unit>
+      <trans-unit id="nationality-ja" resname="trexima_european_cv.form_label.nationality_ja">
+        <source>trexima_european_cv.form_label.nationality_ja</source>
+        <target>Japonská</target>
+      </trans-unit>
+      <trans-unit id="nationality-ko" resname="trexima_european_cv.form_label.nationality_ko">
+        <source>trexima_european_cv.form_label.nationality_ko</source>
+        <target>Kórejská</target>
+      </trans-unit>
+      <trans-unit id="nationality-other" resname="trexima_european_cv.form_label.nationality_other">
+        <source>trexima_european_cv.form_label.nationality_other</source>
+        <target>Iná</target>
+      </trans-unit>
+      <trans-unit id="sex-male" resname="trexima_european_cv.form_label.sex_male">
+        <source>trexima_european_cv.form_label.sex_male</source>
+        <target>Muž</target>
+      </trans-unit>
+      <trans-unit id="sex-female" resname="trexima_european_cv.form_label.sex_female">
+        <source>trexima_european_cv.form_label.sex_female</source>
+        <target>Žena</target>
+      </trans-unit>
+      <trans-unit id="sex-do-not-state" resname="trexima_european_cv.form_label.sex_do_not_state">
+        <source>trexima_european_cv.form_label.sex_do_not_state</source>
+        <target>Neuvádzať</target>
+      </trans-unit>
+      <trans-unit id="sex-label" resname="trexima_european_cv.form_label.sex_label">
+        <source>trexima_european_cv.form_label.sex_label</source>
+        <target>Pohlavie</target>
+      </trans-unit>
+      <trans-unit id="education-elementary-school" resname="trexima_european_cv.form_label.education_elementary_school">
+        <source>trexima_european_cv.form_label.education_elementary_school</source>
+        <target>Základná škola</target>
+      </trans-unit>
+      <trans-unit id="education-high-school" resname="trexima_european_cv.form_label.education_high_school">
+        <source>trexima_european_cv.form_label.education_high_school</source>
+        <target>Stredná škola</target>
+      </trans-unit>
+      <trans-unit id="education-university" resname="trexima_european_cv.form_label.education_university">
+        <source>trexima_european_cv.form_label.education_university</source>
+        <target>Vysoká škola</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

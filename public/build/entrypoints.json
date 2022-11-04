@@ -1,0 +1,25 @@
+{
+  "entrypoints": {
+    "trexima-european-cv": {
+      "js": [
+        "/bundles/treximaeuropeancv/build/runtime.js",
+        "/bundles/treximaeuropeancv/build/848.js",
+        "/bundles/treximaeuropeancv/build/trexima-european-cv.js"
+      ],
+      "css": [
+        "/bundles/treximaeuropeancv/build/trexima-european-cv.css"
+      ]
+    },
+    "shared": {
+      "js": [
+        "/bundles/treximaeuropeancv/build/runtime.js",
+        "/bundles/treximaeuropeancv/build/848.js",
+        "/bundles/treximaeuropeancv/build/870.js",
+        "/bundles/treximaeuropeancv/build/shared.js"
+      ],
+      "css": [
+        "/bundles/treximaeuropeancv/build/shared.css"
+      ]
+    }
+  }
+}
