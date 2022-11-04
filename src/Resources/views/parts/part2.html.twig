@@ -1,0 +1,15 @@
+{% trans_default_domain 'trexima_european_cv' %}
+{% form_theme form '@TreximaEuropeanCv/form/_bootstrap_4_layout.html.twig' %}
+
+{# {{ form_start(form, {'attr': {'class': 'trexima-european-cv', 'data-trexima-european-cv-are-you-sure': true, 'data-trexima-european-cv-parsley-validate': true}}) }} #}
+    {# {{ form_errors(form) }} #}
+
+    <div class="row">
+        <div class="col-md"></div>
+        <div class="col-md-8">
+            {% include '@TreximaEuropeanCv/widget/education.html.twig' %}
+        </div>
+        <div class="col-md"></div>
+    </div>
+
+{# {{ form_end(form) }} #}
