@@ -40,7 +40,7 @@ class EuropeanCVPart1Type extends AbstractType
         $builder
         ->add('sex', EnumType::class, [
             'class' => SexEnum::class,
-            'required' => true,
+            'required' => false,
             'expanded' => true,
             'multiple' => false,
             'choice_label' => fn(SexEnum $choice) => match ($choice) {
@@ -92,7 +92,7 @@ class EuropeanCVPart1Type extends AbstractType
         // ])
         ->add('nationalities', Select2Type::class, [
             // 'placeholder' => t('trexima_european_cv.form_placeholder.language', [], 'trexima_european_cv'),
-            'required' => true,
+            'required' => false,
             'multiple' => true,
             'choices' => [
                 LanguageEnum::LANGUAGE_SK,
@@ -174,6 +174,7 @@ class EuropeanCVPart1Type extends AbstractType
             // ],
         ])
         ->add('year', ChoiceType::class, [
+            'required' => false,
             'choices' => range($now->format('Y'), 1900, -1),
             'choice_label' => function ($choice) {
                 return $choice;
@@ -181,6 +182,7 @@ class EuropeanCVPart1Type extends AbstractType
             'label' => 'Rok narodenia',
         ])
         ->add('month', ChoiceType::class, [
+            'required' => false,
             'choices' => range(1,12),
             'choice_label' => function ($choice) {
                 return $choice;
@@ -188,6 +190,7 @@ class EuropeanCVPart1Type extends AbstractType
             'label' => 'Mesiac narodenia',
         ])
         ->add('day', ChoiceType::class, [
+            'required' => false,
             'choices' => range(1,31),
             'choice_label' => function ($choice) {
                 return $choice;
@@ -195,6 +198,7 @@ class EuropeanCVPart1Type extends AbstractType
             'label' => 'Deň narodenia',
         ])
         ->add('email', null, [
+            'required' => false,
             'label' => 'E-mail',
             'attr' => [
                 'placeholder' => 'vzor@vzor.sk'
@@ -221,6 +225,7 @@ class EuropeanCVPart1Type extends AbstractType
             ]
         ])
         ->add('address', null, [
+            'required' => false,
             'label' => 'Adresa',
             'attr' => [
                 'placeholder' => 'Vzorová 3, 841 01 Bratislava IV, Slovenská republika'
@@ -241,6 +246,7 @@ class EuropeanCVPart1Type extends AbstractType
         ])
         ->add('description', TextareaType::class, [
             'label' => 'Stručný text o vás, ktorý sa zobrazí v hlavičke životopisu',
+            'required' => false,
             'attr' => [
                 'placeholder' => 'O vás'
             ]
