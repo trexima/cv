@@ -169,7 +169,7 @@
     <table class="content-2-columns vertical-middle">
         <tr>
             <td>
-                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/europass.jpg', 170, img_use_absolute_path) }}
+                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/europass.jpg', 170, img_use_absolute_path) }}
             </td>
             <td>
                 <h1>{% trans %}Európsky životopis{% endtrans %}</h1>
@@ -179,7 +179,7 @@
 {% endblock %}
 
 {% block pageHeader %}
-    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/europass.jpg', 140, img_use_absolute_path) }}
+    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/europass.jpg', 140, img_use_absolute_path) }}
 {% endblock %}
 
 {% block pageFooter %}
@@ -193,7 +193,7 @@
         <table class="content-2-columns vertical-middle">
             <tr>
                 <td>
-                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/europass.jpg', 170, img_use_absolute_path) }}
+                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/europass.jpg', 170, img_use_absolute_path) }}
                 </td>
                 <td>
                     <h1>{% trans %}Európsky životopis{% endtrans %}</h1>
@@ -209,7 +209,8 @@
                 <h2>{% trans %}OSOBNÉ ÚDAJE{% endtrans %}</h2>
             </td>
             <td>
-                <p>{{ european_cv.name }}</p>
+                <p>{{ european_cv.firstName }}</p>
+                <p>{{ european_cv.lastName }}</p>
             </td>
         </tr>
         <tr>
@@ -223,7 +224,7 @@
                     {% if european_cv.address %}
                         <tr>
                             <td>
-                                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/adresa.png', 15, img_use_absolute_path) }}
+                                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/adresa.png', 15, img_use_absolute_path) }}
                             </td>
                             <td>
                                 <p>
@@ -237,11 +238,11 @@
                             <td>
                                 {% if european_cv.phones.first.type %}
                                     {% if european_cv.phones.first.type == constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVPhone::TYPE_MOBILE') %}
-                                        {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/telefon2.png', 15, img_use_absolute_path) }}
+                                        {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/telefon2.png', 15, img_use_absolute_path) }}
                                     {% elseif european_cv.phones.first.type == constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVPhone::TYPE_HOME') %}
-                                        {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/telefon.png', 15, img_use_absolute_path) }}
+                                        {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/telefon.png', 15, img_use_absolute_path) }}
                                     {% elseif european_cv.phones.first.type == constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVPhone::TYPE_WORK') %}
-                                        {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/telefon2.png', 15, img_use_absolute_path) }}
+                                        {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/telefon2.png', 15, img_use_absolute_path) }}
                                     {% endif %}
                                 {% endif %}
                             </td>
@@ -252,11 +253,11 @@
                                             &nbsp;&nbsp;&nbsp;
                                             {% if phone.type %}
                                                 {% if phone.type == constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVPhone::TYPE_MOBILE') %}
-                                                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/telefon2.png', 15, img_use_absolute_path) }}
+                                                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/telefon2.png', 15, img_use_absolute_path) }}
                                                 {% elseif phone.type == constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVPhone::TYPE_HOME') %}
-                                                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/telefon.png', 15, img_use_absolute_path) }}
+                                                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/telefon.png', 15, img_use_absolute_path) }}
                                                 {% elseif phone.type == constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVPhone::TYPE_WORK') %}
-                                                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/telefon2.png', 15, img_use_absolute_path) }}
+                                                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/telefon2.png', 15, img_use_absolute_path) }}
                                                 {% endif %}
                                                 {% endif %}
                                                 &nbsp;
@@ -271,7 +272,7 @@
                     {% if european_cv.email %}
                         <tr>
                             <td>
-                                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/email.png', 15, img_use_absolute_path) }}
+                                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/email.png', 15, img_use_absolute_path) }}
                             </td>
                             <td>
                                 <p>
@@ -280,14 +281,16 @@
                             </td>
                         </tr>
                     {% endif %}
-                    {% if european_cv.personalWebsite %}
+                    {% if european_cv.personalWebsites|length > 0 %}
                         <tr>
                             <td>
-                                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/mys.png', 15, img_use_absolute_path) }}
+                                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/mys.png', 15, img_use_absolute_path) }}
                             </td>
                             <td>
                                 <p>
-                                    {{ european_cv.personalWebsite }}
+                                    {% for website in european_cv.personalWebsites %}
+                                        {{ website }}
+                                    {% endfor %}
                                 </p>
                             </td>
                         </tr>
@@ -296,19 +299,31 @@
                 <br/>
                 <p>
                     {% if european_cv.sex %}
-                        <span class="text-blue">{% trans %}Pohlavie{% endtrans %}:</span> {{ constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCV::SEX_LIST')[european_cv.sex]|trans }}
-                        {% if european_cv.dateOfBirth or european_cv.nationality %}
+                        <span class="text-blue">{% trans %}Pohlavie{% endtrans %}:</span> {{ european_cv.sex.name|trans }}
+                        {% if european_cv.year or european_cv.nationalities %}
                             |
                         {% endif %}
                     {% endif %}
-                    {% if european_cv.dateOfBirth %}
-                        <span class="text-blue">{% trans %}Dátum narodenia{% endtrans %}:</span> {{ european_cv.dateOfBirth|date('d.m.Y') }}
-                        {% if european_cv.nationality %}
+                    {% if european_cv.year %}
+                        <span class="text-blue">{% trans %}Dátum narodenia{% endtrans %}:</span> {{ european_cv.getFormattedDateOfBirth }}
+                        {% if european_cv.nationalities %}
                             |
                         {% endif %}
                     {% endif %}
-                    {% if european_cv.nationality %}
-                        <span class="text-blue">{% trans %}Štátna príslušnosť{% endtrans %}:</span> {{ european_cv.nationality }}
+                    {% if european_cv.nationalities %}
+                        {% if european_cv.nationalities|length > 1 %}
+                            <span class="text-blue">{% trans %}Štátne príslušnosti{% endtrans %}:</span> 
+                            {% for key, nationality in european_cv.nationalities %}
+                                {% if key > 1 %}, {% endif %}
+                                {{ 'trexima_european_cv.form_label.nationality_' ~ nationality.value|trans }}
+                            {% endfor %}
+                        {% else %}
+                            <span class="text-blue">{% trans %}Štátna príslušnosť{% endtrans %}:</span> 
+                            {% for key, nationality in european_cv.nationalities %}
+                                {% if key > 1 %}, {% endif %}
+                                {{ 'trexima_european_cv.form_label.nationality_' ~ nationality.value|trans }}
+                            {% endfor %}
+                        {% endif %}
                     {% endif %}
                 </p>
             </td>
@@ -409,14 +424,14 @@
                 <table class="content-2-columns content-2-columns-subheader">
                     <tr>
                         <td>
-                            {% if education.dateRange.beginYear or education.dateRange.endYear %}
+                            {% if education.yearRange.beginYear or education.yearRange.endYear %}
                                 <h2>
-                                    {% if education.dateRange.beginYear %}
-                                        {{ [education.dateRange.beginDay, education.dateRange.beginMonth, education.dateRange.beginYear]|european_cv_atomic_date }}
+                                    {% if education.yearRange.beginYear %}
+                                        {{ education.yearRange.beginYear }}
                                         -
                                     {% endif %}
-                                    {% if education.dateRange.endYear %}
-                                        {{ [education.dateRange.endDay, education.dateRange.endMonth, education.dateRange.endYear]|european_cv_atomic_date }}
+                                    {% if education.yearRange.endYear %}
+                                        {{ education.yearRange.endYear }}
                                     {% else %}
                                         {% trans %}Prebieha{% endtrans %}
                                     {% endif %}
@@ -428,18 +443,17 @@
                                 <h3>{{ education.title }}</h3>
                             {% endif %}
                         </td>
-                        <td class="text-right"{% if education.europeanQualification %} style="width: 2.5cm;"{% endif %}>
+                        {# <td class="text-right"{% if education.europeanQualification %} style="width: 2.5cm;"{% endif %}>
                             {% if education.europeanQualification %}
                                 {% if education.europeanQualification in constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVEducation::EUROPEAN_QUALIFICATION_LIST') %}
-                                    {# Translate only preddefined strings #}
                                     <span class="text-blue">{{ education.europeanQualification|trans }}</span>
                                 {% else %}
                                     <span class="text-blue">{{ education.europeanQualification }}</span>
                                 {% endif %}
                             {% endif %}
-                        </td>
+                        </td> #}
                     </tr>
-                    <tr>
+                    {# <tr>
                         <td></td>
                         <td colspan="2">
                             {% if education.educationLevel %}
@@ -457,7 +471,7 @@
                                 <br/>
                             {% endif %}
                         </td>
-                    </tr>
+                    </tr> #}
                 </table>
             {% endfor %}
             <br/>

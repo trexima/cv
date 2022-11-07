@@ -2,12 +2,12 @@
 
 namespace Trexima\EuropeanCvBundle;
 
-use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class TreximaEuropeanCvBundle extends AbstractBundle
+class TreximaEuropeanCvBundle extends Bundle
 {
-    public function getParent()
+    public function getPath(): string
     {
-        return null;
+        return \dirname(__DIR__);
     }
 }
