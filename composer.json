@@ -1,15 +1,11 @@
 {
-    "name": "trexima/european-cv-2",
+    "name": "trexima/cv",
     "description": "Bundle provides form for creating CV in european format.",
     "type": "symfony-bundle",
-	"version": "2.0",
+	"version": "1.0.0",
 	"type": "library",
     "license": "MIT",
     "authors": [
-        {
-            "name": "buzak",
-            "email": "buzak@trexima.sk"
-        },
         {
             "name": "TREXIMA Bratislava, spol. s r.o.",
             "email": "itmgmt@trexima.sk"
