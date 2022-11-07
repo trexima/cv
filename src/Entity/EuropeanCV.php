@@ -42,7 +42,7 @@ class EuropeanCV
     #[ORM\Column(type: 'integer', options: ['unsigned' => true])]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(targetEntity: UserInterface::class)]
+    #[ORM\ManyToOne(targetEntity: UserInterface::class, inversedBy: 'europeanCvs')]
     #[ORM\JoinColumn(referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
     private ?UserInterface $user = null;
 
