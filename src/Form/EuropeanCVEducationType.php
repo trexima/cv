@@ -43,6 +43,7 @@ class EuropeanCVEducationType extends AbstractType
                     EducationTypeEnum::EDUCATION_ELEMENTARY_SCHOOL => t('trexima_european_cv.form_label.education_elementary_school', [], 'trexima_european_cv'),
                     EducationTypeEnum::EDUCATION_HIGH_SCHOOL => t('trexima_european_cv.form_label.education_high_school', [], 'trexima_european_cv'),
                     EducationTypeEnum::EDUCATION_UNIVERSITY => t('trexima_european_cv.form_label.education_university', [], 'trexima_european_cv'),
+                    EducationTypeEnum::EDUCATION_CERTIFICATE => t('trexima_european_cv.form_label.education_certificate', [], 'trexima_european_cv'),
                 },
                 // 'label' => t('trexima_european_cv.form_label.style', [], 'trexima_european_cv'),
             ])

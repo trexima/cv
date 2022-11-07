@@ -321,6 +321,10 @@
         <source>trexima_european_cv.form_label.education_university</source>
         <target>Vysoká škola</target>
       </trans-unit>
+      <trans-unit id="education-certificate" resname="trexima_european_cv.form_label.education_certificate">
+        <source>trexima_european_cv.form_label.education_certificate</source>
+        <target>Certifikát</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
