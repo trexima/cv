@@ -169,7 +169,7 @@
     <table class="content-2-columns vertical-middle">
         <tr>
             <td>
-                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/europass.jpg', 170, img_use_absolute_path) }}
+                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/europass.jpg', 170, img_use_absolute_path) }}
             </td>
             <td>
                 <h1>{% trans %}Európsky životopis{% endtrans %}</h1>
@@ -179,7 +179,7 @@
 {% endblock %}
 
 {% block pageHeader %}
-    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/europass.jpg', 140, img_use_absolute_path) }}
+    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/europass.jpg', 140, img_use_absolute_path) }}
 {% endblock %}
 
 {% block pageFooter %}
@@ -193,7 +193,7 @@
         <table class="content-2-columns vertical-middle">
             <tr>
                 <td>
-                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/europass.jpg', 170, img_use_absolute_path) }}
+                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/europass.jpg', 170, img_use_absolute_path) }}
                 </td>
                 <td>
                     <h1>{% trans %}Európsky životopis{% endtrans %}</h1>
@@ -224,7 +224,7 @@
                     {% if european_cv.address %}
                         <tr>
                             <td>
-                                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/adresa.png', 15, img_use_absolute_path) }}
+                                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/adresa.png', 15, img_use_absolute_path) }}
                             </td>
                             <td>
                                 <p>
@@ -238,11 +238,11 @@
                             <td>
                                 {% if european_cv.phones.first.type %}
                                     {% if european_cv.phones.first.type == constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVPhone::TYPE_MOBILE') %}
-                                        {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/telefon2.png', 15, img_use_absolute_path) }}
+                                        {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/telefon2.png', 15, img_use_absolute_path) }}
                                     {% elseif european_cv.phones.first.type == constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVPhone::TYPE_HOME') %}
-                                        {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/telefon.png', 15, img_use_absolute_path) }}
+                                        {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/telefon.png', 15, img_use_absolute_path) }}
                                     {% elseif european_cv.phones.first.type == constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVPhone::TYPE_WORK') %}
-                                        {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/telefon2.png', 15, img_use_absolute_path) }}
+                                        {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/telefon2.png', 15, img_use_absolute_path) }}
                                     {% endif %}
                                 {% endif %}
                             </td>
@@ -253,11 +253,11 @@
                                             &nbsp;&nbsp;&nbsp;
                                             {% if phone.type %}
                                                 {% if phone.type == constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVPhone::TYPE_MOBILE') %}
-                                                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/telefon2.png', 15, img_use_absolute_path) }}
+                                                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/telefon2.png', 15, img_use_absolute_path) }}
                                                 {% elseif phone.type == constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVPhone::TYPE_HOME') %}
-                                                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/telefon.png', 15, img_use_absolute_path) }}
+                                                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/telefon.png', 15, img_use_absolute_path) }}
                                                 {% elseif phone.type == constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVPhone::TYPE_WORK') %}
-                                                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/telefon2.png', 15, img_use_absolute_path) }}
+                                                    {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/telefon2.png', 15, img_use_absolute_path) }}
                                                 {% endif %}
                                                 {% endif %}
                                                 &nbsp;
@@ -272,7 +272,7 @@
                     {% if european_cv.email %}
                         <tr>
                             <td>
-                                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/email.png', 15, img_use_absolute_path) }}
+                                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/email.png', 15, img_use_absolute_path) }}
                             </td>
                             <td>
                                 <p>
@@ -284,7 +284,7 @@
                     {% if european_cv.personalWebsites|length > 0 %}
                         <tr>
                             <td>
-                                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/Resources/images/mys.png', 15, img_use_absolute_path) }}
+                                {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/mys.png', 15, img_use_absolute_path) }}
                             </td>
                             <td>
                                 <p>

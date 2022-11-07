@@ -24,6 +24,14 @@ Encore
     .addEntry('shared', './assets/js/shared.js')
     //.addEntry('page2', './assets/js/page2.js')
 
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[ext]'
+
+        // only copy files matching this pattern
+        //pattern: /\.(png|jpg|jpeg)$/
+    })
+
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
 
