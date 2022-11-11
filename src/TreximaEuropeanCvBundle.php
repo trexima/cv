@@ -6,13 +6,8 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class TreximaEuropeanCvBundle extends Bundle
 {
-    public function getParent()
+    public function getPath(): string
     {
-        return null;
+        return \dirname(__DIR__);
     }
-
-    // public function getPath(): string
-    // {
-    //     return \dirname(__DIR__);
-    // }
 }
