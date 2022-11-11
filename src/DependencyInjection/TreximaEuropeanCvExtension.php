@@ -13,14 +13,14 @@ class TreximaEuropeanCvExtension extends Extension implements PrependExtensionIn
 {
     public function load(array $configs, ContainerBuilder $container)
     {
-        $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
-
         $loader = new YamlFileLoader(
             $container,
             new FileLocator(__DIR__.'/../../config')
         );
         $loader->load('services.yaml');
+
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
 
         $container->setParameter('trexima_european_cv_upload_url', $config['upload_url']);
         $container->setParameter('trexima_european_cv_upload_dir', $config['upload_dir']);

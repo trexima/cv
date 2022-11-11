@@ -10,38 +10,15 @@ class EuropeanCvListing implements EuropeanCvListingInterface
     /**
      * @var array
      */
-    private $educationList;
-
-    /**
-     * @var array
-     */
-    private $languageList;
-
-    /**
-     * @var array
-     */
     private $drivingLicenseList;
+
+    /**
+     * @var array
+     */
+    private $digitalSkillList;
 
     public function __construct(private readonly FileLocator $fileLocator)
     {
-    }
-
-    public function getEducationList(): array
-    {
-        if (isset($this->educationList)) {
-            return $this->educationList;
-        }
-
-        return $this->educationList = Yaml::parseFile($this->fileLocator->locate('@TreximaEuropeanCvBundle/Resources/listing/education.yaml'));
-    }
-
-    public function getLanguageList(): array
-    {
-        if (isset($this->languageList)) {
-            return $this->languageList;
-        }
-
-        return $this->languageList = Yaml::parseFile($this->fileLocator->locate('@TreximaEuropeanCvBundle/Resources/listing/language.yaml'));
     }
 
     public function getDrivingLicenseList(): array
@@ -51,5 +28,14 @@ class EuropeanCvListing implements EuropeanCvListingInterface
         }
 
         return $this->drivingLicenseList = Yaml::parseFile($this->fileLocator->locate('@TreximaEuropeanCvBundle/Resources/listing/driving_license.yaml'));
+    }
+
+    public function getDigitalSkillList(): array
+    {
+        if (isset($this->digitalSkillList)) {
+            return $this->digitalSkillList;
+        }
+
+        return $this->digitalSkillList = Yaml::parseFile($this->fileLocator->locate('@TreximaEuropeanCvBundle/Resources/listing/digital_skill.yaml'));
     }
 }

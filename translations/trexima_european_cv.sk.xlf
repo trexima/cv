@@ -321,6 +321,34 @@
         <source>trexima_european_cv.form_label.education_university</source>
         <target>Vysoká škola</target>
       </trans-unit>
+      <trans-unit id="education-certificate" resname="trexima_european_cv.form_label.education_certificate">
+        <source>trexima_european_cv.form_label.education_certificate</source>
+        <target>Certifikát</target>
+      </trans-unit>
+      <trans-unit id="language-level-a1" resname="trexima_european_cv.form_label.language_level_a1">
+        <source>trexima_european_cv.form_label.language_level_a1</source>
+        <target>Začiatočník (A1)</target>
+      </trans-unit>
+      <trans-unit id="language-level-a2" resname="trexima_european_cv.form_label.language_level_a2">
+        <source>trexima_european_cv.form_label.language_level_a1</source>
+        <target>Základná (A2)</target>
+      </trans-unit>
+      <trans-unit id="language-level-b1" resname="trexima_european_cv.form_label.language_level_b1">
+        <source>trexima_european_cv.form_label.language_level_b1</source>
+        <target>Mierne pokročilá (B1)</target>
+      </trans-unit>
+      <trans-unit id="language-level-b2" resname="trexima_european_cv.form_label.language_level_b2">
+        <source>trexima_european_cv.form_label.language_level_b2</source>
+        <target>Stredne pokročilá (B2)</target>
+      </trans-unit>
+      <trans-unit id="language-level-c1" resname="trexima_european_cv.form_label.language_level_c1">
+        <source>trexima_european_cv.form_label.language_level_c1</source>
+        <target>Pokročilá (C1)</target>
+      </trans-unit>
+      <trans-unit id="language-level-c2" resname="trexima_european_cv.form_label.language_level_c2">
+        <source>trexima_european_cv.form_label.language_level_c2</source>
+        <target>Expert (C2)</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

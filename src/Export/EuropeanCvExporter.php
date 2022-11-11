@@ -3,6 +3,7 @@
 namespace Trexima\EuropeanCvBundle\Export;
 
 use Dompdf\Dompdf;
+use Dompdf\Options;
 use Mpdf\Mpdf;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Twig\Environment;
@@ -12,7 +13,11 @@ class EuropeanCvExporter
     final public const TYPE_PDF = 'pdf',
         TYPE_DOC = 'doc';
 
-    public function __construct(private readonly string $uploadUrl, private readonly Environment $twig)
+    public function __construct(
+        private readonly string $projectDir,
+        private readonly string $uploadUrl,
+        private readonly Environment $twig
+    )
     {
     }
 
@@ -69,6 +74,10 @@ class EuropeanCvExporter
                 // return $mpdf->Output('', 'S');
                 $dompdf = new Dompdf();
                 $dompdf->loadHtml($html);
+
+                $options = new Options();
+                $options->setChroot([$this->projectDir]);
+                $dompdf->setOptions($options);
 
                 // (Optional) Setup the paper size and orientation
                 $dompdf->setPaper('A4', 'portrait');

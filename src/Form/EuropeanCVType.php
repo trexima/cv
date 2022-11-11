@@ -6,6 +6,16 @@ use Symfony\Component\Form\AbstractType;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartAdditionalInformationsType;
+use Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartBasicInfoType;
+use Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartCompetencesType;
+use Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartCVTemplateType;
+use Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartDigitalSkillsType;
+use Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartDrivingLicenseType;
+use Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartEducationType;
+use Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartHobbiesType;
+use Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartLanguagesType;
+use Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartPracticesType;
 use Trexima\EuropeanCvBundle\Form\Type\SubmitIconType;
 
 class EuropeanCVType extends AbstractType
@@ -15,8 +25,16 @@ class EuropeanCVType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('part1', EuropeanCVPart1Type::class);
-        $builder->add('part2', EuropeanCVPart2Type::class);
+        $builder->add('template', EuropeanCVPartCVTemplateType::class);
+        $builder->add('basicInfo', EuropeanCVPartBasicInfoType::class);
+        $builder->add('education', EuropeanCVPartEducationType::class);
+        $builder->add('practices', EuropeanCVPartPracticesType::class);
+        $builder->add('languages', EuropeanCVPartLanguagesType::class);
+        $builder->add('digitalSkills', EuropeanCVPartDigitalSkillsType::class);
+        $builder->add('competences', EuropeanCVPartCompetencesType::class);
+        $builder->add('drivingLicense', EuropeanCVPartDrivingLicenseType::class);
+        $builder->add('hobbies', EuropeanCVPartHobbiesType::class);
+        $builder->add('additionalInformations', EuropeanCVPartAdditionalInformationsType::class);
 
         if ($options['is_user_logged_in']) {
             $builder->add('submit', SubmitIconType::class, [

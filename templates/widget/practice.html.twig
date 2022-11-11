@@ -1,25 +1,4 @@
-{{ form_row(form.practices) }}
-
 <div class="row">
-    <div class="col-md">
-        <div class="row">
-            <div class="col">
-                <div class="form-group">
-                    <a href="#" data-trexima-european-cv-dynamic-collection-sort="#{{ form.practices.vars.id }}" class="btn btn-block btn-secondary" data-toggle="european-cv-tooltip" title="Zoradiť od najnovšieho">
-                        <i class="fas fa-angle-up"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-group">
-                    <a href="#" data-trexima-european-cv-dynamic-collection-sort="#{{ form.practices.vars.id }}" data-trexima-european-cv-dynamic-collection-sort-desc="true" class="btn btn-block btn-secondary" data-toggle="european-cv-tooltip" title="Zoradiť od najstaršieho">
-                        <i class="fas fa-angle-down"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="col-md offset-md-4">
         <div class="form-group">
             <button class="btn btn-block btn-primary" type="button" data-trexima-european-cv-dynamic-collection-add="#{{ form.practices.vars.id }}">
@@ -29,3 +8,5 @@
         </div>
     </div>
 </div>
+
+{{ form_row(form.practices) }}

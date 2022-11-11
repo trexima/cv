@@ -1,5 +1,6 @@
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     {% block head %}
         <style type="text/css">
             @page {
@@ -54,6 +55,6 @@
         {% block body %}{% endblock %}
     {% endset %}
 
-    {{ european_cv_emogrify(html_content, ['@TreximaEuropeanCvBundle/Resources/assets/css/exporter/common.css'], block('css')) }}
+    {{ european_cv_emogrify(html_content, ['@TreximaEuropeanCvBundle/assets/css/exporter/common.css'], block('css')) }}
 </body>
 </html>

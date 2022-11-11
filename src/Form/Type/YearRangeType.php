@@ -3,9 +3,9 @@
 namespace Trexima\EuropeanCvBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Trexima\EuropeanCvBundle\Entity\Embeddable\DateRange;
 use Trexima\EuropeanCvBundle\Entity\Embeddable\YearRange;
 
 /**
@@ -16,7 +16,7 @@ class YearRangeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('beginYear', Select2Type::class, [
+        ->add('beginYear', ChoiceType::class, [
             'label' => false,
             'required' => false,
             'placeholder' => 'Rok nástupu',
@@ -25,7 +25,7 @@ class YearRangeType extends AbstractType
                 'data-trexima-european-cv-dynamic-collection-sort-by' => 1
             ]
         ])
-        ->add('endYear', Select2Type::class, [
+        ->add('endYear', ChoiceType::class, [
             'label' => false,
             'required' => false,
             'placeholder' => 'Rok ukončenia',
