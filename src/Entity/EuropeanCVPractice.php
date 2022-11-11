@@ -5,6 +5,7 @@ namespace Trexima\EuropeanCvBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Trexima\EuropeanCvBundle\Entity\Embeddable\DateRange;
+use Trexima\EuropeanCvBundle\Entity\Embeddable\MonthYearRange;
 
 /**
  * EuropeanCV practice
@@ -18,34 +19,28 @@ class EuropeanCVPractice
     #[ORM\Column(type: 'integer', options: ['unsigned' => true])]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(targetEntity: \Trexima\EuropeanCvBundle\Entity\EuropeanCV::class, inversedBy: 'practices')]
+    #[ORM\ManyToOne(targetEntity: EuropeanCV::class, inversedBy: 'practices')]
     #[ORM\JoinColumn(name: 'european_cv_id', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
-    private ?\Trexima\EuropeanCvBundle\Entity\EuropeanCV $europeanCV = null;
+    private ?EuropeanCV $europeanCV = null;
 
-    #[ORM\Embedded(class: \Trexima\EuropeanCvBundle\Entity\Embeddable\DateRange::class)]
-    private \Trexima\EuropeanCvBundle\Entity\Embeddable\DateRange $dateRange;
+    #[ORM\Embedded(class: MonthYearRange::class)]
+    private MonthYearRange $dateRange;
 
     /**
-     * @var string|null Max length is 256 because this field can be filled from Harvey where field max length is 256
+     * Max length is 256 because this field can be filled from Harvey where field max length is 256
      */
     #[ORM\Column(type: 'string', length: 256, nullable: true)]
-    private ?string $job = null;
+    private ?string $title = null;
 
-    #[ORM\Column(type: 'text', nullable: true)]
-    private ?string $mainActivities = null;
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $employee = null;
 
-    #[ORM\Column(type: 'text', nullable: true)]
-    private ?string $jobAddress = null;
-
-    #[ORM\Column(type: 'string', length: 128, nullable: true)]
-    private ?string $industry = null;
-
-    #[ORM\Column(type: 'integer', options: ['unsigned' => true])]
-    private ?string $position = null;
+    #[ORM\Column(type: 'text', length: 65535, nullable: true)]
+    private ?string $description = null;
 
     public function __construct()
     {
-        $this->dateRange = new DateRange();
+        $this->dateRange = new MonthYearRange();
     }
 
     public function getId(): ?int
@@ -68,64 +63,44 @@ class EuropeanCVPractice
         $this->europeanCV = $europeanCV;
     }
 
-    public function getDateRange(): DateRange
+    public function getDateRange(): MonthYearRange
     {
         return $this->dateRange;
     }
 
-    public function setDateRange(DateRange $dateRange): void
+    public function setDateRange(MonthYearRange $dateRange): void
     {
         $this->dateRange = $dateRange;
     }
 
-    public function getJob(): ?string
+    public function getTitle(): ?string
     {
-        return $this->job;
+        return $this->title;
     }
 
-    public function setJob(?string $job): void
+    public function setTitle(?string $title): void
     {
-        $this->job = $job;
+        $this->job = $title;
     }
 
-    public function getMainActivities(): ?string
+    public function getEmployee(): ?string
     {
-        return $this->mainActivities;
+        return $this->employee;
     }
 
-    public function setMainActivities(?string $mainActivities): void
+    public function setEmployee(?string $employee): void
     {
-        $this->mainActivities = $mainActivities;
+        $this->employee = $employee;
     }
 
-    public function getJobAddress(): ?string
+    public function getDescription(): ?string
     {
-        return $this->jobAddress;
+        return $this->description;
     }
 
-    public function setJobAddress(?string $jobAddress): void
+    public function setDescription(?string $description): void
     {
-        $this->jobAddress = $jobAddress;
-    }
-
-    public function getIndustry(): ?string
-    {
-        return $this->industry;
-    }
-
-    public function setIndustry(?string $industry): void
-    {
-        $this->industry = $industry;
-    }
-
-    public function getPosition(): ?string
-    {
-        return $this->position;
-    }
-
-    public function setPosition(?string $position): void
-    {
-        $this->position = $position;
+        $this->description = $description;
     }
 
     public function __clone()

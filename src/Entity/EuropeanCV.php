@@ -15,28 +15,9 @@ use Trexima\EuropeanCvBundle\Entity\Enum\StyleEnum;
  * WARNING: Don't forget to prepare newly created entity relations for clonning in magic __clone method.
  */
 #[ORM\Table(name: 'european_cv')]
-#[ORM\Index(name: 'language_mother_idx', columns: ['language_mother'])]
 #[ORM\Entity]
 class EuropeanCV
 {
-    // public const SEX_MALE = 1,
-    //     SEX_FEMALE = 2;
-
-    final public const DIGITAL_SKILL_LEVEL_BASIC = 1,
-        DIGITAL_SKILL_LEVEL_ADVANCED = 2,
-        DIGITAL_SKILL_LEVEL_EXPERT = 3;
-
-    // public const SEX_LIST = [
-    //     self::SEX_MALE => 'Muž',
-    //     self::SEX_FEMALE => 'Žena'
-    // ];
-
-    final public const DIGITAL_SKILL_LEVEL_LIST = [
-        self::DIGITAL_SKILL_LEVEL_BASIC => 'Používateľ so základnými zručnosťami',
-        self::DIGITAL_SKILL_LEVEL_ADVANCED => 'Samostatný používateľ',
-        self::DIGITAL_SKILL_LEVEL_EXPERT => 'Skúsený používateľ'
-   ];
-
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer', options: ['unsigned' => true])]
@@ -50,47 +31,31 @@ class EuropeanCV
      * @var EuropeanCVPractice[]|Collection
      */
     #[ORM\OneToMany(targetEntity: EuropeanCVPractice::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    #[ORM\OrderBy(['position' => 'ASC'])]
-    // #[Assert\Valid]
     private $practices;
 
     /**
      * @var EuropeanCVEducation[]|Collection
      */
     #[ORM\OneToMany(targetEntity: EuropeanCVEducation::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    #[ORM\OrderBy(['position' => 'ASC'])]
-    // #[Assert\Valid]
     private $educations;
 
     /**
      * @var EuropeanCVLanguage[]|Collection
      */
     #[ORM\OneToMany(targetEntity: EuropeanCVLanguage::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    #[ORM\OrderBy(['position' => 'ASC'])]
-    // #[Assert\Valid]
     private $languages;
 
     /**
      * @var EuropeanCVDrivingLicense[]|Collection
      */
     #[ORM\OneToMany(targetEntity: EuropeanCVDrivingLicense::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    // #[Assert\Valid]
     private $drivingLicenses;
-
-    /**
-     * @var EuropeanCVAdditionalInformation[]|Collection
-     */
-    #[ORM\OneToMany(targetEntity: EuropeanCVAdditionalInformation::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    #[ORM\OrderBy(['position' => 'ASC'])]
-    // #[Assert\Valid]
-    private $additionalInformations;
 
     /**
      * @var EuropeanCVPhone[]|Collection
      */
     #[ORM\OneToMany(targetEntity: EuropeanCVPhone::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
     #[ORM\OrderBy(['position' => 'ASC'])]
-    // #[Assert\Valid]
     private $phones;
 
     /**
@@ -98,7 +63,6 @@ class EuropeanCV
      */
     #[ORM\OneToMany(targetEntity: EuropeanCVAttachment::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
     #[ORM\OrderBy(['position' => 'ASC'])]
-    // #[Assert\Valid]
     private $attachments;
 
     #[ORM\Column(type: 'string', length: 128, nullable: true)]
@@ -132,67 +96,16 @@ class EuropeanCV
     private ?string $address = null;
 
     #[ORM\Column(type: 'string', length: 320, nullable: true)]
-    // #[Assert\Email]
     private ?string $email = null;
 
     #[ORM\Column]
     private array $personalWebsites = [];
 
-    // #[ORM\Column(type: 'string', length: 64, nullable: true)]
-    // private ?string $nationality = null;
-
-    // #[ORM\Column(type: 'date', nullable: true)]
-    // private ?\DateTime $dateOfBirth = null;
-
     #[ORM\Column(type: 'integer', nullable: true, enumType: SexEnum::class)]
     private ?SexEnum $sex = null;
 
-    #[ORM\Column(type: 'text', nullable: true)]
-    private ?string $jobInterest = null;
-
-    #[ORM\Column(type: 'string', nullable: true, length: 5, options: ['comment' => 'ISO 639-1'])]
-    private ?string $languageMother = null;
-
     #[ORM\Column(type: 'boolean', nullable: true)]
     private ?bool $drivingLicenseOwner = null;
-
-    #[ORM\Column(type: 'text', nullable: true)]
-    private ?string $skillCommunication = null;
-
-    #[ORM\Column(type: 'text', nullable: true)]
-    private ?string $skillManagement = null;
-
-    #[ORM\Column(type: 'text', nullable: true)]
-    private ?string $skillJob = null;
-
-    #[ORM\Column(type: 'text', nullable: true)]
-    private ?string $skillOther = null;
-
-    #[ORM\Column(type: 'smallint', nullable: true)]
-    // #[Assert\Choice(callback: 'getDigitalSkillLevelList', message: 'Choose a valid digital skill level.')]
-    private ?int $skillDigitalInformationProcessing = null;
-
-    #[ORM\Column(type: 'smallint', nullable: true)]
-    // #[Assert\Choice(callback: 'getDigitalSkillLevelList', message: 'Choose a valid digital skill level.')]
-    private ?int $skillDigitalCommunication = null;
-
-    #[ORM\Column(type: 'smallint', nullable: true)]
-    // #[Assert\Choice(callback: 'getDigitalSkillLevelList', message: 'Choose a valid digital skill level.')]
-    private ?int $skillDigitalContentCreation = null;
-
-    #[ORM\Column(type: 'smallint', nullable: true)]
-    // #[Assert\Choice(callback: 'getDigitalSkillLevelList', message: 'Choose a valid digital skill level.')]
-    private ?int $skillDigitalSecurity = null;
-
-    #[ORM\Column(type: 'smallint', nullable: true)]
-    // #[Assert\Choice(callback: 'getDigitalSkillLevelList', message: 'Choose a valid digital skill level.')]
-    private ?int $skillDigitalTroubleshooting = null;
-
-    #[ORM\Column(type: 'string', length: 128, nullable: true)]
-    private ?string $skillDigitalCertificate = null;
-
-    #[ORM\Column(type: 'text', nullable: true)]
-    private ?string $skillDigitalOther = null;
 
     #[ORM\Column(type: 'text', nullable: true)]
     private ?string $attachmentList = null;
@@ -212,8 +125,20 @@ class EuropeanCV
     #[ORM\Column(type: 'string', nullable: true, enumType: StyleEnum::class)]
     private ?StyleEnum $style = null;
 
-    #[ORM\Column(type: 'text', nullable: true)]
+    #[ORM\Column(type: 'text', length: 65535, nullable: true)]
     private ?string $description = null;
+
+    #[ORM\Column(type: 'text', length: 65535, nullable: true)]
+    private ?string $hobbies = null;
+
+    #[ORM\Column(type: 'text', length: 65535, nullable: true)]
+    private ?string $additionalInformations = null;
+
+    #[ORM\Column]
+    private ?array $digitalSkills = [];
+
+    #[ORM\Column(nullable: true)]
+    private ?array $competences = [];
 
     public function __construct()
     {
@@ -222,7 +147,6 @@ class EuropeanCV
         $this->languages = new ArrayCollection();
         $this->drivingLicenses = new ArrayCollection();
         $this->phones = new ArrayCollection();
-        $this->additionalInformations = new ArrayCollection();
         $this->attachments = new ArrayCollection();
         $this->createdAt = new \DateTime();
     }
@@ -345,31 +269,6 @@ class EuropeanCV
     public function removeAttachment(EuropeanCVAttachment $attachment)
     {
         $this->attachments->removeElement($attachment);
-    }
-
-    /**
-     * @return EuropeanCVAdditionalInformation[]|Collection
-     */
-    public function getAdditionalInformations(): array|Collection
-    {
-        return $this->additionalInformations;
-    }
-
-    /**
-     * @param EuropeanCVAdditionalInformation $education
-     */
-    public function addAdditionalInformation(EuropeanCVAdditionalInformation $additionalInformation)
-    {
-        $this->additionalInformations[] = $additionalInformation;
-        $additionalInformation->setEuropeanCV($this);
-    }
-
-    /**
-     * @param EuropeanCVAdditionalInformation $practice
-     */
-    public function removeAdditionalInformation(EuropeanCVAdditionalInformation $additionalInformation)
-    {
-        $this->additionalInformations->removeElement($additionalInformation);
     }
 
     public function getId(): ?int
@@ -520,26 +419,6 @@ class EuropeanCV
         return $this;
     }
 
-    // public function getNationality(): ?string
-    // {
-    //     return $this->nationality;
-    // }
-
-    // public function setNationality(?string $nationality): void
-    // {
-    //     $this->nationality = $nationality;
-    // }
-
-    // public function getDateOfBirth(): ?\DateTime
-    // {
-    //     return $this->dateOfBirth;
-    // }
-
-    // public function setDateOfBirth(?\DateTime $dateOfBirth): void
-    // {
-    //     $this->dateOfBirth = $dateOfBirth;
-    // }
-
     public function getSex(): ?SexEnum
     {
         return $this->sex;
@@ -550,26 +429,6 @@ class EuropeanCV
         $this->sex = $sex;
     }
 
-    public function getJobInterest(): ?string
-    {
-        return $this->jobInterest;
-    }
-
-    public function setJobInterest(?string $jobInterest): void
-    {
-        $this->jobInterest = $jobInterest;
-    }
-
-    public function getLanguageMother(): ?string
-    {
-        return $this->languageMother;
-    }
-
-    public function setLanguageMother(?string $languageMother): void
-    {
-        $this->languageMother = $languageMother;
-    }
-
     public function isDrivingLicenseOwner(): ?bool
     {
         return $this->drivingLicenseOwner;
@@ -578,116 +437,6 @@ class EuropeanCV
     public function setDrivingLicenseOwner(?bool $drivingLicenseOwner): void
     {
         $this->drivingLicenseOwner = $drivingLicenseOwner;
-    }
-
-    public function getSkillCommunication(): ?string
-    {
-        return $this->skillCommunication;
-    }
-
-    public function setSkillCommunication(?string $skillCommunication): void
-    {
-        $this->skillCommunication = $skillCommunication;
-    }
-
-    public function getSkillManagement(): ?string
-    {
-        return $this->skillManagement;
-    }
-
-    public function setSkillManagement(?string $skillManagement): void
-    {
-        $this->skillManagement = $skillManagement;
-    }
-
-    public function getSkillJob(): ?string
-    {
-        return $this->skillJob;
-    }
-
-    public function setSkillJob(?string $skillJob): void
-    {
-        $this->skillJob = $skillJob;
-    }
-
-    public function getSkillOther(): ?string
-    {
-        return $this->skillOther;
-    }
-
-    public function setSkillOther(?string $skillOther): void
-    {
-        $this->skillOther = $skillOther;
-    }
-
-    public function getSkillDigitalInformationProcessing(): ?int
-    {
-        return $this->skillDigitalInformationProcessing;
-    }
-
-    public function setSkillDigitalInformationProcessing(?int $skillDigitalInformationProcessing): void
-    {
-        $this->skillDigitalInformationProcessing = $skillDigitalInformationProcessing;
-    }
-
-    public function getSkillDigitalCommunication(): ?int
-    {
-        return $this->skillDigitalCommunication;
-    }
-
-    public function setSkillDigitalCommunication(?int $skillDigitalCommunication): void
-    {
-        $this->skillDigitalCommunication = $skillDigitalCommunication;
-    }
-
-    public function getSkillDigitalContentCreation(): ?int
-    {
-        return $this->skillDigitalContentCreation;
-    }
-
-    public function setSkillDigitalContentCreation(?int $skillDigitalContentCreation): void
-    {
-        $this->skillDigitalContentCreation = $skillDigitalContentCreation;
-    }
-
-    public function getSkillDigitalSecurity(): ?int
-    {
-        return $this->skillDigitalSecurity;
-    }
-
-    public function setSkillDigitalSecurity(?int $skillDigitalSecurity): void
-    {
-        $this->skillDigitalSecurity = $skillDigitalSecurity;
-    }
-
-    public function getSkillDigitalTroubleshooting(): ?int
-    {
-        return $this->skillDigitalTroubleshooting;
-    }
-
-    public function setSkillDigitalTroubleshooting(?int $skillDigitalTroubleshooting): void
-    {
-        $this->skillDigitalTroubleshooting = $skillDigitalTroubleshooting;
-    }
-
-    public function getSkillDigitalCertificate(): ?string
-    {
-        return $this->skillDigitalCertificate;
-    }
-
-    public function setSkillDigitalCertificate(?string $skillDigitalCertificate): void
-    {
-        $this->skillDigitalCertificate = $skillDigitalCertificate;
-    }
-
-    public function getSkillDigitalOther(): ?string
-    {
-        return $this->skillDigitalOther;
-    }
-
-    public function setSkillDigitalOther(?string $skillDigitalOther): void
-    {
-        $this->skillDigitalOther = $skillDigitalOther;
     }
 
     public function getAttachmentList(): ?string
@@ -730,16 +479,6 @@ class EuropeanCV
         $this->createdAt = $createdAt;
     }
 
-    // public static function getSexList()
-    // {
-    //     return array_keys(self::SEX_LIST);
-    // }
-
-    public static function getDigitalSkillLevelList()
-    {
-        return array_keys(self::DIGITAL_SKILL_LEVEL_LIST);
-    }
-
     public function getLanguage(): ?LanguageEnum
     {
         return $this->language;
@@ -768,6 +507,50 @@ class EuropeanCV
     public function setDescription(?string $description): void
     {
         $this->description = $description;
+    }
+
+    public function getHobbies(): ?string
+    {
+        return $this->hobbies;
+    }
+
+    public function setHobbies(?string $hobbies): void
+    {
+        $this->hobbies = $hobbies;
+    }
+
+    public function getAdditionalInformations(): ?string
+    {
+        return $this->additionalInformations;
+    }
+
+    public function setAdditionalInformations(?string $additionalInformations): void
+    {
+        $this->additionalInformations = $additionalInformations;
+    }
+
+    public function getCompetences(): array
+    {
+        return $this->competences;
+    }
+
+    public function setCompetences(array $competences): self
+    {
+        $this->competences = $competences;
+
+        return $this;
+    }
+
+    public function getDigitalSkills(): array
+    {
+        return $this->digitalSkills;
+    }
+
+    public function setDigitalSkills(array $digitalSkills): self
+    {
+        $this->digitalSkills = $digitalSkills;
+
+        return $this;
     }
 
     /**
@@ -815,13 +598,6 @@ class EuropeanCV
                 $drivingLicense = clone $drivingLicense;
                 $drivingLicense->setEuropeanCV($this);
                 $this->drivingLicenses->set($key, $drivingLicense);
-            }
-
-            $this->additionalInformations = clone $this->additionalInformations;
-            foreach ($this->additionalInformations as $key => $additionalInformation) {
-                $additionalInformation = clone $additionalInformation;
-                $additionalInformation->setEuropeanCV($this);
-                $this->additionalInformations->set($key, $practice);
             }
 
             $this->phones = clone $this->phones;

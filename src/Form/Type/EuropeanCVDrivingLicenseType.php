@@ -1,6 +1,6 @@
 <?php
 
-namespace Trexima\EuropeanCvBundle\Form;
+namespace Trexima\EuropeanCvBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
@@ -26,7 +26,8 @@ class EuropeanCVDrivingLicenseType extends AbstractType
             'required' => false
         ])
         ->add('distanceTraveled', null, [
-            'label' => 'Počet KM',
+            // 'label' => 'Počet KM',
+            'label' => false,
             'required' => false, 'attr' => [
                 'placeholder' => 'Počet KM'
             ]

@@ -1,13 +1,12 @@
 <?php
 
-namespace Trexima\EuropeanCvBundle\Form;
+namespace Trexima\EuropeanCvBundle\Form\Parts;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Contracts\Translation\TranslatorInterface;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Trexima\EuropeanCvBundle\Entity\Enum\LanguageEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\StyleEnum;
@@ -17,7 +16,7 @@ use function Symfony\Component\Translation\t;
 /**
  * Language and tamplate selection
  */
-class EuropeanCVPart0Type extends AbstractType
+class EuropeanCVPartCVTemplateType extends AbstractType
 {
     /**
      * {@inheritdoc}

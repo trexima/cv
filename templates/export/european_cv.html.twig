@@ -29,6 +29,7 @@
         html {
             font-size: 9pt;
         }
+        body { font-family: DejaVu Sans; }
     </style>
 {% endblock %}
 
@@ -313,39 +314,23 @@
                     {% if european_cv.nationalities %}
                         {% if european_cv.nationalities|length > 1 %}
                             <span class="text-blue">{% trans %}Štátne príslušnosti{% endtrans %}:</span> 
-                            {% for key, nationality in european_cv.nationalities %}
-                                {% if key > 1 %}, {% endif %}
-                                {{ 'trexima_european_cv.form_label.nationality_' ~ nationality.value|trans }}
-                            {% endfor %}
                         {% else %}
                             <span class="text-blue">{% trans %}Štátna príslušnosť{% endtrans %}:</span> 
-                            {% for key, nationality in european_cv.nationalities %}
-                                {% if key > 1 %}, {% endif %}
-                                {{ 'trexima_european_cv.form_label.nationality_' ~ nationality.value|trans }}
-                            {% endfor %}
                         {% endif %}
+                        {% for key, nationality in european_cv.nationalities %}
+                            {% if key > 1 %}, {% endif %}
+                            {% if nationality.value is defined %}
+                                {{ 'trexima_european_cv.form_label.nationality_' ~ nationality.value|trans }}
+                            {% else %}
+                                {{ 'trexima_european_cv.form_label.nationality_' ~ nationality|trans }}
+                            {% endif %}
+                        {% endfor %}
                     {% endif %}
                 </p>
             </td>
         </tr>
     </table>
     <br/>
-
-    {% if european_cv.jobInterest %}
-        <table class="content-2-columns">
-            <tr>
-                <td>
-                    <h2>{% trans %}ZAMESTNANIE, O KTORÉ SA UCHÁDZATE{% endtrans %}</h2>
-                </td>
-                <td>
-                    <p>
-                        {{ european_cv.jobInterest|trans }}
-                    </p>
-                </td>
-            </tr>
-        </table>
-        <br/>
-    {% endif %}
 
     {% set practices %}
         {% if not european_cv.practices.empty %}
@@ -366,11 +351,11 @@
                             {% if practice.dateRange.beginYear or practice.dateRange.endYear %}
                                 <h2>
                                     {% if practice.dateRange.beginYear %}
-                                        {{ [practice.dateRange.beginDay, practice.dateRange.beginMonth, practice.dateRange.beginYear]|european_cv_atomic_date }}
+                                        {{ [practice.dateRange.beginMonth, practice.dateRange.beginYear]|european_cv_atomic_date }}
                                         -
                                     {% endif %}
                                     {% if practice.dateRange.endYear %}
-                                        {{ [practice.dateRange.endDay, practice.dateRange.endMonth, practice.dateRange.endYear]|european_cv_atomic_date }}
+                                        {{ [practice.dateRange.endMonth, practice.dateRange.endYear]|european_cv_atomic_date }}
                                     {% else %}
                                         {% trans %}Prebieha{% endtrans %}
                                     {% endif %}
@@ -378,7 +363,7 @@
                             {% endif %}
                         </td>
                         <td>
-                            <h3>{{ practice.job }}</h3>
+                            <h3>{{ practice.title }}</h3>
                         </td>
                     </tr>
                     <tr>
@@ -386,18 +371,13 @@
 
                         </td>
                         <td>
-                            {% if practice.jobAddress %}
-                                <p>{{ practice.jobAddress|nl2br }}</p>
+                            {% if practice.employee %}
+                                <p>{{ practice.employee|nl2br }}</p>
                                 <br/>
                             {% endif %}
-                            {% if practice.mainActivities %}
-                                <p>{{ practice.mainActivities|nl2br }}</p>
+                            {% if practice.description %}
+                                <p>{{ practice.description|nl2br }}</p>
                                 <br/>
-                            {% endif %}
-                            {% if practice.industry %}
-                                <p>
-                                    <span class="text-blue">{% trans %}Odvetvie{% endtrans %}:</span> {{ practice.industry }}
-                                </p>
                             {% endif %}
                             <p>&nbsp;</p>
                         </td>
@@ -443,35 +423,7 @@
                                 <h3>{{ education.title }}</h3>
                             {% endif %}
                         </td>
-                        {# <td class="text-right"{% if education.europeanQualification %} style="width: 2.5cm;"{% endif %}>
-                            {% if education.europeanQualification %}
-                                {% if education.europeanQualification in constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVEducation::EUROPEAN_QUALIFICATION_LIST') %}
-                                    <span class="text-blue">{{ education.europeanQualification|trans }}</span>
-                                {% else %}
-                                    <span class="text-blue">{{ education.europeanQualification }}</span>
-                                {% endif %}
-                            {% endif %}
-                        </td> #}
                     </tr>
-                    {# <tr>
-                        <td></td>
-                        <td colspan="2">
-                            {% if education.educationLevel %}
-                                <p>
-                                    <strong>{{ education.educationLevel|european_cv_listing('educationList')|trans }}</strong>
-                                </p>
-                                <br/>
-                            {% endif %}
-                            {% if education.organizationAddress %}
-                                <p>{{ education.organizationAddress|nl2br }}</p>
-                                <br/>
-                            {% endif %}
-                            {% if education.subject %}
-                                <p>{{ education.subject|nl2br }}</p>
-                                <br/>
-                            {% endif %}
-                        </td>
-                    </tr> #}
                 </table>
             {% endfor %}
             <br/>
@@ -497,101 +449,28 @@
         </tr>
     </table>
 
-    {% if european_cv.languageMother %}
-        <table class="content-2-columns">
-            <tr>
-                <td>
-                    <h2>{% trans %}Materinský jazyk{% endtrans %}</h2>
-                </td>
-                <td>
-                    <p>{{ european_cv.languageMother|european_cv_listing('languageList')|trans }}</p>
-                </td>
-            </tr>
-        </table>
-        <br/>
-    {% endif %}
-
     {% if not european_cv.languages.empty %}
+        <h2>{% trans %}Jazyky{% endtrans %}</h2>
         <table class="content-2-columns content-2-columns-data-squares">
             <tr>
-                <td>
-                    <h2>{% trans %}Ďalšie jazyky{% endtrans %}</h2>
-                </td>
-                <th colspan="2">
-                    {% trans %}POROZUMENIE{% endtrans %}
-                </th>
-                <th colspan="2">
-                    {% trans %}HOVORENIE{% endtrans %}
-                </th>
-                <th class="last-child">
-                    {% trans %}PÍSANIE{% endtrans %}
-                </th>
-            </tr>
-            <tr>
-                <td>
-
-                </td>
                 <th>
-                    {% trans %}Počúvanie{% endtrans %}
+                    {% trans %}Jazyk{% endtrans %}
                 </th>
                 <th>
-                    {% trans %}Čítanie{% endtrans %}
-                </th>
-                <th>
-                    {% trans %}Ústna interakcia{% endtrans %}
-                </th>
-                <th>
-                    {% trans %}Samostatný ústny prejav{% endtrans %}
-                </th>
-                <th class="last-child">
-
+                    {% trans %}Úroveň{% endtrans %}
                 </th>
             </tr>
             {% for language in european_cv.languages %}
                 <tr>
                     <td>
-                        {% if language.language %}
-                            <p>{{ language.language|european_cv_listing('languageList')|trans }}</p>
-                        {% endif %}
+                        {% set langKey = 'trexima_european_cv.form_label.language_' ~ language.language.value %}
+                        {{ langKey|trans }}
                     </td>
                     <td>
-                        {% if language.listeningLevel %}
-                            <p>{{ constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVLanguage::LANGUAGE_LEVEL_TO_CODE')[language.listeningLevel] }}</p>
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if language.readingLevel %}
-                            <p>{{ constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVLanguage::LANGUAGE_LEVEL_TO_CODE')[language.readingLevel] }}</p>
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if language.talkingLevel %}
-                            <p>{{ constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVLanguage::LANGUAGE_LEVEL_TO_CODE')[language.talkingLevel] }}</p>
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if language.oralSpeechLevel %}
-                            <p>{{ constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVLanguage::LANGUAGE_LEVEL_TO_CODE')[language.oralSpeechLevel] }}</p>
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if language.writingLevel %}
-                            <p>{{ constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVLanguage::LANGUAGE_LEVEL_TO_CODE')[language.writingLevel] }}</p>
-                        {% endif %}
+                        {% set langKey = 'trexima_european_cv.form_label.language_level_' ~ language.level.value %}
+                        {{ langKey|lower|trans }}
                     </td>
                 </tr>
-                {% if language.certificate %}
-                    <tr>
-                        <td>
-
-                        </td>
-                        <td colspan="5" class="legend">
-                            <p>
-                                {{ language.certificate }}
-                            </p>
-                        </td>
-                    </tr>
-                {% endif %}
             {% endfor %}
         </table>
 
@@ -606,182 +485,6 @@
                         {% trans %} A1 a A2: Používateľ základov jazyka{% endtrans %}
                         - {% trans %}B1 a B2: Samostatný používateľ{% endtrans %}
                         - {% trans %} C1 a C2: Skúsený používateľ{% endtrans %}
-                    </p>
-                </td>
-            </tr>
-        </table>
-        <br/>
-    {% endif %}
-
-    {% if european_cv.skillCommunication
-        or european_cv.skillManagement
-        or european_cv.skillJob %}
-        <table class="content-2-columns">
-            {% if european_cv.skillCommunication %}
-                <tr>
-                    <td>
-                        <h2>{% trans %}Komunikačné zručnosti{% endtrans %}</h2>
-                    </td>
-                    <td>
-                        <p>
-                            {{ european_cv.skillCommunication|nl2br }}
-                        </p>
-                    </td>
-                </tr>
-            {% endif %}
-            {% if european_cv.skillManagement %}
-                <tr>
-                    <td>
-                        <h2>{% trans %}Organizačné a riadiace zručnosti{% endtrans %}</h2>
-                    </td>
-                    <td>
-                        <p>
-                            {{ european_cv.skillManagement|nl2br }}
-                        </p>
-                    </td>
-                </tr>
-            {% endif %}
-            {% if european_cv.skillJob %}
-                <tr>
-                    <td>
-                        <h2>{% trans %}Pracovné zručnosti{% endtrans %}</h2>
-                    </td>
-                    <td>
-                        <p>
-                            {{ european_cv.skillJob|nl2br }}
-                        </p>
-                    </td>
-                </tr>
-            {% endif %}
-        </table>
-        <br/>
-    {% endif %}
-
-    {% if european_cv.skillDigitalInformationProcessing
-        or european_cv.skillDigitalCommunication
-        or european_cv.skillDigitalContentCreation
-        or european_cv.skillDigitalSecurity
-        or european_cv.skillDigitalTroubleshooting
-        or european_cv.skillDigitalCertificate %}
-        <table class="content-2-columns content-2-columns-data-squares">
-            <tr>
-                <td>
-                    <h2>{% trans %}Digitálne zručnosti{% endtrans %}</h2>
-                </td>
-                <th colspan="5" class="last-child">
-                    {% trans %}SEBAHODNOTENIE{% endtrans %}
-                </th>
-            </tr>
-            <tr>
-                <td>
-
-                </td>
-                <th>
-                    <p>
-                        {% trans %}Spracovanie informácií{% endtrans %}
-                    <p>
-                </th>
-                <th>
-                    <p>
-                        {% trans %}Komunikácia{% endtrans %}
-                    </p>
-                </th>
-                <th>
-                    <p>
-                        {% trans %}Vytváranie obsahu{% endtrans %}
-                    </p>
-                </th>
-                <th>
-                    <p>
-                        {% trans %}Bezpečnosť{% endtrans %}
-                    </p>
-                </th>
-                <th class="last-child">
-                    <p>
-                        {% trans %}Riešenie problémov{% endtrans %}
-                    </p>
-                </th>
-            </tr>
-            <tr>
-                <td>
-
-                </td>
-                <td>
-                    {% if european_cv.skillDigitalInformationProcessing %}
-                        <p>
-                            {{ constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCV::DIGITAL_SKILL_LEVEL_LIST')[european_cv.skillDigitalInformationProcessing]|trans }}
-                        </p>
-                    {% endif %}
-                </td>
-                <td>
-                    {% if european_cv.skillDigitalCommunication %}
-                        <p>
-                            {{ constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCV::DIGITAL_SKILL_LEVEL_LIST')[european_cv.skillDigitalCommunication]|trans }}
-                        </p>
-                    {% endif %}
-                </td>
-                <td>
-                    {% if european_cv.skillDigitalContentCreation %}
-                        <p>
-                            {{ constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCV::DIGITAL_SKILL_LEVEL_LIST')[european_cv.skillDigitalContentCreation]|trans }}
-                        </p>
-                    {% endif %}
-                </td>
-                <td>
-                    {% if european_cv.skillDigitalSecurity %}
-                        <p>
-                            {{ constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCV::DIGITAL_SKILL_LEVEL_LIST')[european_cv.skillDigitalSecurity]|trans }}
-                        </p>
-                    {% endif %}
-                </td>
-                <td>
-                    {% if european_cv.skillDigitalTroubleshooting %}
-                        <p>
-                            {{ constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCV::DIGITAL_SKILL_LEVEL_LIST')[european_cv.skillDigitalTroubleshooting]|trans }}
-                        </p>
-                    {% endif %}
-                </td>
-            </tr>
-            {% if european_cv.skillDigitalCertificate %}
-                <tr>
-                    <td>
-
-                    </td>
-                    <td colspan="5" class="legend">
-                        <p>
-                            {{ european_cv.skillDigitalCertificate }}
-                        </p>
-                    </td>
-                </tr>
-            {% endif %}
-        </table>
-    {% endif %}
-
-    {% if european_cv.skillDigitalOther %}
-        <table class="content-2-columns">
-            <tr>
-                <td>
-
-                </td>
-                <td colspan="5" class="legend">
-                    <p>
-                        {{ european_cv.skillDigitalOther|nl2br }}
-                    </p>
-                </td>
-            </tr>
-        </table>
-    {% endif %}
-    <br/>
-
-    {% if european_cv.skillOther %}
-        <table class="content-2-columns">
-            <tr>
-                <td>
-                    <h2>{% trans %}Ďalšie zručnosti{% endtrans %}</h2>
-                </td>
-                <td>
-                    <p>
-                        {{ european_cv.skillOther|nl2br }}
                     </p>
                 </td>
             </tr>
@@ -813,32 +516,34 @@
         <br/>
     {% endif %}
 
-    {% if not european_cv.additionalInformations.empty %}
+    {% if european_cv.hobbies %}
+        <table class="content-2-columns">
+            <tr>
+                <td>
+                    <h2>{% trans %}ZÁUJMY A KONÍČKY{% endtrans %}</h2>
+                </td>
+                <td>
+                    <p>
+                        {{ european_cv.hobbies|nl2br }}
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <br/>
+    {% endif %}
+
+    {% if european_cv.additionalInformations %}
         <table class="content-2-columns">
             <tr>
                 <td>
                     <h2>{% trans %}DOPLŇUJÚCE INFORMÁCIE{% endtrans %}</h2>
                 </td>
                 <td>
-                    <hr class="hr"/>
-                </td>
-            </tr>
-            {% for additionalInformation in european_cv.additionalInformations %}
-            <tr>
-                <td>
-                    {% if additionalInformation.type %}
-                        <h2>
-                            {{ constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVAdditionalInformation::TYPES')[additionalInformation.type]|trans }}
-                        </h2>
-                    {% endif %}
-                </td>
-                <td>
                     <p>
-                        {{ additionalInformation.content|nl2br }}
+                        {{ european_cv.additionalInformations|nl2br }}
                     </p>
                 </td>
             </tr>
-            {% endfor %}
         </table>
         <br/>
     {% endif %}

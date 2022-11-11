@@ -1,12 +1,11 @@
 <?php
 
-namespace Trexima\EuropeanCvBundle\Form;
+namespace Trexima\EuropeanCvBundle\Form\Parts;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
@@ -20,6 +19,7 @@ use Trexima\EuropeanCvBundle\Entity\Enum\LanguageEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\SexEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\TitleAfterEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\TitleBeforeEnum;
+use Trexima\EuropeanCvBundle\Form\Type\EuropeanCVPhoneType;
 use Trexima\EuropeanCvBundle\Form\Type\Select2Type;
 
 use function Symfony\Component\Translation\t;
@@ -27,7 +27,7 @@ use function Symfony\Component\Translation\t;
 /**
  * Basic user info
  */
-class EuropeanCVPart1Type extends AbstractType
+class EuropeanCVPartBasicInfoType extends AbstractType
 {
 
     /**
@@ -40,7 +40,8 @@ class EuropeanCVPart1Type extends AbstractType
         $builder
         ->add('sex', EnumType::class, [
             'class' => SexEnum::class,
-            'required' => false,
+            'required' => true,
+            'data' => SexEnum::DO_NOT_STATE,
             'expanded' => true,
             'multiple' => false,
             'choice_label' => fn(SexEnum $choice) => match ($choice) {
@@ -51,13 +52,10 @@ class EuropeanCVPart1Type extends AbstractType
             'label' => t('trexima_european_cv.form_label.sex_label', [], 'trexima_european_cv'),
         ])
         ->add('photo', JQueryFileUploadType::class, [
-            //TODO
             'required' => false,
             'label' => 'Fotografia',
             'upload_route' => $options['photo_upload_route'],
         ])
-        // todo add title before and after
-
         ->add('firstName', TextType::class, [
             'label' => 'Meno',
             'attr' => [
@@ -76,6 +74,9 @@ class EuropeanCVPart1Type extends AbstractType
             'required' => false,
             'multiple' => true,
             'choices' => $this->getTitlesBeforeArray(),
+            'attr' => [
+                'class' => 'data-trexima-european-cv-bind-select2'
+            ]
         ])
         ->add('titlesAfter', Select2Type::class, [
             'label' => 'Tituly po',
@@ -84,12 +85,6 @@ class EuropeanCVPart1Type extends AbstractType
             'multiple' => true,
             'choices' => $this->getTitlesAfterArray(),
         ])
-        // ->add('nationality', Select2Type::class, [
-        //     'label' => 'Štátna príslušnosť',
-        //     'placeholder' => 'Prosím, vyberte možnosť',
-        //     'multiple' => true,
-        //     'choices' => $this->getNationalityArray(),
-        // ])
         ->add('nationalities', Select2Type::class, [
             // 'placeholder' => t('trexima_european_cv.form_placeholder.language', [], 'trexima_european_cv'),
             'required' => false,
@@ -213,16 +208,6 @@ class EuropeanCVPart1Type extends AbstractType
             'allow_add' => true,
             'allow_delete' => true,
             'delete_empty' => true,
-            'attr' => [
-                'data-parsley-trexima-european-cv-dynamic-collection-min' => $options['phones_min'],
-                'data-parsley-trexima-european-cv-dynamic-collection-min-message' => 'Vyplňte aspoň %s telefónne čislo'
-            ],
-            'constraints' => [
-                new Count([
-                    'min' => $options['phones_min'],
-                    'minMessage' => 'Vyplňte aspoň {{ limit }} telefónne čislo'
-                ])
-            ]
         ])
         ->add('address', null, [
             'required' => false,
@@ -252,16 +237,6 @@ class EuropeanCVPart1Type extends AbstractType
             ]
         ])
         ;
-
-        // if ($options['is_user_logged_in']) {
-        //     $builder->add('submit', SubmitIconType::class, array(
-        //         'label' => 'Uložiť životopis',
-        //         'icon_left' => '<i class="far fa-save"></i>',
-        //         'attr' => array(
-        //             'class' => 'btn btn-block btn-primary'
-        //         )
-        //     ));
-        // }
 
         $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
             $submittedData = $event->getData();

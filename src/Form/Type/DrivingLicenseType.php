@@ -73,6 +73,9 @@ class DrivingLicenseType extends AbstractType
                         'driving_license_code' => $drivingLicenseCode,
                         'data' => $actualDrivingLicenseData,
                         'help' => $drivingLicense['tooltip'],
+                        'attr' => [
+                            'class' => 'form-inline'
+                        ]
                     ], $options['entry_options'])
                 );
             }
