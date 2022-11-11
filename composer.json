@@ -3,6 +3,7 @@
     "description": "Bundle provides form for creating CV in european format.",
     "type": "symfony-bundle",
 	"version": "1.0.1",
+	"type": "library",
     "license": "MIT",
     "authors": [
         {
