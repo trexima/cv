@@ -33,7 +33,7 @@ class EuropeanCVPracticeType extends AbstractType
                 ]
             ])
             ->add('dateRange', MonthYearRangeType::class, [
-                'label' => 'Rozsah',
+                'label' => false,
                 'required' => false,
             ])
             ->add('description', TextareaType::class, [

@@ -17,7 +17,7 @@ class MonthYearRangeType extends AbstractType
     {
         $builder
         ->add('beginMonth', ChoiceType::class, [
-            'label' => false,
+            'label' => 'Od',
             'required' => false,
             'placeholder' => 'Mesiac',
             'choices' => array_combine(range(1, 12), range(1, 12)),
@@ -35,7 +35,7 @@ class MonthYearRangeType extends AbstractType
             ]
         ])
         ->add('endMonth', ChoiceType::class, [
-            'label' => false,
+            'label' => 'Do',
             'required' => false,
             'placeholder' => 'Mesiac',
             'choices' => array_combine(range(1, 12), range(1, 12))
