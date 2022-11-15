@@ -373,6 +373,30 @@
         <source>trexima_european_cv.form_placeholder.hobbies</source>
         <target>Uveďte vaše záujmy alebo koníčky, ktorým sa venujete vo svojom voľnom čase.</target>
       </trans-unit>
+      <trans-unit id="digital-skill-level-1" resname="trexima_european_cv.form_label.digital_skill_level_1">
+        <source>trexima_european_cv.form_label.digital_skill_level_1</source>
+        <target>Elementárna</target>
+      </trans-unit>
+      <trans-unit id="digital-skill-level-2" resname="trexima_european_cv.form_label.digital_skill_level_2">
+        <source>trexima_european_cv.form_label.digital_skill_level_2</source>
+        <target>Pokročilá</target>
+      </trans-unit>
+      <trans-unit id="digital-skill-level-3" resname="trexima_european_cv.form_label.digital_skill_level_3">
+        <source>trexima_european_cv.form_label.digital_skill_level_3</source>
+        <target>Vysoká</target>
+      </trans-unit>
+      <trans-unit id="digital-skill-title-label" resname="trexima_european_cv.form_label.digital_skill_title">
+        <source>trexima_european_cv.form_label.digital_skill_title</source>
+        <target>Digitálna zručnosť</target>
+      </trans-unit>
+      <trans-unit id="digital-skill-title-placeholder" resname="trexima_european_cv.form_placeholder.digital_skill_title">
+        <source>trexima_european_cv.form_placeholder.digital_skill_title</source>
+        <target>Prosím, vyberte možnosť</target>
+      </trans-unit>
+      <trans-unit id="digital-skill-level-label" resname="trexima_european_cv.form_label.digital_skill_level">
+        <source>trexima_european_cv.form_label.digital_skill_level</source>
+        <target>Úroveň</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

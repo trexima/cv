@@ -3,10 +3,12 @@
 namespace Trexima\EuropeanCvBundle\Form\Parts;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Yaml\Yaml;
+use Trexima\EuropeanCvBundle\Form\Type\EuropeanCVDigitalSkillType;
 use Trexima\EuropeanCvBundle\Form\Type\Select2Type;
 
 /**
@@ -20,12 +22,17 @@ class EuropeanCVPartDigitalSkillsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('digitalSkills', Select2Type::class, [
-                'label' => 'Digitálne zručnosti',
-                'placeholder' => 'Prosím, vyberte možnosť',
-                'required' => false,
-                'multiple' => true,
-                'choices' => $this->getDigitalSkillsArray(),
+            ->add('digitalSkills', CollectionType::class, [
+                'entry_type' => EuropeanCVDigitalSkillType::class,
+                'entry_options' => [
+                    'label' => false
+                ],
+                'by_reference' => false,
+                'label' => false,
+                'prototype' => true,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'delete_empty' => true
             ])
         ;
     }
@@ -52,20 +59,5 @@ class EuropeanCVPartDigitalSkillsType extends AbstractType
         $resolver->setRequired([
             'photo_upload_route'
         ]);
-    }
-
-    private function getDigitalSkillsArray() {
-        $digitalSkillList = Yaml::parseFile(__DIR__.'/../../../Resources/listing/digital_skill.yaml');
-        $digitalSkills = [];
-        $skillCategories = [];
-        foreach ($digitalSkillList as $itemId => $item) {
-            if ($item['level'] === 1) $skillCategories[$itemId] = $item['label'];
-        }
-
-        foreach ($digitalSkillList as $itemId => $item) {
-            if ($item['level'] === 2) $digitalSkills[$skillCategories[$item['parent']]][$item['label']] = $itemId;
-        }
-        
-        return $digitalSkills;
     }
 }
