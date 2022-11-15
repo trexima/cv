@@ -8,6 +8,8 @@ use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use function Symfony\Component\Translation\t;
+
 /**
  * Hobbies
  */
@@ -21,7 +23,10 @@ class EuropeanCVPartHobbiesType extends AbstractType
     {
         $builder
             ->add('hobbies', TextareaType::class, [
-                'label' => 'Záujmy a koníčky',
+                'label' => t('trexima_european_cv.form_label.hobbies', [], 'trexima_european_cv'),
+                'attr' => [
+                    'placeholder' => t('trexima_european_cv.form_placeholder.hobbies', [], 'trexima_european_cv'),
+                ],
                 'required' => false
             ])
         ;

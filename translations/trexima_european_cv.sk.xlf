@@ -361,6 +361,18 @@
         <source>trexima_european_cv.form_placeholder.additional_informations</source>
         <target>Uveďte vaše ďalšie vedomosti alebo zručnosti, ktoré nebolo možné definovať na základe predchádzajúcich položiek a na ktoré chcete upozorniť vášho potenciálneho zamestnávateľa.</target>
       </trans-unit>
+      <trans-unit id="hobbies-label" resname="trexima_european_cv.form_label.hobbies">
+        <source>trexima_european_cv.form_label.hobbies</source>
+        <target>Záujmy a koníčky</target>
+      </trans-unit>
+      <trans-unit id="hobbies-sub-label" resname="trexima_european_cv.form_sub_label.hobbies">
+        <source>trexima_european_cv.form_sub_label.hobbies</source>
+        <target>Vhodne napísané záľuby môžu vzbudiť záujem zamestnávateľov a spraviť z vás zaujímavého uchádzača</target>
+      </trans-unit>
+      <trans-unit id="hobbies-placeholder" resname="trexima_european_cv.form_placeholder.hobbies">
+        <source>trexima_european_cv.form_placeholder.hobbies</source>
+        <target>Uveďte vaše záujmy alebo koníčky, ktorým sa venujete vo svojom voľnom čase.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
