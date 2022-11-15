@@ -349,6 +349,18 @@
         <source>trexima_european_cv.form_label.language_level_c2</source>
         <target>Expert (C2)</target>
       </trans-unit>
+      <trans-unit id="additional-informations-label" resname="trexima_european_cv.form_label.additional_informations">
+        <source>trexima_european_cv.form_label.additional_informations</source>
+        <target>Doplňujúce informácie</target>
+      </trans-unit>
+      <trans-unit id="additional-informations-sub-label" resname="trexima_european_cv.form_sub_label.additional_informations">
+        <source>trexima_european_cv.form_sub_label.additional_informations</source>
+        <target>Prajete si ešte niečo doplniť? Napíšte to do tohto políčka</target>
+      </trans-unit>
+      <trans-unit id="additional-informations-placeholder" resname="trexima_european_cv.form_placeholder.additional_informations">
+        <source>trexima_european_cv.form_placeholder.additional_informations</source>
+        <target>Uveďte vaše ďalšie vedomosti alebo zručnosti, ktoré nebolo možné definovať na základe predchádzajúcich položiek a na ktoré chcete upozorniť vášho potenciálneho zamestnávateľa.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
