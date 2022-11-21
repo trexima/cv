@@ -32,6 +32,9 @@ class EuropeanCVPractice
     #[ORM\Column(type: 'string', length: 256, nullable: true)]
     private ?string $title = null;
 
+    #[ORM\Column(type: 'string', length: 7, nullable: true)]
+    private ?string $iscoCode = null;
+
     #[ORM\Column(type: 'string', nullable: true)]
     private ?string $employee = null;
 
@@ -80,7 +83,17 @@ class EuropeanCVPractice
 
     public function setTitle(?string $title): void
     {
-        $this->job = $title;
+        $this->title = $title;
+    }
+
+    public function getIscoCode(): ?string
+    {
+        return $this->iscoCode;
+    }
+
+    public function setIscoCode(?string $iscoCode): void
+    {
+        $this->iscoCode = $iscoCode;
     }
 
     public function getEmployee(): ?string

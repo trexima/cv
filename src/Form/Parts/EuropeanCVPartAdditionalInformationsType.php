@@ -8,6 +8,8 @@ use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use function Symfony\Component\Translation\t;
+
 /**
  * AdditionalInformations
  */
@@ -21,7 +23,10 @@ class EuropeanCVPartAdditionalInformationsType extends AbstractType
     {
         $builder
             ->add('additionalInformations', TextareaType::class, [
-                'label' => 'Doplňujúce informácie',
+                'label' => t('trexima_european_cv.form_label.additional_informations', [], 'trexima_european_cv'),
+                'attr' => [
+                    'placeholder' => t('trexima_european_cv.form_placeholder.additional_informations', [], 'trexima_european_cv'),
+                ],
                 'required' => false
             ])
         ;

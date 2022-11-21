@@ -44,9 +44,3 @@ $('[data-trexima-european-cv-dynamic-collection-prototype]').on('trexima-europea
     newElement.dirtyForms('rescan');
 });
 
-// $("#european_cv_part1_titlesAfter").select2({
-//     tags: true
-// });
-// $("#european_cv_part1_titlesBefore").select2({
-//     tags: true
-// });

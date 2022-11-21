@@ -134,8 +134,11 @@ class EuropeanCV
     #[ORM\Column(type: 'text', length: 65535, nullable: true)]
     private ?string $additionalInformations = null;
 
-    #[ORM\Column]
-    private ?array $digitalSkills = [];
+    /**
+     * @var EuropeanCVDigitalSkill[]|Collection
+     */
+    #[ORM\OneToMany(targetEntity: EuropeanCVDigitalSkill::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
+    private $digitalSkills;
 
     #[ORM\Column(nullable: true)]
     private ?array $competences = [];
@@ -148,6 +151,7 @@ class EuropeanCV
         $this->drivingLicenses = new ArrayCollection();
         $this->phones = new ArrayCollection();
         $this->attachments = new ArrayCollection();
+        $this->digitalSkills = new ArrayCollection();
         $this->createdAt = new \DateTime();
     }
 
@@ -541,16 +545,26 @@ class EuropeanCV
         return $this;
     }
 
-    public function getDigitalSkills(): array
+    /**
+     * @return EuropeanCVDigitalSkill[]|Collection
+     */
+    public function getDigitalSkills(): array|Collection
     {
         return $this->digitalSkills;
     }
 
-    public function setDigitalSkills(array $digitalSkills): self
+    /**
+     * @param EuropeanCVDigitalSkill $digitalSkill
+     */
+    public function addDigitalSkill(EuropeanCVDigitalSkill $digitalSkill)
     {
-        $this->digitalSkills = $digitalSkills;
+        $this->digitalSkills[] = $digitalSkill;
+        $digitalSkill->setEuropeanCV($this);
+    }
 
-        return $this;
+    public function removeDigitalSkill(EuropeanCVDigitalSkill $digitalSkill)
+    {
+        $this->digitalSkills->removeElement($digitalSkill);
     }
 
     /**
