@@ -42,6 +42,12 @@ services:
             - { name: doctrine.event_listener, event: prePersist }
             - { name: doctrine.event_listener, event: preUpdate }
             - { name: doctrine.event_listener, event: postLoad }
+    
+    Trexima\EuropeanCvBundle\Facade\Harvey:
+        arguments:
+            $url: '%trexima_european_cv_harvey_url%'
+            $username: '%trexima_european_cv_harvey_username%'
+            $password: '%trexima_european_cv_harvey_password%'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
