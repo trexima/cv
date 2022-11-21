@@ -16,6 +16,13 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('upload_url')->defaultValue('')->end()
                 ->scalarNode('upload_dir')->defaultValue('')->end()
                 ->scalarNode('user_class')->defaultValue('')->end()
+                ->arrayNode('harvey')
+                    ->children()
+                        ->scalarNode('url')->end()
+                        ->scalarNode('username')->end()
+                        ->scalarNode('password')->end()
+                    ->end()
+                ->end() // harvey
             ->end();
 
         return $treeBuilder;

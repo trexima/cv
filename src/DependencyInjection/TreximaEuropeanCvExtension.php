@@ -24,6 +24,9 @@ class TreximaEuropeanCvExtension extends Extension implements PrependExtensionIn
 
         $container->setParameter('trexima_european_cv_upload_url', $config['upload_url']);
         $container->setParameter('trexima_european_cv_upload_dir', $config['upload_dir']);
+        $container->setParameter('trexima_european_cv_harvey_url', $config['harvey']['url']);
+        $container->setParameter('trexima_european_cv_harvey_username', $config['harvey']['username']);
+        $container->setParameter('trexima_european_cv_harvey_password', $config['harvey']['password']);
     }
 
     public function prepend(ContainerBuilder $container)

@@ -3,6 +3,10 @@
 
 <div class="row">
     <div class="col-md-16">
-        {{ form_row(form.hobbies) }}
+        {{ form_label(form.hobbies) }}
+        <p>{{ 'trexima_european_cv.form_sub_label.hobbies'|trans }}</p>
+        {{ form_errors(form.hobbies) }}
+        {{ form_widget(form.hobbies) }}
+        {{ form_help(form.hobbies) }}
     </div>
 </div>
