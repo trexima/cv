@@ -7,8 +7,8 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Count;
 use Trexima\EuropeanCvBundle\Form\Type\EuropeanCVPracticeType;
+use Trexima\EuropeanCvBundle\Form\Type\EuropeanCVWorkBreakType;
 
 /**
  * Practices
@@ -24,6 +24,18 @@ class EuropeanCVPartPracticesType extends AbstractType
         $builder
             ->add('practices', CollectionType::class, [
                 'entry_type' => EuropeanCVPracticeType::class,
+                'entry_options' => [
+                    'label' => false
+                ],
+                'by_reference' => false,
+                'label' => false,
+                'prototype' => true,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'delete_empty' => true
+            ])
+            ->add('workBreaks', CollectionType::class, [
+                'entry_type' => EuropeanCVWorkBreakType::class,
                 'entry_options' => [
                     'label' => false
                 ],

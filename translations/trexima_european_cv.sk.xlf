@@ -397,6 +397,58 @@
         <source>trexima_european_cv.form_label.digital_skill_level</source>
         <target>Úroveň</target>
       </trans-unit>
+      <trans-unit id="work-break-1" resname="trexima_european_cv.form_label.work_break_1">
+        <source>trexima_european_cv.form_label.work_break_1</source>
+        <target>Materská/rodičovská dovolenka</target>
+      </trans-unit>
+      <trans-unit id="work-break-2" resname="trexima_european_cv.form_label.work_break_2">
+        <source>trexima_european_cv.form_label.work_break_2</source>
+        <target>Evidencia na úrade práce</target>
+      </trans-unit>
+      <trans-unit id="work-break-3" resname="trexima_european_cv.form_label.work_break_3">
+        <source>trexima_european_cv.form_label.work_break_3</source>
+        <target>Zdravotné problémy</target>
+      </trans-unit>
+      <trans-unit id="work-break-4" resname="trexima_european_cv.form_label.work_break_4">
+        <source>trexima_european_cv.form_label.work_break_4</source>
+        <target>Strata blízkeho človeka</target>
+      </trans-unit>
+      <trans-unit id="work-break-5" resname="trexima_european_cv.form_label.work_break_5">
+        <source>trexima_european_cv.form_label.work_break_5</source>
+        <target>Starostlivosť o inúosobu alebo domácnosť</target>
+      </trans-unit>
+      <trans-unit id="work-break-6" resname="trexima_european_cv.form_label.work_break_6">
+        <source>trexima_european_cv.form_label.work_break_6</source>
+        <target>Sabatikal</target>
+      </trans-unit>
+      <trans-unit id="work-break-7" resname="trexima_european_cv.form_label.work_break_7">
+        <source>trexima_european_cv.form_label.work_break_7</source>
+        <target>Cestovanie</target>
+      </trans-unit>
+      <trans-unit id="work-break-8" resname="trexima_european_cv.form_label.work_break_8">
+        <source>trexima_european_cv.form_label.work_break_8</source>
+        <target>Cestovanie</target>
+      </trans-unit>
+      <trans-unit id="work-break-9" resname="trexima_european_cv.form_label.work_break_9">
+        <source>trexima_european_cv.form_label.work_break_9</source>
+        <target>Vzdelávanie, osobný rozvoj</target>
+      </trans-unit>
+      <trans-unit id="work-break-type-label" resname="trexima_european_cv.form_label.work_break_type">
+        <source>trexima_european_cv.form_label.work_break_type</source>
+        <target>Typ</target>
+      </trans-unit>
+      <trans-unit id="work-break-description-label" resname="trexima_european_cv.form_label.work_break_description">
+        <source>trexima_european_cv.form_label.work_break_description</source>
+        <target>Opis prestávky v práci</target>
+      </trans-unit>
+      <trans-unit id="work-break-description-placeholder" resname="trexima_european_cv.form_placeholder.work_break_description">
+        <source>trexima_european_cv.form_placeholder.work_break_description</source>
+        <target>Opíšte prestávku v práci</target>
+      </trans-unit>
+      <trans-unit id="add-work-break-button-label" resname="trexima_european_cv.form_label.add_work_break_button">
+        <source>trexima_european_cv.form_label.add_work_break_button</source>
+        <target>Pridať prestávku v práci</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

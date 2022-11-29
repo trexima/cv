@@ -34,6 +34,12 @@ class EuropeanCV
     private $practices;
 
     /**
+     * @var EuropeanCVWorkBreak[]|Collection
+     */
+    #[ORM\OneToMany(targetEntity: EuropeanCVWorkBreak::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
+    private $workBreaks;
+
+    /**
      * @var EuropeanCVEducation[]|Collection
      */
     #[ORM\OneToMany(targetEntity: EuropeanCVEducation::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
@@ -146,6 +152,7 @@ class EuropeanCV
     public function __construct()
     {
         $this->practices = new ArrayCollection();
+        $this->workBreaks = new ArrayCollection();
         $this->educations = new ArrayCollection();
         $this->languages = new ArrayCollection();
         $this->drivingLicenses = new ArrayCollection();
@@ -172,6 +179,25 @@ class EuropeanCV
     public function removePractice(EuropeanCVPractice $practice)
     {
         $this->practices->removeElement($practice);
+    }
+
+    /**
+     * @return EuropeanCVWorkBreak[]|Collection
+     */
+    public function getWorkBreaks(): array|Collection
+    {
+        return $this->workBreaks;
+    }
+
+    public function addWorkBreak(EuropeanCVWorkBreak $workBreak)
+    {
+        $this->workBreaks[] = $workBreak;
+        $workBreak->setEuropeanCV($this);
+    }
+
+    public function removeWorkBreak(EuropeanCVWorkBreak $workBreak)
+    {
+        $this->workBreaks->removeElement($workBreak);
     }
 
     /**

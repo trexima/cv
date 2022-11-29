@@ -63,6 +63,7 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
                     'placeholder' => 'Opíšte Vaše pracovné skúsenosti'
                 ]
             ])
+            ->addEventSubscriber($this);
             ;
     }
 
