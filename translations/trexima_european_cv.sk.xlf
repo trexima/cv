@@ -449,6 +449,258 @@
         <source>trexima_european_cv.form_label.add_work_break_button</source>
         <target>Pridať prestávku v práci</target>
       </trans-unit>
+      <trans-unit id="photo-label" resname="trexima_european_cv.form_label.photo_label">
+        <source>trexima_european_cv.form_label.photo_label</source>
+        <target>Fotografia</target>
+      </trans-unit>
+      <trans-unit id="first-name-label" resname="trexima_european_cv.form_label.first_name_label">
+        <source>trexima_european_cv.form_label.first_name_label</source>
+        <target>Meno</target>
+      </trans-unit>
+      <trans-unit id="first-name-placeholder" resname="trexima_european_cv.form_label.first_name_placeholder">
+        <source>trexima_european_cv.form_label.first_name_placeholder</source>
+        <target>Meno</target>
+      </trans-unit>
+      <trans-unit id="last-name-label" resname="trexima_european_cv.form_label.last_name_label">
+        <source>trexima_european_cv.form_label.last_name_label</source>
+        <target>Priezvisko</target>
+      </trans-unit>
+      <trans-unit id="last-name-placeholder" resname="trexima_european_cv.form_label.last_name_placeholder">
+        <source>trexima_european_cv.form_label.last_name_placeholder</source>
+        <target>Priezvisko</target>
+      </trans-unit>
+      <trans-unit id="titles-before-label" resname="trexima_european_cv.form_label.titles_before_label">
+        <source>trexima_european_cv.form_label.titles_before_label</source>
+        <target>Tituly pred</target>
+      </trans-unit>
+      <trans-unit id="titles-before-placeholder" resname="trexima_european_cv.form_label.titles_before_placeholder">
+        <source>trexima_european_cv.form_label.titles_before_placeholder</source>
+        <target>Prosím, vyberte možnosť</target>
+      </trans-unit>
+      <trans-unit id="titles-after-label" resname="trexima_european_cv.form_label.titles_after_label">
+        <source>trexima_european_cv.form_label.titles_after_label</source>
+        <target>Tituly po</target>
+      </trans-unit>
+      <trans-unit id="titles-after-placeholder" resname="trexima_european_cv.form_label.titles_after_placeholder">
+        <source>trexima_european_cv.form_label.titles_after_placeholder</source>
+        <target>Prosím, vyberte možnosť</target>
+      </trans-unit>
+      <trans-unit id="nationalities-label" resname="trexima_european_cv.form_label.nationalities_label">
+        <source>trexima_european_cv.form_label.nationalities_label</source>
+        <target>Štátna príslušnosť</target>
+      </trans-unit>
+      <trans-unit id="year-label" resname="trexima_european_cv.form_label.year_label">
+        <source>trexima_european_cv.form_label.year_label</source>
+        <target>Rok narodenia</target>
+      </trans-unit>
+      <trans-unit id="month-label" resname="trexima_european_cv.form_label.month_label">
+        <source>trexima_european_cv.form_label.month_label</source>
+        <target>Mesiac narodenia</target>
+      </trans-unit>
+      <trans-unit id="day-label" resname="trexima_european_cv.form_label.day_label">
+        <source>trexima_european_cv.form_label.day_label</source>
+        <target>Deň narodenia</target>
+      </trans-unit>
+      <trans-unit id="email-label" resname="trexima_european_cv.form_label.email_label">
+        <source>trexima_european_cv.form_label.email_label</source>
+        <target>E-mail</target>
+      </trans-unit>
+      <trans-unit id="email-placeholder" resname="trexima_european_cv.form_label.email_placeholder">
+        <source>trexima_european_cv.form_label.email_placeholder</source>
+        <target>vzor@vzor.sk</target>
+      </trans-unit>
+      <trans-unit id="address-label" resname="trexima_european_cv.form_label.address_label">
+        <source>trexima_european_cv.form_label.address_label</source>
+        <target>Adresa</target>
+      </trans-unit>
+      <trans-unit id="address-placeholder" resname="trexima_european_cv.form_label.address_placeholder">
+        <source>trexima_european_cv.form_label.address_placeholder</source>
+        <target>Vzorová 3, 841 01 Bratislava IV, Slovenská republika</target>
+      </trans-unit>
+      <trans-unit id="personal-websites-label" resname="trexima_european_cv.form_label.personal_websites_label">
+        <source>trexima_european_cv.form_label.personal_websites_label</source>
+        <target>Osobná webová stránka</target>
+      </trans-unit>
+      <trans-unit id="description-label" resname="trexima_european_cv.form_label.description_label">
+        <source>trexima_european_cv.form_label.description_label</source>
+        <target>Stručný text o vás, ktorý sa zobrazí v hlavičke životopisu</target>
+      </trans-unit>
+      <trans-unit id="description-placeholder" resname="trexima_european_cv.form_label.description_placeholder">
+        <source>trexima_european_cv.form_label.description_placeholder</source>
+        <target>O vás</target>
+      </trans-unit>
+      <trans-unit id="competences-label" resname="trexima_european_cv.form_label.competences_label">
+        <source>trexima_european_cv.form_label.competences_label</source>
+        <target>Všeobecné spôsobilosti a predpoklady</target>
+      </trans-unit>
+      <trans-unit id="competences-placeholder" resname="trexima_european_cv.form_label.competences_placeholder">
+        <source>trexima_european_cv.form_label.competences_placeholder</source>
+        <target>Prosím, vyberte možnosť</target>
+      </trans-unit>
+      <trans-unit id="driving-license-owner-label" resname="trexima_european_cv.form_label.driving_license_owner_label">
+        <source>trexima_european_cv.form_label.driving_license_owner_label</source>
+        <target>Vodičský preukaz</target>
+      </trans-unit>
+      <trans-unit id="driving-license-owner-false-choic-label" resname="trexima_european_cv.form_label.driving_license_owner_false_choice_label">
+        <source>trexima_european_cv.form_label.driving_license_owner_false_choice_label</source>
+        <target>Nemám vodičský preukaz</target>
+      </trans-unit>
+      <trans-unit id="driving-license-owner-true-choic-label" resname="trexima_european_cv.form_label.driving_license_owner_true_choice_label">
+        <source>trexima_european_cv.form_label.driving_license_owner_true_choice_label</source>
+        <target>Mám vodičský preukaz</target>
+      </trans-unit>
+      <trans-unit id="driving-license-distance-traveled-placeholder" resname="trexima_european_cv.form_label.driving_license_distance_traveled_placeholder">
+        <source>trexima_european_cv.form_label.driving_license_distance_traveled_placeholder</source>
+        <target>Počet KM</target>
+      </trans-unit>
+      <trans-unit id="driving-license-active-driver-label" resname="trexima_european_cv.form_label.driving_license_active_driver_label">
+        <source>trexima_european_cv.form_label.driving_license_active_driver_label</source>
+        <target>Som aktívny vodič</target>
+      </trans-unit>
+      <trans-unit id="education-title-label" resname="trexima_european_cv.form_label.education_title_label">
+        <source>trexima_european_cv.form_label.education_title_label</source>
+        <target>Názov školy</target>
+      </trans-unit>
+      <trans-unit id="education-title-placeholder" resname="trexima_european_cv.form_label.education_title_placeholder">
+        <source>trexima_european_cv.form_label.education_title_placeholder</source>
+        <target>Názov školy</target>
+      </trans-unit>
+      <trans-unit id="education-year-range-label" resname="trexima_european_cv.form_label.education_year_range_label">
+        <source>trexima_european_cv.form_label.education_year_range_label</source>
+        <target>Rozsah</target>
+      </trans-unit>
+      <trans-unit id="education-description-label" resname="trexima_european_cv.form_label.education_description_label">
+        <source>trexima_european_cv.form_label.education_description_label</source>
+        <target>Opis Štúdia</target>
+      </trans-unit>
+      <trans-unit id="education-description-placeholder" resname="trexima_european_cv.form_label.education_description_placeholder">
+        <source>trexima_european_cv.form_label.education_description_placeholder</source>
+        <target>Opíšte vaše štúdium</target>
+      </trans-unit>
+      <trans-unit id="language-label" resname="trexima_european_cv.form_label.language_label">
+        <source>trexima_european_cv.form_label.language_label</source>
+        <target>Jazyk</target>
+      </trans-unit>
+      <trans-unit id="language-placeholder" resname="trexima_european_cv.form_label.language_placeholder">
+        <source>trexima_european_cv.form_label.language_placeholder</source>
+        <target>Prosím, vyberte možnosť</target>
+      </trans-unit>
+      <trans-unit id="language-level-label" resname="trexima_european_cv.form_label.language_level_label">
+        <source>trexima_european_cv.form_label.language_level_label</source>
+        <target>Úroveň</target>
+      </trans-unit>
+      <trans-unit id="phone-type-label" resname="trexima_european_cv.form_label.phone_type_label">
+        <source>trexima_european_cv.form_label.phone_type_label</source>
+        <target>Typ</target>
+      </trans-unit>
+      <trans-unit id="phone-type-placeholder" resname="trexima_european_cv.form_label.phone_type_placeholder">
+        <source>trexima_european_cv.form_label.phone_type_placeholder</source>
+        <target>Prosím, vyberte</target>
+      </trans-unit>
+      <trans-unit id="phone-number-label" resname="trexima_european_cv.form_label.phone_number_label">
+        <source>trexima_european_cv.form_label.phone_number_label</source>
+        <target>Tel.</target>
+      </trans-unit>
+      <trans-unit id="phone-number-placeholder" resname="trexima_european_cv.form_label.phone_number_placeholder">
+        <source>trexima_european_cv.form_label.phone_number_placeholder</source>
+        <target>V tvare: +421918123456</target>
+      </trans-unit>
+      <trans-unit id="practice-isco-code-label" resname="trexima_european_cv.form_label.practice_isco_code_label">
+        <source>trexima_european_cv.form_label.practice_isco_code_label</source>
+        <target>Zamestnanie</target>
+      </trans-unit>
+      <trans-unit id="practice-isco-code-placeholder" resname="trexima_european_cv.form_label.practice_isco_code_placeholder">
+        <source>trexima_european_cv.form_label.practice_isco_code_placeholder</source>
+        <target>Prosím, vyberte možnosť</target>
+      </trans-unit>
+      <trans-unit id="practice-isco-code-help" resname="trexima_european_cv.form_label.practice_isco_code_help">
+        <source>trexima_european_cv.form_label.practice_isco_code_help</source>
+        <target>Viac info:</target>
+      </trans-unit>
+      <trans-unit id="practice-employee-label" resname="trexima_european_cv.form_label.practice_employee_label">
+        <source>trexima_european_cv.form_label.practice_employee_label</source>
+        <target>Zamestnávateľ</target>
+      </trans-unit>
+      <trans-unit id="practice-employee-placeholder" resname="trexima_european_cv.form_label.practice_employee_placeholder">
+        <source>trexima_european_cv.form_label.practice_employee_placeholder</source>
+        <target>Zamestnávateľ</target>
+      </trans-unit>
+      <trans-unit id="practice-description-placeholder" resname="trexima_european_cv.form_label.practice_description_placeholder">
+        <source>trexima_european_cv.form_label.practice_description_placeholder</source>
+        <target>Opíšte Vaše pracovné skúsenosti</target>
+      </trans-unit>
+      <trans-unit id="practice-description-label" resname="trexima_european_cv.form_label.practice_description_label">
+        <source>trexima_european_cv.form_label.practice_description_label</source>
+        <target>Opis práce</target>
+      </trans-unit>
+      <trans-unit id="month-year-range-begin-month-label" resname="trexima_european_cv.form_label.month_year_range_begin_month_label">
+        <source>trexima_european_cv.form_label.month_year_range_begin_month_label</source>
+        <target>Od</target>
+      </trans-unit>
+      <trans-unit id="month-year-range-begin-month-placeholder" resname="trexima_european_cv.form_label.month_year_range_begin_month_placeholder">
+        <source>trexima_european_cv.form_label.month_year_range_begin_month_placeholder</source>
+        <target>Mesiac</target>
+      </trans-unit>
+      <trans-unit id="month-year-range-begin-year-placeholder" resname="trexima_european_cv.form_label.month_year_range_begin_year_placeholder">
+        <source>trexima_european_cv.form_label.month_year_range_begin_year_placeholder</source>
+        <target>Rok</target>
+      </trans-unit>
+      <trans-unit id="month-year-range-end-month-label" resname="trexima_european_cv.form_label.month_year_range_end_month_label">
+        <source>trexima_european_cv.form_label.month_year_range_end_month_label</source>
+        <target>Do</target>
+      </trans-unit>
+      <trans-unit id="month-year-range-end-month-placeholder" resname="trexima_european_cv.form_label.month_year_range_end_month_placeholder">
+        <source>trexima_european_cv.form_label.month_year_range_end_month_placeholder</source>
+        <target>Mesiac</target>
+      </trans-unit>
+      <trans-unit id="month-year-range-end-year-placeholder" resname="trexima_european_cv.form_label.month_year_range_end_year_placeholder">
+        <source>trexima_european_cv.form_label.month_year_range_end_year_placeholder</source>
+        <target>Rok</target>
+      </trans-unit>
+      <trans-unit id="year-range-begin-year-placeholder" resname="trexima_european_cv.form_label.year_range_begin_year_placeholder">
+        <source>trexima_european_cv.form_label.year_range_begin_year_placeholder</source>
+        <target>Rok nástupu</target>
+      </trans-unit>
+      <trans-unit id="year-range-end-year-placeholder" resname="trexima_european_cv.form_label.year_range_end_year_placeholder">
+        <source>trexima_european_cv.form_label.year_range_end_year_placeholder</source>
+        <target>Rok ukončenia</target>
+      </trans-unit>
+      <trans-unit id="submit-label" resname="trexima_european_cv.form_label.submit_label">
+        <source>trexima_european_cv.form_label.submit_label</source>
+        <target>Uložiť životopis</target>
+      </trans-unit>
+      <trans-unit id="add-additional-informations-button" resname="trexima_european_cv.form_label.add_additional_informations_button">
+        <source>trexima_european_cv.form_label.add_additional_informations_button</source>
+        <target>Pridať informáciu</target>
+      </trans-unit>
+      <trans-unit id="add-attachment-button" resname="trexima_european_cv.form_label.add_attachment_button">
+        <source>trexima_european_cv.form_label.add_attachment_button</source>
+        <target>Pridať prílohu</target>
+      </trans-unit>
+      <trans-unit id="add-phone-button" resname="trexima_european_cv.form_label.add_phone_button">
+        <source>trexima_european_cv.form_label.add_phone_button</source>
+        <target>Pridať telefón</target>
+      </trans-unit>
+      <trans-unit id="add-digital-skill-button" resname="trexima_european_cv.form_label.add_digital_skill_button">
+        <source>trexima_european_cv.form_label.add_digital_skill_button</source>
+        <target>Pridať digitálnu zručnosť</target>
+      </trans-unit>
+      <trans-unit id="add-education-button" resname="trexima_european_cv.form_label.add_education_button">
+        <source>trexima_european_cv.form_label.add_education_button</source>
+        <target>Pridať vzdelanie</target>
+      </trans-unit>
+      <trans-unit id="add-language-button" resname="trexima_european_cv.form_label.add_language_button">
+        <source>trexima_european_cv.form_label.add_language_button</source>
+        <target>Pridať jazyk</target>
+      </trans-unit>
+      <trans-unit id="add-personal-website-button" resname="trexima_european_cv.form_label.add_personal_website_button">
+        <source>trexima_european_cv.form_label.add_personal_website_button</source>
+        <target>Pridať stránku</target>
+      </trans-unit>
+      <trans-unit id="add-practice-button" resname="trexima_european_cv.form_label.add_practice_button">
+        <source>trexima_european_cv.form_label.add_practice_button</source>
+        <target>Pridať prax</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

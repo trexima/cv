@@ -23,8 +23,8 @@ class EuropeanCVLanguageType extends AbstractType
         $builder
             ->add('language', EnumType::class, [
                 'class' => LanguageEnum::class,
-                'label' => 'Jazyk',
-                'placeholder' => 'Prosím, vyberte možnosť',
+                'label' => t('trexima_european_cv.form_label.language_label', [], 'trexima_european_cv'),
+                'placeholder' => t('trexima_european_cv.form_label.language_placeholder', [], 'trexima_european_cv'),
                 'required' => false,
                 'choice_label' => fn(LanguageEnum $choice) => match ($choice) {
                     default => t('trexima_european_cv.form_label.language_' . $choice->value, [], 'trexima_european_cv'),
@@ -34,7 +34,7 @@ class EuropeanCVLanguageType extends AbstractType
             ->add('level', EnumType::class, [
                 'class' => LanguageLevelEnum::class,
                 'required' => true,
-                'label' => 'Úroveň',
+                'label' => t('trexima_european_cv.form_label.language_level_label', [], 'trexima_european_cv'),
                 'multiple' => false,
                 'choice_label' => fn(LanguageLevelEnum $choice) => match ($choice) {
                     default => t('trexima_european_cv.form_label.language_level_' . strtolower($choice->value), [], 'trexima_european_cv'),

@@ -10,6 +10,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Trexima\EuropeanCvBundle\Entity\Enum\WorkBreakEnum;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVWorkBreak;
 use Trexima\EuropeanCvBundle\Form\Type\MonthYearRangeType;
@@ -18,6 +19,12 @@ use function Symfony\Component\Translation\t;
 
 class EuropeanCVWorkBreakType extends AbstractType implements EventSubscriberInterface
 {   
+    public function __construct(
+        private readonly TranslatorInterface $translator
+    )
+    {
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -70,7 +77,7 @@ class EuropeanCVWorkBreakType extends AbstractType implements EventSubscriberInt
         $data = $formEvent->getData();
         $type = $data->getType();
         if ($type !== null) {
-            $title = t('trexima_european_cv.form_label.work_break_' . strtolower($type->value), [], 'trexima_european_cv');
+            $title = t('trexima_european_cv.form_label.work_break_' . strtolower($type->value), [], 'trexima_european_cv')->trans($this->translator);
             $data->setTitle($title);
         }
     }

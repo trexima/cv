@@ -10,6 +10,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Trexima\EuropeanCvBundle\Form\Type\DrivingLicenseType;
 use Trexima\EuropeanCvBundle\Form\Type\EuropeanCVDrivingLicenseType;
 
+use function Symfony\Component\Translation\t;
+
 /**
  * Driving license
  */
@@ -24,14 +26,23 @@ class EuropeanCVPartDrivingLicenseType extends AbstractType
         $builder
             ->add('drivingLicenseOwner', ChoiceType::class, [
                 'required' => false,
-                'label' => 'Vodičský preukaz',
+                'label' => t('trexima_european_cv.form_label.driving_license_owner_label', [], 'trexima_european_cv'),
                 'placeholder' => false,
                 'expanded' => true,
                 'multiple' => false,
                 'choices' => [
-                    'Nemám vodičský preukaz' => false,
-                    'Mám vodičský preukaz' => true
+                    'no' => false,
+                    'yes' => true
                 ],
+                'choice_label' => function ($choice, $key, $value) {
+                    if (true === $choice) {
+                        return t('trexima_european_cv.form_label.driving_license_owner_true_choice_label', [], 'trexima_european_cv');
+                    }
+                    if (false === $choice) {
+                        return t('trexima_european_cv.form_label.driving_license_owner_false_choice_label', [], 'trexima_european_cv');
+                    }
+                    return strtoupper($key);
+                },
                 'choice_attr' => fn($choiceValue, $key, $value) => [
                     'data-trexima-european-cv-group-trigger' => 'europeancv-driving-license'
                 ]

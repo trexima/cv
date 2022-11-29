@@ -18,6 +18,8 @@ use Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartLanguagesType;
 use Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartPracticesType;
 use Trexima\EuropeanCvBundle\Form\Type\SubmitIconType;
 
+use function Symfony\Component\Translation\t;
+
 class EuropeanCVType extends AbstractType
 {
     /**
@@ -38,7 +40,7 @@ class EuropeanCVType extends AbstractType
 
         if ($options['is_user_logged_in']) {
             $builder->add('submit', SubmitIconType::class, [
-                'label' => 'Uložiť životopis',
+                'label' => t('trexima_european_cv.form_label.submit_label', [], 'trexima_european_cv'),
                 'icon_left' => '<i class="far fa-save"></i>',
                 'attr' => [
                     'class' => 'btn btn-block btn-primary'

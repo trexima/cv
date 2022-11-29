@@ -6,9 +6,10 @@ use Symfony\Component\Form\AbstractType;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Count;
 use Trexima\EuropeanCvBundle\Entity\Enum\CompetenceEnum;
 use Trexima\EuropeanCvBundle\Form\Type\Select2Type;
+
+use function Symfony\Component\Translation\t;
 
 /**
  * Competences
@@ -23,8 +24,8 @@ class EuropeanCVPartCompetencesType extends AbstractType
     {
         $builder
             ->add('competences', Select2Type::class, [
-                'label' => 'Všeobecné spôsobilosti a predpoklady',
-                'placeholder' => 'Prosím, vyberte možnosť',
+                'label' => t('trexima_european_cv.form_label.competences_label', [], 'trexima_european_cv'),
+                'placeholder' => t('trexima_european_cv.form_label.competences_placeholder', [], 'trexima_european_cv'),
                 'required' => false,
                 'multiple' => true,
                 'choices' => $this->getCompetencesArray(),

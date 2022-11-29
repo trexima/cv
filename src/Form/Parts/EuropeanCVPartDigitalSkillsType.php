@@ -7,9 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Yaml\Yaml;
 use Trexima\EuropeanCvBundle\Form\Type\EuropeanCVDigitalSkillType;
-use Trexima\EuropeanCvBundle\Form\Type\Select2Type;
 
 /**
  * Digital skills
