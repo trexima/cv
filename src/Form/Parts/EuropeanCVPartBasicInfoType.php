@@ -13,8 +13,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Trexima\EuropeanCvBundle\Form\Type\JQueryFileUploadType;
-use Symfony\Component\Validator\Constraints\Count;
 use Trexima\EuropeanCvBundle\Entity\Enum\LanguageEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\SexEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\TitleAfterEnum;
@@ -29,6 +29,12 @@ use function Symfony\Component\Translation\t;
  */
 class EuropeanCVPartBasicInfoType extends AbstractType
 {
+
+    public function __construct(
+        private readonly TranslatorInterface $translator
+    )
+    {
+    }
 
     /**
      * {@inheritdoc}
@@ -53,24 +59,24 @@ class EuropeanCVPartBasicInfoType extends AbstractType
         ])
         ->add('photo', JQueryFileUploadType::class, [
             'required' => false,
-            'label' => 'Fotografia',
+            'label' => t('trexima_european_cv.form_label.photo_label', [], 'trexima_european_cv'),
             'upload_route' => $options['photo_upload_route'],
         ])
         ->add('firstName', TextType::class, [
-            'label' => 'Meno',
+            'label' => t('trexima_european_cv.form_label.first_name_label', [], 'trexima_european_cv'),
             'attr' => [
-                'placeholder' => 'Ing. Pavol Vzor'
+                'placeholder' => t('trexima_european_cv.form_label.first_name_placeholder', [], 'trexima_european_cv')
             ]
         ])
         ->add('lastName', TextType::class, [
-            'label' => 'Priezvisko',
+            'label' => t('trexima_european_cv.form_label.last_name_label', [], 'trexima_european_cv'),
             'attr' => [
-                'placeholder' => 'Ing. Pavol Vzor'
+                'placeholder' => t('trexima_european_cv.form_label.last_name_placeholder', [], 'trexima_european_cv')
             ]
         ])
         ->add('titlesBefore', Select2Type::class, [
-            'label' => 'Tituly pred',
-            'placeholder' => 'Prosím, vyberte možnosť',
+            'label' => t('trexima_european_cv.form_label.titles_before_label', [], 'trexima_european_cv'),
+            'placeholder' => t('trexima_european_cv.form_label.titles_before_placeholder', [], 'trexima_european_cv'),
             'required' => false,
             'multiple' => true,
             'choices' => $this->getTitlesBeforeArray(),
@@ -79,94 +85,17 @@ class EuropeanCVPartBasicInfoType extends AbstractType
             ]
         ])
         ->add('titlesAfter', Select2Type::class, [
-            'label' => 'Tituly po',
-            'placeholder' => 'Prosím, vyberte možnosť',
+            'label' => t('trexima_european_cv.form_label.titles_after_label', [], 'trexima_european_cv'),
+            'placeholder' => t('trexima_european_cv.form_label.titles_after_placeholder', [], 'trexima_european_cv'),
             'required' => false,
             'multiple' => true,
             'choices' => $this->getTitlesAfterArray(),
         ])
         ->add('nationalities', Select2Type::class, [
-            // 'placeholder' => t('trexima_european_cv.form_placeholder.language', [], 'trexima_european_cv'),
             'required' => false,
             'multiple' => true,
-            'choices' => [
-                LanguageEnum::LANGUAGE_SK,
-                LanguageEnum::LANGUAGE_CS,
-                LanguageEnum::LANGUAGE_EN,
-                LanguageEnum::LANGUAGE_DE,
-                LanguageEnum::LANGUAGE_HU,
-                LanguageEnum::LANGUAGE_RU,
-                LanguageEnum::LANGUAGE_UK,
-                LanguageEnum::LANGUAGE_PL,
-                LanguageEnum::LANGUAGE_FR,
-                LanguageEnum::LANGUAGE_IT,
-                LanguageEnum::LANGUAGE_ES,
-                LanguageEnum::LANGUAGE_PT,
-                LanguageEnum::LANGUAGE_NL,
-                LanguageEnum::LANGUAGE_DA,
-                LanguageEnum::LANGUAGE_FI,
-                LanguageEnum::LANGUAGE_SV,
-                LanguageEnum::LANGUAGE_NO,
-                LanguageEnum::LANGUAGE_EL,
-                LanguageEnum::LANGUAGE_IS,
-                LanguageEnum::LANGUAGE_GA,
-                LanguageEnum::LANGUAGE_LV,
-                LanguageEnum::LANGUAGE_ET,
-                LanguageEnum::LANGUAGE_LT,
-                LanguageEnum::LANGUAGE_SL,
-                LanguageEnum::LANGUAGE_MT,
-                LanguageEnum::LANGUAGE_RO,
-                LanguageEnum::LANGUAGE_BG,
-                LanguageEnum::LANGUAGE_HR,
-                LanguageEnum::LANGUAGE_SR,
-                LanguageEnum::LANGUAGE_LA,
-                LanguageEnum::LANGUAGE_ZH,
-                LanguageEnum::LANGUAGE_VI,
-                LanguageEnum::LANGUAGE_JA,
-                LanguageEnum::LANGUAGE_KO,
-                LanguageEnum::LANGUAGE_OTHER,
-            ],
-            'choice_label' => fn(LanguageEnum $choice) => match ($choice) {
-                LanguageEnum::LANGUAGE_SK => t('trexima_european_cv.form_label.nationality_sk', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_CS => t('trexima_european_cv.form_label.nationality_cs', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_EN => t('trexima_european_cv.form_label.nationality_en', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_DE => t('trexima_european_cv.form_label.nationality_de', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_HU => t('trexima_european_cv.form_label.nationality_hu', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_RU => t('trexima_european_cv.form_label.nationality_ru', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_UK => t('trexima_european_cv.form_label.nationality_uk', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_PL => t('trexima_european_cv.form_label.nationality_pl', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_FR => t('trexima_european_cv.form_label.nationality_fr', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_IT => t('trexima_european_cv.form_label.nationality_it', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_ES => t('trexima_european_cv.form_label.nationality_es', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_PT => t('trexima_european_cv.form_label.nationality_pt', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_NL => t('trexima_european_cv.form_label.nationality_nl', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_DA => t('trexima_european_cv.form_label.nationality_da', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_FI => t('trexima_european_cv.form_label.nationality_fi', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_SV => t('trexima_european_cv.form_label.nationality_sv', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_NO => t('trexima_european_cv.form_label.nationality_no', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_EL => t('trexima_european_cv.form_label.nationality_el', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_IS => t('trexima_european_cv.form_label.nationality_is', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_GA => t('trexima_european_cv.form_label.nationality_ga', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_LV => t('trexima_european_cv.form_label.nationality_lv', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_ET => t('trexima_european_cv.form_label.nationality_et', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_LT => t('trexima_european_cv.form_label.nationality_lt', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_SL => t('trexima_european_cv.form_label.nationality_sl', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_MT => t('trexima_european_cv.form_label.nationality_mt', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_RO => t('trexima_european_cv.form_label.nationality_ro', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_BG => t('trexima_european_cv.form_label.nationality_bg', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_HR => t('trexima_european_cv.form_label.nationality_hr', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_SR => t('trexima_european_cv.form_label.nationality_sr', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_LA => t('trexima_european_cv.form_label.nationality_la', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_ZH => t('trexima_european_cv.form_label.nationality_zh', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_VI => t('trexima_european_cv.form_label.nationality_vi', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_JA => t('trexima_european_cv.form_label.nationality_ja', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_KO => t('trexima_european_cv.form_label.nationality_ko', [], 'trexima_european_cv'),
-                LanguageEnum::LANGUAGE_OTHER => t('trexima_european_cv.form_label.nationality_other', [], 'trexima_european_cv'),
-            },
-            'label' => 'Štátna príslušnosť',
-            // 'attr' => [
-            //     'data-trexima-european-cv-bind-select2' => true,
-            // ],
+            'choices' => $this->getNationalitiesArray(),
+            'label' => t('trexima_european_cv.form_label.nationalities_label', [], 'trexima_european_cv'),
         ])
         ->add('year', ChoiceType::class, [
             'required' => false,
@@ -174,7 +103,7 @@ class EuropeanCVPartBasicInfoType extends AbstractType
             'choice_label' => function ($choice) {
                 return $choice;
             },
-            'label' => 'Rok narodenia',
+            'label' => t('trexima_european_cv.form_label.year_label', [], 'trexima_european_cv'),
         ])
         ->add('month', ChoiceType::class, [
             'required' => false,
@@ -182,7 +111,7 @@ class EuropeanCVPartBasicInfoType extends AbstractType
             'choice_label' => function ($choice) {
                 return $choice;
             },
-            'label' => 'Mesiac narodenia',
+            'label' => t('trexima_european_cv.form_label.month_label', [], 'trexima_european_cv'),
         ])
         ->add('day', ChoiceType::class, [
             'required' => false,
@@ -190,13 +119,13 @@ class EuropeanCVPartBasicInfoType extends AbstractType
             'choice_label' => function ($choice) {
                 return $choice;
             },
-            'label' => 'Deň narodenia',
+            'label' => t('trexima_european_cv.form_label.day_label', [], 'trexima_european_cv'),
         ])
         ->add('email', null, [
             'required' => false,
-            'label' => 'E-mail',
+            'label' => t('trexima_european_cv.form_label.email_label', [], 'trexima_european_cv'),
             'attr' => [
-                'placeholder' => 'vzor@vzor.sk'
+                'placeholder' => t('trexima_european_cv.form_label.email_placeholder', [], 'trexima_european_cv')
             ]
         ])
         ->add('phones', CollectionType::class, [
@@ -211,13 +140,13 @@ class EuropeanCVPartBasicInfoType extends AbstractType
         ])
         ->add('address', null, [
             'required' => false,
-            'label' => 'Adresa',
+            'label' => t('trexima_european_cv.form_label.address_label', [], 'trexima_european_cv'),
             'attr' => [
-                'placeholder' => 'Vzorová 3, 841 01 Bratislava IV, Slovenská republika'
+                'placeholder' => t('trexima_european_cv.form_label.address_placeholder', [], 'trexima_european_cv'),
             ]
         ])
         ->add('personalWebsites', CollectionType::class, [
-            'label' => 'Osobná webová stránka',
+            'label' => t('trexima_european_cv.form_label.personal_websites_label', [], 'trexima_european_cv'),
             'required' => false,
             'entry_type' => TextType::class,
             'entry_options' => [
@@ -230,10 +159,10 @@ class EuropeanCVPartBasicInfoType extends AbstractType
             'delete_empty' => true,
         ])
         ->add('description', TextareaType::class, [
-            'label' => 'Stručný text o vás, ktorý sa zobrazí v hlavičke životopisu',
+            'label' => t('trexima_european_cv.form_label.description_label', [], 'trexima_european_cv'),
             'required' => false,
             'attr' => [
-                'placeholder' => 'O vás'
+                'placeholder' => t('trexima_european_cv.form_label.description_placeholder', [], 'trexima_european_cv')
             ]
         ])
         ;
@@ -316,5 +245,14 @@ class EuropeanCVPartBasicInfoType extends AbstractType
         }
 
         return $titles;
+    }
+
+    private function getNationalitiesArray() {
+        $nationalities = [];
+        foreach (LanguageEnum::cases() as $language) {
+            $nationalities[t('trexima_european_cv.form_label.nationality_' . $language->value, [], 'trexima_european_cv')->trans($this->translator)] = $language->value;
+        }
+
+        return $nationalities;
     }
 }

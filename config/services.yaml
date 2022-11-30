@@ -49,5 +49,17 @@ services:
             $username: '%trexima_european_cv_harvey_username%'
             $password: '%trexima_european_cv_harvey_password%'
 
+    Trexima\EuropeanCvBundle\Form\Type\EuropeanCVPracticeType:
+        arguments:
+            $translator: '@translator'
+
+    Trexima\EuropeanCvBundle\Form\Type\EuropeanCVWorkBreakType:
+        arguments:
+            $translator: '@translator'
+
+    Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartBasicInfoType:
+        arguments:
+            $translator: '@translator'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

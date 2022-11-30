@@ -3,8 +3,6 @@
 namespace Trexima\EuropeanCvBundle\Form\Type;
 
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\QueryBuilder;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Exception\UnexpectedTypeException;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -15,7 +13,6 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVDrivingLicense;
-use Trexima\EuropeanCvBundle\Entity\Listing\DrivingLicense;
 use Trexima\EuropeanCvBundle\Listing\EuropeanCvListingInterface;
 
 /**

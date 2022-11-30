@@ -4,15 +4,12 @@ namespace Trexima\EuropeanCvBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVEducation;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Trexima\EuropeanCvBundle\Entity\Enum\EducationTypeEnum;
-use Trexima\EuropeanCvBundle\Form\Type\AtomicDateRangeType;
-use Trexima\EuropeanCvBundle\Form\Type\Select2Type;
 use Trexima\EuropeanCvBundle\Form\Type\YearRangeType;
 
 use function Symfony\Component\Translation\t;
@@ -27,15 +24,14 @@ class EuropeanCVEducationType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => 'Názov školy',
+                'label' => t('trexima_european_cv.form_label.education_title_label', [], 'trexima_european_cv'),
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Názov školy'
+                    'placeholder' => t('trexima_european_cv.form_label.education_title_placeholder', [], 'trexima_european_cv')
                 ]
             ])
             ->add('type', EnumType::class, [
                 'class' => EducationTypeEnum::class,
-                // 'placeholder' => t('trexima_european_cv.form_placeholder.style', [], 'trexima_european_cv'),
                 'required' => true,
                 'expanded' => true,
                 'multiple' => false,
@@ -45,18 +41,17 @@ class EuropeanCVEducationType extends AbstractType
                     EducationTypeEnum::EDUCATION_UNIVERSITY => t('trexima_european_cv.form_label.education_university', [], 'trexima_european_cv'),
                     EducationTypeEnum::EDUCATION_CERTIFICATE => t('trexima_european_cv.form_label.education_certificate', [], 'trexima_european_cv'),
                 },
-                // 'label' => t('trexima_european_cv.form_label.style', [], 'trexima_european_cv'),
             ])
             ->add('yearRange', YearRangeType::class, [
                 'required' => false,
-                'label' => 'Rozsah',
+                'label' => t('trexima_european_cv.form_label.education_year_range_label', [], 'trexima_european_cv')
             ])
             
             ->add('description', TextareaType::class, [
-                'label' => 'Opis Štúdia',
+                'label' => t('trexima_european_cv.form_label.education_description_label', [], 'trexima_european_cv'),
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Opíšte vaše štúdium'
+                    'placeholder' => t('trexima_european_cv.form_label.education_description_placeholder', [], 'trexima_european_cv')
                 ]
             ])
             ;

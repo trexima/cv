@@ -1,0 +1,13 @@
+{% trans_default_domain 'trexima_european_cv' %}
+<div class="row">
+    <div class="col-md offset-md-4">
+        <div class="form-group">
+            <button class="btn btn-block btn-primary" type="button" data-trexima-european-cv-dynamic-collection-add="#{{ form.workBreaks.vars.id }}">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                {{ 'trexima_european_cv.form_label.add_work_break_button'|trans }}
+            </button>
+        </div>
+    </div>
+</div>
+
+{{ form_row(form.workBreaks) }}

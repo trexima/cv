@@ -10,13 +10,19 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVPractice;
 use Trexima\EuropeanCvBundle\Facade\Harvey;
 use Trexima\EuropeanCvBundle\Form\Type\MonthYearRangeType;
 
+use function Symfony\Component\Translation\t;
+
 class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInterface
 {
-    public function __construct(private readonly Harvey $harvey)
+    public function __construct(
+        private readonly Harvey $harvey,
+        private readonly TranslatorInterface $translator
+    )
     {
     }
     
@@ -28,13 +34,13 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
         $harvey = $this->harvey;
         $builder
             ->add('iscoCode', Select2Type::class, [
-                'label' => 'Zamestnanie',
+                'label' => t('trexima_european_cv.form_label.practice_isco_code_label', [], 'trexima_european_cv'),
                 'required' => false,
                 'by_reference' => false,
                 'multiple' => false,
-                'help' => 'Viac info: <a target="_blank" href="https://www.hisco.sk/stromova-struktura">hisco.sk</a>',
+                'help' => t('trexima_european_cv.form_label.practice_isco_code_help', [], 'trexima_european_cv')->trans($this->translator) . ' <a target="_blank" href="https://www.hisco.sk/stromova-struktura">hisco.sk</a>',
                 'help_html' => true,
-                'placeholder' => 'Prosím, vyberte možnosť',
+                'placeholder' => t('trexima_european_cv.form_label.practice_isco_code_placeholder', [], 'trexima_european_cv'),
                 'ajax_route_path' => '/trexima-european-cv-bundle-harvey/isco-autocomplete',
                 'choice_label' => function (string $code) use ($harvey) {
                     $isco = $harvey->getClient()->getIsco($code);
@@ -46,10 +52,10 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
                 'choice_loader' => new Select2ChoiceLoader()
             ])
             ->add('employee', TextType::class, [
-                'label' => 'Zamestnávateľ',
+                'label' => t('trexima_european_cv.form_label.practice_employee_label', [], 'trexima_european_cv'),
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Zamestnávateľ'
+                    'placeholder' => t('trexima_european_cv.form_label.practice_employee_placeholder', [], 'trexima_european_cv'),
                 ]
             ])
             ->add('dateRange', MonthYearRangeType::class, [
@@ -57,12 +63,13 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
                 'required' => false,
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'Opis práca',
+                'label' => t('trexima_european_cv.form_label.practice_description_label', [], 'trexima_european_cv'),
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Opíšte Vaše pracovné skúsenosti'
+                    'placeholder' => t('trexima_european_cv.form_label.practice_description_placeholder', [], 'trexima_european_cv')
                 ]
             ])
+            ->addEventSubscriber($this);
             ;
     }
 
