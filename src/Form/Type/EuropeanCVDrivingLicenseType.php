@@ -10,7 +10,8 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVDrivingLicense;
-use Trexima\EuropeanCvBundle\Entity\Listing\DrivingLicense;
+
+use function Symfony\Component\Translation\t;
 
 class EuropeanCVDrivingLicenseType extends AbstractType
 {
@@ -26,14 +27,13 @@ class EuropeanCVDrivingLicenseType extends AbstractType
             'required' => false
         ])
         ->add('distanceTraveled', null, [
-            // 'label' => 'Počet KM',
             'label' => false,
             'required' => false, 'attr' => [
-                'placeholder' => 'Počet KM'
+                'placeholder' => t('trexima_european_cv.form_label.driving_license_distance_traveled_placeholder', [], 'trexima_european_cv')
             ]
         ])
         ->add('activeDriver', CheckboxType::class, [
-            'label' => 'Som aktívny vodič',
+            'label' => t('trexima_european_cv.form_label.driving_license_active_driver_label', [], 'trexima_european_cv'),
             'required' => false
         ])
         ;

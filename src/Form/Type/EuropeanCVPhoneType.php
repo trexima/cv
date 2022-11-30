@@ -10,6 +10,8 @@ use Trexima\EuropeanCvBundle\Entity\EuropeanCVPhone;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use function Symfony\Component\Translation\t;
+
 class EuropeanCVPhoneType extends AbstractType
 {
     /**
@@ -17,18 +19,19 @@ class EuropeanCVPhoneType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('position', HiddenType::class)
+        $builder
+            ->add('position', HiddenType::class)
             ->add('type', ChoiceType::class, [
-                'label' => 'Typ',
-                'placeholder' => 'Prosím, vyberte',
+                'label' => t('trexima_european_cv.form_label.phone_type_label', [], 'trexima_european_cv'),
+                'placeholder' => t('trexima_european_cv.form_label.phone_type_placeholder', [], 'trexima_european_cv'),
                 'required' => false,
                 'choices'  => array_flip(EuropeanCVPhone::TYPES)
             ])
             ->add('number', TextType::class, [
-                'label' => 'Tel.',
+                'label' => t('trexima_european_cv.form_label.phone_number_label', [], 'trexima_european_cv'),
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'V tvare: +421918123456'
+                    'placeholder' => t('trexima_european_cv.form_label.phone_number_placeholder', [], 'trexima_european_cv')
                 ]
             ]);
     }

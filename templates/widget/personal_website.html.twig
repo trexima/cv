@@ -1,3 +1,5 @@
+{% trans_default_domain 'trexima_european_cv' %}
+
 {{ form_row(form.personalWebsites) }}
 
 <div class="row">
@@ -5,7 +7,7 @@
         <div class="form-group">
             <button class="btn btn-block btn-primary" type="button" data-trexima-european-cv-dynamic-collection-add="#{{ form.personalWebsites.vars.id }}">
                 <i class="fa fa-plus" aria-hidden="true"></i>
-                Pridať stránku
+                {{ 'trexima_european_cv.form_label.add_personal_website_button'|trans }}
             </button>
         </div>
     </div>

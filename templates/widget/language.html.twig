@@ -1,9 +1,11 @@
+{% trans_default_domain 'trexima_european_cv' %}
+
 <div class="row">
     <div class="col-md offset-md-8">
         <div class="form-group">
             <button class="btn btn-block btn-primary" type="button" data-trexima-european-cv-dynamic-collection-add="#{{ form.languages.vars.id }}">
                 <i class="fa fa-plus" aria-hidden="true"></i>
-                Pridať jazyk
+                {{ 'trexima_european_cv.form_label.add_language_button'|trans }}
             </button>
         </div>
     </div>

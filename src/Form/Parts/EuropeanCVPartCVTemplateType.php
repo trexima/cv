@@ -25,7 +25,6 @@ class EuropeanCVPartCVTemplateType extends AbstractType
     {
         $builder
         ->add('language', ChoiceType::class, [
-            // 'placeholder' => t('trexima_european_cv.form_placeholder.language', [], 'trexima_european_cv'),
             'required' => true,
             'choices' => [
                 LanguageEnum::LANGUAGE_SK,
@@ -45,14 +44,12 @@ class EuropeanCVPartCVTemplateType extends AbstractType
         ])
         ->add('style', EnumType::class, [
             'class' => StyleEnum::class,
-            // 'placeholder' => t('trexima_european_cv.form_placeholder.style', [], 'trexima_european_cv'),
             'required' => true,
             'expanded' => true,
             'multiple' => false,
             'choice_label' => fn(StyleEnum $choice) => match ($choice) {
                 default => $choice->value
             },
-            // 'label' => t('trexima_european_cv.form_label.style', [], 'trexima_european_cv'),
         ])
         ;
     }
