@@ -2,7 +2,7 @@
     "name": "trexima/cv",
     "description": "Bundle provides form for creating CV in european format.",
     "type": "symfony-bundle",
-	"version": "1.0.4",
+	"version": "1.0.5",
     "license": "MIT",
     "authors": [
         {
