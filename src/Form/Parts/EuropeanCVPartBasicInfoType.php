@@ -47,7 +47,6 @@ class EuropeanCVPartBasicInfoType extends AbstractType
         ->add('sex', EnumType::class, [
             'class' => SexEnum::class,
             'required' => true,
-            'data' => SexEnum::DO_NOT_STATE,
             'expanded' => true,
             'multiple' => false,
             'choice_label' => fn(SexEnum $choice) => match ($choice) {
