@@ -89,7 +89,7 @@ class EuropeanCV
     #[ORM\Column]
     private array $nationalities = [];
 
-    #[ORM\Column(type: 'integer', options: ['unsigned' => true])]
+    #[ORM\Column(type: 'integer', options: ['unsigned' => true], nullable: true)]
     private ?int $year = null;
 
     #[ORM\Column(type: 'integer', options: ['unsigned' => true], nullable: true)]
