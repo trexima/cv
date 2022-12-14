@@ -65,13 +65,15 @@ class EuropeanCVPartBasicInfoType extends AbstractType
             'label' => t('trexima_european_cv.form_label.first_name_label', [], 'trexima_european_cv'),
             'attr' => [
                 'placeholder' => t('trexima_european_cv.form_label.first_name_placeholder', [], 'trexima_european_cv')
-            ]
+            ],
+            'required' => false
         ])
         ->add('lastName', TextType::class, [
             'label' => t('trexima_european_cv.form_label.last_name_label', [], 'trexima_european_cv'),
             'attr' => [
                 'placeholder' => t('trexima_european_cv.form_label.last_name_placeholder', [], 'trexima_european_cv')
-            ]
+            ],
+            'required' => false
         ])
         ->add('titlesBefore', Select2Type::class, [
             'label' => t('trexima_european_cv.form_label.titles_before_label', [], 'trexima_european_cv'),
