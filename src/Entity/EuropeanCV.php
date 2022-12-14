@@ -74,10 +74,10 @@ class EuropeanCV
     #[ORM\Column(type: 'string', length: 128, nullable: true)]
     private ?string $photo = null;
 
-    #[ORM\Column(type: 'string', length: 128)]
+    #[ORM\Column(type: 'string', length: 128, nullable: true)]
     private ?string $firstName = null;
 
-    #[ORM\Column(type: 'string', length: 128)]
+    #[ORM\Column(type: 'string', length: 128, nullable: true)]
     private ?string $lastName = null;
 
     #[ORM\Column]
