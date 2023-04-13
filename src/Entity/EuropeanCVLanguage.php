@@ -40,7 +40,7 @@ class EuropeanCVLanguage
         $this->id = $id;
     }
 
-    public function getEuropeanCV(): EuropeanCV
+    public function getEuropeanCV(): ?EuropeanCV
     {
         return $this->europeanCV;
     }

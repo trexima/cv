@@ -12,21 +12,18 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Trexima\EuropeanCvBundle\Entity\Enum\DrivingLicenseEnum;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVDrivingLicense;
-use Trexima\EuropeanCvBundle\Listing\EuropeanCvListingInterface;
 
 /**
  * Specialized checkboxes for selecting driving licenses.
  */
 class DrivingLicenseType extends AbstractType
 {
-    public function __construct(private readonly EuropeanCvListingInterface $europeanCvListing)
-    {
-    }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $drivingLicenses = $this->europeanCvListing->getDrivingLicenseList();
+        $drivingLicenses = DrivingLicenseEnum::cases();
         /**
          * Prefill form with all available driving licenses
          */
@@ -50,29 +47,29 @@ class DrivingLicenseType extends AbstractType
             }
 
             // Then add all rows again in the correct order
-            foreach ($drivingLicenses as $drivingLicenseCode => $drivingLicense) {
+            foreach ($drivingLicenses as $drivingLicense) {
                 $actualDrivingLicenseData = null;
                 foreach ($data as $drivingLicenseData) {
-                    if ($drivingLicenseData->getDrivingLicense() === $drivingLicenseCode) {
+                    if ($drivingLicenseData->getDrivingLicense() === $drivingLicense) {
                         $actualDrivingLicenseData = $drivingLicenseData;
                         break;
                     }
                 }
 
-                $name = 'driving_license_'.$drivingLicenseCode;
+                $name = 'driving_license_'.$drivingLicense->value;
                 $form->add(
                     $name,
                     $options['entry_type'],
                     array_replace([
-                        'label' => $drivingLicense['label'],
+                        'label' => $drivingLicense->getTitle(),
                         'property_path' => '['.$name.']',
                         'driving_license' => $drivingLicense,
-                        'driving_license_code' => $drivingLicenseCode,
                         'data' => $actualDrivingLicenseData,
-                        'help' => $drivingLicense['tooltip'],
+                        'help' => '',
                         'attr' => [
                             'class' => 'form-inline'
-                        ]
+                        ],
+                        'existing_licenses' => $options['existing_licenses']
                     ], $options['entry_options'])
                 );
             }
@@ -111,7 +108,7 @@ class DrivingLicenseType extends AbstractType
     {
         parent::buildView($view, $form, $options);
 
-        $view->vars['driving_licenses'] = $this->europeanCvListing->getDrivingLicenseList();
+        $view->vars['driving_licenses'] = DrivingLicenseEnum::cases();
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -124,7 +121,8 @@ class DrivingLicenseType extends AbstractType
             'delete_empty' => true,
             'entry_options' => [
                 'required' => false,
-            ]
+            ],
+            'existing_licenses' => []
         ]);
     }
 

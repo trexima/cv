@@ -23,6 +23,11 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('password')->end()
                     ->end()
                 ->end() // harvey
+                ->arrayNode('google')
+                    ->children()
+                        ->scalarNode('apikey')->end()
+                    ->end()
+                ->end() // google
             ->end();
 
         return $treeBuilder;

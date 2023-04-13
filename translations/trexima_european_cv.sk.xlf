@@ -559,7 +559,7 @@
       </trans-unit>
       <trans-unit id="education-title-label" resname="trexima_european_cv.form_label.education_title_label">
         <source>trexima_european_cv.form_label.education_title_label</source>
-        <target>Názov školy</target>
+        <target>Názov a adresa školy</target>
       </trans-unit>
       <trans-unit id="education-title-placeholder" resname="trexima_european_cv.form_label.education_title_placeholder">
         <source>trexima_european_cv.form_label.education_title_placeholder</source>
@@ -591,7 +591,7 @@
       </trans-unit>
       <trans-unit id="phone-type-label" resname="trexima_european_cv.form_label.phone_type_label">
         <source>trexima_european_cv.form_label.phone_type_label</source>
-        <target>Typ</target>
+        <target>Telefón</target>
       </trans-unit>
       <trans-unit id="phone-type-placeholder" resname="trexima_european_cv.form_label.phone_type_placeholder">
         <source>trexima_european_cv.form_label.phone_type_placeholder</source>
@@ -599,7 +599,7 @@
       </trans-unit>
       <trans-unit id="phone-number-label" resname="trexima_european_cv.form_label.phone_number_label">
         <source>trexima_european_cv.form_label.phone_number_label</source>
-        <target>Tel.</target>
+        <target>Vyplňte číslo</target>
       </trans-unit>
       <trans-unit id="phone-number-placeholder" resname="trexima_european_cv.form_label.phone_number_placeholder">
         <source>trexima_european_cv.form_label.phone_number_placeholder</source>
@@ -689,17 +689,105 @@
         <source>trexima_european_cv.form_label.add_education_button</source>
         <target>Pridať vzdelanie</target>
       </trans-unit>
+      <trans-unit id="save-education-button" resname="trexima_european_cv.form_label.save_education_button">
+        <source>trexima_european_cv.form_label.save_education_button</source>
+        <target>Uložiť vzdelanie</target>
+      </trans-unit>
       <trans-unit id="add-language-button" resname="trexima_european_cv.form_label.add_language_button">
         <source>trexima_european_cv.form_label.add_language_button</source>
         <target>Pridať jazyk</target>
       </trans-unit>
-      <trans-unit id="add-personal-website-button" resname="trexima_european_cv.form_label.add_personal_website_button">
-        <source>trexima_european_cv.form_label.add_personal_website_button</source>
-        <target>Pridať stránku</target>
-      </trans-unit>
       <trans-unit id="add-practice-button" resname="trexima_european_cv.form_label.add_practice_button">
         <source>trexima_european_cv.form_label.add_practice_button</source>
         <target>Pridať prax</target>
+      </trans-unit>
+      <trans-unit id="kov-label" resname="trexima_european_cv.form_label.education_kov">
+        <source>trexima_european_cv.form_label.education_kov</source>
+        <target>Študijný/učebný odbor</target>
+      </trans-unit>
+      <trans-unit id="institution-label" resname="trexima_european_cv.form_label.certificate_institution_label">
+        <source>trexima_european_cv.form_label.certificate_institution_label</source>
+        <target>Vzdelávacia inštitúcia</target>
+      </trans-unit>
+      <trans-unit id="certificate-label" resname="trexima_european_cv.form_label.certificate_title_label">
+        <source>trexima_european_cv.form_label.certificate_title_label</source>
+        <target>Názov kurzu/certifikátu</target>
+      </trans-unit>
+      <trans-unit id="certificate-start-label" resname="trexima_european_cv.form_label.certificate_start_label">
+        <source>trexima_european_cv.form_label.certificate_start_label</source>
+        <target>Rok absolvovania</target>
+      </trans-unit>
+      <trans-unit id="certificate-end-label" resname="trexima_european_cv.form_label.certificate_end_label">
+        <source>trexima_european_cv.form_label.certificate_end_label</source>
+        <target>Koniec platnosti</target>
+      </trans-unit>
+      <trans-unit id="certificate-no-end-date" resname="trexima_european_cv.form_label.certificate_no_end_date">
+        <source>trexima_european_cv.form_label.certificate_no_end_date</source>
+        <target>Certifikát nemá časové obmedzenie</target>
+      </trans-unit>
+      <trans-unit id="certificate-description-label" resname="trexima_european_cv.form_label.certificate_description_label">
+        <source>trexima_european_cv.form_label.certificate_description_label</source>
+        <target>Opis kurzu/certifikátu</target>
+      </trans-unit>
+      <trans-unit id="certificate-save-label" resname="trexima_european_cv.form_label.save_certificate_button">
+        <source>trexima_european_cv.form_label.save_certificate_button</source>
+        <target>Uložiť certifikát</target>
+      </trans-unit>
+      <trans-unit id="practice-save-label" resname="trexima_european_cv.form_label.save_practice_button">
+        <source>trexima_european_cv.form_label.save_practice_button</source>
+        <target>Uložiť pracovnú skúsenosť</target>
+      </trans-unit>
+      <trans-unit id="work-break-save-label" resname="trexima_european_cv.form_label.save_work_break_button">
+        <source>trexima_european_cv.form_label.save_work_break_button</source>
+        <target>Uložiť prestávku v práci</target>
+      </trans-unit>
+      <trans-unit id="pc-skill-level-elementary" resname="app.enum.pc_skill_level.elementary">
+        <source>app.enum.pc_skill_level.elementary</source>
+        <target>Elementárna</target>
+      </trans-unit>
+      <trans-unit id="pc-skill-level-intermediate" resname="app.enum.pc_skill_level.intermediate">
+        <source>app.enum.pc_skill_level.intermediate</source>
+        <target>Pokročilá</target>
+      </trans-unit>
+      <trans-unit id="pc-skill-level-master" resname="app.enum.pc_skill_level.master">
+        <source>app.enum.pc_skill_level.master</source>
+        <target>Vysoká</target>
+      </trans-unit>
+      <trans-unit id="add-personal-website-button" resname="trexima_european_cv.form_label.add_personal_website_button">
+        <source>trexima_european_cv.form_label.add_personal_website_button</source>
+        <target>Pridať osobnú stránku</target>
+      </trans-unit>
+      <trans-unit id="pick-year" resname="trexima_european_cv.form_label.year_placeholder">
+        <source>trexima_european_cv.form_label.year_placeholder</source>
+        <target>Vyberte rok</target>
+      </trans-unit>
+      <trans-unit id="pick-month" resname="trexima_european_cv.form_label.month_placeholder">
+        <source>trexima_european_cv.form_label.month_placeholder</source>
+        <target>Vyberte mesiac</target>
+      </trans-unit>
+      <trans-unit id="pick-day" resname="trexima_european_cv.form_label.day_placeholder">
+        <source>trexima_european_cv.form_label.day_placeholder</source>
+        <target>Vyberte deň</target>
+      </trans-unit>
+
+      <trans-unit id="enum-education-elementary-school" resname="trexima_european_cv.education_type_enum.education_elementary_school">
+        <source>trexima_european_cv.education_type_enum.education_elementary_school</source>
+        <target>Základná škola</target>
+      </trans-unit>
+
+      <trans-unit id="enum-education-high-school" resname="trexima_european_cv.education_type_enum.education_high_school">
+        <source>trexima_european_cv.education_type_enum.education_high_school</source>
+        <target>Stredná škola</target>
+      </trans-unit>
+
+      <trans-unit id="enum-education-university" resname="trexima_european_cv.education_type_enum.education_university">
+        <source>trexima_european_cv.education_type_enum.education_university</source>
+        <target>Vysoká škola</target>
+      </trans-unit>
+
+      <trans-unit id="enum-education-certificate" resname="trexima_european_cv.education_type_enum.education_certificate">
+        <source>trexima_european_cv.education_type_enum.education_certificate</source>
+        <target>Certifikát</target>
       </trans-unit>
     </body>
   </file>

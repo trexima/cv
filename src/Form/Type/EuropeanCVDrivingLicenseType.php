@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Trexima\EuropeanCvBundle\Entity\Enum\DrivingLicenseEnum;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVDrivingLicense;
 
 use function Symfony\Component\Translation\t;
@@ -21,20 +22,34 @@ class EuropeanCVDrivingLicenseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $drivingLicense = $options['driving_license'];
-        $drivingLicenseCode = $options['driving_license_code'];
+
         $builder->add('drivingLicense', CheckboxType::class, [
-            'label' => $drivingLicense ? $drivingLicense['label'] : false,
-            'required' => false
+            'label' => $drivingLicense?->getTitle() ?: false,
+            'required' => false,
+            'attr' => [
+                'data-icon-class' => $drivingLicense?->getIconClass(),
+            ],
+            'toggle' => [
+                [
+                    'key' => '1',
+                    'value' => [
+                        '#driving_license_europeanCV_drivingLicenses_driving_license_' . $drivingLicense->value . '_distanceTraveled',
+                        '#driving_license_europeanCV_drivingLicenses_driving_license_' . $drivingLicense->value . '_activeDriver'
+                    ]
+                ]
+            ]
         ])
         ->add('distanceTraveled', null, [
             'label' => false,
             'required' => false, 'attr' => [
                 'placeholder' => t('trexima_european_cv.form_label.driving_license_distance_traveled_placeholder', [], 'trexima_european_cv')
-            ]
+            ],
+            'hidden' => !in_array($drivingLicense->value, $options['existing_licenses'])
         ])
         ->add('activeDriver', CheckboxType::class, [
             'label' => t('trexima_european_cv.form_label.driving_license_active_driver_label', [], 'trexima_european_cv'),
-            'required' => false
+            'required' => false,
+            'hidden' => !in_array($drivingLicense->value, $options['existing_licenses'])
         ])
         ;
 
@@ -44,10 +59,14 @@ class EuropeanCVDrivingLicenseType extends AbstractType
         $builder->get('drivingLicense')->addModelTransformer(new CallbackTransformer(
             // Value is already filled if array with driver license data is recieved
             fn($isChecked) => $isChecked ? true : $isChecked,
-            function ($isChecked) use ($drivingLicenseCode) {
+            function ($isChecked) use ($drivingLicense) {
                 if ($isChecked) {
                     // Field is checked, save entity to parent entity
-                    return $drivingLicenseCode;
+                    foreach (DrivingLicenseEnum::cases() as $case) {
+                        if ($case->value === $drivingLicense->value) {
+                            return $case;
+                        }
+                    }
                 }
 
                 // Field isn't checked, return null to parent entity
@@ -70,12 +89,12 @@ class EuropeanCVDrivingLicenseType extends AbstractType
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
-            'data_class' => EuropeanCVDrivingLicense::class
+            'data_class' => EuropeanCVDrivingLicense::class,
+            'existing_licenses' => []
         ]);
 
         $resolver->setRequired([
             'driving_license',
-            'driving_license_code'
         ]);
     }
 

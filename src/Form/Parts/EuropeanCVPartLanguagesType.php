@@ -2,19 +2,22 @@
 
 namespace Trexima\EuropeanCvBundle\Form\Parts;
 
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Trexima\EuropeanCvBundle\Form\Type\EuropeanCVLanguageType;
+use Symfony\Component\Validator\Constraints\Valid;
+use Trexima\EuropeanCvBundle\Entity\EuropeanCVLanguage;
 
 /**
  * Languages
  */
-class EuropeanCVPartLanguagesType extends AbstractType
+class EuropeanCVPartLanguagesType extends AbstractType implements EventSubscriberInterface
 {
-
     /**
      * {@inheritdoc}
      */
@@ -22,17 +25,39 @@ class EuropeanCVPartLanguagesType extends AbstractType
     {
         $builder
             ->add('languages', CollectionType::class, [
-                'entry_type' => EuropeanCVLanguageType::class,
-                'entry_options' => [
-                    'label' => false
-                ],
-                'by_reference' => false,
+                'custom_style' => true,
                 'label' => false,
+                'entry_type' => $options['languageTypeClass'],
+                'entry_options' => [
+                    'label' => false,
+                    'data_class' => EuropeanCVLanguage::class,
+                    'error_bubbling' => false,
+                    'child_config' => [
+                        'language' => [
+                            'required' => false,
+                        ],
+                        'level' => [
+                            'required' => false,
+                            'allow_undefined_option' => true,
+                        ],
+                    ],
+                ],
                 'prototype' => true,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'delete_empty' => true
+                'delete_empty' => fn($data) => $data?->getLanguage() === null,
+                'error_bubbling' => false,
+                'constraints' => [
+                    new Valid(),
+                ],
+                'required' => false,
+                'child_config' => [
+                    'level' => [
+                        'transform' => true
+                    ]
+                ]
             ])
+            ->addEventSubscriber($this);
         ;
     }
 
@@ -44,19 +69,30 @@ class EuropeanCVPartLanguagesType extends AbstractType
         parent::configureOptions($resolver);
         $resolver->setDefaults([
             'data_class' => EuropeanCV::class,
-            'is_user_logged_in' => false,
-            'translation_domain' => 'trexima_european_cv',
-            'sex_required' => false,
-            'phones_min' => 0,
-            'practices_min' => 0,
-            'educations_min' => 0,
-            'languages_min' => 0,
-            'additional_informations_min' => 0,
-            'attachments_min' => 0
+            'languageTypeClass' => null,
          ]);
 
         $resolver->setRequired([
             'photo_upload_route'
         ]);
+    }
+
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            FormEvents::POST_SUBMIT => 'onPostSubmit',
+        ];
+    }
+
+    public function onPostSubmit(FormEvent $formEvent): void
+    {
+        /** @var EuropeanCV $data */
+        $data = $formEvent->getData();
+
+        foreach ($data->getLanguages() as $language) {
+            if (null === $language->getEuropeanCV()) {
+                $language->setEuropeanCV($data);
+            }
+        }
     }
 }
