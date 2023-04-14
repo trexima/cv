@@ -11,16 +11,3 @@ enum LanguageLevelEnum: string
     case LANGUAGE_LEVEL_C1 = 'C1';
     case LANGUAGE_LEVEL_C2 = 'C2';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

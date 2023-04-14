@@ -27,19 +27,37 @@ class HarveyController extends AbstractController
         $perPage = 50;
 
         $results = [];
-        $data = $this->harvey->getClient()->searchIsco($term, null, null, [7], null, null, $page, $perPage);
-        foreach ($data as $isco) {
-            $results[] = [
-                'id' => $isco['code'],
-                'text' => sprintf('%s %s', $isco['code'], $isco['title'])
+        $results = $this->harvey->getClient()->searchIsco($term, null, null, [4], null, null, $page, $perPage);
+        $results = \array_map(function ($value) {
+            return [
+                'id' => $value['code'],
+                'text' => $value['title'],
             ];
-        }
+        }, $results);
 
-        return $this->json([
-            'results' => $results,
-            'page' => $page,
-            'perPage' => $perPage,
-            'total' => count($results) !== 0 ? ($page * $perPage) + 1 : ($page * $perPage) // Load new while result set is not empty
-        ]);
+        $results = ['results' => $results];
+
+        return $this->json($results);
+    }
+
+    #[Route(path: '/kov-autocomplete', name: 'trexima_european_cv_kov_autocomplete')]
+    public function kovAutocomplete(Request $request): Response
+    {
+        $term = $request->get('term');
+        $page = $request->get('page');
+        $perPage = 50;
+
+        $results = [];
+        $results = $this->harvey->getClient()->searchKov($term, null, $page, $perPage);
+        $results = \array_map(function ($value) {
+            return [
+                'id' => $value['code'],
+                'text' => $value['title'],
+            ];
+        }, $results);
+
+        $results = ['results' => $results];
+
+        return $this->json($results);
     }
 }

@@ -14,16 +14,3 @@ enum StyleEnum: string
     case STYLE_05 = 'style05';
     case STYLE_06 = 'style06';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -2,9 +2,8 @@
 
 namespace Trexima\EuropeanCvBundle\Entity;
 
-use Trexima\EuropeanCvBundle\Entity\Listing\DrivingLicense;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+use Trexima\EuropeanCvBundle\Entity\Enum\DrivingLicenseEnum;
 
 /**
  * EuropeanCV practice
@@ -24,8 +23,8 @@ class EuropeanCVDrivingLicense
     #[ORM\JoinColumn(referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
     private ?\Trexima\EuropeanCvBundle\Entity\EuropeanCV $europeanCV = null;
 
-    #[ORM\Column(type: 'string', length: 4, nullable: true)]
-    private ?string $drivingLicense = null;
+    #[ORM\Column(type: 'string', length: 4, nullable: true, enumType: DrivingLicenseEnum::class)]
+    private ?DrivingLicenseEnum $drivingLicense = null;
 
     #[ORM\Column(type: 'integer', nullable: true, options: ['unsigned' => true, 'comment' => 'Distance traveled in kilometers'])]
     private ?string $distanceTraveled = null;
@@ -53,12 +52,12 @@ class EuropeanCVDrivingLicense
         $this->europeanCV = $europeanCV;
     }
 
-    public function getDrivingLicense(): ?string
+    public function getDrivingLicense(): ?DrivingLicenseEnum
     {
         return $this->drivingLicense;
     }
 
-    public function setDrivingLicense(?string $drivingLicense): void
+    public function setDrivingLicense(?DrivingLicenseEnum $drivingLicense): void
     {
         $this->drivingLicense = $drivingLicense;
     }

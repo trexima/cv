@@ -237,7 +237,7 @@
                     {% if not european_cv.phones.empty %}
                         <tr>
                             <td>
-                                {% if european_cv.phones.first.type %}
+                                {# {% if european_cv.phones.first.type %}
                                     {% if european_cv.phones.first.type == constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVPhone::TYPE_MOBILE') %}
                                         {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/telefon2.png', 15, img_use_absolute_path) }}
                                     {% elseif european_cv.phones.first.type == constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVPhone::TYPE_HOME') %}
@@ -245,10 +245,10 @@
                                     {% elseif european_cv.phones.first.type == constant('Trexima\\EuropeanCvBundle\\Entity\\EuropeanCVPhone::TYPE_WORK') %}
                                         {{ european_cv_image_tag('@TreximaEuropeanCvBundle/assets/images/telefon2.png', 15, img_use_absolute_path) }}
                                     {% endif %}
-                                {% endif %}
+                                {% endif %} #}
                             </td>
                             <td>
-                                <p>
+                                {# <p>
                                     {% for phone in european_cv.phones|filter(phone => phone.number) %}
                                         {% if first_rendered is defined %}
                                             &nbsp;&nbsp;&nbsp;
@@ -266,7 +266,7 @@
                                         {% set first_rendered = 'true' %}
                                         {{ phone.number }}
                                     {% endfor %}
-                                </p>
+                                </p> #}
                             </td>
                         </tr>
                     {% endif %}
@@ -501,7 +501,7 @@
                 <td>
                     {% for drivingLicense in european_cv.drivingLicenses %}
                         <p>
-                            {{ drivingLicense.drivingLicense|european_cv_listing('drivingLicenseList').label|trans }}
+                            {{ drivingLicense.drivingLicense.value }}
                             {% if drivingLicense.distanceTraveled %}
                                 - {{ drivingLicense.distanceTraveled }} km
                             {% endif %}
