@@ -769,22 +769,18 @@
         <source>trexima_european_cv.form_label.day_placeholder</source>
         <target>Vyberte deň</target>
       </trans-unit>
-
       <trans-unit id="enum-education-elementary-school" resname="trexima_european_cv.education_type_enum.education_elementary_school">
         <source>trexima_european_cv.education_type_enum.education_elementary_school</source>
         <target>Základná škola</target>
       </trans-unit>
-
       <trans-unit id="enum-education-high-school" resname="trexima_european_cv.education_type_enum.education_high_school">
         <source>trexima_european_cv.education_type_enum.education_high_school</source>
         <target>Stredná škola</target>
       </trans-unit>
-
       <trans-unit id="enum-education-university" resname="trexima_european_cv.education_type_enum.education_university">
         <source>trexima_european_cv.education_type_enum.education_university</source>
         <target>Vysoká škola</target>
       </trans-unit>
-
       <trans-unit id="enum-education-certificate" resname="trexima_european_cv.education_type_enum.education_certificate">
         <source>trexima_european_cv.education_type_enum.education_certificate</source>
         <target>Certifikát</target>
