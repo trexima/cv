@@ -2,10 +2,13 @@
 
 namespace Trexima\EuropeanCvBundle\Form\Parts;
 
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Trexima\EuropeanCvBundle\Entity\Enum\LanguageEnum;
@@ -16,7 +19,7 @@ use function Symfony\Component\Translation\t;
 /**
  * Language and tamplate selection
  */
-class EuropeanCVPartCVTemplateType extends AbstractType
+class EuropeanCVPartCVTemplateType extends AbstractType implements EventSubscriberInterface
 {
     /**
      * {@inheritdoc}
@@ -24,7 +27,8 @@ class EuropeanCVPartCVTemplateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('language', ChoiceType::class, [
+        ->add('language', EnumType::class, [
+            'class' => LanguageEnum::class,
             'required' => true,
             'choices' => [
                 LanguageEnum::LANGUAGE_SK,
@@ -41,6 +45,9 @@ class EuropeanCVPartCVTemplateType extends AbstractType
                 LanguageEnum::LANGUAGE_HU => t('trexima_european_cv.form_label.language_hu', [], 'trexima_european_cv'),
             },
             'label' => t('trexima_european_cv.form_label.language', [], 'trexima_european_cv'),
+            'placeholder' => false,
+            'multiple' => false,
+            'form_floating' => true,
         ])
         ->add('style', EnumType::class, [
             'class' => StyleEnum::class,
@@ -51,6 +58,11 @@ class EuropeanCVPartCVTemplateType extends AbstractType
                 default => $choice->value
             },
         ])
+        ->add('template', HiddenType::class, [
+            'required' => false,
+            'mapped' => false,
+        ])
+        ->addEventSubscriber($this)
         ;
     }
 
@@ -62,19 +74,32 @@ class EuropeanCVPartCVTemplateType extends AbstractType
         parent::configureOptions($resolver);
         $resolver->setDefaults([
             'data_class' => EuropeanCV::class,
-            'is_user_logged_in' => false,
-            'translation_domain' => 'trexima_european_cv',
-            'sex_required' => false,
-            'phones_min' => 0,
-            'practices_min' => 0,
-            'educations_min' => 0,
-            'languages_min' => 0,
-            'additional_informations_min' => 0,
-            'attachments_min' => 0
          ]);
 
         $resolver->setRequired([
             'photo_upload_route'
         ]);
+    }
+
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            FormEvents::POST_SET_DATA => 'onPostSet',
+            FormEvents::SUBMIT => 'onSubmit',
+        ];
+    }
+
+    public function onPostSet(FormEvent $formEvent)
+    {
+        $form = $formEvent->getForm();
+        $data = $formEvent->getData();
+        $form->get('template')->setData($data->getStyle()->value);
+    }
+
+    public function onSubmit(FormEvent $formEvent)
+    {
+        $form = $formEvent->getForm();
+        $data = $form->getData();
+        $data->setStyle(StyleEnum::tryFrom($form->get('template')->getData() ?: StyleEnum::STYLE_01));
     }
 }

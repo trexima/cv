@@ -10,9 +10,9 @@ use Trexima\EuropeanCvBundle\Entity\Enum\EducationTypeEnum;
 /**
  * EuropeanCV education
  */
-#[ORM\Table(name: 'european_cv_education')]
+#[ORM\Table(name: 'european_cv_certificate')]
 #[ORM\Entity]
-class EuropeanCVEducation
+class EuropeanCVCertificate
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -23,17 +23,11 @@ class EuropeanCVEducation
     #[ORM\JoinColumn(name: 'european_cv_id', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
     private ?EuropeanCV $europeanCV = null;
 
-    #[ORM\Column(type: 'integer', nullable: true, enumType: EducationTypeEnum::class)]
-    private ?EducationTypeEnum $type = null;
-
     #[ORM\Column(type: 'string', length: 128, nullable: true)]
     private ?string $title = null;
 
-    #[ORM\Column(type: 'string', length: 7, nullable: true)]
-    private ?string $kovCode = null;
-
     #[ORM\Column(type: 'string', length: 100, nullable: true)]
-    private ?string $kovTitle = null;
+    private ?string $institution = null;
 
     #[ORM\Embedded(class: YearRange::class)]
     private YearRange $yearRange;
@@ -66,16 +60,6 @@ class EuropeanCVEducation
         $this->europeanCV = $europeanCV;
     }
 
-    public function getType(): ?EducationTypeEnum
-    {
-        return $this->type;
-    }
-
-    public function setType(?EducationTypeEnum $type): void
-    {
-        $this->type = $type;
-    }
-
     public function getTitle(): ?string
     {
         return $this->title;
@@ -86,24 +70,14 @@ class EuropeanCVEducation
         $this->title = $title;
     }
 
-    public function getKovCode(): ?string
+    public function getInstitution(): ?string
     {
-        return $this->kovCode;
+        return $this->institution;
     }
 
-    public function setKovCode(?string $kovCode): void
+    public function setInstitution(?string $institution): void
     {
-        $this->kovCode = $kovCode;
-    }
-
-    public function getKovTitle(): ?string
-    {
-        return $this->kovTitle;
-    }
-
-    public function setKovTitle(?string $kovTitle): void
-    {
-        $this->kovTitle = $kovTitle;
+        $this->institution = $institution;
     }
 
     public function getYearRange(): YearRange

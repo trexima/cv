@@ -48,6 +48,10 @@ services:
             $url: '%trexima_european_cv_harvey_url%'
             $username: '%trexima_european_cv_harvey_username%'
             $password: '%trexima_european_cv_harvey_password%'
+    
+    Trexima\EuropeanCvBundle\Facade\GooglePlaces:
+        arguments:
+            $apiKey: '%trexima_european_cv_google_apikey%'
 
     Trexima\EuropeanCvBundle\Form\Type\EuropeanCVPracticeType:
         arguments:
@@ -61,5 +65,13 @@ services:
         arguments:
             $translator: '@translator'
 
+    Trexima\EuropeanCvBundle\Form\Type\EuropeanCVEducationType:
+        arguments:
+            $urlGenerator: '@router.default'
+
+    Trexima\EuropeanCvBundle\Form\Type\EuropeanCVCertificateType:
+        arguments:
+            $urlGenerator: '@router.default'
+            $translator: '@translator'
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

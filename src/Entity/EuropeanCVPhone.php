@@ -4,6 +4,7 @@ namespace Trexima\EuropeanCvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Trexima\EuropeanCvBundle\Entity\Enum\PhonePrefixEnum;
 
 /**
  * EuropeanCV phone
@@ -12,16 +13,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity]
 class EuropeanCVPhone
 {
-    final public const TYPE_MOBILE = 1,
-        TYPE_HOME = 2,
-        TYPE_WORK = 3;
-
-    final public const TYPES = [
-        self::TYPE_MOBILE => 'Mobil',
-        self::TYPE_HOME => 'Doma',
-        self::TYPE_WORK => 'Práca'
-    ];
-
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer', options: ['unsigned' => true])]
@@ -31,15 +22,11 @@ class EuropeanCVPhone
     #[ORM\JoinColumn(name: 'european_cv_id', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
     private ?\Trexima\EuropeanCvBundle\Entity\EuropeanCV $europeanCV = null;
 
-    #[ORM\Column(type: 'smallint', nullable: true)]
-    // #[Assert\Choice(callback: 'getTypeList', message: 'Choose a valid phone type.')]
-    private ?int $type = null;
+    #[ORM\Column(type: 'string', nullable: false, length: 4, enumType: PhonePrefixEnum::class)]
+    private ?PhonePrefixEnum $prefix = null;
 
     #[ORM\Column(type: 'string', length: 32, nullable: true)]
     private ?string $number = null;
-
-    #[ORM\Column(type: 'integer', options: ['unsigned' => true])]
-    private ?string $position = null;
 
     public function getId(): ?int
     {
@@ -61,14 +48,14 @@ class EuropeanCVPhone
         $this->europeanCV = $europeanCV;
     }
 
-    public function getType(): ?int
+    public function getPrefix(): ?PhonePrefixEnum
     {
-        return $this->type;
+        return $this->prefix;
     }
 
-    public function setType(?int $type): void
+    public function setPrefix(?PhonePrefixEnum $prefix): void
     {
-        $this->type = $type;
+        $this->prefix = $prefix;
     }
 
     public function getNumber(): ?string
@@ -79,21 +66,6 @@ class EuropeanCVPhone
     public function setNumber(?string $number): void
     {
         $this->number = $number;
-    }
-
-    public function getPosition(): ?string
-    {
-        return $this->position;
-    }
-
-    public function setPosition(?string $position): void
-    {
-        $this->position = $position;
-    }
-
-    public static function getTypeList()
-    {
-        return array_flip(self::TYPES);
     }
 
     public function __clone()

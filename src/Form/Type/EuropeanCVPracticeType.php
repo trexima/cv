@@ -31,26 +31,21 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $harvey = $this->harvey;
+        $entity = $builder->getData();
         $builder
-            ->add('iscoCode', Select2Type::class, [
+            ->add('iscoCode', SkIscoType::class, array_merge([
                 'label' => t('trexima_european_cv.form_label.practice_isco_code_label', [], 'trexima_european_cv'),
+                'data' => $entity,
+                'multiple' => false,
                 'required' => false,
                 'by_reference' => false,
-                'multiple' => false,
-                'help' => t('trexima_european_cv.form_label.practice_isco_code_help', [], 'trexima_european_cv')->trans($this->translator) . ' <a target="_blank" href="https://www.hisco.sk/stromova-struktura">hisco.sk</a>',
-                'help_html' => true,
-                'placeholder' => t('trexima_european_cv.form_label.practice_isco_code_placeholder', [], 'trexima_european_cv'),
-                'ajax_route_path' => '/trexima-european-cv-bundle-harvey/isco-autocomplete',
-                'choice_label' => function (string $code) use ($harvey) {
-                    $isco = $harvey->getClient()->getIsco($code);
-                    return sprintf('%s %s', $isco['code'], $isco['title']);
-                },
-                'attr' => [
-                    'class' => 'data-trexima-european-cv-bind-select2'
+                'form_floating' => true,
+                'mapped' => false,
+                'class' => EuropeanCVPractice::class,
+                'row_attr' => [
+                    'class' => 'mt-3.5'
                 ],
-                'choice_loader' => new Select2ChoiceLoader()
-            ])
+            ], ($options['field_options']['iscoCode'] ?? [])))
             ->add('employee', TextType::class, [
                 'label' => t('trexima_european_cv.form_label.practice_employee_label', [], 'trexima_european_cv'),
                 'required' => false,
@@ -61,6 +56,24 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
             ->add('dateRange', MonthYearRangeType::class, [
                 'label' => false,
                 'required' => false,
+                'field_options' => [
+                    'beginMonth' => [
+                        'label' => t('trexima_european_cv.form_label.month_year_range_begin_month_placeholder', [], 'trexima_european_cv'),
+                        'placeholder' => t('trexima_european_cv.form_label.month_year_range_begin_month_placeholder', [], 'trexima_european_cv'),
+                    ],
+                    'endMonth' => [
+                        'label' => t('trexima_european_cv.form_label.month_year_range_begin_month_placeholder', [], 'trexima_european_cv'),
+                        'placeholder' => t('trexima_european_cv.form_label.month_year_range_begin_month_placeholder', [], 'trexima_european_cv'),
+                    ],
+                    'beginYear' => [
+                        'label' => t('trexima_european_cv.form_label.month_year_range_end_year_placeholder', [], 'trexima_european_cv'),
+                        'placeholder' => t('trexima_european_cv.form_label.month_year_range_end_year_placeholder', [], 'trexima_european_cv'),
+                    ],
+                    'endYear' => [
+                        'label' => t('trexima_european_cv.form_label.month_year_range_end_year_placeholder', [], 'trexima_european_cv'),
+                        'placeholder' => t('trexima_european_cv.form_label.month_year_range_end_year_placeholder', [], 'trexima_european_cv'),
+                    ],
+                ]
             ])
             ->add('description', TextareaType::class, [
                 'label' => t('trexima_european_cv.form_label.practice_description_label', [], 'trexima_european_cv'),
@@ -80,24 +93,46 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
-            'data_class' => EuropeanCVPractice::class
+            'data_class' => EuropeanCVPractice::class,
+            'attr' => [
+                'id' => 'EuropeanCVPracticeType'
+            ],
+            'field_options' => []
         ]);
     }
     public static function getSubscribedEvents(): array
     {
         return [
-            FormEvents::POST_SUBMIT => 'onPostSubmit',
+            FormEvents::SUBMIT => 'onSubmit',
+            FormEvents::PRE_SET_DATA => 'onPreSetData',
         ];
     }
 
-    public function onPostSubmit(FormEvent $formEvent): void
+    public function onSubmit(FormEvent $formEvent): void
     {
+        /** @var EuropeanCVPractice|null $data */
         $data = $formEvent->getData();
-        if ($data->getIscoCode() !== null) {
-            $isco = $this->harvey->getClient()->getIsco($data->getIscoCode());
-            if (!empty($isco)) {
-                $data->setTitle($isco['title']);
-            }
+    
+        $iscoCode = $formEvent->getForm()->get('iscoCode')->getData();
+        $code = $iscoCode->getIscoCode();
+        if ($code === $iscoCode->getTitle()) {
+            $code = null;
+        }
+        $data->setIscoCode($code);
+        $data->setTitle($iscoCode->getTitle());
+    }
+
+    public function onPreSetData(FormEvent $formEvent): void
+    {
+        /** @var EuropeanCVPractice|null $data */
+        $data = $formEvent->getData();
+
+        if (null === $data) {
+            return;
+        }
+
+        if ($data->getIscoCode() === null && $data->getTitle() !== null) {
+            $data->setIscoCode($data->getTitle());
         }
     }
 }

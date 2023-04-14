@@ -2,14 +2,14 @@
 
 namespace Trexima\EuropeanCvBundle\Entity;
 
+use App\Entity\Job\PcSkill;                     //todo
+use App\Enum\Job\JobPcSkillEntityLevelEnum;     //todo
 use Doctrine\ORM\Mapping as ORM;
-use Trexima\EuropeanCvBundle\Entity\Enum\DigitalSkillLevelEnum;
 
 /**
  * EuropeanCV language
  */
 #[ORM\Table(name: 'european_cv_digital_skill')]
-#[ORM\Index(name: 'title_idx', columns: ['title'])]
 #[ORM\Entity]
 class EuropeanCVDigitalSkill
 {
@@ -22,11 +22,12 @@ class EuropeanCVDigitalSkill
     #[ORM\JoinColumn(name: 'european_cv_id', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
     private ?EuropeanCV $europeanCV = null;
 
-    #[ORM\Column(type: 'string', nullable: true)]
-    private ?string $title = null;
+    #[ORM\ManyToOne(targetEntity: PcSkill::class)]
+    #[ORM\JoinColumn(name: 'cv_pc_skill_id', nullable: false)]
+    private ?PcSkill $pcSkill = null;
 
-    #[ORM\Column(type: 'smallint', nullable: true, enumType: DigitalSkillLevelEnum::class)]
-    private ?DigitalSkillLevelEnum $level = null;
+    #[ORM\Column(type: 'string', length: 16, nullable: false, enumType: JobPcSkillEntityLevelEnum::class)]
+    private ?JobPcSkillEntityLevelEnum $level = null;
 
     public function getId(): ?int
     {
@@ -38,7 +39,7 @@ class EuropeanCVDigitalSkill
         $this->id = $id;
     }
 
-    public function getEuropeanCV(): EuropeanCV
+    public function getEuropeanCV(): ?EuropeanCV
     {
         return $this->europeanCV;
     }
@@ -48,24 +49,28 @@ class EuropeanCVDigitalSkill
         $this->europeanCV = $europeanCV;
     }
 
-    public function getTitle(): ?string
+    public function getPcSkill(): ?PcSkill
     {
-        return $this->title;
+        return $this->pcSkill;
     }
 
-    public function setTitle(?string $title): void
+    public function setPcSkill(?PcSkill $pcSkill): self
     {
-        $this->title = $title;
+        $this->pcSkill = $pcSkill;
+
+        return $this;
     }
 
-    public function getLevel(): ?DigitalSkillLevelEnum
+    public function getLevel(): ?JobPcSkillEntityLevelEnum
     {
         return $this->level;
     }
 
-    public function setLevel(?DigitalSkillLevelEnum $level): void
+    public function setLevel(?JobPcSkillEntityLevelEnum $level): self
     {
         $this->level = $level;
+
+        return $this;
     }
 
     public function __clone()

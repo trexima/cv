@@ -35,14 +35,39 @@ class EuropeanCVWorkBreakType extends AbstractType implements EventSubscriberInt
                 'class' => WorkBreakEnum::class,
                 'required' => true,
                 'label' => t('trexima_european_cv.form_label.work_break_type', [], 'trexima_european_cv'),
+                'placeholder' => t('trexima_european_cv.form_label.work_break_type', [], 'trexima_european_cv'),
                 'multiple' => false,
                 'choice_label' => fn(WorkBreakEnum $choice) => match ($choice) {
                     default => t('trexima_european_cv.form_label.work_break_' . strtolower($choice->value), [], 'trexima_european_cv'),
                 },
+                'attr' => [
+                    'data-trexima-european-cv-dynamic-collection-sort-by' => 1,
+                    'data-controller' => 'ui--select2',
+                    'data-ui--select2-placeholder-value' => t('trexima_european_cv.form_label.work_break_type', [], 'trexima_european_cv')->trans($this->translator),
+                    'data-ui--select2-theme-value' => 'worki-floating'
+                ]
             ])
             ->add('dateRange', MonthYearRangeType::class, [
                 'label' => false,
                 'required' => false,
+                'field_options' => [
+                    'beginMonth' => [
+                        'label' => t('trexima_european_cv.form_label.month_year_range_begin_month_placeholder', [], 'trexima_european_cv'),
+                        'placeholder' => t('trexima_european_cv.form_label.month_year_range_begin_month_placeholder', [], 'trexima_european_cv'),
+                    ],
+                    'endMonth' => [
+                        'label' => t('trexima_european_cv.form_label.month_year_range_begin_month_placeholder', [], 'trexima_european_cv'),
+                        'placeholder' => t('trexima_european_cv.form_label.month_year_range_begin_month_placeholder', [], 'trexima_european_cv'),
+                    ],
+                    'beginYear' => [
+                        'label' => t('trexima_european_cv.form_label.month_year_range_end_year_placeholder', [], 'trexima_european_cv'),
+                        'placeholder' => t('trexima_european_cv.form_label.month_year_range_end_year_placeholder', [], 'trexima_european_cv'),
+                    ],
+                    'endYear' => [
+                        'label' => t('trexima_european_cv.form_label.month_year_range_end_year_placeholder', [], 'trexima_european_cv'),
+                        'placeholder' => t('trexima_european_cv.form_label.month_year_range_end_year_placeholder', [], 'trexima_european_cv'),
+                    ],
+                ]
             ])
             ->add('description', TextareaType::class, [
                 'label' => t('trexima_european_cv.form_label.work_break_description', [], 'trexima_european_cv'),
@@ -62,7 +87,10 @@ class EuropeanCVWorkBreakType extends AbstractType implements EventSubscriberInt
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
-            'data_class' => EuropeanCVWorkBreak::class
+            'data_class' => EuropeanCVWorkBreak::class,
+            'attr' => [
+                'id' => 'EuropeanCVWorkBreakType'
+            ],
         ]);
     }
     public static function getSubscribedEvents(): array

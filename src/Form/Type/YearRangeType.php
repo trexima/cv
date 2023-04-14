@@ -18,21 +18,29 @@ class YearRangeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('beginYear', ChoiceType::class, [
-            'label' => false,
+        ->add('beginYear', ChoiceType::class, array_merge([
+            'label' => t('trexima_european_cv.form_label.year_range_begin_year_placeholder', [], 'trexima_european_cv'),
             'required' => false,
-            'placeholder' => t('trexima_european_cv.form_label.year_range_begin_year_placeholder', [], 'trexima_european_cv'),
             'choices' => array_reverse(array_combine(range(date('Y')-100, date('Y')), range(date('Y')-100, date('Y'))), true),
             'attr' => [
-                'data-trexima-european-cv-dynamic-collection-sort-by' => 1
+                'data-trexima-european-cv-dynamic-collection-sort-by' => 1,
+                'data-controller' => 'ui--select2',
+                'data-ui--select2-placeholder-value' => 'Vyberte rok',
+                'data-ui--select2-theme-value' => 'worki-floating'
             ]
-        ])
-        ->add('endYear', ChoiceType::class, [
-            'label' => false,
+        ], ($options['field_options']['beginYear'] ?? [])))
+        ->add('endYear', ChoiceType::class, array_merge([
             'required' => false,
-            'placeholder' => t('trexima_european_cv.form_label.year_range_end_year_placeholder', [], 'trexima_european_cv'),
-            'choices' => array_reverse(array_combine(range(date('Y')-100, date('Y')), range(date('Y')-100, date('Y'))), true)
-        ]);
+            'label' => t('trexima_european_cv.form_label.year_range_end_year_placeholder', [], 'trexima_european_cv'),
+            'choices' => array_reverse(array_combine(range(date('Y')-100, date('Y')), range(date('Y')-100, date('Y'))), true),
+            'attr' => [
+                'data-trexima-european-cv-dynamic-collection-sort-by' => 1,
+                'data-controller' => 'ui--select2',
+                'data-ui--select2-placeholder-value' => 'Vyberte rok',
+                'data-ui--select2-theme-value' => 'worki-floating'
+            ]
+        ], ($options['field_options']['endYear'] ?? [])))
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -43,7 +51,8 @@ class YearRangeType extends AbstractType
              * Callback for empty_data is required because object
              * must be instantiate for every form element not only once!
              */
-            'empty_data' => fn() => new YearRange()
+            'empty_data' => fn() => new YearRange(),
+            'field_options' => []
         ]);
     }
 }

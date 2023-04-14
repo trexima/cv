@@ -7,7 +7,6 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Yaml\Yaml;
 use Trexima\EuropeanCvBundle\Entity\Enum\DigitalSkillLevelEnum;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVDigitalSkill;
 
@@ -22,7 +21,7 @@ class EuropeanCVDigitalSkillType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', ChoiceType::class, [
+            ->add('pcSkill', ChoiceType::class, [
                 'label' => t('trexima_european_cv.form_label.digital_skill_title', [], 'trexima_european_cv'),
                 'placeholder' => t('trexima_european_cv.form_placeholder.digital_skill_title', [], 'trexima_european_cv'),
                 'expanded' => false,
@@ -54,7 +53,7 @@ class EuropeanCVDigitalSkillType extends AbstractType
     }
 
     private function getDigitalSkillsArray() {
-        $digitalSkillList = Yaml::parseFile(__DIR__.'/../../../Resources/listing/digital_skill.yaml');
+        $digitalSkillList = [];
         $digitalSkills = [];
         $skillCategories = [];
         foreach ($digitalSkillList as $itemId => $item) {

@@ -34,6 +34,12 @@ class EuropeanCV
     private $practices;
 
     /**
+     * @var EuropeanCVPracticeProcessed[]|Collection
+     */
+    #[ORM\OneToMany(targetEntity: EuropeanCVPracticeProcessed::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
+    private $practicesProcessed;
+
+    /**
      * @var EuropeanCVWorkBreak[]|Collection
      */
     #[ORM\OneToMany(targetEntity: EuropeanCVWorkBreak::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
@@ -44,6 +50,12 @@ class EuropeanCV
      */
     #[ORM\OneToMany(targetEntity: EuropeanCVEducation::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
     private $educations;
+
+    /**
+     * @var EuropeanCVCertificate[]|Collection
+     */
+    #[ORM\OneToMany(targetEntity: EuropeanCVCertificate::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
+    private $certificates;
 
     /**
      * @var EuropeanCVLanguage[]|Collection
@@ -61,7 +73,6 @@ class EuropeanCV
      * @var EuropeanCVPhone[]|Collection
      */
     #[ORM\OneToMany(targetEntity: EuropeanCVPhone::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    #[ORM\OrderBy(['position' => 'ASC'])]
     private $phones;
 
     /**
@@ -98,8 +109,9 @@ class EuropeanCV
     #[ORM\Column(type: 'integer', options: ['unsigned' => true], nullable: true)]
     private ?int $day = null;
 
-    #[ORM\Column(type: 'string', length: 128, nullable: true)]
-    private ?string $address = null;
+    #[ORM\OneToOne(targetEntity: EuropeanCVAddress::class, cascade: ['all'])]
+    #[ORM\JoinColumn(name: 'address_id', referencedColumnName: 'id')]
+    private ?EuropeanCVAddress $address;
 
     #[ORM\Column(type: 'string', length: 320, nullable: true)]
     private ?string $email = null;
@@ -152,14 +164,17 @@ class EuropeanCV
     public function __construct()
     {
         $this->practices = new ArrayCollection();
+        $this->practicesProcessed = new ArrayCollection();
         $this->workBreaks = new ArrayCollection();
         $this->educations = new ArrayCollection();
+        $this->certificates = new ArrayCollection();
         $this->languages = new ArrayCollection();
         $this->drivingLicenses = new ArrayCollection();
         $this->phones = new ArrayCollection();
         $this->attachments = new ArrayCollection();
         $this->digitalSkills = new ArrayCollection();
         $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
 
     /**
@@ -179,6 +194,25 @@ class EuropeanCV
     public function removePractice(EuropeanCVPractice $practice)
     {
         $this->practices->removeElement($practice);
+    }
+
+    /**
+     * @return EuropeanCVPracticeProcessed[]|Collection
+     */
+    public function getPracticesProcessed(): array|Collection
+    {
+        return $this->practicesProcessed;
+    }
+
+    public function addPracticeProcessed(EuropeanCVPracticeProcessed $practiceProcessed)
+    {
+        $this->practicesProcessed[] = $practiceProcessed;
+        $practiceProcessed->setEuropeanCV($this);
+    }
+
+    public function removePracticeProcessed(EuropeanCVPracticeProcessed $practiceProcessed)
+    {
+        $this->practicesProcessed->removeElement($practiceProcessed);
     }
 
     /**
@@ -220,6 +254,28 @@ class EuropeanCV
     public function removeEducation(EuropeanCVEducation $education)
     {
         $this->educations->removeElement($education);
+    }
+
+    /**
+     * @return EuropeanCVCertificate[]|Collection
+     */
+    public function getCertificates(): array|Collection
+    {
+        return $this->certificates;
+    }
+
+    public function addCertificate(EuropeanCVCertificate $certificate)
+    {
+        $this->certificates[] = $certificate;
+        $certificate->setEuropeanCV($this);
+    }
+
+    /**
+     * @param EuropeanCVCertificate $certificate
+     */
+    public function removeCertificate(EuropeanCVCertificate $certificate)
+    {
+        $this->certificates->removeElement($certificate);
     }
 
     /**
@@ -417,12 +473,18 @@ class EuropeanCV
         $this->day = $day;
     }
 
-    public function getAddress(): ?string
+    /**
+     * @return EuropeanCVAddress|null
+     */
+    public function getAddress(): ?EuropeanCVAddress
     {
         return $this->address;
     }
 
-    public function setAddress(?string $address): void
+    /**
+     * @param EuropeanCVAddress|null $address
+     */
+    public function setAddress(?EuropeanCVAddress $address): void
     {
         $this->address = $address;
     }
@@ -459,7 +521,7 @@ class EuropeanCV
         $this->sex = $sex;
     }
 
-    public function isDrivingLicenseOwner(): ?bool
+    public function getDrivingLicenseOwner(): ?bool
     {
         return $this->drivingLicenseOwner;
     }
@@ -609,50 +671,5 @@ class EuropeanCV
          * If the entity has an identity, proceed as normal.
          * https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/cookbook/implementing-wakeup-or-clone.html
          */
-        if ($this->id) {
-            $this->setId(null);
-
-            $this->practices = clone $this->practices;
-            foreach ($this->practices as $key => $practice) {
-                $practice = clone $practice;
-                $practice->setEuropeanCV($this);
-                $this->practices->set($key, $practice);
-            }
-
-            $this->educations = clone $this->educations;
-            foreach ($this->educations as $key => $education) {
-                $education = clone $education;
-                $education->setEuropeanCV($this);
-                $this->educations->set($key, $education);
-            }
-
-            $this->languages = clone $this->languages;
-            foreach ($this->languages as $key => $language) {
-                $language = clone $language;
-                $language->setEuropeanCV($this);
-                $this->languages->set($key, $language);
-            }
-
-            $this->drivingLicenses = clone $this->drivingLicenses;
-            foreach ($this->drivingLicenses as $key => $drivingLicense) {
-                $drivingLicense = clone $drivingLicense;
-                $drivingLicense->setEuropeanCV($this);
-                $this->drivingLicenses->set($key, $drivingLicense);
-            }
-
-            $this->phones = clone $this->phones;
-            foreach ($this->phones as $phone) {
-                $phone = clone $phone;
-                $phone->setEuropeanCV($this);
-                $this->phones->set($key, $phone);
-            }
-
-            $this->attachments = clone $this->attachments;
-            foreach ($this->attachments as $attachment) {
-                $attachment = clone $attachment;
-                $attachment->setEuropeanCV($this);
-                $this->attachments->set($key, $attachment);
-            }
-        }
     }
 }

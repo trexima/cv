@@ -3,12 +3,12 @@
 namespace Trexima\EuropeanCvBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVPhone;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Trexima\EuropeanCvBundle\Entity\Enum\PhonePrefixEnum;
 
 use function Symfony\Component\Translation\t;
 
@@ -20,20 +20,30 @@ class EuropeanCVPhoneType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('position', HiddenType::class)
-            ->add('type', ChoiceType::class, [
+            ->add('prefix', EnumType::class, [
                 'label' => t('trexima_european_cv.form_label.phone_type_label', [], 'trexima_european_cv'),
-                'placeholder' => t('trexima_european_cv.form_label.phone_type_placeholder', [], 'trexima_european_cv'),
                 'required' => false,
-                'choices'  => array_flip(EuropeanCVPhone::TYPES)
+                'placeholder' => false,
+                'class'  => PhonePrefixEnum::class,
+                'attr' => [
+                    'class' => "form-select border-end-1 pe-5",
+                    'data-controller' => "ui--select2",
+                    'data-ui--select2-theme-value' => "worki-floating",
+                    'data-ui--select2-minimum-results-for-search-value' => "Infinity",
+                   ' data-ui--select2-selection-css-class-value' => "rounded-end-0 pe-5",
+                ],
+                'form_floating' => true
             ])
             ->add('number', TextType::class, [
                 'label' => t('trexima_european_cv.form_label.phone_number_label', [], 'trexima_european_cv'),
                 'required' => false,
                 'attr' => [
-                    'placeholder' => t('trexima_european_cv.form_label.phone_number_placeholder', [], 'trexima_european_cv')
-                ]
-            ]);
+                    'placeholder' => t('trexima_european_cv.form_label.phone_number_placeholder', [], 'trexima_european_cv'),
+                    'class' => 'form-control-md'
+                ],
+                'form_floating' => true
+            ])
+            ;
     }
 
     /**
