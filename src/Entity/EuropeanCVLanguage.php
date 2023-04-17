@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Trexima\EuropeanCvBundle\Entity\Enum\LanguageEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\LanguageLevelEnum;
+use Trexima\EuropeanCvBundle\Validator as AppAssert;
 
 /**
  * EuropeanCV language
@@ -24,9 +25,21 @@ class EuropeanCVLanguage
     #[ORM\JoinColumn(name: 'european_cv_id', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
     private ?EuropeanCV $europeanCV = null;
 
+    #[AppAssert\NotNullUnless(
+        propertyPath: 'level',
+        propertyValue: null,
+        strict: true,
+        message: 'trexima_european_cv.language_not_empty',
+    )]
     #[ORM\Column(type: 'string', nullable: true, length: 2, enumType: LanguageEnum::class, options: ['comment' => 'ISO 639-1'])]
     private ?LanguageEnum $language = null;
 
+    #[AppAssert\NotNullUnless(
+        propertyPath: 'language',
+        propertyValue: null,
+        strict: true,
+        message: 'trexima_european_cv.level_not_empty',
+    )]
     #[ORM\Column(type: 'string', length: 2, nullable: true, enumType: LanguageLevelEnum::class)]
     private ?LanguageLevelEnum $level = null;
 

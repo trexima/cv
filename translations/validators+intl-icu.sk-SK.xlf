@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="sk-SK" trgLang="sk-SK">
+  <file id="validators.sk-SK">
+    <unit id="P4SRX7G" name="trexima_european_cv.pc_skill_not_empty">
+      <segment>
+        <source>trexima_european_cv.pc_skill_not_empty</source>
+        <target>Prosím, vyberte zručnosť.</target>
+      </segment>
+    </unit>
+    <unit id="WI6uv4a" name="trexima_european_cv.language_not_empty">
+      <segment>
+        <source>trexima_european_cv.language_not_empty</source>
+        <target>Prosím, vyberte si jazyk.</target>
+      </segment>
+    </unit>
+    <unit id="t9HwWm_" name="trexima_european_cv.level_not_empty">
+      <segment>
+        <source>trexima_european_cv.level_not_empty</source>
+        <target>Prosím, vyberte úroveň.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
