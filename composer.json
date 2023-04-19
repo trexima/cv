@@ -17,7 +17,7 @@
         "symfony/twig-bundle": "^6.0",
         "claviska/simpleimage": "^3.3",
         "mpdf/mpdf": "^8.0",
-        "pelago/emogrifier": "^6.0",
+        "pelago/emogrifier": "^7.0",
         "symfony/translation": "^6.2",
         "symfony/asset": "^6.0",
         "symfony/yaml": "^6.0",
