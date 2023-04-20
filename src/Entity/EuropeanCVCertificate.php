@@ -23,6 +23,7 @@ class EuropeanCVCertificate
     #[ORM\JoinColumn(name: 'european_cv_id', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
     private ?EuropeanCV $europeanCV = null;
 
+    #[Assert\NotBlank]
     #[Assert\Length(max: 500, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'string', length: 500, nullable: true)]
     private ?string $title = null;
