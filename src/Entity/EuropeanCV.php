@@ -2,14 +2,14 @@
 
 namespace Trexima\EuropeanCvBundle\Entity;
 
-use Trexima\EuropeanCvBundle\Entity\Enum\LanguageEnum;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Trexima\EuropeanCvBundle\Model\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Trexima\EuropeanCvBundle\Entity\Enum\LanguageEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\SexEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\StyleEnum;
+use Trexima\EuropeanCvBundle\Model\UserInterface;
 
 /**
  * WARNING: Don't forget to prepare newly created entity relations for clonning in magic __clone method.
@@ -85,9 +85,11 @@ class EuropeanCV
     #[ORM\Column(type: 'string', length: 128, nullable: true)]
     private ?string $photo = null;
 
+    #[Assert\Length(max: 50, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'string', length: 128, nullable: true)]
     private ?string $firstName = null;
 
+    #[Assert\Length(max: 50, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'string', length: 128, nullable: true)]
     private ?string $lastName = null;
 
@@ -113,6 +115,7 @@ class EuropeanCV
     #[ORM\JoinColumn(name: 'address_id', referencedColumnName: 'id')]
     private ?EuropeanCVAddress $address;
 
+    #[Assert\Email]
     #[ORM\Column(type: 'string', length: 320, nullable: true)]
     private ?string $email = null;
 
@@ -143,12 +146,15 @@ class EuropeanCV
     #[ORM\Column(type: 'string', nullable: true, enumType: StyleEnum::class)]
     private ?StyleEnum $style = null;
 
+    #[Assert\Length(max: 300, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'text', length: 65535, nullable: true)]
     private ?string $description = null;
 
+    #[Assert\Length(max: 4000, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'text', length: 65535, nullable: true)]
     private ?string $hobbies = null;
 
+    #[Assert\Length(max: 4000, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'text', length: 65535, nullable: true)]
     private ?string $additionalInformations = null;
 

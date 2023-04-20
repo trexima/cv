@@ -23,15 +23,18 @@ class EuropeanCVCertificate
     #[ORM\JoinColumn(name: 'european_cv_id', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
     private ?EuropeanCV $europeanCV = null;
 
-    #[ORM\Column(type: 'string', length: 128, nullable: true)]
+    #[Assert\Length(max: 500, maxMessage: 'trexima_european_cv.max_length_reached')]
+    #[ORM\Column(type: 'string', length: 500, nullable: true)]
     private ?string $title = null;
 
+    #[Assert\Length(max: 100, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'string', length: 100, nullable: true)]
     private ?string $institution = null;
 
     #[ORM\Embedded(class: YearRange::class)]
     private YearRange $yearRange;
 
+    #[Assert\Length(max: 100, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'text', nullable: true)]
     private ?string $description = null;
 
