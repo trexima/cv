@@ -19,5 +19,23 @@
         <target>Prosím, vyberte úroveň.</target>
       </segment>
     </unit>
+    <unit id="1dbTx8r" name="trexima_european_cv.max_length_reached">
+      <segment>
+        <source>trexima_european_cv.max_length_reached</source>
+        <target>Prekročili ste povolený počet znakov: {limit}.</target>
+      </segment>
+    </unit>
+    <unit id="6Shu7Bh" name="trexima_european_cv.select_choice">
+      <segment>
+        <source>trexima_european_cv.select_choice</source>
+        <target>Prosím, vyberte možnosť.</target>
+      </segment>
+    </unit>
+    <unit id="g3gycNd" name="trexima_european_cv.range_not_valid">
+      <segment>
+        <source>trexima_european_cv.range_not_valid</source>
+        <target>Rozsah nieje validný.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

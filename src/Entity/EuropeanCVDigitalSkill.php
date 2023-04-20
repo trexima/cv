@@ -5,7 +5,7 @@ namespace Trexima\EuropeanCvBundle\Entity;
 use App\Entity\Job\PcSkill;                     //todo
 use App\Enum\Job\JobPcSkillEntityLevelEnum;     //todo
 use Doctrine\ORM\Mapping as ORM;
-use Trexima\EuropeanCvBundle\Validator as AppAssert;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * EuropeanCV language
@@ -23,21 +23,21 @@ class EuropeanCVDigitalSkill
     #[ORM\JoinColumn(name: 'european_cv_id', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
     private ?EuropeanCV $europeanCV = null;
 
-    #[AppAssert\NotNullUnless(
-        propertyPath: 'level',
-        propertyValue: null,
-        strict: true,
-        message: 'trexima_european_cv.pc_skill_not_empty',
+    #[Assert\When(
+        expression: 'this.getLevel() !== null',
+        constraints: [
+            new Assert\NotNull(message: 'trexima_european_cv.pc_skill_not_empty')
+        ],
     )]
     #[ORM\ManyToOne(targetEntity: PcSkill::class)]
     #[ORM\JoinColumn(name: 'cv_pc_skill_id', nullable: false)]
     private ?PcSkill $pcSkill = null;
 
-    #[AppAssert\NotNullUnless(
-        propertyPath: 'pcSkill',
-        propertyValue: null,
-        strict: true,
-        message: 'trexima_european_cv.level_not_empty',
+    #[Assert\When(
+        expression: 'this.getPcSkill() !== null',
+        constraints: [
+            new Assert\NotNull(message: 'trexima_european_cv.level_not_empty')
+        ]
     )]
     #[ORM\Column(type: 'string', length: 16, nullable: false, enumType: JobPcSkillEntityLevelEnum::class)]
     private ?JobPcSkillEntityLevelEnum $level = null;

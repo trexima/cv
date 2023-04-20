@@ -3,6 +3,8 @@
 namespace Trexima\EuropeanCvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Trexima\EuropeanCvBundle\Entity\Embeddable\MonthYearRange;
 use Trexima\EuropeanCvBundle\Entity\Enum\WorkBreakEnum;
 
@@ -25,12 +27,14 @@ class EuropeanCVWorkBreak
     #[ORM\Embedded(class: MonthYearRange::class)]
     private MonthYearRange $dateRange;
 
+    #[Assert\Length(max: 100, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'string', length: 256, nullable: true)]
     private ?string $title = null;
 
     #[ORM\Column(type: 'smallint', nullable: true, enumType: WorkBreakEnum::class)]
     private ?WorkBreakEnum $type = null;
 
+    #[Assert\Length(max: 4000, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'text', length: 65535, nullable: true)]
     private ?string $description = null;
 
