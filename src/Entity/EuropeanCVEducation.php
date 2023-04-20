@@ -26,18 +26,22 @@ class EuropeanCVEducation
     #[ORM\Column(type: 'integer', nullable: true, enumType: EducationTypeEnum::class)]
     private ?EducationTypeEnum $type = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 100, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'string', length: 128, nullable: true)]
     private ?string $title = null;
 
     #[ORM\Column(type: 'string', length: 7, nullable: true)]
     private ?string $kovCode = null;
 
+    #[Assert\Length(max: 100, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'string', length: 100, nullable: true)]
     private ?string $kovTitle = null;
 
     #[ORM\Embedded(class: YearRange::class)]
     private YearRange $yearRange;
 
+    #[Assert\Length(max: 4000, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'text', nullable: true)]
     private ?string $description = null;
 

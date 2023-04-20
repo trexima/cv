@@ -4,7 +4,6 @@ namespace Trexima\EuropeanCvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Trexima\EuropeanCvBundle\Entity\Embeddable\DateRange;
 use Trexima\EuropeanCvBundle\Entity\Embeddable\MonthYearRange;
 
 /**
@@ -26,18 +25,21 @@ class EuropeanCVPractice
     #[ORM\Embedded(class: MonthYearRange::class)]
     private MonthYearRange $dateRange;
 
-    /**
-     * Max length is 256 because this field can be filled from Harvey where field max length is 256
-     */
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 100, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'string', length: 256, nullable: true)]
     private ?string $title = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 7, nullable: true)]
     private ?string $iscoCode = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 100, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'string', nullable: true)]
     private ?string $employee = null;
 
+    #[Assert\Length(max: 4000, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'text', length: 65535, nullable: true)]
     private ?string $description = null;
 

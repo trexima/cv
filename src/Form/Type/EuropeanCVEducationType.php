@@ -13,6 +13,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Validator\Constraints\Valid;
 use Trexima\EuropeanCvBundle\Entity\Enum\EducationTypeEnum;
 use Trexima\EuropeanCvBundle\Form\Type\YearRangeType;
 
@@ -47,7 +48,10 @@ class EuropeanCVEducationType extends AbstractType implements EventSubscriberInt
             ], ($options['field_options']['title'] ?? [])))
             ->add('yearRange', YearRangeType::class, array_merge([
                 'required' => false,
-                'label' => t('trexima_european_cv.form_label.education_year_range_label', [], 'trexima_european_cv')
+                'label' => t('trexima_european_cv.form_label.education_year_range_label', [], 'trexima_european_cv'),
+                'constraints' => [
+                    new Valid(),
+                ],
             ], ($options['field_options']['yearRange'] ?? [])));
 
             if ($options['education_type']->value !== EducationTypeEnum::EDUCATION_ELEMENTARY_SCHOOL->value) {

@@ -10,6 +10,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Valid;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Trexima\EuropeanCvBundle\Entity\Enum\WorkBreakEnum;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVWorkBreak;
@@ -50,6 +51,9 @@ class EuropeanCVWorkBreakType extends AbstractType implements EventSubscriberInt
             ->add('dateRange', MonthYearRangeType::class, [
                 'label' => false,
                 'required' => false,
+                'constraints' => [
+                    new Valid(),
+                ],
                 'field_options' => [
                     'beginMonth' => [
                         'label' => t('trexima_european_cv.form_label.month_year_range_begin_month_placeholder', [], 'trexima_european_cv'),
