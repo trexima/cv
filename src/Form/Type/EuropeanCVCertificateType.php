@@ -12,6 +12,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Validator\Constraints\Valid;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVCertificate;
 use Trexima\EuropeanCvBundle\Form\Type\YearRangeType;
@@ -50,6 +51,9 @@ class EuropeanCVCertificateType extends AbstractType implements EventSubscriberI
             ->add('yearRange', YearRangeType::class, array_merge([
                 'required' => false,
                 'label' => t('trexima_european_cv.form_label.education_year_range_label', [], 'trexima_european_cv'),
+                'constraints' => [
+                    new Valid(),
+                ],
                 'field_options' => [
                     'beginYear' => [
                         'label' => t('trexima_european_cv.form_label.certificate_start_label', [], 'trexima_european_cv'),
