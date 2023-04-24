@@ -34,7 +34,7 @@
     <unit id="g3gycNd" name="trexima_european_cv.range_not_valid">
       <segment>
         <source>trexima_european_cv.range_not_valid</source>
-        <target>Rozsah nieje validný.</target>
+        <target>Rozsah nie je validný.</target>
       </segment>
     </unit>
   </file>

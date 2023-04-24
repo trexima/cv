@@ -3,6 +3,7 @@
 namespace Trexima\EuropeanCvBundle\Form\Parts;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\DataMapperInterface;
 use Symfony\Component\Form\Extension\Core\DataAccessor\CallbackAccessor;
 use Symfony\Component\Form\Extension\Core\DataAccessor\ChainAccessor;
 use Symfony\Component\Form\Extension\Core\DataAccessor\PropertyPathAccessor;
@@ -10,40 +11,36 @@ use Symfony\Component\Form\Extension\Core\DataMapper\DataMapper;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\PropertyAccess\PropertyAccess;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Trexima\EuropeanCvBundle\Entity\Enum\LanguageEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\SexEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\TitleAfterEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\TitleBeforeEnum;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVAddress;
+use Trexima\EuropeanCvBundle\Form\Model\Photo;
 use Trexima\EuropeanCvBundle\Form\Type\EuropeanCVPhoneType;
 use Trexima\EuropeanCvBundle\Form\Type\GooglePlaceAutocompleteType;
+use Trexima\EuropeanCvBundle\Form\Type\PhotoType;
 
 use function Symfony\Component\Translation\t;
 
 /**
  * Basic user info
  */
-class EuropeanCVPartBasicInfoType extends AbstractType
+class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInterface
 {
-    private const MIME_TYPES = ['image/jpg', 'image/jpeg', 'image/png'];
-    private const MAX_PHOTO_IMAGE_SIZE = 3; // In MB
-
     private readonly DataMapper $dataMapper;
 
     public function __construct(
         private readonly TranslatorInterface $translator,
-        private readonly UrlGeneratorInterface $urlGenerator
-    )
-    {
+        private readonly string $uploadUrl,
+    ) {
         $this->dataMapper = new DataMapper(
             new ChainAccessor([
                 new CallbackAccessor(),
@@ -60,6 +57,7 @@ class EuropeanCVPartBasicInfoType extends AbstractType
         $now = new \DateTime();
 
         $builder
+        ->setDataMapper($this)
         ->add('sex', EnumType::class, [
             'class' => SexEnum::class,
             'required' => false,
@@ -73,16 +71,17 @@ class EuropeanCVPartBasicInfoType extends AbstractType
             'label' => t('trexima_european_cv.form_label.sex_label', [], 'trexima_european_cv'),
             'placeholder' => false,
         ])
-        ->add('photo', FileType::class, [
+        ->add('photo', PhotoType::class, array_merge([
             'required' => false,
-            'label' => false,
             'mapped' => false,
-            'attr' => [
-                'accept' => implode(',', self::MIME_TYPES) . ',.jpg,.jpeg,.png', 
-                'data-ui--cropper-target'=>'input',
-                'class' => 'opacity-0 w-100 h-100 position-absolute top-0 start-0 cursor-pointer z-index-1'
-            ],
-        ])
+            'label' => false,
+            'max_size' => 16 << 20,
+            'max_size_message' => t(
+                'job.max_file_size',
+                ['limit' => 16, 'suffix' => 'MB'],
+                'validators',
+            ),
+        ], ($options['field_options']['photo'] ?? [])))
         ->add('firstName', TextType::class, [
             'label' => t('trexima_european_cv.form_label.first_name_label', [], 'trexima_european_cv'),
             'attr' => [
@@ -183,25 +182,13 @@ class EuropeanCVPartBasicInfoType extends AbstractType
             'allow_delete' => true,
             'delete_empty' => true,
         ])
-        ->add('address', GooglePlaceAutocompleteType::class, [
-            'label' => t('cv.label.addresses'),
+        ->add('address', GooglePlaceAutocompleteType::class, array_merge([
+            'label' => t('trexima_european_cv.form_label.address_label', [], 'trexima_european_cv'),
             'multiple' => false,
             'by_reference' => false,
             'form_floating' => true,
             'class' => EuropeanCVAddress::class,
-            'select2' => true,
-            'select2_theme' => 'worki-floating',
-            'select2_placeholder' => t('job.label.write_an_address'),
-            'select2_allow_clear' => true,
-            'select2_autocomplete_url' => $this->urlGenerator->generate(
-                'app_autocomplete_google_places',
-                [],
-                UrlGeneratorInterface::ABSOLUTE_URL
-            ),
-            'select2_minimum_input_length' => 1,
-            'select2_filter_selected_results' => true,
-            'select2_no_results_message' => t('app.general.places_autocomplete_no_results'),
-        ])
+        ], ($options['field_options']['address'] ?? [])))
         ->add('personalWebsites', CollectionType::class, [
             'label' => false,
             'required' => false,
@@ -249,5 +236,44 @@ class EuropeanCVPartBasicInfoType extends AbstractType
         $resolver->setRequired([
             'photo_upload_route'
         ]);
+    }
+
+    public function mapFormsToData(\Traversable $forms, mixed &$viewData): void
+    {
+        $this->dataMapper->mapFormsToData($forms, $viewData);
+    }
+
+    /**
+     * @param EuropeanCV|null $viewData
+     * @param \Traversable $forms
+     */
+    public function mapDataToForms(mixed $viewData, \Traversable $forms): void
+    {
+        $this->dataMapper->mapDataToForms($viewData, $forms);
+
+        $this->mapPhoto($viewData, $forms);
+    }
+
+    private function mapPhoto(EuropeanCV|null $viewData, \Traversable $forms): void
+    {
+        $forms = \iterator_to_array($forms);
+        if (!isset($forms['photo'])) {
+            return;
+        }
+
+        $photo = $viewData?->getPhoto();
+        if (null === $photo) {
+            $forms['photo']->setData(null);
+            return;
+        }
+
+        $url = $this->uploadUrl . '/european-cv/images/' . $photo;
+
+        $photoType = (new Photo())
+            ->setExistingFileId('123')
+            ->setExistingFileUrl($url)
+            ->setFile(null);
+
+        $forms['photo']->setData($photoType);
     }
 }

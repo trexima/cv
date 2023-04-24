@@ -3,7 +3,7 @@
     "trexima-european-cv": {
       "js": [
         "/bundles/treximaeuropeancv/build/runtime.js",
-        "/bundles/treximaeuropeancv/build/848.js",
+        "/bundles/treximaeuropeancv/build/107.js",
         "/bundles/treximaeuropeancv/build/trexima-european-cv.js"
       ],
       "css": [
@@ -13,7 +13,7 @@
     "shared": {
       "js": [
         "/bundles/treximaeuropeancv/build/runtime.js",
-        "/bundles/treximaeuropeancv/build/848.js",
+        "/bundles/treximaeuropeancv/build/107.js",
         "/bundles/treximaeuropeancv/build/870.js",
         "/bundles/treximaeuropeancv/build/shared.js"
       ],
