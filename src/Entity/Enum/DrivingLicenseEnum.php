@@ -18,13 +18,13 @@ enum DrivingLicenseEnum: string
 
     public function getIconClass(): ?string
     {
-        return match ($this->value) {
-            'A' => 'fal fa-motorcycle',
-            'B' => 'fal fa-car-side',
-            'C' => 'fal fa-truck',
-            'D' => 'fal fa-bus',
-            'E' => 'fal fa-truck-fast',
-            'T' => 'fal fa-tractor',
+        return match ($this) {
+            self::A => 'fal fa-motorcycle',
+            self::B => 'fal fa-car-side',
+            self::C => 'fal fa-truck',
+            self::D => 'fal fa-bus',
+            self::E => 'fal fa-truck-fast',
+            self::T => 'fal fa-tractor',
             default => null,
         };
     }
