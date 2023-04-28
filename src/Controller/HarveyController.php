@@ -3,14 +3,10 @@
 namespace Trexima\EuropeanCvBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Asset\Packages;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Trexima\EuropeanCvBundle\Facade\Harvey;
-use Trexima\EuropeanCvBundle\Manager\EuropeanCvManager;
 
 #[Route(path: '/trexima-european-cv-bundle-harvey')]
 class HarveyController extends AbstractController

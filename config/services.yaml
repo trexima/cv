@@ -37,12 +37,6 @@ services:
         public: false
         tags: ['twig.runtime']
 
-    Trexima\EuropeanCvBundle\EventListener\AttachmentUploadListener:
-        tags:
-            - { name: doctrine.event_listener, event: prePersist }
-            - { name: doctrine.event_listener, event: preUpdate }
-            - { name: doctrine.event_listener, event: postLoad }
-    
     Trexima\EuropeanCvBundle\Facade\Harvey:
         arguments:
             $url: '%trexima_european_cv_harvey_url%'

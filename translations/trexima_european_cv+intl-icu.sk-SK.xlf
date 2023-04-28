@@ -1003,12 +1003,6 @@
         <target>Pridať informáciu</target>
       </segment>
     </unit>
-    <unit id="VPvmwc0" name="trexima_european_cv.form_label.add_attachment_button">
-      <segment>
-        <source>trexima_european_cv.form_label.add_attachment_button</source>
-        <target>Pridať prílohu</target>
-      </segment>
-    </unit>
     <unit id="_eXX4fr" name="trexima_european_cv.form_label.add_phone_button">
       <segment>
         <source>trexima_european_cv.form_label.add_phone_button</source>

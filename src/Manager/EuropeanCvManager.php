@@ -3,11 +3,8 @@
 namespace Trexima\EuropeanCvBundle\Manager;
 
 use claviska\SimpleImage;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
-use Trexima\EuropeanCvBundle\Entity\EuropeanCVAttachment;
 use Trexima\EuropeanCvBundle\Export\EuropeanCvExporter;
 
 class EuropeanCvManager

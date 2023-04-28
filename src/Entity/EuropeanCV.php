@@ -23,7 +23,7 @@ class EuropeanCV
     #[ORM\Column(type: 'integer', options: ['unsigned' => true])]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(targetEntity: UserInterface::class, inversedBy: 'europeanCvs')]
+    #[ORM\ManyToOne(targetEntity: UserInterface::class)]
     #[ORM\JoinColumn(referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
     private ?UserInterface $user = null;
 
@@ -75,13 +75,6 @@ class EuropeanCV
     #[ORM\OneToMany(targetEntity: EuropeanCVPhone::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
     private $phones;
 
-    /**
-     * @var EuropeanCVAttachment[]|Collection
-     */
-    #[ORM\OneToMany(targetEntity: EuropeanCVAttachment::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    #[ORM\OrderBy(['position' => 'ASC'])]
-    private $attachments;
-
     #[ORM\Column(type: 'string', length: 128, nullable: true)]
     private ?string $photo = null;
 
@@ -128,12 +121,6 @@ class EuropeanCV
     #[ORM\Column(type: 'boolean', nullable: true)]
     private ?bool $drivingLicenseOwner = null;
 
-    #[ORM\Column(type: 'text', nullable: true)]
-    private ?string $attachmentList = null;
-
-    #[ORM\Column(type: 'boolean')]
-    private ?bool $invertPositionPracticeEducation = false;
-
     #[ORM\Column(type: 'datetime', nullable: true)]
     private ?\DateTime $updatedAt = null;
 
@@ -177,7 +164,6 @@ class EuropeanCV
         $this->languages = new ArrayCollection();
         $this->drivingLicenses = new ArrayCollection();
         $this->phones = new ArrayCollection();
-        $this->attachments = new ArrayCollection();
         $this->digitalSkills = new ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
@@ -342,25 +328,6 @@ class EuropeanCV
     public function removePhone(EuropeanCVPhone $phone)
     {
         $this->phones->removeElement($phone);
-    }
-
-    /**
-     * @return EuropeanCVAttachment[]|Collection
-     */
-    public function getAttachments(): array|Collection
-    {
-        return $this->attachments;
-    }
-
-    public function addAttachment(EuropeanCVAttachment $attachment)
-    {
-        $this->attachments[] = $attachment;
-        $attachment->setEuropeanCV($this);
-    }
-
-    public function removeAttachment(EuropeanCVAttachment $attachment)
-    {
-        $this->attachments->removeElement($attachment);
     }
 
     public function getId(): ?int
@@ -535,26 +502,6 @@ class EuropeanCV
     public function setDrivingLicenseOwner(?bool $drivingLicenseOwner): void
     {
         $this->drivingLicenseOwner = $drivingLicenseOwner;
-    }
-
-    public function getAttachmentList(): ?string
-    {
-        return $this->attachmentList;
-    }
-
-    public function setAttachmentList(?string $attachmentList): void
-    {
-        $this->attachmentList = $attachmentList;
-    }
-
-    public function getInvertPositionPracticeEducation(): ?bool
-    {
-        return $this->invertPositionPracticeEducation;
-    }
-
-    public function setInvertPositionPracticeEducation(?bool $invertPositionPracticeEducation): void
-    {
-        $this->invertPositionPracticeEducation = $invertPositionPracticeEducation;
     }
 
     public function getUpdatedAt(): ?\DateTime

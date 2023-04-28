@@ -4,7 +4,6 @@ namespace Trexima\EuropeanCvBundle\Twig\Extension;
 
 use Trexima\EuropeanCvBundle\Twig\AtomicDateRuntime;
 use Trexima\EuropeanCvBundle\Twig\EmogrifierRuntime;
-use Trexima\EuropeanCvBundle\Twig\EuropeanCvListingRuntime;
 use Trexima\EuropeanCvBundle\Twig\ImageTagRuntime;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
@@ -25,7 +24,6 @@ class EuropeanCvExtension extends AbstractExtension
     public function getFilters()
     {
         return [
-            new TwigFilter('european_cv_listing', [EuropeanCvListingRuntime::class, 'getListingValue']),
             new TwigFilter('european_cv_atomic_date', [AtomicDateRuntime::class, 'format']),
         ];
     }
