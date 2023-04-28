@@ -20,7 +20,7 @@ class EuropeanCVWorkBreak
     #[ORM\Column(type: 'integer', options: ['unsigned' => true])]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(targetEntity: EuropeanCV::class, inversedBy: 'practices')]
+    #[ORM\ManyToOne(targetEntity: EuropeanCV::class, inversedBy: 'workBreaks')]
     #[ORM\JoinColumn(name: 'european_cv_id', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
     private ?EuropeanCV $europeanCV = null;
 
