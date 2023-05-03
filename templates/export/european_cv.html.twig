@@ -430,13 +430,8 @@
         {% endif %}
     {% endset %}
 
-    {% if not european_cv.invertPositionPracticeEducation %}
-        {{ practices|raw }}
-        {{ educations|raw }}
-    {% else %}
-        {{ educations|raw }}
-        {{ practices|raw }}
-    {% endif %}
+    {{ practices|raw }}
+    {{ educations|raw }}
 
     <table class="content-2-columns">
         <tr>
@@ -548,26 +543,4 @@
         <br/>
     {% endif %}
 
-    {% if european_cv.attachmentList %}
-        <table class="content-2-columns">
-            <tr>
-                <td>
-                    <h2>{% trans %}PRÍLOHY{% endtrans %}</h2>
-                </td>
-                <td>
-                    <hr class="hr"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-
-                </td>
-                <td>
-                    <p>
-                        {{ european_cv.attachmentList|nl2br }}
-                    </p>
-                </td>
-            </tr>
-        </table>
-    {% endif %}
 {% endblock %}

@@ -86,7 +86,6 @@ class EuropeanCVPartEducationType extends AbstractType implements EventSubscribe
             'educations_min' => 0,
             'languages_min' => 0,
             'additional_informations_min' => 0,
-            'attachments_min' => 0
          ]);
 
         $resolver->setRequired([

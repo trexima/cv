@@ -1,0 +1,1175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="sk-SK" trgLang="en-GB">
+  <file id="trexima_european_cv.en-GB">
+    <unit id="2KvB7js" name="trexima_european_cv.form_label.sex_male">
+      <segment>
+        <source>trexima_european_cv.form_label.sex_male</source>
+        <target>Male</target>
+      </segment>
+    </unit>
+    <unit id="WXCIMYU" name="trexima_european_cv.form_label.sex_female">
+      <segment>
+        <source>trexima_european_cv.form_label.sex_female</source>
+        <target>Female</target>
+      </segment>
+    </unit>
+    <unit id="v237p2h" name="trexima_european_cv.form_label.sex_do_not_state">
+      <segment>
+        <source>trexima_european_cv.form_label.sex_do_not_state</source>
+        <target>Do not state</target>
+      </segment>
+    </unit>
+    <unit id="snkMD7i" name="trexima_european_cv.form_label.sex_label">
+      <segment>
+        <source>trexima_european_cv.form_label.sex_label</source>
+        <target>Gender</target>
+      </segment>
+    </unit>
+    <unit id="N3fLyuP" name="trexima_european_cv.form_label.work_break_type">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_type</source>
+        <target>Type</target>
+      </segment>
+    </unit>
+    <unit id="A.MaAxQ" name="trexima_european_cv.form_label.work_break_description">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_description</source>
+        <target>Work break description</target>
+      </segment>
+    </unit>
+    <unit id="CtbQ5tG" name="trexima_european_cv.form_placeholder.work_break_description">
+      <segment>
+        <source>trexima_european_cv.form_placeholder.work_break_description</source>
+        <target>Describe the work break</target>
+      </segment>
+    </unit>
+    <unit id="lLX5SQa" name="trexima_european_cv.form_label.photo_label">
+      <segment>
+        <source>trexima_european_cv.form_label.photo_label</source>
+        <target>Photo</target>
+      </segment>
+    </unit>
+    <unit id="NiUEzPC" name="trexima_european_cv.form_label.first_name_label">
+      <segment>
+        <source>trexima_european_cv.form_label.first_name_label</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="toxl2bS" name="trexima_european_cv.form_label.first_name_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.first_name_placeholder</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="wAth75b" name="trexima_european_cv.form_label.last_name_label">
+      <segment>
+        <source>trexima_european_cv.form_label.last_name_label</source>
+        <target>Last Name</target>
+      </segment>
+    </unit>
+    <unit id="NcPbDek" name="trexima_european_cv.form_label.last_name_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.last_name_placeholder</source>
+        <target>Last Name</target>
+      </segment>
+    </unit>
+    <unit id=".hfx28y" name="trexima_european_cv.form_label.titles_before_label">
+      <segment>
+        <source>trexima_european_cv.form_label.titles_before_label</source>
+        <target>Title before</target>
+      </segment>
+    </unit>
+    <unit id="b_n1Cas" name="trexima_european_cv.form_label.titles_before_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.titles_before_placeholder</source>
+        <target>Please select an option</target>
+      </segment>
+    </unit>
+    <unit id="xHLw8UC" name="trexima_european_cv.form_label.titles_after_label">
+      <segment>
+        <source>trexima_european_cv.form_label.titles_after_label</source>
+        <target>Titles after</target>
+      </segment>
+    </unit>
+    <unit id="rG5Fqjr" name="trexima_european_cv.form_label.titles_after_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.titles_after_placeholder</source>
+        <target>Please select an option</target>
+      </segment>
+    </unit>
+    <unit id="K2RmJ4x" name="trexima_european_cv.form_label.nationalities_label">
+      <segment>
+        <source>trexima_european_cv.form_label.nationalities_label</source>
+        <target>Nationality</target>
+      </segment>
+    </unit>
+    <unit id="C.PXKpL" name="trexima_european_cv.form_label.year_label">
+      <segment>
+        <source>trexima_european_cv.form_label.year_label</source>
+        <target>Year of birth</target>
+      </segment>
+    </unit>
+    <unit id="2J6J6xS" name="trexima_european_cv.form_label.month_label">
+      <segment>
+        <source>trexima_european_cv.form_label.month_label</source>
+        <target>Month of birth</target>
+      </segment>
+    </unit>
+    <unit id="ShKw_Nx" name="trexima_european_cv.form_label.day_label">
+      <segment>
+        <source>trexima_european_cv.form_label.day_label</source>
+        <target>Day of birth</target>
+      </segment>
+    </unit>
+    <unit id="k86wlaY" name="trexima_european_cv.form_label.email_label">
+      <segment>
+        <source>trexima_european_cv.form_label.email_label</source>
+        <target>E-mail</target>
+      </segment>
+    </unit>
+    <unit id=".1FB8q1" name="trexima_european_cv.form_label.email_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.email_placeholder</source>
+        <target>vzor@vzor.sk</target>
+      </segment>
+    </unit>
+    <unit id="8Ejs32K" name="trexima_european_cv.form_label.address_label">
+      <segment>
+        <source>trexima_european_cv.form_label.address_label</source>
+        <target>Address</target>
+      </segment>
+    </unit>
+    <unit id="76Pcpk0" name="trexima_european_cv.form_label.address_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.address_placeholder</source>
+        <target>Vzorová 3, 841 01 Bratislava IV, Slovak Republic</target>
+      </segment>
+    </unit>
+    <unit id="olSDb4F" name="trexima_european_cv.form_label.personal_websites_label">
+      <segment>
+        <source>trexima_european_cv.form_label.personal_websites_label</source>
+        <target>Personal website</target>
+      </segment>
+    </unit>
+    <unit id="zcgSI25" name="trexima_european_cv.form_label.description_label">
+      <segment>
+        <source>trexima_european_cv.form_label.description_label</source>
+        <target>A short text about you that will appear in the header of your resume</target>
+      </segment>
+    </unit>
+    <unit id="gXltsGg" name="trexima_european_cv.form_label.description_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.description_placeholder</source>
+        <target>About you</target>
+      </segment>
+    </unit>
+    <unit id="ag.BcRc" name="trexima_european_cv.form_label.practice_isco_code_label">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_isco_code_label</source>
+        <target>Employment</target>
+      </segment>
+    </unit>
+    <unit id="VOfvMwE" name="trexima_european_cv.form_label.practice_isco_code_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_isco_code_placeholder</source>
+        <target>Please select an option</target>
+      </segment>
+    </unit>
+    <unit id="bHvSDLZ" name="trexima_european_cv.form_label.practice_isco_code_help">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_isco_code_help</source>
+        <target>More info:</target>
+      </segment>
+    </unit>
+    <unit id="d4wTsJ2" name="trexima_european_cv.form_label.practice_employee_label">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_employee_label</source>
+        <target>Employer</target>
+      </segment>
+    </unit>
+    <unit id="Jz42s0D" name="trexima_european_cv.form_label.practice_employee_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_employee_placeholder</source>
+        <target>Employer</target>
+      </segment>
+    </unit>
+    <unit id="6E_mx7N" name="trexima_european_cv.form_label.practice_description_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_description_placeholder</source>
+        <target>Describe your work experience</target>
+      </segment>
+    </unit>
+    <unit id="wLwYnrP" name="trexima_european_cv.form_label.practice_description_label">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_description_label</source>
+        <target>Job description</target>
+      </segment>
+    </unit>
+    <unit id="FFql.ZN" name="trexima_european_cv.form_placeholder.language">
+      <segment>
+        <source>trexima_european_cv.form_placeholder.language</source>
+        <target>Select language</target>
+      </segment>
+    </unit>
+    <unit id="J6qW5Ie" name="trexima_european_cv.form_label.language">
+      <segment>
+        <source>trexima_european_cv.form_label.language</source>
+        <target>Language of CV</target>
+      </segment>
+    </unit>
+    <unit id="rybReUB" name="trexima_european_cv.form_label.language_en">
+      <segment>
+        <source>trexima_european_cv.form_label.language_en</source>
+        <target>English</target>
+      </segment>
+    </unit>
+    <unit id="WqO_ay7" name="trexima_european_cv.form_label.language_sk">
+      <segment>
+        <source>trexima_european_cv.form_label.language_sk</source>
+        <target>Slovak</target>
+      </segment>
+    </unit>
+    <unit id="Gha6.qg" name="trexima_european_cv.form_label.language_cs">
+      <segment>
+        <source>trexima_european_cv.form_label.language_cs</source>
+        <target>Czech</target>
+      </segment>
+    </unit>
+    <unit id="z_mfW2p" name="trexima_european_cv.form_label.language_de">
+      <segment>
+        <source>trexima_european_cv.form_label.language_de</source>
+        <target>German</target>
+      </segment>
+    </unit>
+    <unit id="aiNtLYy" name="trexima_european_cv.form_label.language_hu">
+      <segment>
+        <source>trexima_european_cv.form_label.language_hu</source>
+        <target>Hungarian</target>
+      </segment>
+    </unit>
+    <unit id="WW0X2U5" name="trexima_european_cv.form_label.language_ru">
+      <segment>
+        <source>trexima_european_cv.form_label.language_ru</source>
+        <target>Russian</target>
+      </segment>
+    </unit>
+    <unit id="KMLs6RW" name="trexima_european_cv.form_label.language_uk">
+      <segment>
+        <source>trexima_european_cv.form_label.language_uk</source>
+        <target>Ukrainian</target>
+      </segment>
+    </unit>
+    <unit id="SwNWKib" name="trexima_european_cv.form_label.language_pl">
+      <segment>
+        <source>trexima_european_cv.form_label.language_pl</source>
+        <target>Polish</target>
+      </segment>
+    </unit>
+    <unit id="aiMtDi." name="trexima_european_cv.form_label.language_it">
+      <segment>
+        <source>trexima_european_cv.form_label.language_it</source>
+        <target>Italian</target>
+      </segment>
+    </unit>
+    <unit id="ozLJdV8" name="trexima_european_cv.form_label.language_fr">
+      <segment>
+        <source>trexima_european_cv.form_label.language_fr</source>
+        <target>French</target>
+      </segment>
+    </unit>
+    <unit id="n8pee1L" name="trexima_european_cv.form_label.language_es">
+      <segment>
+        <source>trexima_european_cv.form_label.language_es</source>
+        <target>Spanish</target>
+      </segment>
+    </unit>
+    <unit id="V556eHf" name="trexima_european_cv.form_label.language_pt">
+      <segment>
+        <source>trexima_european_cv.form_label.language_pt</source>
+        <target>Portuguese</target>
+      </segment>
+    </unit>
+    <unit id="aYHGDWJ" name="trexima_european_cv.form_label.language_nl">
+      <segment>
+        <source>trexima_european_cv.form_label.language_nl</source>
+        <target>Dutch</target>
+      </segment>
+    </unit>
+    <unit id="xwMMxtr" name="trexima_european_cv.form_label.language_da">
+      <segment>
+        <source>trexima_european_cv.form_label.language_da</source>
+        <target>Danish</target>
+      </segment>
+    </unit>
+    <unit id="kvSEde6" name="trexima_european_cv.form_label.language_fi">
+      <segment>
+        <source>trexima_european_cv.form_label.language_fi</source>
+        <target>Finnish</target>
+      </segment>
+    </unit>
+    <unit id="xfWJ7Ig" name="trexima_european_cv.form_label.language_sv">
+      <segment>
+        <source>trexima_european_cv.form_label.language_sv</source>
+        <target>Swedish</target>
+      </segment>
+    </unit>
+    <unit id="JgQh6pe" name="trexima_european_cv.form_label.language_no">
+      <segment>
+        <source>trexima_european_cv.form_label.language_no</source>
+        <target>Norwegian</target>
+      </segment>
+    </unit>
+    <unit id="nJwfNFL" name="trexima_european_cv.form_label.language_el">
+      <segment>
+        <source>trexima_european_cv.form_label.language_el</source>
+        <target>Greek</target>
+      </segment>
+    </unit>
+    <unit id="8HFTQ4d" name="trexima_european_cv.form_label.language_is">
+      <segment>
+        <source>trexima_european_cv.form_label.language_is</source>
+        <target>Icelandic</target>
+      </segment>
+    </unit>
+    <unit id="ETzU6P_" name="trexima_european_cv.form_label.language_ga">
+      <segment>
+        <source>trexima_european_cv.form_label.language_ga</source>
+        <target>Irish</target>
+      </segment>
+    </unit>
+    <unit id="1NNRUZE" name="trexima_european_cv.form_label.language_lv">
+      <segment>
+        <source>trexima_european_cv.form_label.language_lv</source>
+        <target>Latvian</target>
+      </segment>
+    </unit>
+    <unit id="DcGpzH." name="trexima_european_cv.form_label.language_et">
+      <segment>
+        <source>trexima_european_cv.form_label.language_et</source>
+        <target>Estonian</target>
+      </segment>
+    </unit>
+    <unit id="AtXi0fM" name="trexima_european_cv.form_label.language_lt">
+      <segment>
+        <source>trexima_european_cv.form_label.language_lt</source>
+        <target>Lithuanian</target>
+      </segment>
+    </unit>
+    <unit id="QljYSzx" name="trexima_european_cv.form_label.language_sl">
+      <segment>
+        <source>trexima_european_cv.form_label.language_sl</source>
+        <target>Slovenian</target>
+      </segment>
+    </unit>
+    <unit id="WSsE85v" name="trexima_european_cv.form_label.language_mt">
+      <segment>
+        <source>trexima_european_cv.form_label.language_mt</source>
+        <target>Maltese</target>
+      </segment>
+    </unit>
+    <unit id="GnFtoPp" name="trexima_european_cv.form_label.language_ro">
+      <segment>
+        <source>trexima_european_cv.form_label.language_ro</source>
+        <target>Romanian</target>
+      </segment>
+    </unit>
+    <unit id="kvxTTsm" name="trexima_european_cv.form_label.language_bg">
+      <segment>
+        <source>trexima_european_cv.form_label.language_bg</source>
+        <target>Bulgarian</target>
+      </segment>
+    </unit>
+    <unit id="5F7DYQv" name="trexima_european_cv.form_label.language_hr">
+      <segment>
+        <source>trexima_european_cv.form_label.language_hr</source>
+        <target>Croatian</target>
+      </segment>
+    </unit>
+    <unit id="vWqmb35" name="trexima_european_cv.form_label.language_sr">
+      <segment>
+        <source>trexima_european_cv.form_label.language_sr</source>
+        <target>Serbian</target>
+      </segment>
+    </unit>
+    <unit id="Y2FIdQS" name="trexima_european_cv.form_label.language_la">
+      <segment>
+        <source>trexima_european_cv.form_label.language_la</source>
+        <target>Latin</target>
+      </segment>
+    </unit>
+    <unit id="tmBgw1d" name="trexima_european_cv.form_label.language_zh">
+      <segment>
+        <source>trexima_european_cv.form_label.language_zh</source>
+        <target>Chinese (Mandarin)</target>
+      </segment>
+    </unit>
+    <unit id="Pp9LZgd" name="trexima_european_cv.form_label.language_vi">
+      <segment>
+        <source>trexima_european_cv.form_label.language_vi</source>
+        <target>Vietnamese</target>
+      </segment>
+    </unit>
+    <unit id="1u9QFbL" name="trexima_european_cv.form_label.language_ja">
+      <segment>
+        <source>trexima_european_cv.form_label.language_ja</source>
+        <target>Japanese</target>
+      </segment>
+    </unit>
+    <unit id="6YSD.qy" name="trexima_european_cv.form_label.language_ko">
+      <segment>
+        <source>trexima_european_cv.form_label.language_ko</source>
+        <target>Korean</target>
+      </segment>
+    </unit>
+    <unit id="aVE3v0c" name="trexima_european_cv.form_label.language_other">
+      <segment>
+        <source>trexima_european_cv.form_label.language_other</source>
+        <target>Other</target>
+      </segment>
+    </unit>
+    <unit id="dj59VVQ" name="trexima_european_cv.form_label.nationality_en">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_en</source>
+        <target>English</target>
+      </segment>
+    </unit>
+    <unit id="sL3TGr9" name="trexima_european_cv.form_label.nationality_sk">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_sk</source>
+        <target>Slovak</target>
+      </segment>
+    </unit>
+    <unit id="ykqlXP7" name="trexima_european_cv.form_label.nationality_cs">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_cs</source>
+        <target>Czech</target>
+      </segment>
+    </unit>
+    <unit id="SFdWTOW" name="trexima_european_cv.form_label.nationality_de">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_de</source>
+        <target>German</target>
+      </segment>
+    </unit>
+    <unit id="zKqjhJu" name="trexima_european_cv.form_label.nationality_hu">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_hu</source>
+        <target>Hungarian</target>
+      </segment>
+    </unit>
+    <unit id="uCyvvmn" name="trexima_european_cv.form_label.nationality_ru">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_ru</source>
+        <target>Russian</target>
+      </segment>
+    </unit>
+    <unit id="Oz_Bw_j" name="trexima_european_cv.form_label.nationality_uk">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_uk</source>
+        <target>Ukrainian</target>
+      </segment>
+    </unit>
+    <unit id="1PpENyD" name="trexima_european_cv.form_label.nationality_pl">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_pl</source>
+        <target>Polish</target>
+      </segment>
+    </unit>
+    <unit id="omrpYUp" name="trexima_european_cv.form_label.nationality_it">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_it</source>
+        <target>Italian</target>
+      </segment>
+    </unit>
+    <unit id="2FgVcka" name="trexima_european_cv.form_label.nationality_fr">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_fr</source>
+        <target>French</target>
+      </segment>
+    </unit>
+    <unit id="cxpmzT." name="trexima_european_cv.form_label.nationality_es">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_es</source>
+        <target>Spanish</target>
+      </segment>
+    </unit>
+    <unit id="7rK0spe" name="trexima_european_cv.form_label.nationality_pt">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_pt</source>
+        <target>Portuguese</target>
+      </segment>
+    </unit>
+    <unit id="Doi6amL" name="trexima_european_cv.form_label.nationality_nl">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_nl</source>
+        <target>Dutch</target>
+      </segment>
+    </unit>
+    <unit id="d7A4Im1" name="trexima_european_cv.form_label.nationality_da">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_da</source>
+        <target>Danish</target>
+      </segment>
+    </unit>
+    <unit id="a1B.NkG" name="trexima_european_cv.form_label.nationality_fi">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_fi</source>
+        <target>Finnish</target>
+      </segment>
+    </unit>
+    <unit id="ClNvFdQ" name="trexima_european_cv.form_label.nationality_sv">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_sv</source>
+        <target>Swedish</target>
+      </segment>
+    </unit>
+    <unit id="bY.f0Fs" name="trexima_european_cv.form_label.nationality_no">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_no</source>
+        <target>Norwegian</target>
+      </segment>
+    </unit>
+    <unit id="9v3Xc0G" name="trexima_european_cv.form_label.nationality_el">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_el</source>
+        <target>Greek</target>
+      </segment>
+    </unit>
+    <unit id="_DI2sl7" name="trexima_european_cv.form_label.nationality_is">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_is</source>
+        <target>Icelandic</target>
+      </segment>
+    </unit>
+    <unit id="Qhz5d9Z" name="trexima_european_cv.form_label.nationality_ga">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_ga</source>
+        <target>Irish</target>
+      </segment>
+    </unit>
+    <unit id="P0EU8MS" name="trexima_european_cv.form_label.nationality_lv">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_lv</source>
+        <target>Latvian</target>
+      </segment>
+    </unit>
+    <unit id="428rw2O" name="trexima_european_cv.form_label.nationality_et">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_et</source>
+        <target>Estonian</target>
+      </segment>
+    </unit>
+    <unit id="977DquX" name="trexima_european_cv.form_label.nationality_lt">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_lt</source>
+        <target>Lithuanian</target>
+      </segment>
+    </unit>
+    <unit id="R7Bi72V" name="trexima_european_cv.form_label.nationality_sl">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_sl</source>
+        <target>Slovenian</target>
+      </segment>
+    </unit>
+    <unit id="82io.nX" name="trexima_european_cv.form_label.nationality_mt">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_mt</source>
+        <target>Maltese</target>
+      </segment>
+    </unit>
+    <unit id="iJHjzeO" name="trexima_european_cv.form_label.nationality_ro">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_ro</source>
+        <target>Romanian</target>
+      </segment>
+    </unit>
+    <unit id="DAIw6ud" name="trexima_european_cv.form_label.nationality_bg">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_bg</source>
+        <target>Bulgarian</target>
+      </segment>
+    </unit>
+    <unit id="W9ap4FO" name="trexima_european_cv.form_label.nationality_hr">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_hr</source>
+        <target>Croatian</target>
+      </segment>
+    </unit>
+    <unit id="dN3ra08" name="trexima_european_cv.form_label.nationality_sr">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_sr</source>
+        <target>Serbian</target>
+      </segment>
+    </unit>
+    <unit id="tIJ6wqb" name="trexima_european_cv.form_label.nationality_la">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_la</source>
+        <target>Latin</target>
+      </segment>
+    </unit>
+    <unit id="Aan0IG_" name="trexima_european_cv.form_label.nationality_zh">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_zh</source>
+        <target>Chinese (Mandarin)</target>
+      </segment>
+    </unit>
+    <unit id="iJN8lEG" name="trexima_european_cv.form_label.nationality_vi">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_vi</source>
+        <target>Vietnamese</target>
+      </segment>
+    </unit>
+    <unit id=".0E89wM" name="trexima_european_cv.form_label.nationality_ja">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_ja</source>
+        <target>Japanese</target>
+      </segment>
+    </unit>
+    <unit id="IRoR9Uj" name="trexima_european_cv.form_label.nationality_ko">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_ko</source>
+        <target>Korean</target>
+      </segment>
+    </unit>
+    <unit id="kYtbqLS" name="trexima_european_cv.form_label.nationality_other">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_other</source>
+        <target>Other</target>
+      </segment>
+    </unit>
+    <unit id="9A_P9lc" name="trexima_european_cv.form_label.education_elementary_school">
+      <segment>
+        <source>trexima_european_cv.form_label.education_elementary_school</source>
+        <target>Elementary School</target>
+      </segment>
+    </unit>
+    <unit id="vOBYHH2" name="trexima_european_cv.form_label.education_high_school">
+      <segment>
+        <source>trexima_european_cv.form_label.education_high_school</source>
+        <target>Secondary school</target>
+      </segment>
+    </unit>
+    <unit id="L_CqIuE" name="trexima_european_cv.form_label.education_university">
+      <segment>
+        <source>trexima_european_cv.form_label.education_university</source>
+        <target>University</target>
+      </segment>
+    </unit>
+    <unit id="TfWBwZ_" name="trexima_european_cv.form_label.education_certificate">
+      <segment>
+        <source>trexima_european_cv.form_label.education_certificate</source>
+        <target>Certificate</target>
+      </segment>
+    </unit>
+    <unit id="UYkW3PY" name="trexima_european_cv.form_label.language_level_a1">
+      <segment>
+        <source>trexima_european_cv.form_label.language_level_a1</source>
+        <target>Beginner (A1)</target>
+      </segment>
+    </unit>
+    <unit id="Us19rqM" name="trexima_european_cv.form_label.language_level_a2">
+      <segment>
+        <source>trexima_european_cv.form_label.language_level_a2</source>
+        <target>Basic (A2)</target>
+      </segment>
+    </unit>
+    <unit id="1YghgrV" name="trexima_european_cv.form_label.language_level_b1">
+      <segment>
+        <source>trexima_european_cv.form_label.language_level_b1</source>
+        <target>Moderately advanced (B1)</target>
+      </segment>
+    </unit>
+    <unit id="Bh.qXh2" name="trexima_european_cv.form_label.language_level_b2">
+      <segment>
+        <source>trexima_european_cv.form_label.language_level_b2</source>
+        <target>Intermediate (B2)</target>
+      </segment>
+    </unit>
+    <unit id="2FNQm0a" name="trexima_european_cv.form_label.language_level_c1">
+      <segment>
+        <source>trexima_european_cv.form_label.language_level_c1</source>
+        <target>Advanced (C1)</target>
+      </segment>
+    </unit>
+    <unit id="xWVOmH4" name="trexima_european_cv.form_label.language_level_c2">
+      <segment>
+        <source>trexima_european_cv.form_label.language_level_c2</source>
+        <target>Expert (C2)</target>
+      </segment>
+    </unit>
+    <unit id="dbg23ua" name="trexima_european_cv.form_label.additional_informations">
+      <segment>
+        <source>trexima_european_cv.form_label.additional_informations</source>
+        <target>Additional information</target>
+      </segment>
+    </unit>
+    <unit id="9ZJVNUx" name="trexima_european_cv.form_sub_label.additional_informations">
+      <segment>
+        <source>trexima_european_cv.form_sub_label.additional_informations</source>
+        <target>Would you like to add something else? Write it in this box</target>
+      </segment>
+    </unit>
+    <unit id="KNfVUN0" name="trexima_european_cv.form_placeholder.additional_informations">
+      <segment>
+        <source>trexima_european_cv.form_placeholder.additional_informations</source>
+        <target>List your additional knowledge or skills that could not be defined based on the previous items and that you want to bring to the attention of your potential employer.</target>
+      </segment>
+    </unit>
+    <unit id="nDudS0I" name="trexima_european_cv.form_label.hobbies">
+      <segment>
+        <source>trexima_european_cv.form_label.hobbies</source>
+        <target>Interests and hobbies</target>
+      </segment>
+    </unit>
+    <unit id="pVxS4Yz" name="trexima_european_cv.form_sub_label.hobbies">
+      <segment>
+        <source>trexima_european_cv.form_sub_label.hobbies</source>
+        <target>Appropriately written hobbies can arouse the interest of employers and make you an interesting applicant</target>
+      </segment>
+    </unit>
+    <unit id="nF2O5Ge" name="trexima_european_cv.form_placeholder.hobbies">
+      <segment>
+        <source>trexima_european_cv.form_placeholder.hobbies</source>
+        <target>List your interests or hobbies that you do in your spare time.</target>
+      </segment>
+    </unit>
+    <unit id="TyMUIG7" name="trexima_european_cv.form_label.digital_skill_level_1">
+      <segment>
+        <source>trexima_european_cv.form_label.digital_skill_level_1</source>
+        <target>Elementary</target>
+      </segment>
+    </unit>
+    <unit id="VvDR3jT" name="trexima_european_cv.form_label.digital_skill_level_2">
+      <segment>
+        <source>trexima_european_cv.form_label.digital_skill_level_2</source>
+        <target>Advanced</target>
+      </segment>
+    </unit>
+    <unit id="IFbafTm" name="trexima_european_cv.form_label.digital_skill_level_3">
+      <segment>
+        <source>trexima_european_cv.form_label.digital_skill_level_3</source>
+        <target>High</target>
+      </segment>
+    </unit>
+    <unit id="5AMfbYf" name="trexima_european_cv.form_label.digital_skill_title">
+      <segment>
+        <source>trexima_european_cv.form_label.digital_skill_title</source>
+        <target>Digital skill</target>
+      </segment>
+    </unit>
+    <unit id="upYgCIr" name="trexima_european_cv.form_placeholder.digital_skill_title">
+      <segment>
+        <source>trexima_european_cv.form_placeholder.digital_skill_title</source>
+        <target>Please select an option</target>
+      </segment>
+    </unit>
+    <unit id="WP8Jr3e" name="trexima_european_cv.form_label.digital_skill_level">
+      <segment>
+        <source>trexima_european_cv.form_label.digital_skill_level</source>
+        <target>Level</target>
+      </segment>
+    </unit>
+    <unit id="p0WVzkn" name="trexima_european_cv.form_label.work_break_1">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_1</source>
+        <target>Maternity/parental leave</target>
+      </segment>
+    </unit>
+    <unit id="RQRr2nt" name="trexima_european_cv.form_label.work_break_2">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_2</source>
+        <target>Registration at the labour office</target>
+      </segment>
+    </unit>
+    <unit id="b_h6Rni" name="trexima_european_cv.form_label.work_break_3">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_3</source>
+        <target>Health problems</target>
+      </segment>
+    </unit>
+    <unit id="orCtbdO" name="trexima_european_cv.form_label.work_break_4">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_4</source>
+        <target>Loss of a loved one</target>
+      </segment>
+    </unit>
+    <unit id="xI33Hdm" name="trexima_european_cv.form_label.work_break_5">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_5</source>
+        <target>Caring for another person or household</target>
+      </segment>
+    </unit>
+    <unit id="eNi5fkN" name="trexima_european_cv.form_label.work_break_6">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_6</source>
+        <target>Sabbatical</target>
+      </segment>
+    </unit>
+    <unit id="NdMzb3O" name="trexima_european_cv.form_label.work_break_7">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_7</source>
+        <target>Traveling</target>
+      </segment>
+    </unit>
+    <unit id="ne0YuO1" name="trexima_european_cv.form_label.work_break_8">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_8</source>
+        <target>Traveling</target>
+      </segment>
+    </unit>
+    <unit id="cABa08o" name="trexima_european_cv.form_label.work_break_9">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_9</source>
+        <target>Education, personal development</target>
+      </segment>
+    </unit>
+    <unit id="XF94vav" name="trexima_european_cv.form_label.add_work_break_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_work_break_button</source>
+        <target>Add a break at work</target>
+      </segment>
+    </unit>
+    <unit id="NV_QMKf" name="trexima_european_cv.form_label.competences_label">
+      <segment>
+        <source>trexima_european_cv.form_label.competences_label</source>
+        <target>General qualifications and prerequisites</target>
+      </segment>
+    </unit>
+    <unit id="OyZ2eoQ" name="trexima_european_cv.form_label.competences_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.competences_placeholder</source>
+        <target>Please select an option</target>
+      </segment>
+    </unit>
+    <unit id="T.r7iTJ" name="trexima_european_cv.form_label.driving_license_owner_label">
+      <segment>
+        <source>trexima_european_cv.form_label.driving_license_owner_label</source>
+        <target>Driving license</target>
+      </segment>
+    </unit>
+    <unit id="qyJVims" name="trexima_european_cv.form_label.driving_license_owner_false_choice_label">
+      <segment>
+        <source>trexima_european_cv.form_label.driving_license_owner_false_choice_label</source>
+        <target>I don't have a driver's license</target>
+      </segment>
+    </unit>
+    <unit id="NPclfeN" name="trexima_european_cv.form_label.driving_license_owner_true_choice_label">
+      <segment>
+        <source>trexima_european_cv.form_label.driving_license_owner_true_choice_label</source>
+        <target>I have a driver's license</target>
+      </segment>
+    </unit>
+    <unit id="5NKN6YM" name="trexima_european_cv.form_label.driving_license_distance_traveled_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.driving_license_distance_traveled_placeholder</source>
+        <target>Number of KM</target>
+      </segment>
+    </unit>
+    <unit id="FMLpDoi" name="trexima_european_cv.form_label.driving_license_active_driver_label">
+      <segment>
+        <source>trexima_european_cv.form_label.driving_license_active_driver_label</source>
+        <target>I am an active driver</target>
+      </segment>
+    </unit>
+    <unit id="PGCSJpn" name="trexima_european_cv.form_label.education_title_label">
+      <segment>
+        <source>trexima_european_cv.form_label.education_title_label</source>
+        <target>Name and address of the school</target>
+      </segment>
+    </unit>
+    <unit id="7GUk.0U" name="trexima_european_cv.form_label.education_title_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.education_title_placeholder</source>
+        <target>Name of the school</target>
+      </segment>
+    </unit>
+    <unit id="gTY7vrB" name="trexima_european_cv.form_label.education_year_range_label">
+      <segment>
+        <source>trexima_european_cv.form_label.education_year_range_label</source>
+        <target>Range</target>
+      </segment>
+    </unit>
+    <unit id="9L.7YBS" name="trexima_european_cv.form_label.education_description_label">
+      <segment>
+        <source>trexima_european_cv.form_label.education_description_label</source>
+        <target>Education description</target>
+      </segment>
+    </unit>
+    <unit id="Lgx9rLr" name="trexima_european_cv.form_label.education_description_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.education_description_placeholder</source>
+        <target>Describe your studies</target>
+      </segment>
+    </unit>
+    <unit id="OQ8rIIJ" name="trexima_european_cv.form_label.language_label">
+      <segment>
+        <source>trexima_european_cv.form_label.language_label</source>
+        <target>Language</target>
+      </segment>
+    </unit>
+    <unit id="tGaeDFt" name="trexima_european_cv.form_label.language_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.language_placeholder</source>
+        <target>Please select an option</target>
+      </segment>
+    </unit>
+    <unit id="U5kiGoE" name="trexima_european_cv.form_label.language_level_label">
+      <segment>
+        <source>trexima_european_cv.form_label.language_level_label</source>
+        <target>Level</target>
+      </segment>
+    </unit>
+    <unit id="Tzcf5uw" name="trexima_european_cv.form_label.phone_type_label">
+      <segment>
+        <source>trexima_european_cv.form_label.phone_type_label</source>
+        <target>Phone</target>
+      </segment>
+    </unit>
+    <unit id="_isPTvM" name="trexima_european_cv.form_label.phone_type_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.phone_type_placeholder</source>
+        <target>Please Select</target>
+      </segment>
+    </unit>
+    <unit id="y247oYk" name="trexima_european_cv.form_label.phone_number_label">
+      <segment>
+        <source>trexima_european_cv.form_label.phone_number_label</source>
+        <target>Fill in the number</target>
+      </segment>
+    </unit>
+    <unit id="kTX8Ss4" name="trexima_european_cv.form_label.phone_number_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.phone_number_placeholder</source>
+        <target>In the form: +421918123456</target>
+      </segment>
+    </unit>
+    <unit id="BfIiH8U" name="trexima_european_cv.form_label.month_year_range_begin_month_label">
+      <segment>
+        <source>trexima_european_cv.form_label.month_year_range_begin_month_label</source>
+        <target>From</target>
+      </segment>
+    </unit>
+    <unit id="wFF30tF" name="trexima_european_cv.form_label.month_year_range_begin_month_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.month_year_range_begin_month_placeholder</source>
+        <target>Month</target>
+      </segment>
+    </unit>
+    <unit id="nqir_Bf" name="trexima_european_cv.form_label.month_year_range_begin_year_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.month_year_range_begin_year_placeholder</source>
+        <target>Year</target>
+      </segment>
+    </unit>
+    <unit id="SetaqYz" name="trexima_european_cv.form_label.month_year_range_end_month_label">
+      <segment>
+        <source>trexima_european_cv.form_label.month_year_range_end_month_label</source>
+        <target>To</target>
+      </segment>
+    </unit>
+    <unit id="BJy85zw" name="trexima_european_cv.form_label.month_year_range_end_month_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.month_year_range_end_month_placeholder</source>
+        <target>Month</target>
+      </segment>
+    </unit>
+    <unit id="1LEQxt9" name="trexima_european_cv.form_label.month_year_range_end_year_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.month_year_range_end_year_placeholder</source>
+        <target>Year</target>
+      </segment>
+    </unit>
+    <unit id="OxW2XoA" name="trexima_european_cv.form_label.year_range_begin_year_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.year_range_begin_year_placeholder</source>
+        <target>Start date</target>
+      </segment>
+    </unit>
+    <unit id="J5Nh5WK" name="trexima_european_cv.form_label.year_range_end_year_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.year_range_end_year_placeholder</source>
+        <target>Year of termination</target>
+      </segment>
+    </unit>
+    <unit id="_bqnz.1" name="trexima_european_cv.form_label.submit_label">
+      <segment>
+        <source>trexima_european_cv.form_label.submit_label</source>
+        <target>Save CV</target>
+      </segment>
+    </unit>
+    <unit id="b2cv33l" name="trexima_european_cv.form_label.add_additional_informations_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_additional_informations_button</source>
+        <target>Add information</target>
+      </segment>
+    </unit>
+    <unit id="VPvmwc0" name="trexima_european_cv.form_label.add_attachment_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_attachment_button</source>
+        <target>Add attachment</target>
+      </segment>
+    </unit>
+    <unit id="_eXX4fr" name="trexima_european_cv.form_label.add_phone_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_phone_button</source>
+        <target>Add phone</target>
+      </segment>
+    </unit>
+    <unit id="uc5I_oi" name="trexima_european_cv.form_label.add_digital_skill_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_digital_skill_button</source>
+        <target>Add a digital skill</target>
+      </segment>
+    </unit>
+    <unit id="d7m33E6" name="trexima_european_cv.form_label.add_education_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_education_button</source>
+        <target>Add education</target>
+      </segment>
+    </unit>
+    <unit id="Y_JSUEw" name="trexima_european_cv.form_label.save_education_button">
+      <segment>
+        <source>trexima_european_cv.form_label.save_education_button</source>
+        <target>Save education</target>
+      </segment>
+    </unit>
+    <unit id="PfU6puT" name="trexima_european_cv.form_label.add_language_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_language_button</source>
+        <target>Add language</target>
+      </segment>
+    </unit>
+    <unit id="TIybNsR" name="trexima_european_cv.form_label.add_practice_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_practice_button</source>
+        <target>Add practice</target>
+      </segment>
+    </unit>
+    <unit id="d7AxoCG" name="trexima_european_cv.form_label.education_kov">
+      <segment>
+        <source>trexima_european_cv.form_label.education_kov</source>
+        <target>Field of study/teaching</target>
+      </segment>
+    </unit>
+    <unit id="jIhsDRk" name="trexima_european_cv.form_label.certificate_institution_label">
+      <segment>
+        <source>trexima_european_cv.form_label.certificate_institution_label</source>
+        <target>Educational institution</target>
+      </segment>
+    </unit>
+    <unit id="8gpYGoa" name="trexima_european_cv.form_label.certificate_title_label">
+      <segment>
+        <source>trexima_european_cv.form_label.certificate_title_label</source>
+        <target>Name of the course/certificate</target>
+      </segment>
+    </unit>
+    <unit id="Jm3g0Xg" name="trexima_european_cv.form_label.certificate_start_label">
+      <segment>
+        <source>trexima_european_cv.form_label.certificate_start_label</source>
+        <target>Graduation year</target>
+      </segment>
+    </unit>
+    <unit id="k8hhHA7" name="trexima_european_cv.form_label.certificate_end_label">
+      <segment>
+        <source>trexima_european_cv.form_label.certificate_end_label</source>
+        <target>Expires on</target>
+      </segment>
+    </unit>
+    <unit id="sDPPr5D" name="trexima_european_cv.form_label.certificate_no_end_date">
+      <segment>
+        <source>trexima_european_cv.form_label.certificate_no_end_date</source>
+        <target>The certificate has no time limit</target>
+      </segment>
+    </unit>
+    <unit id="D3JD88z" name="trexima_european_cv.form_label.certificate_description_label">
+      <segment>
+        <source>trexima_european_cv.form_label.certificate_description_label</source>
+        <target>Description of the course/certificate</target>
+      </segment>
+    </unit>
+    <unit id="jIzfi.i" name="trexima_european_cv.form_label.save_certificate_button">
+      <segment>
+        <source>trexima_european_cv.form_label.save_certificate_button</source>
+        <target>Save the certificate</target>
+      </segment>
+    </unit>
+    <unit id="s5c5J4H" name="trexima_european_cv.form_label.save_practice_button">
+      <segment>
+        <source>trexima_european_cv.form_label.save_practice_button</source>
+        <target>Save work experience</target>
+      </segment>
+    </unit>
+    <unit id="R26D7Jt" name="trexima_european_cv.form_label.save_work_break_button">
+      <segment>
+        <source>trexima_european_cv.form_label.save_work_break_button</source>
+        <target>Save a break at work</target>
+      </segment>
+    </unit>
+    <unit id="kxzV7wJ" name="app.enum.pc_skill_level.elementary">
+      <segment>
+        <source>app.enum.pc_skill_level.elementary</source>
+        <target>Elementary</target>
+      </segment>
+    </unit>
+    <unit id="8ScdhZQ" name="app.enum.pc_skill_level.intermediate">
+      <segment>
+        <source>app.enum.pc_skill_level.intermediate</source>
+        <target>Advanced</target>
+      </segment>
+    </unit>
+    <unit id="m70z36m" name="app.enum.pc_skill_level.master">
+      <segment>
+        <source>app.enum.pc_skill_level.master</source>
+        <target>High</target>
+      </segment>
+    </unit>
+    <unit id="xHbdp.R" name="trexima_european_cv.form_label.add_personal_website_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_personal_website_button</source>
+        <target>Add personal website</target>
+      </segment>
+    </unit>
+    <unit id="zr5i8Wx" name="trexima_european_cv.form_label.year_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.year_placeholder</source>
+        <target>Choose year</target>
+      </segment>
+    </unit>
+    <unit id="4u4nz8D" name="trexima_european_cv.form_label.month_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.month_placeholder</source>
+        <target>Select a month</target>
+      </segment>
+    </unit>
+    <unit id="d8U2csr" name="trexima_european_cv.form_label.day_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.day_placeholder</source>
+        <target>Select a day</target>
+      </segment>
+    </unit>
+    <unit id="YWWgmvy" name="trexima_european_cv.education_type_enum.education_elementary_school">
+      <segment>
+        <source>trexima_european_cv.education_type_enum.education_elementary_school</source>
+        <target>Elementary School</target>
+      </segment>
+    </unit>
+    <unit id="1UKIcr9" name="trexima_european_cv.education_type_enum.education_high_school">
+      <segment>
+        <source>trexima_european_cv.education_type_enum.education_high_school</source>
+        <target>Secondary school</target>
+      </segment>
+    </unit>
+    <unit id="wv01I3d" name="trexima_european_cv.education_type_enum.education_university">
+      <segment>
+        <source>trexima_european_cv.education_type_enum.education_university</source>
+        <target>University</target>
+      </segment>
+    </unit>
+    <unit id="kUEjk9d" name="trexima_european_cv.education_type_enum.education_certificate">
+      <segment>
+        <source>trexima_european_cv.education_type_enum.education_certificate</source>
+        <target>Certificate</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

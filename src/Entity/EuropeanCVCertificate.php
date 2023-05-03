@@ -19,7 +19,7 @@ class EuropeanCVCertificate
     #[ORM\Column(type: 'integer', options: ['unsigned' => true])]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(targetEntity: EuropeanCV::class, inversedBy: 'educations')]
+    #[ORM\ManyToOne(targetEntity: EuropeanCV::class, inversedBy: 'certificates')]
     #[ORM\JoinColumn(name: 'european_cv_id', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
     private ?EuropeanCV $europeanCV = null;
 
