@@ -116,12 +116,14 @@ class EuropeanCVEducationType extends AbstractType implements EventSubscriberInt
 
         if ($data->getType()->value !== EducationTypeEnum::EDUCATION_ELEMENTARY_SCHOOL->value) {
             $kov = $formEvent->getForm()->get('kov')->getData();
-            $code = $kov->getKovCode();
-            if ($code === $kov->getKovTitle()) {
-                $code = null;
+            if (!empty($kov)) {
+                $code = $kov->getKovCode();
+                if ($code === $kov->getKovTitle()) {
+                    $code = null;
+                }
+                $data->setKovCode($code);
+                $data->setKovTitle($kov->getKovTitle());
             }
-            $data->setKovCode($code);
-            $data->setKovTitle($kov->getKovTitle());
         }
     }
 

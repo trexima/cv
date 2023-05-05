@@ -38,7 +38,7 @@ class KovType extends AbstractMappedAutocompleteType
 
     protected function retrieveDataForValue(?string $value): ?array
     {
-        if (null === $value) {
+        if (null === $value || '' === $value) {
             return null;
         }
 
