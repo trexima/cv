@@ -1,0 +1,1175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="sk-SK" trgLang="hu-HU">
+  <file id="trexima_european_cv.hu-HU">
+    <unit id="2KvB7js" name="trexima_european_cv.form_label.sex_male">
+      <segment>
+        <source>trexima_european_cv.form_label.sex_male</source>
+        <target>Férfi</target>
+      </segment>
+    </unit>
+    <unit id="WXCIMYU" name="trexima_european_cv.form_label.sex_female">
+      <segment>
+        <source>trexima_european_cv.form_label.sex_female</source>
+        <target>Nő</target>
+      </segment>
+    </unit>
+    <unit id="v237p2h" name="trexima_european_cv.form_label.sex_do_not_state">
+      <segment>
+        <source>trexima_european_cv.form_label.sex_do_not_state</source>
+        <target>Ne tüntesse fel</target>
+      </segment>
+    </unit>
+    <unit id="snkMD7i" name="trexima_european_cv.form_label.sex_label">
+      <segment>
+        <source>trexima_european_cv.form_label.sex_label</source>
+        <target>Neme</target>
+      </segment>
+    </unit>
+    <unit id="N3fLyuP" name="trexima_european_cv.form_label.work_break_type">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_type</source>
+        <target>Típus</target>
+      </segment>
+    </unit>
+    <unit id="A.MaAxQ" name="trexima_european_cv.form_label.work_break_description">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_description</source>
+        <target>A munkahelyi szünet leírása</target>
+      </segment>
+    </unit>
+    <unit id="CtbQ5tG" name="trexima_european_cv.form_placeholder.work_break_description">
+      <segment>
+        <source>trexima_european_cv.form_placeholder.work_break_description</source>
+        <target>A munkahelyi szünet leírása</target>
+      </segment>
+    </unit>
+    <unit id="lLX5SQa" name="trexima_european_cv.form_label.photo_label">
+      <segment>
+        <source>trexima_european_cv.form_label.photo_label</source>
+        <target>Fénykép</target>
+      </segment>
+    </unit>
+    <unit id="NiUEzPC" name="trexima_european_cv.form_label.first_name_label">
+      <segment>
+        <source>trexima_european_cv.form_label.first_name_label</source>
+        <target>Keresztnév</target>
+      </segment>
+    </unit>
+    <unit id="toxl2bS" name="trexima_european_cv.form_label.first_name_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.first_name_placeholder</source>
+        <target>Keresztnév</target>
+      </segment>
+    </unit>
+    <unit id="wAth75b" name="trexima_european_cv.form_label.last_name_label">
+      <segment>
+        <source>trexima_european_cv.form_label.last_name_label</source>
+        <target>Vezetéknév</target>
+      </segment>
+    </unit>
+    <unit id="NcPbDek" name="trexima_european_cv.form_label.last_name_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.last_name_placeholder</source>
+        <target>Vezetéknév</target>
+      </segment>
+    </unit>
+    <unit id=".hfx28y" name="trexima_european_cv.form_label.titles_before_label">
+      <segment>
+        <source>trexima_european_cv.form_label.titles_before_label</source>
+        <target>Titulus a név előtt</target>
+      </segment>
+    </unit>
+    <unit id="b_n1Cas" name="trexima_european_cv.form_label.titles_before_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.titles_before_placeholder</source>
+        <target>Kérjük, válasszon az alábbi lehetőségek közül</target>
+      </segment>
+    </unit>
+    <unit id="xHLw8UC" name="trexima_european_cv.form_label.titles_after_label">
+      <segment>
+        <source>trexima_european_cv.form_label.titles_after_label</source>
+        <target>Titulus a név után</target>
+      </segment>
+    </unit>
+    <unit id="rG5Fqjr" name="trexima_european_cv.form_label.titles_after_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.titles_after_placeholder</source>
+        <target>Kérjük, válasszon az alábbi lehetőségek közül</target>
+      </segment>
+    </unit>
+    <unit id="K2RmJ4x" name="trexima_european_cv.form_label.nationalities_label">
+      <segment>
+        <source>trexima_european_cv.form_label.nationalities_label</source>
+        <target>Állampolgárság</target>
+      </segment>
+    </unit>
+    <unit id="C.PXKpL" name="trexima_european_cv.form_label.year_label">
+      <segment>
+        <source>trexima_european_cv.form_label.year_label</source>
+        <target>Születés éve</target>
+      </segment>
+    </unit>
+    <unit id="2J6J6xS" name="trexima_european_cv.form_label.month_label">
+      <segment>
+        <source>trexima_european_cv.form_label.month_label</source>
+        <target>Születés hónapja</target>
+      </segment>
+    </unit>
+    <unit id="ShKw_Nx" name="trexima_european_cv.form_label.day_label">
+      <segment>
+        <source>trexima_european_cv.form_label.day_label</source>
+        <target>Születési nap</target>
+      </segment>
+    </unit>
+    <unit id="k86wlaY" name="trexima_european_cv.form_label.email_label">
+      <segment>
+        <source>trexima_european_cv.form_label.email_label</source>
+        <target>E-mail</target>
+      </segment>
+    </unit>
+    <unit id=".1FB8q1" name="trexima_european_cv.form_label.email_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.email_placeholder</source>
+        <target>vzor@vzor.sk</target>
+      </segment>
+    </unit>
+    <unit id="8Ejs32K" name="trexima_european_cv.form_label.address_label">
+      <segment>
+        <source>trexima_european_cv.form_label.address_label</source>
+        <target>Lakcím</target>
+      </segment>
+    </unit>
+    <unit id="76Pcpk0" name="trexima_european_cv.form_label.address_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.address_placeholder</source>
+        <target>Vzorová 3, 841 01 Bratislava IV, Szlovák Köztársaság</target>
+      </segment>
+    </unit>
+    <unit id="olSDb4F" name="trexima_european_cv.form_label.personal_websites_label">
+      <segment>
+        <source>trexima_european_cv.form_label.personal_websites_label</source>
+        <target>Saját weboldal</target>
+      </segment>
+    </unit>
+    <unit id="zcgSI25" name="trexima_european_cv.form_label.description_label">
+      <segment>
+        <source>trexima_european_cv.form_label.description_label</source>
+        <target>Egy rövid szöveg Önről, amely az önéletrajz fejlécében jelenik meg</target>
+      </segment>
+    </unit>
+    <unit id="gXltsGg" name="trexima_european_cv.form_label.description_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.description_placeholder</source>
+        <target>Önről</target>
+      </segment>
+    </unit>
+    <unit id="ag.BcRc" name="trexima_european_cv.form_label.practice_isco_code_label">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_isco_code_label</source>
+        <target>Foglalkozás</target>
+      </segment>
+    </unit>
+    <unit id="VOfvMwE" name="trexima_european_cv.form_label.practice_isco_code_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_isco_code_placeholder</source>
+        <target>Kérjük, válasszon az alábbi lehetőségek közül</target>
+      </segment>
+    </unit>
+    <unit id="bHvSDLZ" name="trexima_european_cv.form_label.practice_isco_code_help">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_isco_code_help</source>
+        <target>További információ:</target>
+      </segment>
+    </unit>
+    <unit id="d4wTsJ2" name="trexima_european_cv.form_label.practice_employee_label">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_employee_label</source>
+        <target>Munkaadó</target>
+      </segment>
+    </unit>
+    <unit id="Jz42s0D" name="trexima_european_cv.form_label.practice_employee_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_employee_placeholder</source>
+        <target>Munkaadó</target>
+      </segment>
+    </unit>
+    <unit id="6E_mx7N" name="trexima_european_cv.form_label.practice_description_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_description_placeholder</source>
+        <target>Írja le munkatapasztalatait</target>
+      </segment>
+    </unit>
+    <unit id="wLwYnrP" name="trexima_european_cv.form_label.practice_description_label">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_description_label</source>
+        <target>Munkaköri leírás</target>
+      </segment>
+    </unit>
+    <unit id="FFql.ZN" name="trexima_european_cv.form_placeholder.language">
+      <segment>
+        <source>trexima_european_cv.form_placeholder.language</source>
+        <target>Nyelv kiválasztása</target>
+      </segment>
+    </unit>
+    <unit id="J6qW5Ie" name="trexima_european_cv.form_label.language">
+      <segment>
+        <source>trexima_european_cv.form_label.language</source>
+        <target>Az életrajz nyelve</target>
+      </segment>
+    </unit>
+    <unit id="rybReUB" name="trexima_european_cv.form_label.language_en">
+      <segment>
+        <source>trexima_european_cv.form_label.language_en</source>
+        <target>Angol</target>
+      </segment>
+    </unit>
+    <unit id="WqO_ay7" name="trexima_european_cv.form_label.language_sk">
+      <segment>
+        <source>trexima_european_cv.form_label.language_sk</source>
+        <target>Szlovák</target>
+      </segment>
+    </unit>
+    <unit id="Gha6.qg" name="trexima_european_cv.form_label.language_cs">
+      <segment>
+        <source>trexima_european_cv.form_label.language_cs</source>
+        <target>Cseh</target>
+      </segment>
+    </unit>
+    <unit id="z_mfW2p" name="trexima_european_cv.form_label.language_de">
+      <segment>
+        <source>trexima_european_cv.form_label.language_de</source>
+        <target>Német</target>
+      </segment>
+    </unit>
+    <unit id="aiNtLYy" name="trexima_european_cv.form_label.language_hu">
+      <segment>
+        <source>trexima_european_cv.form_label.language_hu</source>
+        <target>Magyar</target>
+      </segment>
+    </unit>
+    <unit id="WW0X2U5" name="trexima_european_cv.form_label.language_ru">
+      <segment>
+        <source>trexima_european_cv.form_label.language_ru</source>
+        <target>Orosz</target>
+      </segment>
+    </unit>
+    <unit id="KMLs6RW" name="trexima_european_cv.form_label.language_uk">
+      <segment>
+        <source>trexima_european_cv.form_label.language_uk</source>
+        <target>Ukrán</target>
+      </segment>
+    </unit>
+    <unit id="SwNWKib" name="trexima_european_cv.form_label.language_pl">
+      <segment>
+        <source>trexima_european_cv.form_label.language_pl</source>
+        <target>Lengyel</target>
+      </segment>
+    </unit>
+    <unit id="aiMtDi." name="trexima_european_cv.form_label.language_it">
+      <segment>
+        <source>trexima_european_cv.form_label.language_it</source>
+        <target>Olasz</target>
+      </segment>
+    </unit>
+    <unit id="ozLJdV8" name="trexima_european_cv.form_label.language_fr">
+      <segment>
+        <source>trexima_european_cv.form_label.language_fr</source>
+        <target>Francia</target>
+      </segment>
+    </unit>
+    <unit id="n8pee1L" name="trexima_european_cv.form_label.language_es">
+      <segment>
+        <source>trexima_european_cv.form_label.language_es</source>
+        <target>Spanyol</target>
+      </segment>
+    </unit>
+    <unit id="V556eHf" name="trexima_european_cv.form_label.language_pt">
+      <segment>
+        <source>trexima_european_cv.form_label.language_pt</source>
+        <target>Portugál</target>
+      </segment>
+    </unit>
+    <unit id="aYHGDWJ" name="trexima_european_cv.form_label.language_nl">
+      <segment>
+        <source>trexima_european_cv.form_label.language_nl</source>
+        <target>Holland</target>
+      </segment>
+    </unit>
+    <unit id="xwMMxtr" name="trexima_european_cv.form_label.language_da">
+      <segment>
+        <source>trexima_european_cv.form_label.language_da</source>
+        <target>Dán</target>
+      </segment>
+    </unit>
+    <unit id="kvSEde6" name="trexima_european_cv.form_label.language_fi">
+      <segment>
+        <source>trexima_european_cv.form_label.language_fi</source>
+        <target>Finn</target>
+      </segment>
+    </unit>
+    <unit id="xfWJ7Ig" name="trexima_european_cv.form_label.language_sv">
+      <segment>
+        <source>trexima_european_cv.form_label.language_sv</source>
+        <target>Svéd</target>
+      </segment>
+    </unit>
+    <unit id="JgQh6pe" name="trexima_european_cv.form_label.language_no">
+      <segment>
+        <source>trexima_european_cv.form_label.language_no</source>
+        <target>Norvég</target>
+      </segment>
+    </unit>
+    <unit id="nJwfNFL" name="trexima_european_cv.form_label.language_el">
+      <segment>
+        <source>trexima_european_cv.form_label.language_el</source>
+        <target>Görög</target>
+      </segment>
+    </unit>
+    <unit id="8HFTQ4d" name="trexima_european_cv.form_label.language_is">
+      <segment>
+        <source>trexima_european_cv.form_label.language_is</source>
+        <target>Izlandi</target>
+      </segment>
+    </unit>
+    <unit id="ETzU6P_" name="trexima_european_cv.form_label.language_ga">
+      <segment>
+        <source>trexima_european_cv.form_label.language_ga</source>
+        <target>Ír</target>
+      </segment>
+    </unit>
+    <unit id="1NNRUZE" name="trexima_european_cv.form_label.language_lv">
+      <segment>
+        <source>trexima_european_cv.form_label.language_lv</source>
+        <target>Lett</target>
+      </segment>
+    </unit>
+    <unit id="DcGpzH." name="trexima_european_cv.form_label.language_et">
+      <segment>
+        <source>trexima_european_cv.form_label.language_et</source>
+        <target>Észt</target>
+      </segment>
+    </unit>
+    <unit id="AtXi0fM" name="trexima_european_cv.form_label.language_lt">
+      <segment>
+        <source>trexima_european_cv.form_label.language_lt</source>
+        <target>Litván</target>
+      </segment>
+    </unit>
+    <unit id="QljYSzx" name="trexima_european_cv.form_label.language_sl">
+      <segment>
+        <source>trexima_european_cv.form_label.language_sl</source>
+        <target>Szlovén</target>
+      </segment>
+    </unit>
+    <unit id="WSsE85v" name="trexima_european_cv.form_label.language_mt">
+      <segment>
+        <source>trexima_european_cv.form_label.language_mt</source>
+        <target>Máltai</target>
+      </segment>
+    </unit>
+    <unit id="GnFtoPp" name="trexima_european_cv.form_label.language_ro">
+      <segment>
+        <source>trexima_european_cv.form_label.language_ro</source>
+        <target>Román</target>
+      </segment>
+    </unit>
+    <unit id="kvxTTsm" name="trexima_european_cv.form_label.language_bg">
+      <segment>
+        <source>trexima_european_cv.form_label.language_bg</source>
+        <target>Bolgár</target>
+      </segment>
+    </unit>
+    <unit id="5F7DYQv" name="trexima_european_cv.form_label.language_hr">
+      <segment>
+        <source>trexima_european_cv.form_label.language_hr</source>
+        <target>Horvát</target>
+      </segment>
+    </unit>
+    <unit id="vWqmb35" name="trexima_european_cv.form_label.language_sr">
+      <segment>
+        <source>trexima_european_cv.form_label.language_sr</source>
+        <target>Szerb</target>
+      </segment>
+    </unit>
+    <unit id="Y2FIdQS" name="trexima_european_cv.form_label.language_la">
+      <segment>
+        <source>trexima_european_cv.form_label.language_la</source>
+        <target>Latin</target>
+      </segment>
+    </unit>
+    <unit id="tmBgw1d" name="trexima_european_cv.form_label.language_zh">
+      <segment>
+        <source>trexima_european_cv.form_label.language_zh</source>
+        <target>Kínai (mandarin)</target>
+      </segment>
+    </unit>
+    <unit id="Pp9LZgd" name="trexima_european_cv.form_label.language_vi">
+      <segment>
+        <source>trexima_european_cv.form_label.language_vi</source>
+        <target>Vietnami</target>
+      </segment>
+    </unit>
+    <unit id="1u9QFbL" name="trexima_european_cv.form_label.language_ja">
+      <segment>
+        <source>trexima_european_cv.form_label.language_ja</source>
+        <target>Japán</target>
+      </segment>
+    </unit>
+    <unit id="6YSD.qy" name="trexima_european_cv.form_label.language_ko">
+      <segment>
+        <source>trexima_european_cv.form_label.language_ko</source>
+        <target>Kóreai</target>
+      </segment>
+    </unit>
+    <unit id="aVE3v0c" name="trexima_european_cv.form_label.language_other">
+      <segment>
+        <source>trexima_european_cv.form_label.language_other</source>
+        <target>Egyéb</target>
+      </segment>
+    </unit>
+    <unit id="dj59VVQ" name="trexima_european_cv.form_label.nationality_en">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_en</source>
+        <target>Angol</target>
+      </segment>
+    </unit>
+    <unit id="sL3TGr9" name="trexima_european_cv.form_label.nationality_sk">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_sk</source>
+        <target>Szlovák</target>
+      </segment>
+    </unit>
+    <unit id="ykqlXP7" name="trexima_european_cv.form_label.nationality_cs">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_cs</source>
+        <target>Cseh</target>
+      </segment>
+    </unit>
+    <unit id="SFdWTOW" name="trexima_european_cv.form_label.nationality_de">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_de</source>
+        <target>Német</target>
+      </segment>
+    </unit>
+    <unit id="zKqjhJu" name="trexima_european_cv.form_label.nationality_hu">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_hu</source>
+        <target>Magyar</target>
+      </segment>
+    </unit>
+    <unit id="uCyvvmn" name="trexima_european_cv.form_label.nationality_ru">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_ru</source>
+        <target>Orosz</target>
+      </segment>
+    </unit>
+    <unit id="Oz_Bw_j" name="trexima_european_cv.form_label.nationality_uk">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_uk</source>
+        <target>Ukrán</target>
+      </segment>
+    </unit>
+    <unit id="1PpENyD" name="trexima_european_cv.form_label.nationality_pl">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_pl</source>
+        <target>Lengyel</target>
+      </segment>
+    </unit>
+    <unit id="omrpYUp" name="trexima_european_cv.form_label.nationality_it">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_it</source>
+        <target>Olasz</target>
+      </segment>
+    </unit>
+    <unit id="2FgVcka" name="trexima_european_cv.form_label.nationality_fr">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_fr</source>
+        <target>Francia</target>
+      </segment>
+    </unit>
+    <unit id="cxpmzT." name="trexima_european_cv.form_label.nationality_es">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_es</source>
+        <target>Spanyol</target>
+      </segment>
+    </unit>
+    <unit id="7rK0spe" name="trexima_european_cv.form_label.nationality_pt">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_pt</source>
+        <target>Portugál</target>
+      </segment>
+    </unit>
+    <unit id="Doi6amL" name="trexima_european_cv.form_label.nationality_nl">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_nl</source>
+        <target>Holland</target>
+      </segment>
+    </unit>
+    <unit id="d7A4Im1" name="trexima_european_cv.form_label.nationality_da">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_da</source>
+        <target>Dán</target>
+      </segment>
+    </unit>
+    <unit id="a1B.NkG" name="trexima_european_cv.form_label.nationality_fi">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_fi</source>
+        <target>Finn</target>
+      </segment>
+    </unit>
+    <unit id="ClNvFdQ" name="trexima_european_cv.form_label.nationality_sv">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_sv</source>
+        <target>Svéd</target>
+      </segment>
+    </unit>
+    <unit id="bY.f0Fs" name="trexima_european_cv.form_label.nationality_no">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_no</source>
+        <target>Norvég</target>
+      </segment>
+    </unit>
+    <unit id="9v3Xc0G" name="trexima_european_cv.form_label.nationality_el">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_el</source>
+        <target>Görög</target>
+      </segment>
+    </unit>
+    <unit id="_DI2sl7" name="trexima_european_cv.form_label.nationality_is">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_is</source>
+        <target>Izlandi</target>
+      </segment>
+    </unit>
+    <unit id="Qhz5d9Z" name="trexima_european_cv.form_label.nationality_ga">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_ga</source>
+        <target>Ír</target>
+      </segment>
+    </unit>
+    <unit id="P0EU8MS" name="trexima_european_cv.form_label.nationality_lv">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_lv</source>
+        <target>Lett</target>
+      </segment>
+    </unit>
+    <unit id="428rw2O" name="trexima_european_cv.form_label.nationality_et">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_et</source>
+        <target>Észt</target>
+      </segment>
+    </unit>
+    <unit id="977DquX" name="trexima_european_cv.form_label.nationality_lt">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_lt</source>
+        <target>Litván</target>
+      </segment>
+    </unit>
+    <unit id="R7Bi72V" name="trexima_european_cv.form_label.nationality_sl">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_sl</source>
+        <target>Szlovén</target>
+      </segment>
+    </unit>
+    <unit id="82io.nX" name="trexima_european_cv.form_label.nationality_mt">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_mt</source>
+        <target>Máltai</target>
+      </segment>
+    </unit>
+    <unit id="iJHjzeO" name="trexima_european_cv.form_label.nationality_ro">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_ro</source>
+        <target>Román</target>
+      </segment>
+    </unit>
+    <unit id="DAIw6ud" name="trexima_european_cv.form_label.nationality_bg">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_bg</source>
+        <target>Bolgár</target>
+      </segment>
+    </unit>
+    <unit id="W9ap4FO" name="trexima_european_cv.form_label.nationality_hr">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_hr</source>
+        <target>Horvát</target>
+      </segment>
+    </unit>
+    <unit id="dN3ra08" name="trexima_european_cv.form_label.nationality_sr">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_sr</source>
+        <target>Szerb</target>
+      </segment>
+    </unit>
+    <unit id="tIJ6wqb" name="trexima_european_cv.form_label.nationality_la">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_la</source>
+        <target>Latin</target>
+      </segment>
+    </unit>
+    <unit id="Aan0IG_" name="trexima_european_cv.form_label.nationality_zh">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_zh</source>
+        <target>Kínai (mandarin)</target>
+      </segment>
+    </unit>
+    <unit id="iJN8lEG" name="trexima_european_cv.form_label.nationality_vi">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_vi</source>
+        <target>Vietnami</target>
+      </segment>
+    </unit>
+    <unit id=".0E89wM" name="trexima_european_cv.form_label.nationality_ja">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_ja</source>
+        <target>Japán</target>
+      </segment>
+    </unit>
+    <unit id="IRoR9Uj" name="trexima_european_cv.form_label.nationality_ko">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_ko</source>
+        <target>Kóreai</target>
+      </segment>
+    </unit>
+    <unit id="kYtbqLS" name="trexima_european_cv.form_label.nationality_other">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_other</source>
+        <target>Egyéb</target>
+      </segment>
+    </unit>
+    <unit id="9A_P9lc" name="trexima_european_cv.form_label.education_elementary_school">
+      <segment>
+        <source>trexima_european_cv.form_label.education_elementary_school</source>
+        <target>Alapiskola</target>
+      </segment>
+    </unit>
+    <unit id="vOBYHH2" name="trexima_european_cv.form_label.education_high_school">
+      <segment>
+        <source>trexima_european_cv.form_label.education_high_school</source>
+        <target>Középiskola</target>
+      </segment>
+    </unit>
+    <unit id="L_CqIuE" name="trexima_european_cv.form_label.education_university">
+      <segment>
+        <source>trexima_european_cv.form_label.education_university</source>
+        <target>Főiskola/egyetem</target>
+      </segment>
+    </unit>
+    <unit id="TfWBwZ_" name="trexima_european_cv.form_label.education_certificate">
+      <segment>
+        <source>trexima_european_cv.form_label.education_certificate</source>
+        <target>Tanúsítvány</target>
+      </segment>
+    </unit>
+    <unit id="UYkW3PY" name="trexima_european_cv.form_label.language_level_a1">
+      <segment>
+        <source>trexima_european_cv.form_label.language_level_a1</source>
+        <target>Kezdő (A1)</target>
+      </segment>
+    </unit>
+    <unit id="Us19rqM" name="trexima_european_cv.form_label.language_level_a2">
+      <segment>
+        <source>trexima_european_cv.form_label.language_level_a2</source>
+        <target>Alap (A2)</target>
+      </segment>
+    </unit>
+    <unit id="1YghgrV" name="trexima_european_cv.form_label.language_level_b1">
+      <segment>
+        <source>trexima_european_cv.form_label.language_level_b1</source>
+        <target>Középhaladó</target>
+      </segment>
+    </unit>
+    <unit id="Bh.qXh2" name="trexima_european_cv.form_label.language_level_b2">
+      <segment>
+        <source>trexima_european_cv.form_label.language_level_b2</source>
+        <target>Haladó középfokú (B2)</target>
+      </segment>
+    </unit>
+    <unit id="2FNQm0a" name="trexima_european_cv.form_label.language_level_c1">
+      <segment>
+        <source>trexima_european_cv.form_label.language_level_c1</source>
+        <target>Felsőfokú (C1)</target>
+      </segment>
+    </unit>
+    <unit id="xWVOmH4" name="trexima_european_cv.form_label.language_level_c2">
+      <segment>
+        <source>trexima_european_cv.form_label.language_level_c2</source>
+        <target>Mesterfok/anyanyelvi szint (C2)</target>
+      </segment>
+    </unit>
+    <unit id="dbg23ua" name="trexima_european_cv.form_label.additional_informations">
+      <segment>
+        <source>trexima_european_cv.form_label.additional_informations</source>
+        <target>Kiegészítő információk</target>
+      </segment>
+    </unit>
+    <unit id="9ZJVNUx" name="trexima_european_cv.form_sub_label.additional_informations">
+      <segment>
+        <source>trexima_european_cv.form_sub_label.additional_informations</source>
+        <target>Szeretne még valamit hozzáadni? Írja be ebbe a mezőbe</target>
+      </segment>
+    </unit>
+    <unit id="KNfVUN0" name="trexima_european_cv.form_placeholder.additional_informations">
+      <segment>
+        <source>trexima_european_cv.form_placeholder.additional_informations</source>
+        <target>Sorolja fel további ismereteit vagy készségeit, amelyeket az előző tételek alapján nem tudtak meghatározni, és amelyekre szeretné felhívni potenciális munkáltatója figyelmét.</target>
+      </segment>
+    </unit>
+    <unit id="nDudS0I" name="trexima_european_cv.form_label.hobbies">
+      <segment>
+        <source>trexima_european_cv.form_label.hobbies</source>
+        <target>Érdeklődési területek és hobbik</target>
+      </segment>
+    </unit>
+    <unit id="pVxS4Yz" name="trexima_european_cv.form_sub_label.hobbies">
+      <segment>
+        <source>trexima_european_cv.form_sub_label.hobbies</source>
+        <target>A megfelelően megírt hobbik felkelthetik a munkaadók érdeklődését és érdekes jelentkezővé tehetnek</target>
+      </segment>
+    </unit>
+    <unit id="nF2O5Ge" name="trexima_european_cv.form_placeholder.hobbies">
+      <segment>
+        <source>trexima_european_cv.form_placeholder.hobbies</source>
+        <target>Sorolja fel érdeklődési köreit vagy hobbijait, amelyeket szabadidejében csinál.</target>
+      </segment>
+    </unit>
+    <unit id="TyMUIG7" name="trexima_european_cv.form_label.digital_skill_level_1">
+      <segment>
+        <source>trexima_european_cv.form_label.digital_skill_level_1</source>
+        <target>Kezdő</target>
+      </segment>
+    </unit>
+    <unit id="VvDR3jT" name="trexima_european_cv.form_label.digital_skill_level_2">
+      <segment>
+        <source>trexima_european_cv.form_label.digital_skill_level_2</source>
+        <target>Haladó</target>
+      </segment>
+    </unit>
+    <unit id="IFbafTm" name="trexima_european_cv.form_label.digital_skill_level_3">
+      <segment>
+        <source>trexima_european_cv.form_label.digital_skill_level_3</source>
+        <target>Felsőfokú</target>
+      </segment>
+    </unit>
+    <unit id="5AMfbYf" name="trexima_european_cv.form_label.digital_skill_title">
+      <segment>
+        <source>trexima_european_cv.form_label.digital_skill_title</source>
+        <target>Digitális készségek</target>
+      </segment>
+    </unit>
+    <unit id="upYgCIr" name="trexima_european_cv.form_placeholder.digital_skill_title">
+      <segment>
+        <source>trexima_european_cv.form_placeholder.digital_skill_title</source>
+        <target>Kérjük, válasszon az alábbi lehetőségek közül</target>
+      </segment>
+    </unit>
+    <unit id="WP8Jr3e" name="trexima_european_cv.form_label.digital_skill_level">
+      <segment>
+        <source>trexima_european_cv.form_label.digital_skill_level</source>
+        <target>Szint</target>
+      </segment>
+    </unit>
+    <unit id="p0WVzkn" name="trexima_european_cv.form_label.work_break_1">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_1</source>
+        <target>Szülési/szülői szabadság</target>
+      </segment>
+    </unit>
+    <unit id="RQRr2nt" name="trexima_european_cv.form_label.work_break_2">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_2</source>
+        <target>Regisztráció a munkaügyi hivatalban</target>
+      </segment>
+    </unit>
+    <unit id="b_h6Rni" name="trexima_european_cv.form_label.work_break_3">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_3</source>
+        <target>Egészségügyi problémák</target>
+      </segment>
+    </unit>
+    <unit id="orCtbdO" name="trexima_european_cv.form_label.work_break_4">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_4</source>
+        <target>Egy közeli személy elvesztése</target>
+      </segment>
+    </unit>
+    <unit id="xI33Hdm" name="trexima_european_cv.form_label.work_break_5">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_5</source>
+        <target>Más személy vagy háztartás gondozása</target>
+      </segment>
+    </unit>
+    <unit id="eNi5fkN" name="trexima_european_cv.form_label.work_break_6">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_6</source>
+        <target>Sabatikal</target>
+      </segment>
+    </unit>
+    <unit id="NdMzb3O" name="trexima_european_cv.form_label.work_break_7">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_7</source>
+        <target>Utazás</target>
+      </segment>
+    </unit>
+    <unit id="ne0YuO1" name="trexima_european_cv.form_label.work_break_8">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_8</source>
+        <target>Utazás</target>
+      </segment>
+    </unit>
+    <unit id="cABa08o" name="trexima_european_cv.form_label.work_break_9">
+      <segment>
+        <source>trexima_european_cv.form_label.work_break_9</source>
+        <target>Oktatás, személyes fejlődés</target>
+      </segment>
+    </unit>
+    <unit id="XF94vav" name="trexima_european_cv.form_label.add_work_break_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_work_break_button</source>
+        <target>Munkahelyi szünet hozzáadása</target>
+      </segment>
+    </unit>
+    <unit id="NV_QMKf" name="trexima_european_cv.form_label.competences_label">
+      <segment>
+        <source>trexima_european_cv.form_label.competences_label</source>
+        <target>Általános képességek és előfeltételek</target>
+      </segment>
+    </unit>
+    <unit id="OyZ2eoQ" name="trexima_european_cv.form_label.competences_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.competences_placeholder</source>
+        <target>Kérjük, válasszon az alábbi lehetőségek közül</target>
+      </segment>
+    </unit>
+    <unit id="T.r7iTJ" name="trexima_european_cv.form_label.driving_license_owner_label">
+      <segment>
+        <source>trexima_european_cv.form_label.driving_license_owner_label</source>
+        <target>Jogosítvány</target>
+      </segment>
+    </unit>
+    <unit id="qyJVims" name="trexima_european_cv.form_label.driving_license_owner_false_choice_label">
+      <segment>
+        <source>trexima_european_cv.form_label.driving_license_owner_false_choice_label</source>
+        <target>Nincs jogosítványom</target>
+      </segment>
+    </unit>
+    <unit id="NPclfeN" name="trexima_european_cv.form_label.driving_license_owner_true_choice_label">
+      <segment>
+        <source>trexima_european_cv.form_label.driving_license_owner_true_choice_label</source>
+        <target>Van jogosítványom</target>
+      </segment>
+    </unit>
+    <unit id="5NKN6YM" name="trexima_european_cv.form_label.driving_license_distance_traveled_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.driving_license_distance_traveled_placeholder</source>
+        <target>KM száma</target>
+      </segment>
+    </unit>
+    <unit id="FMLpDoi" name="trexima_european_cv.form_label.driving_license_active_driver_label">
+      <segment>
+        <source>trexima_european_cv.form_label.driving_license_active_driver_label</source>
+        <target>Aktív sofőr vagyok</target>
+      </segment>
+    </unit>
+    <unit id="PGCSJpn" name="trexima_european_cv.form_label.education_title_label">
+      <segment>
+        <source>trexima_european_cv.form_label.education_title_label</source>
+        <target>Az iskola neve és címe</target>
+      </segment>
+    </unit>
+    <unit id="7GUk.0U" name="trexima_european_cv.form_label.education_title_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.education_title_placeholder</source>
+        <target>Az iskola neve</target>
+      </segment>
+    </unit>
+    <unit id="gTY7vrB" name="trexima_european_cv.form_label.education_year_range_label">
+      <segment>
+        <source>trexima_european_cv.form_label.education_year_range_label</source>
+        <target>Terjedelem</target>
+      </segment>
+    </unit>
+    <unit id="9L.7YBS" name="trexima_european_cv.form_label.education_description_label">
+      <segment>
+        <source>trexima_european_cv.form_label.education_description_label</source>
+        <target>A tanulmányok leírása</target>
+      </segment>
+    </unit>
+    <unit id="Lgx9rLr" name="trexima_european_cv.form_label.education_description_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.education_description_placeholder</source>
+        <target>Ismertesse tanulmányait</target>
+      </segment>
+    </unit>
+    <unit id="OQ8rIIJ" name="trexima_european_cv.form_label.language_label">
+      <segment>
+        <source>trexima_european_cv.form_label.language_label</source>
+        <target>Nyelv</target>
+      </segment>
+    </unit>
+    <unit id="tGaeDFt" name="trexima_european_cv.form_label.language_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.language_placeholder</source>
+        <target>Kérjük, válasszon az alábbi lehetőségek közül</target>
+      </segment>
+    </unit>
+    <unit id="U5kiGoE" name="trexima_european_cv.form_label.language_level_label">
+      <segment>
+        <source>trexima_european_cv.form_label.language_level_label</source>
+        <target>Szint</target>
+      </segment>
+    </unit>
+    <unit id="Tzcf5uw" name="trexima_european_cv.form_label.phone_type_label">
+      <segment>
+        <source>trexima_european_cv.form_label.phone_type_label</source>
+        <target>Telefonszám</target>
+      </segment>
+    </unit>
+    <unit id="_isPTvM" name="trexima_european_cv.form_label.phone_type_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.phone_type_placeholder</source>
+        <target>Kérem, válasszon</target>
+      </segment>
+    </unit>
+    <unit id="y247oYk" name="trexima_european_cv.form_label.phone_number_label">
+      <segment>
+        <source>trexima_european_cv.form_label.phone_number_label</source>
+        <target>Töltse ki a számot</target>
+      </segment>
+    </unit>
+    <unit id="kTX8Ss4" name="trexima_european_cv.form_label.phone_number_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.phone_number_placeholder</source>
+        <target>A következő formában: +421918123456</target>
+      </segment>
+    </unit>
+    <unit id="BfIiH8U" name="trexima_european_cv.form_label.month_year_range_begin_month_label">
+      <segment>
+        <source>trexima_european_cv.form_label.month_year_range_begin_month_label</source>
+        <target>Tól től</target>
+      </segment>
+    </unit>
+    <unit id="wFF30tF" name="trexima_european_cv.form_label.month_year_range_begin_month_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.month_year_range_begin_month_placeholder</source>
+        <target>Hónap</target>
+      </segment>
+    </unit>
+    <unit id="nqir_Bf" name="trexima_european_cv.form_label.month_year_range_begin_year_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.month_year_range_begin_year_placeholder</source>
+        <target>Év</target>
+      </segment>
+    </unit>
+    <unit id="SetaqYz" name="trexima_european_cv.form_label.month_year_range_end_month_label">
+      <segment>
+        <source>trexima_european_cv.form_label.month_year_range_end_month_label</source>
+        <target>-ig</target>
+      </segment>
+    </unit>
+    <unit id="BJy85zw" name="trexima_european_cv.form_label.month_year_range_end_month_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.month_year_range_end_month_placeholder</source>
+        <target>Hónap</target>
+      </segment>
+    </unit>
+    <unit id="1LEQxt9" name="trexima_european_cv.form_label.month_year_range_end_year_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.month_year_range_end_year_placeholder</source>
+        <target>Év</target>
+      </segment>
+    </unit>
+    <unit id="OxW2XoA" name="trexima_european_cv.form_label.year_range_begin_year_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.year_range_begin_year_placeholder</source>
+        <target>A munkakezdés éve</target>
+      </segment>
+    </unit>
+    <unit id="J5Nh5WK" name="trexima_european_cv.form_label.year_range_end_year_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.year_range_end_year_placeholder</source>
+        <target>A munka befejezésének éve</target>
+      </segment>
+    </unit>
+    <unit id="_bqnz.1" name="trexima_european_cv.form_label.submit_label">
+      <segment>
+        <source>trexima_european_cv.form_label.submit_label</source>
+        <target>Önéletrajz mentése</target>
+      </segment>
+    </unit>
+    <unit id="b2cv33l" name="trexima_european_cv.form_label.add_additional_informations_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_additional_informations_button</source>
+        <target>Információ hozzáadása</target>
+      </segment>
+    </unit>
+    <unit id="VPvmwc0" name="trexima_european_cv.form_label.add_attachment_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_attachment_button</source>
+        <target>Melléklet hozzáadása</target>
+      </segment>
+    </unit>
+    <unit id="_eXX4fr" name="trexima_european_cv.form_label.add_phone_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_phone_button</source>
+        <target>Telefonszám hozzáadása</target>
+      </segment>
+    </unit>
+    <unit id="uc5I_oi" name="trexima_european_cv.form_label.add_digital_skill_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_digital_skill_button</source>
+        <target>Digitális készségek hozzáadása</target>
+      </segment>
+    </unit>
+    <unit id="d7m33E6" name="trexima_european_cv.form_label.add_education_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_education_button</source>
+        <target>A végzettség hozzáadása</target>
+      </segment>
+    </unit>
+    <unit id="Y_JSUEw" name="trexima_european_cv.form_label.save_education_button">
+      <segment>
+        <source>trexima_european_cv.form_label.save_education_button</source>
+        <target>A végzettség elmentése</target>
+      </segment>
+    </unit>
+    <unit id="PfU6puT" name="trexima_european_cv.form_label.add_language_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_language_button</source>
+        <target>Nyelv hozzáadása</target>
+      </segment>
+    </unit>
+    <unit id="TIybNsR" name="trexima_european_cv.form_label.add_practice_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_practice_button</source>
+        <target>Gyakorlat hozzáadása</target>
+      </segment>
+    </unit>
+    <unit id="d7AxoCG" name="trexima_european_cv.form_label.education_kov">
+      <segment>
+        <source>trexima_european_cv.form_label.education_kov</source>
+        <target>Tanulmányi/oktatási terület</target>
+      </segment>
+    </unit>
+    <unit id="jIhsDRk" name="trexima_european_cv.form_label.certificate_institution_label">
+      <segment>
+        <source>trexima_european_cv.form_label.certificate_institution_label</source>
+        <target>Oktatási intézmény</target>
+      </segment>
+    </unit>
+    <unit id="8gpYGoa" name="trexima_european_cv.form_label.certificate_title_label">
+      <segment>
+        <source>trexima_european_cv.form_label.certificate_title_label</source>
+        <target>Tanúsítvány neve</target>
+      </segment>
+    </unit>
+    <unit id="Jm3g0Xg" name="trexima_european_cv.form_label.certificate_start_label">
+      <segment>
+        <source>trexima_european_cv.form_label.certificate_start_label</source>
+        <target>Az abszolválás éve</target>
+      </segment>
+    </unit>
+    <unit id="k8hhHA7" name="trexima_european_cv.form_label.certificate_end_label">
+      <segment>
+        <source>trexima_european_cv.form_label.certificate_end_label</source>
+        <target>Az érvényesség lejárta</target>
+      </segment>
+    </unit>
+    <unit id="sDPPr5D" name="trexima_european_cv.form_label.certificate_no_end_date">
+      <segment>
+        <source>trexima_european_cv.form_label.certificate_no_end_date</source>
+        <target>A tanúsítványnak nincs időkorlátja</target>
+      </segment>
+    </unit>
+    <unit id="D3JD88z" name="trexima_european_cv.form_label.certificate_description_label">
+      <segment>
+        <source>trexima_european_cv.form_label.certificate_description_label</source>
+        <target>A tanfolyam/tanúsítvány leírása</target>
+      </segment>
+    </unit>
+    <unit id="jIzfi.i" name="trexima_european_cv.form_label.save_certificate_button">
+      <segment>
+        <source>trexima_european_cv.form_label.save_certificate_button</source>
+        <target>A tanúsítvány mentése</target>
+      </segment>
+    </unit>
+    <unit id="s5c5J4H" name="trexima_european_cv.form_label.save_practice_button">
+      <segment>
+        <source>trexima_european_cv.form_label.save_practice_button</source>
+        <target>Mentsd el a munkatapasztalatot</target>
+      </segment>
+    </unit>
+    <unit id="R26D7Jt" name="trexima_european_cv.form_label.save_work_break_button">
+      <segment>
+        <source>trexima_european_cv.form_label.save_work_break_button</source>
+        <target>Mentsd el a szünetet a munkahelyeden</target>
+      </segment>
+    </unit>
+    <unit id="kxzV7wJ" name="app.enum.pc_skill_level.elementary">
+      <segment>
+        <source>app.enum.pc_skill_level.elementary</source>
+        <target>Alap/elemi</target>
+      </segment>
+    </unit>
+    <unit id="8ScdhZQ" name="app.enum.pc_skill_level.intermediate">
+      <segment>
+        <source>app.enum.pc_skill_level.intermediate</source>
+        <target>Haladó</target>
+      </segment>
+    </unit>
+    <unit id="m70z36m" name="app.enum.pc_skill_level.master">
+      <segment>
+        <source>app.enum.pc_skill_level.master</source>
+        <target>Felső</target>
+      </segment>
+    </unit>
+    <unit id="xHbdp.R" name="trexima_european_cv.form_label.add_personal_website_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_personal_website_button</source>
+        <target>Személyes oldal hozzáadása</target>
+      </segment>
+    </unit>
+    <unit id="zr5i8Wx" name="trexima_european_cv.form_label.year_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.year_placeholder</source>
+        <target>Válassza ki az évet</target>
+      </segment>
+    </unit>
+    <unit id="4u4nz8D" name="trexima_european_cv.form_label.month_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.month_placeholder</source>
+        <target>Válassza ki a hónapot</target>
+      </segment>
+    </unit>
+    <unit id="d8U2csr" name="trexima_european_cv.form_label.day_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.day_placeholder</source>
+        <target>Válassza ki a napot</target>
+      </segment>
+    </unit>
+    <unit id="YWWgmvy" name="trexima_european_cv.education_type_enum.education_elementary_school">
+      <segment>
+        <source>trexima_european_cv.education_type_enum.education_elementary_school</source>
+        <target>Alapiskola</target>
+      </segment>
+    </unit>
+    <unit id="1UKIcr9" name="trexima_european_cv.education_type_enum.education_high_school">
+      <segment>
+        <source>trexima_european_cv.education_type_enum.education_high_school</source>
+        <target>Középiskola</target>
+      </segment>
+    </unit>
+    <unit id="wv01I3d" name="trexima_european_cv.education_type_enum.education_university">
+      <segment>
+        <source>trexima_european_cv.education_type_enum.education_university</source>
+        <target>Főiskola/egyetem</target>
+      </segment>
+    </unit>
+    <unit id="kUEjk9d" name="trexima_european_cv.education_type_enum.education_certificate">
+      <segment>
+        <source>trexima_european_cv.education_type_enum.education_certificate</source>
+        <target>Tanúsítvány</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

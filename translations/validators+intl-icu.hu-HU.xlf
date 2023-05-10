@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="sk-SK" trgLang="hu-HU">
+  <file id="validators.hu-HU">
+    <unit id="P4SRX7G" name="trexima_european_cv.pc_skill_not_empty">
+      <segment>
+        <source>trexima_european_cv.pc_skill_not_empty</source>
+        <target>Kérjük, válasszon egy képességet.</target>
+      </segment>
+    </unit>
+    <unit id="WI6uv4a" name="trexima_european_cv.language_not_empty">
+      <segment>
+        <source>trexima_european_cv.language_not_empty</source>
+        <target>Kérjük, válasszon egy nyelvet.</target>
+      </segment>
+    </unit>
+    <unit id="t9HwWm_" name="trexima_european_cv.level_not_empty">
+      <segment>
+        <source>trexima_european_cv.level_not_empty</source>
+        <target>Kérjük, válasszon egy szintet.</target>
+      </segment>
+    </unit>
+    <unit id="1dbTx8r" name="trexima_european_cv.max_length_reached">
+      <segment>
+        <source>trexima_european_cv.max_length_reached</source>
+        <target>Elérte a megengedett karakterek számát: {limit}.</target>
+      </segment>
+    </unit>
+    <unit id="6Shu7Bh" name="trexima_european_cv.select_choice">
+      <segment>
+        <source>trexima_european_cv.select_choice</source>
+        <target>Kérjük, válasszon egy lehetőséget.</target>
+      </segment>
+    </unit>
+    <unit id="g3gycNd" name="trexima_european_cv.range_not_valid">
+      <segment>
+        <source>trexima_european_cv.range_not_valid</source>
+        <target>A tartomány nem érvényes.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
