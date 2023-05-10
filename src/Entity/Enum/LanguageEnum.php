@@ -41,7 +41,6 @@ enum LanguageEnum: string
     case LANGUAGE_VI = 'vi';        // vi: vietnamský
     case LANGUAGE_JA = 'ja';        // ja: japonský
     case LANGUAGE_KO = 'ko';        // ko: kórejský
-    case LANGUAGE_OTHER = 'other';  // other: iný
 }
 
 

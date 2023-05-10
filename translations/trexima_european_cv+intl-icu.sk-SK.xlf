@@ -76,7 +76,7 @@
     <unit id=".hfx28y" name="trexima_european_cv.form_label.titles_before_label">
       <segment>
         <source>trexima_european_cv.form_label.titles_before_label</source>
-        <target>Tituly pred</target>
+        <target>Titul pred menom</target>
       </segment>
     </unit>
     <unit id="b_n1Cas" name="trexima_european_cv.form_label.titles_before_placeholder">
@@ -88,7 +88,7 @@
     <unit id="xHLw8UC" name="trexima_european_cv.form_label.titles_after_label">
       <segment>
         <source>trexima_european_cv.form_label.titles_after_label</source>
-        <target>Tituly po</target>
+        <target>Titul za menom</target>
       </segment>
     </unit>
     <unit id="rG5Fqjr" name="trexima_european_cv.form_label.titles_after_placeholder">
@@ -772,7 +772,7 @@
     <unit id="p0WVzkn" name="trexima_european_cv.form_label.work_break_1">
       <segment>
         <source>trexima_european_cv.form_label.work_break_1</source>
-        <target>Materská/rodičovská dovolenka</target>
+        <target>Materská, otcovská, rodičovská dovolenka</target>
       </segment>
     </unit>
     <unit id="RQRr2nt" name="trexima_european_cv.form_label.work_break_2">
@@ -784,7 +784,7 @@
     <unit id="b_h6Rni" name="trexima_european_cv.form_label.work_break_3">
       <segment>
         <source>trexima_european_cv.form_label.work_break_3</source>
-        <target>Zdravotné problémy</target>
+        <target>Zdravotné dôvody</target>
       </segment>
     </unit>
     <unit id="orCtbdO" name="trexima_european_cv.form_label.work_break_4">
@@ -796,7 +796,7 @@
     <unit id="xI33Hdm" name="trexima_european_cv.form_label.work_break_5">
       <segment>
         <source>trexima_european_cv.form_label.work_break_5</source>
-        <target>Starostlivosť o inúosobu alebo domácnosť</target>
+        <target>Starostlivosť o inú osobu alebo domácnosť</target>
       </segment>
     </unit>
     <unit id="eNi5fkN" name="trexima_european_cv.form_label.work_break_6">
@@ -814,7 +814,7 @@
     <unit id="ne0YuO1" name="trexima_european_cv.form_label.work_break_8">
       <segment>
         <source>trexima_european_cv.form_label.work_break_8</source>
-        <target>Cestovanie</target>
+        <target>Presťahovanie</target>
       </segment>
     </unit>
     <unit id="cABa08o" name="trexima_european_cv.form_label.work_break_9">
@@ -1163,6 +1163,30 @@
       <segment>
         <source>trexima_european_cv.education_type_enum.education_certificate</source>
         <target>Certifikát</target>
+      </segment>
+    </unit>
+    <unit id="76Pcpk0" name="trexima_european_cv.form_label.address_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.address_placeholder</source>
+        <target>Napíš adresu trvalého alebo prechodného pobytu</target>
+      </segment>
+    </unit>
+    <unit id="zHhXESj" name="trexima_european_cv.form_label.education_not_finished">
+      <segment>
+        <source>trexima_european_cv.form_label.education_not_finished</source>
+        <target>Neukončená</target>
+      </segment>
+    </unit>
+    <unit id="wLwYnrP" name="trexima_european_cv.form_label.practice_description_label">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_description_label</source>
+        <target>Opis práce</target>
+      </segment>
+    </unit>
+    <unit id="6E_mx7N" name="trexima_european_cv.form_label.practice_description_placeholder">
+      <segment>
+        <source>trexima_european_cv.form_label.practice_description_placeholder</source>
+        <target>Opíš tvoju náplň práce</target>
       </segment>
     </unit>
   </file>

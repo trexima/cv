@@ -23,7 +23,7 @@ class HarveyController extends AbstractController
         $perPage = 50;
 
         $results = [];
-        $results = $this->harvey->getClient()->searchIsco($term, null, null, [4], null, null, $page, $perPage);
+        $results = $this->harvey->getClient()->searchIsco($term, null, null, [7], null, null, $page, $perPage);
         $results = \array_map(function ($value) {
             return [
                 'id' => $value['code'],
@@ -48,12 +48,17 @@ class HarveyController extends AbstractController
         $results = \array_map(function ($value) {
             return [
                 'id' => $value['code'],
-                'text' => $value['title'],
+                'text' => $value['code'] . ' ' . $value['title'] . ' (' . $this->getKovLevelTitle($value['kovLevel']) . ')',
             ];
         }, $results);
 
         $results = ['results' => $results];
 
         return $this->json($results);
+    }
+
+    private function getKovLevelTitle($kov) {
+        $kovLevel = $this->harvey->getClient()->getKovLevel(str_replace('/api/kov-level/', '', $kov));
+        return $kovLevel['title'] ?? '';
     }
 }
