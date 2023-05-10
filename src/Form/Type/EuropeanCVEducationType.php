@@ -14,6 +14,7 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Validator\Constraints\Valid;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Trexima\EuropeanCvBundle\Entity\Enum\EducationTypeEnum;
 use Trexima\EuropeanCvBundle\Form\Type\YearRangeType;
 
@@ -23,7 +24,8 @@ class EuropeanCVEducationType extends AbstractType implements EventSubscriberInt
 {
 
     public function __construct(
-        private readonly UrlGeneratorInterface $urlGenerator
+        private readonly UrlGeneratorInterface $urlGenerator,
+        private readonly TranslatorInterface $translator
     ) {}
 
     /**
@@ -52,6 +54,11 @@ class EuropeanCVEducationType extends AbstractType implements EventSubscriberInt
                 'constraints' => [
                     new Valid(),
                 ],
+                'field_options' => [
+                    'endYear' => [
+                        'choices' => [t('trexima_european_cv.form_label.education_not_finished', [], 'trexima_european_cv')->trans($this->translator) => -1] + array_reverse(array_combine(range(date('Y')-100, date('Y')), range(date('Y')-100, date('Y'))), true),
+                    ]
+                ]
             ], ($options['field_options']['yearRange'] ?? [])));
 
             if ($options['education_type']->value !== EducationTypeEnum::EDUCATION_ELEMENTARY_SCHOOL->value) {
@@ -116,12 +123,14 @@ class EuropeanCVEducationType extends AbstractType implements EventSubscriberInt
 
         if ($data->getType()->value !== EducationTypeEnum::EDUCATION_ELEMENTARY_SCHOOL->value) {
             $kov = $formEvent->getForm()->get('kov')->getData();
-            $code = $kov->getKovCode();
-            if ($code === $kov->getKovTitle()) {
-                $code = null;
+            if (!empty($kov)) {
+                $code = $kov->getKovCode();
+                if ($code === $kov->getKovTitle()) {
+                    $code = null;
+                }
+                $data->setKovCode($code);
+                $data->setKovTitle($kov->getKovTitle());
             }
-            $data->setKovCode($code);
-            $data->setKovTitle($kov->getKovTitle());
         }
     }
 

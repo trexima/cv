@@ -118,12 +118,14 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
         $data = $formEvent->getData();
     
         $iscoCode = $formEvent->getForm()->get('iscoCode')->getData();
-        $code = $iscoCode->getIscoCode();
-        if ($code === $iscoCode->getTitle()) {
-            $code = null;
+        if (!empty($iscoCode)) {
+            $code = $iscoCode->getIscoCode();
+            if ($code === $iscoCode->getTitle()) {
+                $code = null;
+            }
+            $data->setIscoCode($code);
+            $data->setTitle($iscoCode->getTitle());
         }
-        $data->setIscoCode($code);
-        $data->setTitle($iscoCode->getTitle());
     }
 
     public function onPreSetData(FormEvent $formEvent): void

@@ -17,11 +17,16 @@ class YearRange
     #[ORM\Column(type: 'smallint', nullable: true)]
     private ?int $beginYear = null;
 
-    #[Assert\GreaterThanOrEqual(propertyPath: 'beginYear')]
     #[Assert\When(
         expression: 'this.getBeginYear() !== null',
         constraints: [
-            new Assert\NotNull(message: 'trexima_european_cv.select_choice')
+            new Assert\NotNull(message: 'trexima_european_cv.select_choice'),
+            new Assert\When(
+                expression: 'value >= 0',
+                constraints: [
+                    new Assert\GreaterThanOrEqual(propertyPath: 'beginYear')
+                ]
+            )
         ]
     )]
     #[ORM\Column(type: 'smallint', nullable: true)]

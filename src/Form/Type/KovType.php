@@ -38,7 +38,7 @@ class KovType extends AbstractMappedAutocompleteType
 
     protected function retrieveDataForValue(?string $value): ?array
     {
-        if (null === $value) {
+        if (null === $value || '' === $value) {
             return null;
         }
 
@@ -47,7 +47,8 @@ class KovType extends AbstractMappedAutocompleteType
         try {
             $kovs = $this->harvey->getClient()->searchKov(null, $value);
             if (!empty($kovs)) {
-                $title = $kovs[0]['title'];
+                $kov = $kovs[0];
+                $title = $kov['code'] . ' ' . $kov['title'] . ' (' . $this->getKovLevelTitle($kov['kovLevel']) . ')';
             }
         } catch (\Exception) {
             return null;
@@ -72,5 +73,10 @@ class KovType extends AbstractMappedAutocompleteType
                 $this->propertyAccessor->setValue($data, $k, $retrievedData[$v]);
             }
         }
+    }
+
+    private function getKovLevelTitle($kov) {
+        $kovLevel = $this->harvey->getClient()->getKovLevel(str_replace('/api/kov-level/', '', $kov));
+        return $kovLevel['title'] ?? '';
     }
 }

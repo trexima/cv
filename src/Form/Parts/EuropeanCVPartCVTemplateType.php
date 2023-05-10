@@ -48,6 +48,8 @@ class EuropeanCVPartCVTemplateType extends AbstractType implements EventSubscrib
             'placeholder' => false,
             'multiple' => false,
             'form_floating' => true,
+            'select2'=> true,
+            'select2_theme' => 'worki-floating',
         ])
         ->add('style', EnumType::class, [
             'class' => StyleEnum::class,

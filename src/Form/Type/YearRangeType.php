@@ -26,7 +26,8 @@ class YearRangeType extends AbstractType
                 'data-trexima-european-cv-dynamic-collection-sort-by' => 1,
                 'data-controller' => 'ui--select2',
                 'data-ui--select2-placeholder-value' => 'Vyberte rok',
-                'data-ui--select2-theme-value' => 'worki-floating'
+                'data-ui--select2-theme-value' => 'worki-floating',
+                'data-ui--select2-allow-clear-value' => true,
             ]
         ], ($options['field_options']['beginYear'] ?? [])))
         ->add('endYear', ChoiceType::class, array_merge([
@@ -37,7 +38,8 @@ class YearRangeType extends AbstractType
                 'data-trexima-european-cv-dynamic-collection-sort-by' => 1,
                 'data-controller' => 'ui--select2',
                 'data-ui--select2-placeholder-value' => 'Vyberte rok',
-                'data-ui--select2-theme-value' => 'worki-floating'
+                'data-ui--select2-theme-value' => 'worki-floating',
+                'data-ui--select2-allow-clear-value' => true,
             ]
         ], ($options['field_options']['endYear'] ?? [])))
         ;

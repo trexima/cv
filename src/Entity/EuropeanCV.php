@@ -95,9 +95,21 @@ class EuropeanCV
     #[ORM\Column]
     private array $nationalities = [];
 
+    #[Assert\When(
+        expression: 'this.getMonth() !== null || this.getDay() !== null',
+        constraints: [
+            new Assert\NotNull(message: 'trexima_european_cv.select_choice')
+        ]
+    )]
     #[ORM\Column(type: 'integer', options: ['unsigned' => true], nullable: true)]
     private ?int $year = null;
 
+    #[Assert\When(
+        expression: 'this.getDay() !== null',
+        constraints: [
+            new Assert\NotNull(message: 'trexima_european_cv.select_choice')
+        ]
+    )]
     #[ORM\Column(type: 'integer', options: ['unsigned' => true], nullable: true)]
     private ?int $month = null;
 
