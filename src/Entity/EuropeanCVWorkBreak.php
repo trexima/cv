@@ -4,7 +4,6 @@ namespace Trexima\EuropeanCvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Trexima\EuropeanCvBundle\Entity\Embeddable\MonthYearRange;
 use Trexima\EuropeanCvBundle\Entity\Enum\WorkBreakEnum;
 

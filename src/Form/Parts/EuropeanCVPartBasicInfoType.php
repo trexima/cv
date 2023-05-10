@@ -141,6 +141,7 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
             'form_floating' => true,
             'select2'=> true,
             'select2_theme' => 'worki-floating',
+            'select2_allow_clear' => true,
             'select2_placeholder' => t('trexima_european_cv.form_label.year_placeholder', [], 'trexima_european_cv'),
         ])
         ->add('month', ChoiceType::class, [
@@ -153,6 +154,7 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
             'form_floating' => true,
             'select2'=> true,
             'select2_theme' => 'worki-floating',
+            'select2_allow_clear' => true,
             'select2_placeholder' => t('trexima_european_cv.form_label.month_placeholder', [], 'trexima_european_cv'),
         ])
         ->add('day', ChoiceType::class, [
@@ -165,6 +167,7 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
             'form_floating' => true,
             'select2'=> true,
             'select2_theme' => 'worki-floating',
+            'select2_allow_clear' => true,
             'select2_placeholder' => t('trexima_european_cv.form_label.day_placeholder', [], 'trexima_european_cv'),
         ])
         ->add('email', TextType::class, [
@@ -184,6 +187,7 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
         ])
         ->add('address', GooglePlaceAutocompleteType::class, array_merge([
             'label' => t('trexima_european_cv.form_label.address_label', [], 'trexima_european_cv'),
+            'placeholder' => t('trexima_european_cv.form_label.address_placeholder', [], 'trexima_european_cv'),
             'multiple' => false,
             'by_reference' => false,
             'form_floating' => true,
@@ -210,7 +214,6 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
             'allow_add' => true,
             'allow_delete' => true,
             'delete_empty' => true,
-            // 'form_floating' => true,
         ])
         ->add('description', TextareaType::class, [
             'label' => t('trexima_european_cv.form_label.description_label', [], 'trexima_european_cv'),

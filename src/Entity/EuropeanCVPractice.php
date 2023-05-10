@@ -30,7 +30,6 @@ class EuropeanCVPractice
     #[ORM\Column(type: 'string', length: 256, nullable: true)]
     private ?string $title = null;
 
-    #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 7, nullable: true)]
     private ?string $iscoCode = null;
 

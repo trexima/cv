@@ -63,6 +63,7 @@ services:
     Trexima\EuropeanCvBundle\Form\Type\EuropeanCVEducationType:
         arguments:
             $urlGenerator: '@router.default'
+            $translator: '@translator'
 
     Trexima\EuropeanCvBundle\Form\Type\EuropeanCVCertificateType:
         arguments:
