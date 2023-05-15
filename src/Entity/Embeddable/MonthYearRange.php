@@ -38,9 +38,11 @@ class MonthYearRange
         return $this->beginMonth;
     }
 
-    public function setBeginMonth(?int $beginMonth): void
+    public function setBeginMonth(?int $beginMonth): self
     {
         $this->beginMonth = $beginMonth;
+
+        return $this;
     }
 
     public function getBeginYear(): ?int
@@ -48,9 +50,11 @@ class MonthYearRange
         return $this->beginYear;
     }
 
-    public function setBeginYear(?int $beginYear): void
+    public function setBeginYear(?int $beginYear): self
     {
         $this->beginYear = $beginYear;
+
+        return $this;
     }
 
     public function getEndMonth(): ?int
@@ -58,9 +62,11 @@ class MonthYearRange
         return $this->endMonth;
     }
 
-    public function setEndMonth(?int $endMonth): void
+    public function setEndMonth(?int $endMonth): self
     {
         $this->endMonth = $endMonth;
+
+        return $this;
     }
 
     public function getEndYear(): ?int
@@ -68,13 +74,15 @@ class MonthYearRange
         return $this->endYear;
     }
 
-    public function setEndYear(?int $endYear): void
+    public function setEndYear(?int $endYear): self
     {
         $this->endYear = $endYear;
+
+        return $this;
     }
 
     #[Assert\Callback]
-    public function validate(ExecutionContextInterface $context, $payload)
+    public function validate(ExecutionContextInterface $context, $payload): void
     {
         $from = $this->getBeginYear() . sprintf('%02d', $this->getBeginMonth());
         $to = $this->getEndYear() . sprintf('%02d', $this->getEndMonth());

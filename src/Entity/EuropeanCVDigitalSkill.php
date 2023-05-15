@@ -5,10 +5,11 @@ namespace Trexima\EuropeanCvBundle\Entity;
 use App\Entity\Job\PcSkill;                     //todo
 use App\Enum\Job\JobPcSkillEntityLevelEnum;     //todo
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Persistence\Proxy;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * EuropeanCV language
+ * EuropeanCV digital skill
  */
 #[ORM\Table(name: 'european_cv_digital_skill')]
 #[ORM\Entity]
@@ -47,19 +48,16 @@ class EuropeanCVDigitalSkill
         return $this->id;
     }
 
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
-
     public function getEuropeanCV(): ?EuropeanCV
     {
         return $this->europeanCV;
     }
 
-    public function setEuropeanCV(EuropeanCV $europeanCV): void
+    public function setEuropeanCV(?EuropeanCV $europeanCV): self
     {
         $this->europeanCV = $europeanCV;
+
+        return $this;
     }
 
     public function getPcSkill(): ?PcSkill
@@ -93,7 +91,11 @@ class EuropeanCVDigitalSkill
          * https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/cookbook/implementing-wakeup-or-clone.html
          */
         if ($this->id) {
-            $this->setId(null);
+            if ($this instanceof Proxy && !$this->__isInitialized()) {
+                $this->__load();
+            }
+
+            $this->id = null;
         }
     }
 }

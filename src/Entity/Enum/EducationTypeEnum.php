@@ -11,7 +11,7 @@ enum EducationTypeEnum: int
 
     public function title(): string
     {
-        return match($this) {
+        return match ($this) {
             static::EDUCATION_ELEMENTARY_SCHOOL => 'trexima_european_cv.education_type_enum.education_elementary_school',
             static::EDUCATION_HIGH_SCHOOL => 'trexima_european_cv.education_type_enum.education_high_school',
             static::EDUCATION_UNIVERSITY => 'trexima_european_cv.education_type_enum.education_university',

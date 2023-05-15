@@ -3,7 +3,7 @@
 namespace Trexima\EuropeanCvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Persistence\Proxy;
 use Trexima\EuropeanCvBundle\Entity\Enum\PhonePrefixEnum;
 
 /**
@@ -18,11 +18,11 @@ class EuropeanCVPhone
     #[ORM\Column(type: 'integer', options: ['unsigned' => true])]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(targetEntity: \Trexima\EuropeanCvBundle\Entity\EuropeanCV::class, inversedBy: 'phones')]
+    #[ORM\ManyToOne(targetEntity: EuropeanCV::class, inversedBy: 'phones')]
     #[ORM\JoinColumn(name: 'european_cv_id', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
-    private ?\Trexima\EuropeanCvBundle\Entity\EuropeanCV $europeanCV = null;
+    private ?EuropeanCV $europeanCV = null;
 
-    #[ORM\Column(type: 'string', nullable: false, length: 4, enumType: PhonePrefixEnum::class)]
+    #[ORM\Column(type: 'string', length: 4, nullable: false, enumType: PhonePrefixEnum::class)]
     private ?PhonePrefixEnum $prefix = null;
 
     #[ORM\Column(type: 'string', length: 32, nullable: true)]
@@ -33,19 +33,16 @@ class EuropeanCVPhone
         return $this->id;
     }
 
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function getEuropeanCV(): EuropeanCV
+    public function getEuropeanCV(): ?EuropeanCV
     {
         return $this->europeanCV;
     }
 
-    public function setEuropeanCV(EuropeanCV $europeanCV): void
+    public function setEuropeanCV(?EuropeanCV $europeanCV): self
     {
         $this->europeanCV = $europeanCV;
+
+        return $this;
     }
 
     public function getPrefix(): ?PhonePrefixEnum
@@ -53,9 +50,11 @@ class EuropeanCVPhone
         return $this->prefix;
     }
 
-    public function setPrefix(?PhonePrefixEnum $prefix): void
+    public function setPrefix(?PhonePrefixEnum $prefix): self
     {
         $this->prefix = $prefix;
+
+        return $this;
     }
 
     public function getNumber(): ?string
@@ -63,9 +62,11 @@ class EuropeanCVPhone
         return $this->number;
     }
 
-    public function setNumber(?string $number): void
+    public function setNumber(?string $number): self
     {
         $this->number = $number;
+
+        return $this;
     }
 
     public function __clone()
@@ -75,7 +76,11 @@ class EuropeanCVPhone
          * https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/cookbook/implementing-wakeup-or-clone.html
          */
         if ($this->id) {
-            $this->setId(null);
+            if ($this instanceof Proxy && !$this->__isInitialized()) {
+                $this->__load();
+            }
+
+            $this->id = null;
         }
     }
 }

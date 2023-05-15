@@ -5,15 +5,13 @@ namespace Trexima\EuropeanCvBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Persistence\Proxy;
 use Symfony\Component\Validator\Constraints as Assert;
 use Trexima\EuropeanCvBundle\Entity\Enum\LanguageEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\SexEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\StyleEnum;
 use Trexima\EuropeanCvBundle\Model\UserInterface;
 
-/**
- * WARNING: Don't forget to prepare newly created entity relations for clonning in magic __clone method.
- */
 #[ORM\Table(name: 'european_cv')]
 #[ORM\Entity]
 class EuropeanCV
@@ -27,53 +25,69 @@ class EuropeanCV
     #[ORM\JoinColumn(referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
     private ?UserInterface $user = null;
 
-    /**
-     * @var EuropeanCVPractice[]|Collection
-     */
-    #[ORM\OneToMany(targetEntity: EuropeanCVPractice::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    private $practices;
+    #[ORM\OneToMany(
+        mappedBy: 'europeanCV',
+        targetEntity: EuropeanCVPractice::class,
+        cascade: ['all'],
+        orphanRemoval: true,
+    )]
+    private Collection $practices;
 
-    /**
-     * @var EuropeanCVPracticeProcessed[]|Collection
-     */
-    #[ORM\OneToMany(targetEntity: EuropeanCVPracticeProcessed::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    private $practicesProcessed;
+    #[ORM\OneToMany(
+        mappedBy: 'europeanCV',
+        targetEntity: EuropeanCVPracticeProcessed::class,
+        cascade: ['all'],
+        orphanRemoval: true,
+    )]
+    private Collection $practicesProcessed;
 
-    /**
-     * @var EuropeanCVWorkBreak[]|Collection
-     */
-    #[ORM\OneToMany(targetEntity: EuropeanCVWorkBreak::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    private $workBreaks;
+    #[ORM\OneToMany(
+        mappedBy: 'europeanCV',
+        targetEntity: EuropeanCVWorkBreak::class,
+        cascade: ['all'],
+        orphanRemoval: true,
+    )]
+    private Collection $workBreaks;
 
-    /**
-     * @var EuropeanCVEducation[]|Collection
-     */
-    #[ORM\OneToMany(targetEntity: EuropeanCVEducation::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    private $educations;
+    #[ORM\OneToMany(
+        mappedBy: 'europeanCV',
+        targetEntity: EuropeanCVEducation::class,
+        cascade: ['all'],
+        orphanRemoval: true,
+    )]
+    private Collection $educations;
 
-    /**
-     * @var EuropeanCVCertificate[]|Collection
-     */
-    #[ORM\OneToMany(targetEntity: EuropeanCVCertificate::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    private $certificates;
+    #[ORM\OneToMany(
+        mappedBy: 'europeanCV',
+        targetEntity: EuropeanCVCertificate::class,
+        cascade: ['all'],
+        orphanRemoval: true,
+    )]
+    private Collection $certificates;
 
-    /**
-     * @var EuropeanCVLanguage[]|Collection
-     */
-    #[ORM\OneToMany(targetEntity: EuropeanCVLanguage::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    private $languages;
+    #[ORM\OneToMany(
+        mappedBy: 'europeanCV',
+        targetEntity: EuropeanCVLanguage::class,
+        cascade: ['all'],
+        orphanRemoval: true,
+    )]
+    private Collection $languages;
 
-    /**
-     * @var EuropeanCVDrivingLicense[]|Collection
-     */
-    #[ORM\OneToMany(targetEntity: EuropeanCVDrivingLicense::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    private $drivingLicenses;
+    #[ORM\OneToMany(
+        mappedBy: 'europeanCV',
+        targetEntity: EuropeanCVDrivingLicense::class,
+        cascade: ['all'],
+        orphanRemoval: true,
+    )]
+    private Collection $drivingLicenses;
 
-    /**
-     * @var EuropeanCVPhone[]|Collection
-     */
-    #[ORM\OneToMany(targetEntity: EuropeanCVPhone::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    private $phones;
+    #[ORM\OneToMany(
+        mappedBy: 'europeanCV',
+        targetEntity: EuropeanCVPhone::class,
+        cascade: ['all'],
+        orphanRemoval: true,
+    )]
+    private Collection $phones;
 
     #[ORM\Column(type: 'string', length: 128, nullable: true)]
     private ?string $photo = null;
@@ -101,7 +115,7 @@ class EuropeanCV
             new Assert\NotNull(message: 'trexima_european_cv.select_choice')
         ]
     )]
-    #[ORM\Column(type: 'integer', options: ['unsigned' => true], nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true, options: ['unsigned' => true])]
     private ?int $year = null;
 
     #[Assert\When(
@@ -110,10 +124,10 @@ class EuropeanCV
             new Assert\NotNull(message: 'trexima_european_cv.select_choice')
         ]
     )]
-    #[ORM\Column(type: 'integer', options: ['unsigned' => true], nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true, options: ['unsigned' => true])]
     private ?int $month = null;
 
-    #[ORM\Column(type: 'integer', options: ['unsigned' => true], nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true, options: ['unsigned' => true])]
     private ?int $day = null;
 
     #[ORM\OneToOne(targetEntity: EuropeanCVAddress::class, cascade: ['all'])]
@@ -134,7 +148,7 @@ class EuropeanCV
     private ?bool $drivingLicenseOwner = null;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
-    private ?\DateTime $updatedAt = null;
+    private ?\DateTime $updatedAt;
 
     #[ORM\Column(type: 'datetime')]
     private ?\DateTime $createdAt;
@@ -157,11 +171,13 @@ class EuropeanCV
     #[ORM\Column(type: 'text', length: 65535, nullable: true)]
     private ?string $additionalInformations = null;
 
-    /**
-     * @var EuropeanCVDigitalSkill[]|Collection
-     */
-    #[ORM\OneToMany(targetEntity: EuropeanCVDigitalSkill::class, mappedBy: 'europeanCV', orphanRemoval: true, cascade: ['all'])]
-    private $digitalSkills;
+    #[ORM\OneToMany(
+        mappedBy: 'europeanCV',
+        targetEntity: EuropeanCVDigitalSkill::class,
+        cascade: ['all'],
+        orphanRemoval: true,
+    )]
+    private Collection $digitalSkills;
 
     #[ORM\Column(nullable: true)]
     private ?array $competences = [];
@@ -181,185 +197,253 @@ class EuropeanCV
         $this->updatedAt = new \DateTime();
     }
 
-    /**
-     * @return EuropeanCVPractice[]|Collection
-     */
-    public function getPractices(): array|Collection
-    {
-        return $this->practices;
-    }
-
-    public function addPractice(EuropeanCVPractice $practice)
-    {
-        $this->practices[] = $practice;
-        $practice->setEuropeanCV($this);
-    }
-
-    public function removePractice(EuropeanCVPractice $practice)
-    {
-        $this->practices->removeElement($practice);
-    }
-
-    /**
-     * @return EuropeanCVPracticeProcessed[]|Collection
-     */
-    public function getPracticesProcessed(): array|Collection
-    {
-        return $this->practicesProcessed;
-    }
-
-    public function addPracticeProcessed(EuropeanCVPracticeProcessed $practiceProcessed)
-    {
-        $this->practicesProcessed[] = $practiceProcessed;
-        $practiceProcessed->setEuropeanCV($this);
-    }
-
-    public function removePracticeProcessed(EuropeanCVPracticeProcessed $practiceProcessed)
-    {
-        $this->practicesProcessed->removeElement($practiceProcessed);
-    }
-
-    /**
-     * @return EuropeanCVWorkBreak[]|Collection
-     */
-    public function getWorkBreaks(): array|Collection
-    {
-        return $this->workBreaks;
-    }
-
-    public function addWorkBreak(EuropeanCVWorkBreak $workBreak)
-    {
-        $this->workBreaks[] = $workBreak;
-        $workBreak->setEuropeanCV($this);
-    }
-
-    public function removeWorkBreak(EuropeanCVWorkBreak $workBreak)
-    {
-        $this->workBreaks->removeElement($workBreak);
-    }
-
-    /**
-     * @return EuropeanCVEducation[]|Collection
-     */
-    public function getEducations(): array|Collection
-    {
-        return $this->educations;
-    }
-
-    public function addEducation(EuropeanCVEducation $education)
-    {
-        $this->educations[] = $education;
-        $education->setEuropeanCV($this);
-    }
-
-    /**
-     * @param EuropeanCVEducation $practice
-     */
-    public function removeEducation(EuropeanCVEducation $education)
-    {
-        $this->educations->removeElement($education);
-    }
-
-    /**
-     * @return EuropeanCVCertificate[]|Collection
-     */
-    public function getCertificates(): array|Collection
-    {
-        return $this->certificates;
-    }
-
-    public function addCertificate(EuropeanCVCertificate $certificate)
-    {
-        $this->certificates[] = $certificate;
-        $certificate->setEuropeanCV($this);
-    }
-
-    /**
-     * @param EuropeanCVCertificate $certificate
-     */
-    public function removeCertificate(EuropeanCVCertificate $certificate)
-    {
-        $this->certificates->removeElement($certificate);
-    }
-
-    /**
-     * @return EuropeanCVLanguage[]|Collection
-     */
-    public function getLanguages(): array|Collection
-    {
-        return $this->languages;
-    }
-
-    /**
-     * @param EuropeanCVEducation $language
-     */
-    public function addLanguage(EuropeanCVLanguage $language)
-    {
-        $this->languages[] = $language;
-        $language->setEuropeanCV($this);
-    }
-
-    public function removeLanguage(EuropeanCVLanguage $language)
-    {
-        $this->languages->removeElement($language);
-    }
-
-    /**
-     * @return EuropeanCVDrivingLicense[]|Collection
-     */
-    public function getDrivingLicenses(): array|Collection
-    {
-        return $this->drivingLicenses;
-    }
-
-    public function addDrivingLicense(EuropeanCVDrivingLicense $drivingLicense)
-    {
-        $this->drivingLicenses[] = $drivingLicense;
-        $drivingLicense->setEuropeanCV($this);
-    }
-
-    public function removeDrivingLicense(EuropeanCVDrivingLicense $drivingLicense)
-    {
-        $this->drivingLicenses->removeElement($drivingLicense);
-    }
-
-    /**
-     * @return EuropeanCVPhone[]|Collection
-     */
-    public function getPhones(): array|Collection
-    {
-        return $this->phones;
-    }
-
-    public function addPhone(EuropeanCVPhone $phone)
-    {
-        $this->phones[] = $phone;
-        $phone->setEuropeanCV($this);
-    }
-
-    public function removePhone(EuropeanCVPhone $phone)
-    {
-        $this->phones->removeElement($phone);
-    }
-
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function getUser(): UserInterface
+    public function getUser(): ?UserInterface
     {
         return $this->user;
     }
 
-    public function setUser(UserInterface $user): void
+    public function setUser(?UserInterface $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EuropeanCVPractice>
+     */
+    public function getPractices(): Collection
+    {
+        return $this->practices;
+    }
+
+    public function addPractice(EuropeanCVPractice $practice): self
+    {
+        if (!$this->practices->contains($practice)) {
+            $this->practices[] = $practice;
+            $practice->setEuropeanCV($this);
+        }
+
+        return $this;
+    }
+
+    public function removePractice(EuropeanCVPractice $practice): self
+    {
+        if ($this->practices->removeElement($practice)) {
+            if ($practice->getEuropeanCV() === $this) {
+                $practice->setEuropeanCV(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EuropeanCVPracticeProcessed>
+     */
+    public function getPracticesProcessed(): Collection
+    {
+        return $this->practicesProcessed;
+    }
+
+    public function addPracticeProcessed(EuropeanCVPracticeProcessed $practiceProcessed): self
+    {
+        if (!$this->practicesProcessed->contains($practiceProcessed)) {
+            $this->practicesProcessed[] = $practiceProcessed;
+            $practiceProcessed->setEuropeanCV($this);
+        }
+
+        return $this;
+    }
+
+    public function removePracticeProcessed(EuropeanCVPracticeProcessed $practiceProcessed): self
+    {
+        if ($this->practicesProcessed->removeElement($practiceProcessed)) {
+            if ($practiceProcessed->getEuropeanCV() === $this) {
+                $practiceProcessed->setEuropeanCV(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EuropeanCVWorkBreak>
+     */
+    public function getWorkBreaks(): Collection
+    {
+        return $this->workBreaks;
+    }
+
+    public function addWorkBreak(EuropeanCVWorkBreak $workBreak): self
+    {
+        if (!$this->workBreaks->contains($workBreak)) {
+            $this->workBreaks[] = $workBreak;
+            $workBreak->setEuropeanCV($this);
+        }
+
+        return $this;
+    }
+
+    public function removeWorkBreak(EuropeanCVWorkBreak $workBreak): self
+    {
+        if ($this->workBreaks->removeElement($workBreak)) {
+            if ($workBreak->getEuropeanCV() === $this) {
+                $workBreak->setEuropeanCV(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EuropeanCVEducation>
+     */
+    public function getEducations(): Collection
+    {
+        return $this->educations;
+    }
+
+    public function addEducation(EuropeanCVEducation $education): self
+    {
+        if (!$this->educations->contains($education)) {
+            $this->educations[] = $education;
+            $education->setEuropeanCV($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEducation(EuropeanCVEducation $education): self
+    {
+        if ($this->educations->removeElement($education)) {
+            if ($education->getEuropeanCV() === $this) {
+                $education->setEuropeanCV(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EuropeanCVCertificate>
+     */
+    public function getCertificates(): Collection
+    {
+        return $this->certificates;
+    }
+
+    public function addCertificate(EuropeanCVCertificate $certificate): self
+    {
+        if (!$this->certificates->contains($certificate)) {
+            $this->certificates[] = $certificate;
+            $certificate->setEuropeanCV($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCertificate(EuropeanCVCertificate $certificate): self
+    {
+        if ($this->certificates->removeElement($certificate)) {
+            if ($certificate->getEuropeanCV() === $this) {
+                $certificate->setEuropeanCV(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EuropeanCVLanguage>
+     */
+    public function getLanguages(): Collection
+    {
+        return $this->languages;
+    }
+
+    public function addLanguage(EuropeanCVLanguage $language): self
+    {
+        if (!$this->languages->contains($language)) {
+            $this->languages[] = $language;
+            $language->setEuropeanCV($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLanguage(EuropeanCVLanguage $language): self
+    {
+        if ($this->languages->removeElement($language)) {
+            if ($language->getEuropeanCV() === $this) {
+                $language->setEuropeanCV(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EuropeanCVDrivingLicense>
+     */
+    public function getDrivingLicenses(): Collection
+    {
+        return $this->drivingLicenses;
+    }
+
+    public function addDrivingLicense(EuropeanCVDrivingLicense $drivingLicense): self
+    {
+        if (!$this->drivingLicenses->contains($drivingLicense)) {
+            $this->drivingLicenses[] = $drivingLicense;
+            $drivingLicense->setEuropeanCV($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDrivingLicense(EuropeanCVDrivingLicense $drivingLicense): self
+    {
+        if ($this->drivingLicenses->removeElement($drivingLicense)) {
+            if ($drivingLicense->getEuropeanCV() === $this) {
+                $drivingLicense->setEuropeanCV(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EuropeanCVPhone>
+     */
+    public function getPhones(): Collection
+    {
+        return $this->phones;
+    }
+
+    public function addPhone(EuropeanCVPhone $phone): self
+    {
+        if (!$this->phones->contains($phone)) {
+            $this->phones[] = $phone;
+            $phone->setEuropeanCV($this);
+        }
+
+        return $this;
+    }
+
+    public function removePhone(EuropeanCVPhone $phone): self
+    {
+        if ($this->phones->removeElement($phone)) {
+            if ($phone->getEuropeanCV() === $this) {
+                $phone->setEuropeanCV(null);
+            }
+        }
+
+        return $this;
     }
 
     public function getPhoto(): ?string
@@ -367,9 +451,11 @@ class EuropeanCV
         return $this->photo;
     }
 
-    public function setPhoto(?string $photo): void
+    public function setPhoto(?string $photo): self
     {
         $this->photo = $photo;
+
+        return $this;
     }
 
     public function getFirstName(): ?string
@@ -377,9 +463,11 @@ class EuropeanCV
         return $this->firstName;
     }
 
-    public function setFirstName(?string $firstName): void
+    public function setFirstName(?string $firstName): self
     {
         $this->firstName = $firstName;
+
+        return $this;
     }
 
     public function getLastName(): ?string
@@ -387,9 +475,11 @@ class EuropeanCV
         return $this->lastName;
     }
 
-    public function setLastName(?string $lastName): void
+    public function setLastName(?string $lastName): self
     {
         $this->lastName = $lastName;
+
+        return $this;
     }
 
     public function getTitlesBefore(): array
@@ -433,9 +523,11 @@ class EuropeanCV
         return $this->year;
     }
 
-    public function setYear(?int $year): void
+    public function setYear(?int $year): self
     {
         $this->year = $year;
+
+        return $this;
     }
 
     public function getMonth(): ?int
@@ -443,9 +535,11 @@ class EuropeanCV
         return $this->month;
     }
 
-    public function setMonth(?int $month): void
+    public function setMonth(?int $month): self
     {
         $this->month = $month;
+
+        return $this;
     }
 
     public function getDay(): ?int
@@ -453,25 +547,23 @@ class EuropeanCV
         return $this->day;
     }
 
-    public function setDay(?int $day): void
+    public function setDay(?int $day): self
     {
         $this->day = $day;
+
+        return $this;
     }
 
-    /**
-     * @return EuropeanCVAddress|null
-     */
     public function getAddress(): ?EuropeanCVAddress
     {
         return $this->address;
     }
 
-    /**
-     * @param EuropeanCVAddress|null $address
-     */
-    public function setAddress(?EuropeanCVAddress $address): void
+    public function setAddress(?EuropeanCVAddress $address): self
     {
         $this->address = $address;
+
+        return $this;
     }
 
     public function getEmail(): ?string
@@ -479,9 +571,11 @@ class EuropeanCV
         return $this->email;
     }
 
-    public function setEmail(?string $email): void
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
+
+        return $this;
     }
 
     public function getPersonalWebsites(): array
@@ -501,9 +595,11 @@ class EuropeanCV
         return $this->sex;
     }
 
-    public function setSex(?SexEnum $sex): void
+    public function setSex(?SexEnum $sex): self
     {
         $this->sex = $sex;
+
+        return $this;
     }
 
     public function getDrivingLicenseOwner(): ?bool
@@ -511,9 +607,11 @@ class EuropeanCV
         return $this->drivingLicenseOwner;
     }
 
-    public function setDrivingLicenseOwner(?bool $drivingLicenseOwner): void
+    public function setDrivingLicenseOwner(?bool $drivingLicenseOwner): self
     {
         $this->drivingLicenseOwner = $drivingLicenseOwner;
+
+        return $this;
     }
 
     public function getUpdatedAt(): ?\DateTime
@@ -521,9 +619,11 @@ class EuropeanCV
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(?\DateTime $updatedAt): void
+    public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
     }
 
     public function getCreatedAt(): ?\DateTime
@@ -531,9 +631,11 @@ class EuropeanCV
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTime $createdAt): void
+    public function setCreatedAt(\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
     }
 
     public function getLanguage(): ?LanguageEnum
@@ -541,9 +643,11 @@ class EuropeanCV
         return $this->language;
     }
 
-    public function setLanguage(?LanguageEnum $language): void
+    public function setLanguage(?LanguageEnum $language): self
     {
         $this->language = $language;
+
+        return $this;
     }
 
     public function getStyle(): ?StyleEnum
@@ -551,9 +655,11 @@ class EuropeanCV
         return $this->style;
     }
 
-    public function setStyle(?StyleEnum $style): void
+    public function setStyle(?StyleEnum $style): self
     {
         $this->style = $style;
+
+        return $this;
     }
 
     public function getDescription(): ?string
@@ -561,9 +667,11 @@ class EuropeanCV
         return $this->description;
     }
 
-    public function setDescription(?string $description): void
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
     }
 
     public function getHobbies(): ?string
@@ -571,9 +679,11 @@ class EuropeanCV
         return $this->hobbies;
     }
 
-    public function setHobbies(?string $hobbies): void
+    public function setHobbies(?string $hobbies): self
     {
         $this->hobbies = $hobbies;
+
+        return $this;
     }
 
     public function getAdditionalInformations(): ?string
@@ -581,10 +691,42 @@ class EuropeanCV
         return $this->additionalInformations;
     }
 
-    public function setAdditionalInformations(?string $additionalInformations): void
+    public function setAdditionalInformations(?string $additionalInformations): self
     {
         $this->additionalInformations = $additionalInformations;
+
+        return $this;
     }
+
+    /**
+     * @return Collection<int, EuropeanCVDigitalSkill>
+     */
+    public function getDigitalSkills(): Collection
+    {
+        return $this->digitalSkills;
+    }
+
+    public function addDigitalSkill(EuropeanCVDigitalSkill $digitalSkill): self
+    {
+        if (!$this->digitalSkills->contains($digitalSkill)) {
+            $this->digitalSkills[] = $digitalSkill;
+            $digitalSkill->setEuropeanCV($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDigitalSkill(EuropeanCVDigitalSkill $digitalSkill): self
+    {
+        if ($this->digitalSkills->removeElement($digitalSkill)) {
+            if ($digitalSkill->getEuropeanCV() === $this) {
+                $digitalSkill->setEuropeanCV(null);
+            }
+        }
+
+        return $this;
+    }
+
 
     public function getCompetences(): array
     {
@@ -599,33 +741,15 @@ class EuropeanCV
     }
 
     /**
-     * @return EuropeanCVDigitalSkill[]|Collection
+     * Function returns date of birth in datetime format
      */
-    public function getDigitalSkills(): array|Collection
+    public function getFormattedDateOfBirth(): string
     {
-        return $this->digitalSkills;
-    }
-
-    /**
-     * @param EuropeanCVDigitalSkill $digitalSkill
-     */
-    public function addDigitalSkill(EuropeanCVDigitalSkill $digitalSkill)
-    {
-        $this->digitalSkills[] = $digitalSkill;
-        $digitalSkill->setEuropeanCV($this);
-    }
-
-    public function removeDigitalSkill(EuropeanCVDigitalSkill $digitalSkill)
-    {
-        $this->digitalSkills->removeElement($digitalSkill);
-    }
-
-    /**
-     * Function returns dat of birth in datetime format
-     */
-    public function getFormattedDateOfBirth() {
         $date = '';
-        if (!empty($this->day) && !empty($this->month)) $date .= $this->day . '.' . $this->month . '. ';
+        if (!empty($this->day) && !empty($this->month)) {
+            $date .= $this->day . '.' . $this->month . '. ';
+        }
+
         $date .= $this->year;
         return $date;
     }
@@ -636,5 +760,91 @@ class EuropeanCV
          * If the entity has an identity, proceed as normal.
          * https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/cookbook/implementing-wakeup-or-clone.html
          */
+        if ($this->id) {
+            if ($this instanceof Proxy && !$this->__isInitialized()) {
+                $this->__load();
+            }
+
+            $this->id = null;
+
+            $this->practices = clone $this->practices;
+            foreach ($this->practices as $key => $practice) {
+                $practice = clone $practice;
+                $practice->setEuropeanCV($this);
+                $this->practices->set($key, $practice);
+            }
+
+            $this->practicesProcessed = clone $this->practicesProcessed;
+            foreach ($this->practicesProcessed as $key => $practiceProcessed) {
+                $practiceProcessed = clone $practiceProcessed;
+                $practiceProcessed->setEuropeanCV($this);
+                $this->practicesProcessed->set($key, $practiceProcessed);
+            }
+
+            $this->workBreaks = clone $this->workBreaks;
+            foreach ($this->workBreaks as $key => $workBreak) {
+                $workBreak = clone $workBreak;
+                $workBreak->setEuropeanCV($this);
+                $this->workBreaks->set($key, $workBreak);
+            }
+
+            $this->educations = clone $this->educations;
+            foreach ($this->educations as $key => $education) {
+                $education = clone $education;
+                $education->setEuropeanCV($this);
+                $this->educations->set($key, $education);
+            }
+
+            $this->certificates = clone $this->certificates;
+            foreach ($this->certificates as $key => $certificate) {
+                $certificate = clone $certificate;
+                $certificate->setEuropeanCV($this);
+                $this->certificates->set($key, $certificate);
+            }
+
+            $this->languages = clone $this->languages;
+            foreach ($this->languages as $key => $language) {
+                $language = clone $language;
+                $language->setEuropeanCV($this);
+                $this->languages->set($key, $language);
+            }
+
+            $this->drivingLicenses = clone $this->drivingLicenses;
+            foreach ($this->drivingLicenses as $key => $drivingLicense) {
+                $drivingLicense = clone $drivingLicense;
+                $drivingLicense->setEuropeanCV($this);
+                $this->drivingLicenses->set($key, $drivingLicense);
+            }
+
+            $this->phones = clone $this->phones;
+            foreach ($this->phones as $key => $phone) {
+                $phone = clone $phone;
+                $phone->setEuropeanCV($this);
+                $this->phones->set($key, $phone);
+            }
+
+            $this->digitalSkills = clone $this->digitalSkills;
+            foreach ($this->digitalSkills as $key => $digitalSkill) {
+                $digitalSkill = clone $digitalSkill;
+                $digitalSkill->setEuropeanCV($this);
+                $this->digitalSkills->set($key, $digitalSkill);
+            }
+
+            if ($address = $this->address) {
+                if ($address instanceof Proxy && !$address->__isInitialized()) {
+                    $address->__load();
+                }
+
+                $this->address = clone $address;
+            }
+
+            if ($createdAt = $this->createdAt) {
+                $this->createdAt = clone $createdAt;
+            }
+
+            if ($updatedAt = $this->updatedAt) {
+                $this->updatedAt = clone $updatedAt;
+            }
+        }
     }
 }

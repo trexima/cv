@@ -3,7 +3,7 @@
 namespace Trexima\EuropeanCvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\Persistence\Proxy;
 
 #[ORM\Index(fields: ['administrativeAreaLevel1'])]
 #[ORM\Index(fields: ['locality'])]
@@ -77,9 +77,13 @@ class AbstractGoogleAddress
     #[ORM\Column(type: 'float', nullable: true)]
     protected ?float $longitude = null;
 
-    #[Gedmo\Timestampable(on: 'create')]
     #[ORM\Column(type: 'datetime_immutable')]
-    protected ?\DateTimeImmutable $createdAt = null;
+    protected \DateTimeImmutable $createdAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
@@ -326,7 +330,7 @@ class AbstractGoogleAddress
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
     }
@@ -373,6 +377,21 @@ class AbstractGoogleAddress
         $to->setPostalCode($this->getPostalCode());
         $to->setLatitude($this->getLatitude());
         $to->setLongitude($this->getLongitude());
+    }
+
+    public function __clone()
+    {
+        /*
+         * If the entity has an identity, proceed as normal.
+         * https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/cookbook/implementing-wakeup-or-clone.html
+         */
+        if ($this->id) {
+            if ($this instanceof Proxy && !$this->__isInitialized()) {
+                $this->__load();
+            }
+
+            $this->id = null;
+        }
     }
 
     public function __toString(): string
