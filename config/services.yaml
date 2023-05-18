@@ -25,7 +25,7 @@ services:
         arguments: ['%trexima_european_cv_upload_url%']
 
     Trexima\EuropeanCvBundle\Export\EuropeanCvExporter:
-        arguments: 
+        arguments:
             $projectDir: '%kernel.project_dir%'
             $uploadUrl: '%trexima_european_cv_upload_url%'
 
@@ -42,14 +42,10 @@ services:
             $url: '%trexima_european_cv_harvey_url%'
             $username: '%trexima_european_cv_harvey_username%'
             $password: '%trexima_european_cv_harvey_password%'
-    
+
     Trexima\EuropeanCvBundle\Facade\GooglePlaces:
         arguments:
             $apiKey: '%trexima_european_cv_google_apikey%'
-
-    Trexima\EuropeanCvBundle\Form\Type\EuropeanCVPracticeType:
-        arguments:
-            $translator: '@translator'
 
     Trexima\EuropeanCvBundle\Form\Type\EuropeanCVWorkBreakType:
         arguments:
@@ -62,7 +58,6 @@ services:
 
     Trexima\EuropeanCvBundle\Form\Type\EuropeanCVEducationType:
         arguments:
-            $urlGenerator: '@router.default'
             $translator: '@translator'
 
     Trexima\EuropeanCvBundle\Form\Type\EuropeanCVCertificateType:

@@ -130,7 +130,7 @@ class EuropeanCV
     #[ORM\Column(type: 'integer', nullable: true, options: ['unsigned' => true])]
     private ?int $day = null;
 
-    #[ORM\OneToOne(targetEntity: EuropeanCVAddress::class, cascade: ['all'])]
+    #[ORM\OneToOne(targetEntity: EuropeanCVAddress::class, cascade: ['all'], orphanRemoval: true)]
     #[ORM\JoinColumn(name: 'address_id', referencedColumnName: 'id')]
     private ?EuropeanCVAddress $address;
 

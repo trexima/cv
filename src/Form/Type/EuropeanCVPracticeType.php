@@ -11,26 +11,16 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Valid;
-use Symfony\Contracts\Translation\TranslatorInterface;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVPractice;
-use Trexima\EuropeanCvBundle\Facade\Harvey;
-use Trexima\EuropeanCvBundle\Form\Type\MonthYearRangeType;
 
 use function Symfony\Component\Translation\t;
 
 class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInterface
 {
-    public function __construct(
-        private readonly Harvey $harvey,
-        private readonly TranslatorInterface $translator
-    )
-    {
-    }
-    
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $entity = $builder->getData();
         $builder
@@ -43,6 +33,11 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
                 'form_floating' => true,
                 'mapped' => false,
                 'class' => EuropeanCVPractice::class,
+                'select2_placeholder' => t(
+                    'trexima_european_cv.form_label.practice_isco_code_placeholder',
+                    [],
+                    'trexima_european_cv',
+                ),
                 'row_attr' => [
                     'class' => 'mt-3.5'
                 ],
@@ -87,13 +82,12 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
                 ]
             ])
             ->addEventSubscriber($this);
-            ;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
@@ -104,6 +98,7 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
             'field_options' => []
         ]);
     }
+
     public static function getSubscribedEvents(): array
     {
         return [
@@ -116,7 +111,7 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
     {
         /** @var EuropeanCVPractice|null $data */
         $data = $formEvent->getData();
-    
+
         $iscoCode = $formEvent->getForm()->get('iscoCode')->getData();
         if (!empty($iscoCode)) {
             $code = $iscoCode->getIscoCode();

@@ -75,6 +75,7 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
             'required' => false,
             'mapped' => false,
             'label' => false,
+            'aspect_ratio' => 1,
             'max_size' => 16 << 20,
             'max_size_message' => t(
                 'job.max_file_size',
