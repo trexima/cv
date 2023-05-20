@@ -49,6 +49,10 @@ class EuropeanCVLanguage
     #[ORM\Column(type: 'string', length: 2, nullable: true, enumType: LanguageLevelEnum::class)]
     private ?LanguageLevelEnum $level = null;
 
+    #[Assert\Range(min: 0, max: 65535)]
+    #[ORM\Column(type: 'smallint', options: ['unsigned' => true, 'default' => 0])]
+    private int $sort = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +90,18 @@ class EuropeanCVLanguage
     public function setLevel(?LanguageLevelEnum $level): self
     {
         $this->level = $level;
+
+        return $this;
+    }
+
+    public function getSort(): int
+    {
+        return $this->sort;
+    }
+
+    public function setSort(int $sort): self
+    {
+        $this->sort = $sort;
 
         return $this;
     }

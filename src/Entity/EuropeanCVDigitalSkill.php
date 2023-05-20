@@ -43,6 +43,10 @@ class EuropeanCVDigitalSkill
     #[ORM\Column(type: 'string', length: 16, nullable: false, enumType: JobPcSkillEntityLevelEnum::class)]
     private ?JobPcSkillEntityLevelEnum $level = null;
 
+    #[Assert\Range(min: 0, max: 65535)]
+    #[ORM\Column(type: 'smallint', options: ['unsigned' => true, 'default' => 0])]
+    private int $sort = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -80,6 +84,18 @@ class EuropeanCVDigitalSkill
     public function setLevel(?JobPcSkillEntityLevelEnum $level): self
     {
         $this->level = $level;
+
+        return $this;
+    }
+
+    public function getSort(): int
+    {
+        return $this->sort;
+    }
+
+    public function setSort(int $sort): self
+    {
+        $this->sort = $sort;
 
         return $this;
     }

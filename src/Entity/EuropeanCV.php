@@ -65,6 +65,7 @@ class EuropeanCV
     )]
     private Collection $certificates;
 
+    #[ORM\OrderBy(['sort' => 'ASC'])]
     #[ORM\OneToMany(
         mappedBy: 'europeanCV',
         targetEntity: EuropeanCVLanguage::class,
@@ -171,6 +172,7 @@ class EuropeanCV
     #[ORM\Column(type: 'text', length: 65535, nullable: true)]
     private ?string $additionalInformations = null;
 
+    #[ORM\OrderBy(['sort' => 'ASC'])]
     #[ORM\OneToMany(
         mappedBy: 'europeanCV',
         targetEntity: EuropeanCVDigitalSkill::class,
