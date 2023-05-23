@@ -139,8 +139,19 @@ class EuropeanCV
     #[ORM\Column(type: 'string', length: 320, nullable: true)]
     private ?string $email = null;
 
-    #[ORM\Column]
+    #[Assert\All([
+        new Assert\NotBlank(),
+        new Assert\Url(),
+    ])]
+    #[ORM\Column(type: 'json')]
     private array $personalWebsites = [];
+
+    #[Assert\All([
+        new Assert\NotBlank(),
+        new Assert\Url(),
+    ])]
+    #[ORM\Column(type: 'json')]
+    private array $socialAccounts = [];
 
     #[ORM\Column(type: 'integer', nullable: true, enumType: SexEnum::class)]
     private ?SexEnum $sex = null;
@@ -588,6 +599,18 @@ class EuropeanCV
     public function setPersonalWebsites(array $personalWebsites): self
     {
         $this->personalWebsites = $personalWebsites;
+
+        return $this;
+    }
+
+    public function getSocialAccounts(): array
+    {
+        return $this->socialAccounts;
+    }
+
+    public function setSocialAccounts(array $socialAccounts): self
+    {
+        $this->socialAccounts = $socialAccounts;
 
         return $this;
     }

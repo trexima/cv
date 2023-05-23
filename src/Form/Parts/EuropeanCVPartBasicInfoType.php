@@ -13,20 +13,25 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\PropertyAccess\PropertyAccess;
+use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Trexima\EuropeanCvBundle\Entity\Enum\LanguageEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\SexEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\TitleAfterEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\TitleBeforeEnum;
+use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVAddress;
 use Trexima\EuropeanCvBundle\Form\Model\Photo;
 use Trexima\EuropeanCvBundle\Form\Type\EuropeanCVPhoneType;
 use Trexima\EuropeanCvBundle\Form\Type\GooglePlaceAutocompleteType;
 use Trexima\EuropeanCvBundle\Form\Type\PhotoType;
+use Trexima\EuropeanCvBundle\Form\Type\SocialAccountsType;
+use Trexima\EuropeanCvBundle\Validator as AppAssert;
 
 use function Symfony\Component\Translation\t;
 
@@ -38,6 +43,7 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
     private readonly DataMapper $dataMapper;
 
     public function __construct(
+        ?PropertyAccessorInterface $propertyAccessor,
         private readonly TranslatorInterface $translator,
         private readonly string $uploadUrl,
     ) {
@@ -52,7 +58,7 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $now = new \DateTime();
 
@@ -111,8 +117,8 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
             'required' => false,
             'multiple' => true,
             'form_floating' => true,
-            'select2'=> true,
-            'select2_tags'=> true,
+            'select2' => true,
+            'select2_tags' => true,
             'select2_theme' => 'worki-floating',
             'select2_placeholder' => t('trexima_european_cv.form_label.titles_before_placeholder', [], 'trexima_european_cv'),
             'select2_allow_clear' => true,
@@ -127,7 +133,7 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
             'required' => false,
             'multiple' => true,
             'form_floating' => true,
-            'select2'=> true,
+            'select2' => true,
             'select2_theme' => 'worki-floating',
             'select2_placeholder' => t('trexima_european_cv.form_label.titles_before_placeholder', [], 'trexima_european_cv'),
             'select2_allow_clear' => true,
@@ -140,33 +146,33 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
             },
             'label' => t('trexima_european_cv.form_label.year_label', [], 'trexima_european_cv'),
             'form_floating' => true,
-            'select2'=> true,
+            'select2' => true,
             'select2_theme' => 'worki-floating',
             'select2_allow_clear' => true,
             'select2_placeholder' => t('trexima_european_cv.form_label.year_placeholder', [], 'trexima_european_cv'),
         ])
         ->add('month', ChoiceType::class, [
             'required' => false,
-            'choices' => range(1,12),
+            'choices' => range(1, 12),
             'choice_label' => function ($choice) {
                 return $choice;
             },
             'label' => t('trexima_european_cv.form_label.month_label', [], 'trexima_european_cv'),
             'form_floating' => true,
-            'select2'=> true,
+            'select2' => true,
             'select2_theme' => 'worki-floating',
             'select2_allow_clear' => true,
             'select2_placeholder' => t('trexima_european_cv.form_label.month_placeholder', [], 'trexima_european_cv'),
         ])
         ->add('day', ChoiceType::class, [
             'required' => false,
-            'choices' => range(1,31),
+            'choices' => range(1, 31),
             'choice_label' => function ($choice) {
                 return $choice;
             },
             'label' => t('trexima_european_cv.form_label.day_label', [], 'trexima_european_cv'),
             'form_floating' => true,
-            'select2'=> true,
+            'select2' => true,
             'select2_theme' => 'worki-floating',
             'select2_allow_clear' => true,
             'select2_placeholder' => t('trexima_european_cv.form_label.day_placeholder', [], 'trexima_european_cv'),
@@ -194,27 +200,21 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
             'form_floating' => true,
             'class' => EuropeanCVAddress::class,
         ], ($options['field_options']['address'] ?? [])))
-        ->add('personalWebsites', CollectionType::class, [
+        ->add('personalWebsite', UrlType::class, [
+            'form_floating' => true,
+            'mapped' => false,
+            'required' => false,
+            'label' => t('trexima_european_cv.form_label.personal_website_label', [], 'trexima_european_cv'),
+            'constraints' => [
+                new AppAssert\WebUrl(message: 'trexima_european_cv.url_is_not_valid'),
+            ],
+        ])
+        ->add('socialAccounts', SocialAccountsType::class, [
             'label' => false,
             'required' => false,
-            'entry_type' => TextType::class,
-            'entry_options' => [
-                'label' => t('trexima_european_cv.form_label.personal_websites_label', [], 'trexima_european_cv'),
-                'help' => '<div><i class="fal fa-info-square me-2"></i>Môžete zadať viac odkazov. Zadajte napríklad: www.facebook.com/pavol.vzor.10</div>',
-                'help_html' => true,
-                'attr' => [
-                    'data-form--job-target' => 'nameInput',
-                    'data-ui--input-character-count-target' => 'input',
-                    'data-controller' => 'ui--form-clear-feedback',
-                    'class' => 'mt-3'
-                ],
-                'form_floating' => true,
+            'constraints' => [
+                new Assert\Valid(),
             ],
-            'by_reference' => false,
-            'prototype' => true,
-            'allow_add' => true,
-            'allow_delete' => true,
-            'delete_empty' => true,
         ])
         ->add('description', TextareaType::class, [
             'label' => t('trexima_european_cv.form_label.description_label', [], 'trexima_european_cv'),
@@ -222,14 +222,13 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
             'attr' => [
                 'placeholder' => t('trexima_european_cv.form_label.description_placeholder', [], 'trexima_european_cv')
             ]
-        ])
-        ;
+        ]);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
@@ -245,6 +244,8 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
     public function mapFormsToData(\Traversable $forms, mixed &$viewData): void
     {
         $this->dataMapper->mapFormsToData($forms, $viewData);
+
+        $this->mapFormsToPersonalWebsite($forms, $viewData);
     }
 
     /**
@@ -255,6 +256,7 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
     {
         $this->dataMapper->mapDataToForms($viewData, $forms);
 
+        $this->mapPersonalWebsiteToForms($viewData, $forms);
         $this->mapPhoto($viewData, $forms);
     }
 
@@ -279,5 +281,31 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
             ->setFile(null);
 
         $forms['photo']->setData($photoType);
+    }
+
+    private function mapPersonalWebsiteToForms(EuropeanCV|null $viewData, \Traversable $forms): void
+    {
+        $forms = \iterator_to_array($forms);
+        if (!isset($forms['personalWebsite'])) {
+            return;
+        }
+
+        $forms['personalWebsite']->setData($viewData->getPersonalWebsites()[0] ?? null);
+    }
+
+    private function mapFormsToPersonalWebsite(\Traversable $forms, EuropeanCV|null $viewData): void
+    {
+        if ($viewData === null) {
+            return;
+        }
+
+        $forms = \iterator_to_array($forms);
+
+        $personalWebsite = $forms['personalWebsite']?->getData();
+        if ($personalWebsite !== null) {
+            $viewData->setPersonalWebsites([$personalWebsite]);
+        } else {
+            $viewData->setPersonalWebsites([]);
+        }
     }
 }
