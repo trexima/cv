@@ -3,9 +3,10 @@
 namespace Trexima\EuropeanCvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Persistence\Proxy;
 
 /**
- * EuropeanCV practice
+ * EuropeanCV practice processed
  */
 #[ORM\Table(name: 'european_cv_practice_processed')]
 #[ORM\Entity]
@@ -29,31 +30,24 @@ class EuropeanCVPracticeProcessed
     #[ORM\Column(type: 'string', length: 7, nullable: true)]
     private ?string $iscoCode = null;
 
-    #[ORM\Column(type: 'smallint', options: ['unsigned' => true, 'default' => 0], nullable: false)]
+    #[ORM\Column(type: 'smallint', nullable: false, options: ['unsigned' => true, 'default' => 0])]
     private int $months = 0;
-
-    public function __construct()
-    {
-    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function getEuropeanCV(): EuropeanCV
+    public function getEuropeanCV(): ?EuropeanCV
     {
         return $this->europeanCV;
     }
 
-    public function setEuropeanCV(EuropeanCV $europeanCV): void
+    public function setEuropeanCV(?EuropeanCV $europeanCV): self
     {
         $this->europeanCV = $europeanCV;
+
+        return $this;
     }
 
     public function getTitle(): ?string
@@ -61,9 +55,11 @@ class EuropeanCVPracticeProcessed
         return $this->title;
     }
 
-    public function setTitle(?string $title): void
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
+
+        return $this;
     }
 
     public function getIscoCode(): ?string
@@ -71,9 +67,11 @@ class EuropeanCVPracticeProcessed
         return $this->iscoCode;
     }
 
-    public function setIscoCode(?string $iscoCode): void
+    public function setIscoCode(?string $iscoCode): self
     {
         $this->iscoCode = $iscoCode;
+
+        return $this;
     }
 
     public function getMonths(): int
@@ -81,8 +79,25 @@ class EuropeanCVPracticeProcessed
         return $this->months;
     }
 
-    public function setMonths(int $months): void
+    public function setMonths(int $months): self
     {
         $this->months = $months;
+
+        return $this;
+    }
+
+    public function __clone()
+    {
+        /*
+         * If the entity has an identity, proceed as normal.
+         * https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/cookbook/implementing-wakeup-or-clone.html
+         */
+        if ($this->id) {
+            if ($this instanceof Proxy && !$this->__isInitialized()) {
+                $this->__load();
+            }
+
+            $this->id = null;
+        }
     }
 }

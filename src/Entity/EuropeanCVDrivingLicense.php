@@ -3,13 +3,14 @@
 namespace Trexima\EuropeanCvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Persistence\Proxy;
 use Trexima\EuropeanCvBundle\Entity\Enum\DrivingLicenseEnum;
 
 /**
- * EuropeanCV practice
+ * EuropeanCV driving license
  */
 #[ORM\Table(name: 'european_cv_driving_license')]
-#[ORM\Index(name: 'driving_license_idx', columns: ['driving_license'])]
+#[ORM\Index(columns: ['driving_license'], name: 'driving_license_idx')]
 #[ORM\UniqueConstraint(columns: ['european_cv_id', 'driving_license'])]
 #[ORM\Entity]
 class EuropeanCVDrivingLicense
@@ -19,14 +20,21 @@ class EuropeanCVDrivingLicense
     #[ORM\Column(type: 'integer', options: ['unsigned' => true])]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(targetEntity: \Trexima\EuropeanCvBundle\Entity\EuropeanCV::class, inversedBy: 'drivingLicenses')]
+    #[ORM\ManyToOne(targetEntity: EuropeanCV::class, inversedBy: 'drivingLicenses')]
     #[ORM\JoinColumn(referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
-    private ?\Trexima\EuropeanCvBundle\Entity\EuropeanCV $europeanCV = null;
+    private ?EuropeanCV $europeanCV = null;
 
     #[ORM\Column(type: 'string', length: 4, nullable: true, enumType: DrivingLicenseEnum::class)]
     private ?DrivingLicenseEnum $drivingLicense = null;
 
-    #[ORM\Column(type: 'integer', nullable: true, options: ['unsigned' => true, 'comment' => 'Distance traveled in kilometers'])]
+    #[ORM\Column(
+        type: 'integer',
+        nullable: true,
+        options: [
+            'unsigned' => true,
+            'comment' => 'Distance traveled in kilometers'
+        ],
+    )]
     private ?string $distanceTraveled = null;
 
     #[ORM\Column(type: 'boolean')]
@@ -37,19 +45,16 @@ class EuropeanCVDrivingLicense
         return $this->id;
     }
 
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function getEuropeanCV(): EuropeanCV
+    public function getEuropeanCV(): ?EuropeanCV
     {
         return $this->europeanCV;
     }
 
-    public function setEuropeanCV(EuropeanCV $europeanCV): void
+    public function setEuropeanCV(?EuropeanCV $europeanCV): self
     {
         $this->europeanCV = $europeanCV;
+
+        return $this;
     }
 
     public function getDrivingLicense(): ?DrivingLicenseEnum
@@ -57,9 +62,11 @@ class EuropeanCVDrivingLicense
         return $this->drivingLicense;
     }
 
-    public function setDrivingLicense(?DrivingLicenseEnum $drivingLicense): void
+    public function setDrivingLicense(?DrivingLicenseEnum $drivingLicense): self
     {
         $this->drivingLicense = $drivingLicense;
+
+        return $this;
     }
 
     public function getDistanceTraveled(): ?string
@@ -67,9 +74,11 @@ class EuropeanCVDrivingLicense
         return $this->distanceTraveled;
     }
 
-    public function setDistanceTraveled(?string $distanceTraveled): void
+    public function setDistanceTraveled(?string $distanceTraveled): self
     {
         $this->distanceTraveled = $distanceTraveled;
+
+        return $this;
     }
 
     public function getActiveDriver(): ?bool
@@ -77,9 +86,11 @@ class EuropeanCVDrivingLicense
         return $this->activeDriver;
     }
 
-    public function setActiveDriver(?bool $activeDriver): void
+    public function setActiveDriver(?bool $activeDriver): self
     {
         $this->activeDriver = $activeDriver;
+
+        return $this;
     }
 
     public function __clone()
@@ -89,7 +100,11 @@ class EuropeanCVDrivingLicense
          * https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/cookbook/implementing-wakeup-or-clone.html
          */
         if ($this->id) {
-            $this->setId(null);
+            if ($this instanceof Proxy && !$this->__isInitialized()) {
+                $this->__load();
+            }
+
+            $this->id = null;
         }
     }
 }

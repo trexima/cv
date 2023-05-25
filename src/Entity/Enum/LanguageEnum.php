@@ -42,16 +42,3 @@ enum LanguageEnum: string
     case LANGUAGE_JA = 'ja';        // ja: japonský
     case LANGUAGE_KO = 'ko';        // ko: kórejský
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

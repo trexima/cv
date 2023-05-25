@@ -30,9 +30,11 @@ class DateRange
         return $this->beginDay;
     }
 
-    public function setBeginDay(?int $beginDay): void
+    public function setBeginDay(?int $beginDay): self
     {
         $this->beginDay = $beginDay;
+
+        return $this;
     }
 
     public function getBeginMonth(): ?int
@@ -40,9 +42,11 @@ class DateRange
         return $this->beginMonth;
     }
 
-    public function setBeginMonth(?int $beginMonth): void
+    public function setBeginMonth(?int $beginMonth): self
     {
         $this->beginMonth = $beginMonth;
+
+        return $this;
     }
 
     public function getBeginYear(): ?int
@@ -50,9 +54,11 @@ class DateRange
         return $this->beginYear;
     }
 
-    public function setBeginYear(?int $beginYear): void
+    public function setBeginYear(?int $beginYear): self
     {
         $this->beginYear = $beginYear;
+
+        return $this;
     }
 
     public function getEndDay(): ?int
@@ -60,9 +66,11 @@ class DateRange
         return $this->endDay;
     }
 
-    public function setEndDay(?int $endDay): void
+    public function setEndDay(?int $endDay): self
     {
         $this->endDay = $endDay;
+
+        return $this;
     }
 
     public function getEndMonth(): ?int
@@ -70,9 +78,11 @@ class DateRange
         return $this->endMonth;
     }
 
-    public function setEndMonth(?int $endMonth): void
+    public function setEndMonth(?int $endMonth): self
     {
         $this->endMonth = $endMonth;
+
+        return $this;
     }
 
     public function getEndYear(): ?int
@@ -80,8 +90,10 @@ class DateRange
         return $this->endYear;
     }
 
-    public function setEndYear(?int $endYear): void
+    public function setEndYear(?int $endYear): self
     {
         $this->endYear = $endYear;
+
+        return $this;
     }
 }

@@ -7,31 +7,28 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Trexima\EuropeanCvBundle\Entity\EuropeanCVEducation;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Validator\Constraints\Valid;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Trexima\EuropeanCvBundle\Entity\Enum\EducationTypeEnum;
-use Trexima\EuropeanCvBundle\Form\Type\YearRangeType;
+use Trexima\EuropeanCvBundle\Entity\EuropeanCVEducation;
 
 use function Symfony\Component\Translation\t;
 
 class EuropeanCVEducationType extends AbstractType implements EventSubscriberInterface
 {
 
-    public function __construct(
-        private readonly UrlGeneratorInterface $urlGenerator,
-        private readonly TranslatorInterface $translator
-    ) {}
+    public function __construct(private readonly TranslatorInterface $translator)
+    {
+    }
 
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $entity = $builder->getData();
         $builder
@@ -61,37 +58,42 @@ class EuropeanCVEducationType extends AbstractType implements EventSubscriberInt
                 ]
             ], ($options['field_options']['yearRange'] ?? [])));
 
-            if ($options['education_type']->value !== EducationTypeEnum::EDUCATION_ELEMENTARY_SCHOOL->value) {
-                $builder->add('kov', KovType::class, array_merge([
-                    'label' => t('trexima_european_cv.form_label.education_kov', [], 'trexima_european_cv'),
-                    'data' => $entity,
-                    'multiple' => false,
-                    'required' => false,
-                    'by_reference' => false,
-                    'form_floating' => true,
-                    'mapped' => false,
-                    'class' => EuropeanCVEducation::class,
-                    'row_attr' => [
-                        'class' => 'mt-3.5'
-                    ],
-                ], ($options['field_options']['kov'] ?? [])));
+        if ($options['education_type']->value !== EducationTypeEnum::EDUCATION_ELEMENTARY_SCHOOL->value) {
+            $builder->add('kov', KovType::class, array_merge([
+                'label' => t('trexima_european_cv.form_label.education_kov', [], 'trexima_european_cv'),
+                'data' => $entity,
+                'multiple' => false,
+                'required' => false,
+                'by_reference' => false,
+                'form_floating' => true,
+                'mapped' => false,
+                'class' => EuropeanCVEducation::class,
+                'select2_placeholder' => t(
+                    'trexima_european_cv.form_placeholder.education_kov',
+                    [],
+                    'trexima_european_cv',
+                ),
+                'row_attr' => [
+                    'class' => 'mt-3.5'
+                ],
+            ], ($options['field_options']['kov'] ?? [])));
 
-                $builder->add('description', TextareaType::class, array_merge([
-                    'label' => t('trexima_european_cv.form_label.education_description_label', [], 'trexima_european_cv'),
-                    'required' => false,
-                    'attr' => [
-                        'placeholder' => t('trexima_european_cv.form_label.education_description_placeholder', [], 'trexima_european_cv')
-                    ]
-                ], ($options['field_options']['description'] ?? [])));
-            }
-            $builder->addEventSubscriber($this);
-            
+            $builder->add('description', TextareaType::class, array_merge([
+                'label' => t('trexima_european_cv.form_label.education_description_label', [], 'trexima_european_cv'),
+                'required' => false,
+                'attr' => [
+                    'placeholder' => t('trexima_european_cv.form_label.education_description_placeholder', [], 'trexima_european_cv')
+                ]
+            ], ($options['field_options']['description'] ?? [])));
+        }
+
+        $builder->addEventSubscriber($this);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([

@@ -10,10 +10,7 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
 class MonthYearRange
 {
     #[Assert\NotBlank]
-    #[Assert\Range(
-        min: 1,
-        max: 12,
-    )]
+    #[Assert\Range(min: 1, max: 12)]
     #[ORM\Column(type: 'smallint', nullable: true)]
     private ?int $beginMonth = null;
 
@@ -21,15 +18,10 @@ class MonthYearRange
     #[ORM\Column(type: 'smallint', nullable: true)]
     private ?int $beginYear = null;
 
-    #[Assert\NotBlank]
-    #[Assert\Range(
-        min: 1,
-        max: 12,
-    )]
+    #[Assert\Range(min: 1, max: 12)]
     #[ORM\Column(type: 'smallint', nullable: true)]
     private ?int $endMonth = null;
 
-    #[Assert\NotBlank]
     #[ORM\Column(type: 'smallint', nullable: true)]
     private ?int $endYear = null;
 
@@ -38,9 +30,11 @@ class MonthYearRange
         return $this->beginMonth;
     }
 
-    public function setBeginMonth(?int $beginMonth): void
+    public function setBeginMonth(?int $beginMonth): self
     {
         $this->beginMonth = $beginMonth;
+
+        return $this;
     }
 
     public function getBeginYear(): ?int
@@ -48,9 +42,11 @@ class MonthYearRange
         return $this->beginYear;
     }
 
-    public function setBeginYear(?int $beginYear): void
+    public function setBeginYear(?int $beginYear): self
     {
         $this->beginYear = $beginYear;
+
+        return $this;
     }
 
     public function getEndMonth(): ?int
@@ -58,9 +54,11 @@ class MonthYearRange
         return $this->endMonth;
     }
 
-    public function setEndMonth(?int $endMonth): void
+    public function setEndMonth(?int $endMonth): self
     {
         $this->endMonth = $endMonth;
+
+        return $this;
     }
 
     public function getEndYear(): ?int
@@ -68,16 +66,35 @@ class MonthYearRange
         return $this->endYear;
     }
 
-    public function setEndYear(?int $endYear): void
+    public function setEndYear(?int $endYear): self
     {
         $this->endYear = $endYear;
+
+        return $this;
     }
 
     #[Assert\Callback]
-    public function validate(ExecutionContextInterface $context, $payload)
+    public function validate(ExecutionContextInterface $context, $payload): void
     {
+        $endYear = $this->getEndYear();
+        $endMonth = $this->getEndMonth();
+
+        if ($endYear === null && $endMonth === null) {
+            return;
+        }
+
+        if ($endYear === null || $endMonth === null) {
+            $context->buildViolation('trexima_european_cv.range_not_valid')
+                ->atPath('endMonth')
+                ->addViolation();
+            $context->buildViolation('trexima_european_cv.range_not_valid')
+                ->atPath('endYear')
+                ->addViolation();
+            return;
+        }
+
         $from = $this->getBeginYear() . sprintf('%02d', $this->getBeginMonth());
-        $to = $this->getEndYear() . sprintf('%02d', $this->getEndMonth());
+        $to = $endYear . sprintf('%02d', $endMonth);
 
         if ($from > $to) {
             $context->buildViolation('trexima_european_cv.range_not_valid')
@@ -87,10 +104,10 @@ class MonthYearRange
                 ->atPath('beginYear')
                 ->addViolation();
             $context->buildViolation('trexima_european_cv.range_not_valid')
-                ->atPath('endYear')
+                ->atPath('endMonth')
                 ->addViolation();
             $context->buildViolation('trexima_european_cv.range_not_valid')
-                ->atPath('endMonth')
+                ->atPath('endYear')
                 ->addViolation();
         }
     }
