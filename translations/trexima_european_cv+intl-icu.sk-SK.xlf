@@ -1189,5 +1189,41 @@
         <target>Opíš tvoju náplň práce</target>
       </segment>
     </unit>
+    <unit id="pVqiJSB" name="trexima_european_cv.form_placeholder.education_kov">
+      <segment>
+        <source>trexima_european_cv.form_placeholder.education_kov</source>
+        <target>Vyberte študijný/učebný odbor</target>
+      </segment>
+    </unit>
+    <unit id="alsYpV9" name="trexima_european_cv.form_label.add_next_phone_button">
+      <segment>
+        <source>trexima_european_cv.form_label.add_next_phone_button</source>
+        <target>Pridať ďalší telefón</target>
+      </segment>
+    </unit>
+    <unit id="6gDVt25" name="trexima_european_cv.form_label.personal_website_label">
+      <segment>
+        <source>trexima_european_cv.form_label.personal_website_label</source>
+        <target>Osobná webová stránka</target>
+      </segment>
+    </unit>
+    <unit id="ooEbZTm" name="trexima_european_cv.form_label.facebook_label">
+      <segment>
+        <source>trexima_european_cv.form_label.facebook_label</source>
+        <target>Facebook</target>
+      </segment>
+    </unit>
+    <unit id="AG9eQbY" name="trexima_european_cv.form_label.instagram_label">
+      <segment>
+        <source>trexima_european_cv.form_label.instagram_label</source>
+        <target>Instagram</target>
+      </segment>
+    </unit>
+    <unit id="DPziMAK" name="trexima_european_cv.form_label.linkedin_label">
+      <segment>
+        <source>trexima_european_cv.form_label.linkedin_label</source>
+        <target>LinkedIn</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

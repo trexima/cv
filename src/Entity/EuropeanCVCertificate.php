@@ -3,12 +3,12 @@
 namespace Trexima\EuropeanCvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Persistence\Proxy;
 use Symfony\Component\Validator\Constraints as Assert;
 use Trexima\EuropeanCvBundle\Entity\Embeddable\YearRange;
-use Trexima\EuropeanCvBundle\Entity\Enum\EducationTypeEnum;
 
 /**
- * EuropeanCV education
+ * EuropeanCV certificate
  */
 #[ORM\Table(name: 'european_cv_certificate')]
 #[ORM\Entity]
@@ -49,19 +49,16 @@ class EuropeanCVCertificate
         return $this->id;
     }
 
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function getEuropeanCV(): EuropeanCV
+    public function getEuropeanCV(): ?EuropeanCV
     {
         return $this->europeanCV;
     }
 
-    public function setEuropeanCV(EuropeanCV $europeanCV): void
+    public function setEuropeanCV(?EuropeanCV $europeanCV): self
     {
         $this->europeanCV = $europeanCV;
+
+        return $this;
     }
 
     public function getTitle(): ?string
@@ -69,9 +66,11 @@ class EuropeanCVCertificate
         return $this->title;
     }
 
-    public function setTitle(?string $title): void
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
+
+        return $this;
     }
 
     public function getInstitution(): ?string
@@ -79,9 +78,11 @@ class EuropeanCVCertificate
         return $this->institution;
     }
 
-    public function setInstitution(?string $institution): void
+    public function setInstitution(?string $institution): self
     {
         $this->institution = $institution;
+
+        return $this;
     }
 
     public function getYearRange(): YearRange
@@ -89,9 +90,11 @@ class EuropeanCVCertificate
         return $this->yearRange;
     }
 
-    public function setYearRange(YearRange $yearRange): void
+    public function setYearRange(YearRange $yearRange): self
     {
         $this->yearRange = $yearRange;
+
+        return $this;
     }
 
     public function getDescription(): ?string
@@ -99,9 +102,11 @@ class EuropeanCVCertificate
         return $this->description;
     }
 
-    public function setDescription(?string $description): void
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
     }
 
     public function __clone()
@@ -111,7 +116,14 @@ class EuropeanCVCertificate
          * https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/cookbook/implementing-wakeup-or-clone.html
          */
         if ($this->id) {
-            $this->setId(null);
+            if ($this instanceof Proxy && !$this->__isInitialized()) {
+                $this->__load();
+            }
+
+            $this->id = null;
+
+            $yearRange = clone $this->getYearRange();
+            $this->setYearRange($yearRange);
         }
     }
 }

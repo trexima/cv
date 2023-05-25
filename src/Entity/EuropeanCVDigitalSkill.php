@@ -5,10 +5,11 @@ namespace Trexima\EuropeanCvBundle\Entity;
 use App\Entity\Job\PcSkill;                     //todo
 use App\Enum\Job\JobPcSkillEntityLevelEnum;     //todo
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Persistence\Proxy;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * EuropeanCV language
+ * EuropeanCV digital skill
  */
 #[ORM\Table(name: 'european_cv_digital_skill')]
 #[ORM\Entity]
@@ -42,14 +43,13 @@ class EuropeanCVDigitalSkill
     #[ORM\Column(type: 'string', length: 16, nullable: false, enumType: JobPcSkillEntityLevelEnum::class)]
     private ?JobPcSkillEntityLevelEnum $level = null;
 
+    #[Assert\Range(min: 0, max: 65535)]
+    #[ORM\Column(type: 'smallint', options: ['unsigned' => true, 'default' => 0])]
+    private int $sort = 0;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
     }
 
     public function getEuropeanCV(): ?EuropeanCV
@@ -57,9 +57,11 @@ class EuropeanCVDigitalSkill
         return $this->europeanCV;
     }
 
-    public function setEuropeanCV(EuropeanCV $europeanCV): void
+    public function setEuropeanCV(?EuropeanCV $europeanCV): self
     {
         $this->europeanCV = $europeanCV;
+
+        return $this;
     }
 
     public function getPcSkill(): ?PcSkill
@@ -86,6 +88,18 @@ class EuropeanCVDigitalSkill
         return $this;
     }
 
+    public function getSort(): int
+    {
+        return $this->sort;
+    }
+
+    public function setSort(int $sort): self
+    {
+        $this->sort = $sort;
+
+        return $this;
+    }
+
     public function __clone()
     {
         /*
@@ -93,7 +107,11 @@ class EuropeanCVDigitalSkill
          * https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/cookbook/implementing-wakeup-or-clone.html
          */
         if ($this->id) {
-            $this->setId(null);
+            if ($this instanceof Proxy && !$this->__isInitialized()) {
+                $this->__load();
+            }
+
+            $this->id = null;
         }
     }
 }

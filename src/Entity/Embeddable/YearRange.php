@@ -37,9 +37,11 @@ class YearRange
         return $this->beginYear;
     }
 
-    public function setBeginYear(?int $beginYear): void
+    public function setBeginYear(?int $beginYear): self
     {
         $this->beginYear = $beginYear;
+
+        return $this;
     }
 
     public function getEndYear(): ?int
@@ -47,8 +49,10 @@ class YearRange
         return $this->endYear;
     }
 
-    public function setEndYear(?int $endYear): void
+    public function setEndYear(?int $endYear): self
     {
         $this->endYear = $endYear;
+
+        return $this;
     }
 }

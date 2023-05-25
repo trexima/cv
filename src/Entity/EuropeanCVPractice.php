@@ -3,6 +3,7 @@
 namespace Trexima\EuropeanCvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Persistence\Proxy;
 use Symfony\Component\Validator\Constraints as Assert;
 use Trexima\EuropeanCvBundle\Entity\Embeddable\MonthYearRange;
 
@@ -52,19 +53,16 @@ class EuropeanCVPractice
         return $this->id;
     }
 
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function getEuropeanCV(): EuropeanCV
+    public function getEuropeanCV(): ?EuropeanCV
     {
         return $this->europeanCV;
     }
 
-    public function setEuropeanCV(EuropeanCV $europeanCV): void
+    public function setEuropeanCV(?EuropeanCV $europeanCV): self
     {
         $this->europeanCV = $europeanCV;
+
+        return $this;
     }
 
     public function getDateRange(): MonthYearRange
@@ -72,9 +70,11 @@ class EuropeanCVPractice
         return $this->dateRange;
     }
 
-    public function setDateRange(MonthYearRange $dateRange): void
+    public function setDateRange(MonthYearRange $dateRange): self
     {
         $this->dateRange = $dateRange;
+
+        return $this;
     }
 
     public function getTitle(): ?string
@@ -82,9 +82,11 @@ class EuropeanCVPractice
         return $this->title;
     }
 
-    public function setTitle(?string $title): void
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
+
+        return $this;
     }
 
     public function getIscoCode(): ?string
@@ -92,9 +94,11 @@ class EuropeanCVPractice
         return $this->iscoCode;
     }
 
-    public function setIscoCode(?string $iscoCode): void
+    public function setIscoCode(?string $iscoCode): self
     {
         $this->iscoCode = $iscoCode;
+
+        return $this;
     }
 
     public function getEmployee(): ?string
@@ -102,9 +106,11 @@ class EuropeanCVPractice
         return $this->employee;
     }
 
-    public function setEmployee(?string $employee): void
+    public function setEmployee(?string $employee): self
     {
         $this->employee = $employee;
+
+        return $this;
     }
 
     public function getDescription(): ?string
@@ -112,9 +118,11 @@ class EuropeanCVPractice
         return $this->description;
     }
 
-    public function setDescription(?string $description): void
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
     }
 
     public function __clone()
@@ -124,7 +132,14 @@ class EuropeanCVPractice
          * https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/cookbook/implementing-wakeup-or-clone.html
          */
         if ($this->id) {
-            $this->setId(null);
+            if ($this instanceof Proxy && !$this->__isInitialized()) {
+                $this->__load();
+            }
+
+            $this->id = null;
+
+            $dateRange = clone $this->getDateRange();
+            $this->setDateRange($dateRange);
         }
     }
 }

@@ -3,6 +3,7 @@
 namespace Trexima\EuropeanCvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Persistence\Proxy;
 use Symfony\Component\Validator\Constraints as Assert;
 use Trexima\EuropeanCvBundle\Entity\Embeddable\MonthYearRange;
 use Trexima\EuropeanCvBundle\Entity\Enum\WorkBreakEnum;
@@ -47,19 +48,16 @@ class EuropeanCVWorkBreak
         return $this->id;
     }
 
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function getEuropeanCV(): EuropeanCV
+    public function getEuropeanCV(): ?EuropeanCV
     {
         return $this->europeanCV;
     }
 
-    public function setEuropeanCV(EuropeanCV $europeanCV): void
+    public function setEuropeanCV(?EuropeanCV $europeanCV): self
     {
         $this->europeanCV = $europeanCV;
+
+        return $this;
     }
 
     public function getDateRange(): MonthYearRange
@@ -67,9 +65,11 @@ class EuropeanCVWorkBreak
         return $this->dateRange;
     }
 
-    public function setDateRange(MonthYearRange $dateRange): void
+    public function setDateRange(MonthYearRange $dateRange): self
     {
         $this->dateRange = $dateRange;
+
+        return $this;
     }
 
     public function getTitle(): ?string
@@ -77,9 +77,11 @@ class EuropeanCVWorkBreak
         return $this->title;
     }
 
-    public function setTitle(?string $title): void
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
+
+        return $this;
     }
 
     public function getType(): ?WorkBreakEnum
@@ -87,9 +89,11 @@ class EuropeanCVWorkBreak
         return $this->type;
     }
 
-    public function setType(?WorkBreakEnum $type): void
+    public function setType(?WorkBreakEnum $type): self
     {
         $this->type = $type;
+
+        return $this;
     }
 
     public function getDescription(): ?string
@@ -97,9 +101,11 @@ class EuropeanCVWorkBreak
         return $this->description;
     }
 
-    public function setDescription(?string $description): void
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
     }
 
     public function __clone()
@@ -109,7 +115,14 @@ class EuropeanCVWorkBreak
          * https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/cookbook/implementing-wakeup-or-clone.html
          */
         if ($this->id) {
-            $this->setId(null);
+            if ($this instanceof Proxy && !$this->__isInitialized()) {
+                $this->__load();
+            }
+
+            $this->id = null;
+
+            $dateRange = clone $this->getDateRange();
+            $this->setDateRange($dateRange);
         }
     }
 }

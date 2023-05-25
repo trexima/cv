@@ -37,5 +37,11 @@
         <target>Rozsah nie je validný.</target>
       </segment>
     </unit>
+    <unit id="shvQXH4" name="trexima_european_cv.url_is_not_valid">
+      <segment>
+        <source>trexima_european_cv.url_is_not_valid</source>
+        <target>Prosím, vyplň URL v správnom formáte.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
