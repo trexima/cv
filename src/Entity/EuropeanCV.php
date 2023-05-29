@@ -779,6 +779,28 @@ class EuropeanCV
         return $date;
     }
 
+    public function getFullName(): string
+    {
+        return trim($this->firstName . ' ' . $this->lastName);
+    }
+
+    public function getFullNameWithTitles(): string
+    {
+        $fullName = '';
+
+        if (!empty($this->titlesBefore)) {
+            $fullName .= implode(' ', $this->titlesBefore) . ' ';
+        }
+
+        $fullName .= $this->getFullName();
+
+        if (!empty($this->titlesAfter)) {
+            $fullName .= ', ' . implode(', ', $this->titlesAfter);
+        }
+
+        return $fullName;
+    }
+
     public function __clone()
     {
         /*
