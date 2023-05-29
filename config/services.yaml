@@ -26,14 +26,15 @@ services:
 
     Trexima\EuropeanCvBundle\Export\EuropeanCvExporter:
         arguments:
-            $projectDir: '%kernel.project_dir%'
             $uploadUrl: '%trexima_european_cv_upload_url%'
 
     Trexima\EuropeanCvBundle\Manager\EuropeanCvManager:
         arguments: ['%trexima_european_cv_upload_dir%']
 
     Trexima\EuropeanCvBundle\Twig\ImageTagRuntime:
-        arguments: ['%kernel.project_dir%']
+        arguments:
+            $uploadDir: '%trexima_european_cv_upload_dir%'
+            $uploadUrl: '%trexima_european_cv_upload_url%'
         public: false
         tags: ['twig.runtime']
 

@@ -273,7 +273,7 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
             return;
         }
 
-        $url = $this->uploadUrl . '/european-cv/images/' . $photo;
+        $url = $this->uploadUrl . '/images/' . $photo;
 
         $photoType = (new Photo())
             ->setExistingFileId('123')
