@@ -427,9 +427,9 @@
         <target>Iný</target>
       </segment>
     </unit>
-    <unit id="dj59VVQ" name="trexima_european_cv.form_label.nationality_en">
+    <unit id=".6hXQMH" name="trexima_european_cv.form_label.nationality_gb">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_en</source>
+        <source>trexima_european_cv.form_label.nationality_gb</source>
         <target>Anglická</target>
       </segment>
     </unit>
@@ -439,9 +439,9 @@
         <target>Slovenská</target>
       </segment>
     </unit>
-    <unit id="ykqlXP7" name="trexima_european_cv.form_label.nationality_cs">
+    <unit id="kN.YW3y" name="trexima_european_cv.form_label.nationality_cz">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_cs</source>
+        <source>trexima_european_cv.form_label.nationality_cz</source>
         <target>Česká</target>
       </segment>
     </unit>
@@ -463,9 +463,9 @@
         <target>Ruská</target>
       </segment>
     </unit>
-    <unit id="Oz_Bw_j" name="trexima_european_cv.form_label.nationality_uk">
+    <unit id="dhj80UM" name="trexima_european_cv.form_label.nationality_ua">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_uk</source>
+        <source>trexima_european_cv.form_label.nationality_ua</source>
         <target>Ukrajinská</target>
       </segment>
     </unit>
@@ -505,9 +505,9 @@
         <target>Holandská</target>
       </segment>
     </unit>
-    <unit id="d7A4Im1" name="trexima_european_cv.form_label.nationality_da">
+    <unit id="3p238gI" name="trexima_european_cv.form_label.nationality_dk">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_da</source>
+        <source>trexima_european_cv.form_label.nationality_dk</source>
         <target>Dánska</target>
       </segment>
     </unit>
@@ -517,9 +517,9 @@
         <target>Fínska</target>
       </segment>
     </unit>
-    <unit id="ClNvFdQ" name="trexima_european_cv.form_label.nationality_sv">
+    <unit id="BpFtSZx" name="trexima_european_cv.form_label.nationality_se">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_sv</source>
+        <source>trexima_european_cv.form_label.nationality_se</source>
         <target>Švédska</target>
       </segment>
     </unit>
@@ -529,9 +529,9 @@
         <target>Nórska</target>
       </segment>
     </unit>
-    <unit id="9v3Xc0G" name="trexima_european_cv.form_label.nationality_el">
+    <unit id="8niGdML" name="trexima_european_cv.form_label.nationality_gr">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_el</source>
+        <source>trexima_european_cv.form_label.nationality_gr</source>
         <target>Grécka</target>
       </segment>
     </unit>
@@ -541,9 +541,9 @@
         <target>Islandská</target>
       </segment>
     </unit>
-    <unit id="Qhz5d9Z" name="trexima_european_cv.form_label.nationality_ga">
+    <unit id="u4d.nBl" name="trexima_european_cv.form_label.nationality_ie">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_ga</source>
+        <source>trexima_european_cv.form_label.nationality_ie</source>
         <target>Írska</target>
       </segment>
     </unit>
@@ -553,9 +553,9 @@
         <target>Lotyšská</target>
       </segment>
     </unit>
-    <unit id="428rw2O" name="trexima_european_cv.form_label.nationality_et">
+    <unit id="oONRrvL" name="trexima_european_cv.form_label.nationality_ee">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_et</source>
+        <source>trexima_european_cv.form_label.nationality_ee</source>
         <target>Estónska</target>
       </segment>
     </unit>
@@ -565,9 +565,9 @@
         <target>Litovská</target>
       </segment>
     </unit>
-    <unit id="R7Bi72V" name="trexima_european_cv.form_label.nationality_sl">
+    <unit id="I2GQf9w" name="trexima_european_cv.form_label.nationality_si">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_sl</source>
+        <source>trexima_european_cv.form_label.nationality_si</source>
         <target>Slovinská</target>
       </segment>
     </unit>
@@ -595,39 +595,33 @@
         <target>Chorvátska</target>
       </segment>
     </unit>
-    <unit id="dN3ra08" name="trexima_european_cv.form_label.nationality_sr">
+    <unit id="oP.OXU2" name="trexima_european_cv.form_label.nationality_rs">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_sr</source>
+        <source>trexima_european_cv.form_label.nationality_rs</source>
         <target>Srbská</target>
       </segment>
     </unit>
-    <unit id="tIJ6wqb" name="trexima_european_cv.form_label.nationality_la">
+    <unit id="xxWMMz3" name="trexima_european_cv.form_label.nationality_cn">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_la</source>
-        <target>Latinská</target>
+        <source>trexima_european_cv.form_label.nationality_cn</source>
+        <target>Čínska</target>
       </segment>
     </unit>
-    <unit id="Aan0IG_" name="trexima_european_cv.form_label.nationality_zh">
+    <unit id="z91GxVr" name="trexima_european_cv.form_label.nationality_vn">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_zh</source>
-        <target>Čínsky (mandarínčina)</target>
-      </segment>
-    </unit>
-    <unit id="iJN8lEG" name="trexima_european_cv.form_label.nationality_vi">
-      <segment>
-        <source>trexima_european_cv.form_label.nationality_vi</source>
+        <source>trexima_european_cv.form_label.nationality_vn</source>
         <target>Vietnamská</target>
       </segment>
     </unit>
-    <unit id=".0E89wM" name="trexima_european_cv.form_label.nationality_ja">
+    <unit id="ougFi58" name="trexima_european_cv.form_label.nationality_jp">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_ja</source>
+        <source>trexima_european_cv.form_label.nationality_jp</source>
         <target>Japonská</target>
       </segment>
     </unit>
-    <unit id="IRoR9Uj" name="trexima_european_cv.form_label.nationality_ko">
+    <unit id="NPjiuxS" name="trexima_european_cv.form_label.nationality_kr">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_ko</source>
+        <source>trexima_european_cv.form_label.nationality_kr</source>
         <target>Kórejská</target>
       </segment>
     </unit>

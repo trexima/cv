@@ -20,7 +20,7 @@ use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Trexima\EuropeanCvBundle\Entity\Enum\LanguageEnum;
+use Trexima\EuropeanCvBundle\Entity\Enum\NationalityEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\SexEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\TitleAfterEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\TitleBeforeEnum;
@@ -124,10 +124,10 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
             'select2_allow_clear' => true,
         ])
         ->add('nationalities', EnumType::class, [
-            'class' => LanguageEnum::class,
+            'class' => NationalityEnum::class,
             'label' => t('trexima_european_cv.form_label.nationalities_label', [], 'trexima_european_cv'),
-            'choice_label' => function(LanguageEnum $choice) {
-                return t('trexima_european_cv.form_label.nationality_' . $choice->value, [], 'trexima_european_cv')->trans($this->translator);
+            'choice_label' => function(NationalityEnum $choice) {
+                return t('trexima_european_cv.form_label.nationality_' . strtolower($choice->value), [], 'trexima_european_cv')->trans($this->translator);
             },
             'transform' => true,
             'required' => false,
