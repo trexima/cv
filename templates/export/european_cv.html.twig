@@ -313,16 +313,16 @@
                     {% endif %}
                     {% if european_cv.nationalities %}
                         {% if european_cv.nationalities|length > 1 %}
-                            <span class="text-blue">{% trans %}Štátne príslušnosti{% endtrans %}:</span> 
+                            <span class="text-blue">{% trans %}Štátne príslušnosti{% endtrans %}:</span>
                         {% else %}
-                            <span class="text-blue">{% trans %}Štátna príslušnosť{% endtrans %}:</span> 
+                            <span class="text-blue">{% trans %}Štátna príslušnosť{% endtrans %}:</span>
                         {% endif %}
                         {% for key, nationality in european_cv.nationalities %}
                             {% if key > 1 %}, {% endif %}
                             {% if nationality.value is defined %}
-                                {{ 'trexima_european_cv.form_label.nationality_' ~ nationality.value|trans }}
+                                {{ ('trexima_european_cv.form_label.nationality_' ~ nationality.value|lower)|trans }}
                             {% else %}
-                                {{ 'trexima_european_cv.form_label.nationality_' ~ nationality|trans }}
+                                {{ ('trexima_european_cv.form_label.nationality_' ~ nationality|lower)|trans }}
                             {% endif %}
                         {% endfor %}
                     {% endif %}
