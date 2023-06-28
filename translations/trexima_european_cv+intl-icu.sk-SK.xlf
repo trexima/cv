@@ -421,6 +421,66 @@
         <target>Kórejský</target>
       </segment>
     </unit>
+    <unit id="RaW64L5" name="trexima_european_cv.form_label.language_sq">
+      <segment>
+        <source>trexima_european_cv.form_label.language_sq</source>
+        <target>Albánsky</target>
+      </segment>
+    </unit>
+    <unit id="j_.VSFu" name="trexima_european_cv.form_label.language_ar">
+      <segment>
+        <source>trexima_european_cv.form_label.language_ar</source>
+        <target>Arabský</target>
+      </segment>
+    </unit>
+    <unit id="e3ckUT4" name="trexima_european_cv.form_label.language_az">
+      <segment>
+        <source>trexima_european_cv.form_label.language_az</source>
+        <target>Azerbajdžanský</target>
+      </segment>
+    </unit>
+    <unit id="HXvHKPv" name="trexima_european_cv.form_label.language_eo">
+      <segment>
+        <source>trexima_european_cv.form_label.language_eo</source>
+        <target>Esperanto</target>
+      </segment>
+    </unit>
+    <unit id="udyaPJp" name="trexima_european_cv.form_label.language_ka">
+      <segment>
+        <source>trexima_european_cv.form_label.language_ka</source>
+        <target>Gruzínsky</target>
+      </segment>
+    </unit>
+    <unit id="yzcfyd6" name="trexima_european_cv.form_label.language_he">
+      <segment>
+        <source>trexima_european_cv.form_label.language_he</source>
+        <target>Hebrejský</target>
+      </segment>
+    </unit>
+    <unit id="LiJxcZS" name="trexima_european_cv.form_label.language_hi">
+      <segment>
+        <source>trexima_european_cv.form_label.language_hi</source>
+        <target>Hindský</target>
+      </segment>
+    </unit>
+    <unit id="MOtICdE" name="trexima_european_cv.form_label.language_mk">
+      <segment>
+        <source>trexima_european_cv.form_label.language_mk</source>
+        <target>Macedónsky</target>
+      </segment>
+    </unit>
+    <unit id="ZefY.SQ" name="trexima_european_cv.form_label.language_th">
+      <segment>
+        <source>trexima_european_cv.form_label.language_th</source>
+        <target>Thajský</target>
+      </segment>
+    </unit>
+    <unit id="x4kEEe_" name="trexima_european_cv.form_label.language_tr">
+      <segment>
+        <source>trexima_european_cv.form_label.language_tr</source>
+        <target>Turecký</target>
+      </segment>
+    </unit>
     <unit id="aVE3v0c" name="trexima_european_cv.form_label.language_other">
       <segment>
         <source>trexima_european_cv.form_label.language_other</source>

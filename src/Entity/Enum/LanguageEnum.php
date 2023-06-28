@@ -3,7 +3,7 @@
 namespace Trexima\EuropeanCvBundle\Entity\Enum;
 
 /**
- * Language codes by ISO 639-1 standard: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+ * Language codes by ISO 639-1 standard: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes.
  */
 enum LanguageEnum: string
 {
@@ -41,4 +41,14 @@ enum LanguageEnum: string
     case LANGUAGE_VI = 'vi';        // vi: vietnamský
     case LANGUAGE_JA = 'ja';        // ja: japonský
     case LANGUAGE_KO = 'ko';        // ko: kórejský
+    case LANGUAGE_SQ = 'sq';        // sq: albánsky
+    case LANGUAGE_AR = 'ar';        // ar: arabský
+    case LANGUAGE_AZ = 'az';        // az: azerbajdžanský
+    case LANGUAGE_EO = 'eo';        // eo: esperanto
+    case LANGUAGE_KA = 'ka';        // ka: gruzínsky
+    case LANGUAGE_HE = 'he';        // he: hebrejský
+    case LANGUAGE_HI = 'hi';        // hi: hindský
+    case LANGUAGE_MK = 'mk';        // mk: macedónsky
+    case LANGUAGE_TH = 'th';        // th: thajský
+    case LANGUAGE_TR = 'tr';        // tr: turecký
 }
