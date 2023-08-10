@@ -31,6 +31,9 @@
         "phpunit/phpunit": "^9.0",
         "roave/security-advisories": "dev-master"
     },
+    "suggest": {
+        "odolbeau/phone-number-bundle": "libphonenumber integration"
+    },
     "autoload": {
         "psr-4": {
             "Trexima\\EuropeanCvBundle\\": "src/"

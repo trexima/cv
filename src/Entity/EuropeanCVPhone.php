@@ -4,7 +4,6 @@ namespace Trexima\EuropeanCvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Persistence\Proxy;
-use Trexima\EuropeanCvBundle\Entity\Enum\PhonePrefixEnum;
 
 /**
  * EuropeanCV phone
@@ -22,8 +21,8 @@ class EuropeanCVPhone
     #[ORM\JoinColumn(name: 'european_cv_id', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
     private ?EuropeanCV $europeanCV = null;
 
-    #[ORM\Column(type: 'string', length: 4, nullable: false, enumType: PhonePrefixEnum::class)]
-    private ?PhonePrefixEnum $prefix = null;
+    #[ORM\Column(type: 'string', length: 4, nullable: false)]
+    private ?string $prefix = null;
 
     #[ORM\Column(type: 'string', length: 32, nullable: true)]
     private ?string $number = null;
@@ -45,12 +44,12 @@ class EuropeanCVPhone
         return $this;
     }
 
-    public function getPrefix(): ?PhonePrefixEnum
+    public function getPrefix(): ?string
     {
         return $this->prefix;
     }
 
-    public function setPrefix(?PhonePrefixEnum $prefix): self
+    public function setPrefix(?string $prefix): self
     {
         $this->prefix = $prefix;
 
