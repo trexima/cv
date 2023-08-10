@@ -43,5 +43,11 @@
         <target>Prosím, vyplň URL v správnom formáte.</target>
       </segment>
     </unit>
+    <unit id="LYanpmG" name="trexima_european_cv.birth_date.constraint.less_than_or_equal">
+      <segment>
+        <source>trexima_european_cv.birth_date.constraint.less_than_or_equal</source>
+        <target>Príď si urobiť životopis až po narodení &#x1f60a; Prosím, skontroluj dátum narodenia.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

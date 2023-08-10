@@ -120,7 +120,7 @@ class EuropeanCV
     private ?int $year = null;
 
     #[Assert\When(
-        expression: 'this.getDay() !== null',
+        expression: 'this.getYear() !== null || this.getDay() !== null',
         constraints: [
             new Assert\NotNull(message: 'trexima_european_cv.select_choice')
         ]
@@ -128,6 +128,12 @@ class EuropeanCV
     #[ORM\Column(type: 'integer', nullable: true, options: ['unsigned' => true])]
     private ?int $month = null;
 
+    #[Assert\When(
+        expression: 'this.getYear() !== null || this.getMonth() !== null',
+        constraints: [
+            new Assert\NotNull(message: 'trexima_european_cv.select_choice')
+        ]
+    )]
     #[ORM\Column(type: 'integer', nullable: true, options: ['unsigned' => true])]
     private ?int $day = null;
 
@@ -565,6 +571,16 @@ class EuropeanCV
         $this->day = $day;
 
         return $this;
+    }
+
+    #[Assert\LessThanOrEqual('today', message: 'trexima_european_cv.birth_date.constraint.less_than_or_equal')]
+    public function getBirthDate(): ?\DateTimeImmutable
+    {
+        if (($year = $this->getYear()) && ($month = $this->getMonth()) && ($day = $this->getDay())) {
+            return (new \DateTimeImmutable())->setDate($year, $month, $day)->setTime(0, 0);
+        }
+
+        return null;
     }
 
     public function getAddress(): ?EuropeanCVAddress
