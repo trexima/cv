@@ -92,6 +92,9 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
         parent::configureOptions($resolver);
         $resolver->setDefaults([
             'data_class' => EuropeanCVPractice::class,
+            'error_mapping' => [
+                'title' => 'iscoCode',
+            ],
             'attr' => [
                 'id' => 'EuropeanCVPracticeType'
             ],
