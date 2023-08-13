@@ -2,6 +2,7 @@
 
 namespace Trexima\EuropeanCvBundle\Form\Parts;
 
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\DataMapperInterface;
 use Symfony\Component\Form\Extension\Core\DataAccessor\CallbackAccessor;
@@ -15,6 +16,9 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
@@ -38,7 +42,7 @@ use function Symfony\Component\Translation\t;
 /**
  * Basic user info
  */
-class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInterface
+class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInterface, EventSubscriberInterface
 {
     private readonly DataMapper $dataMapper;
 
@@ -77,18 +81,6 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
             'label' => t('trexima_european_cv.form_label.sex_label', [], 'trexima_european_cv'),
             'placeholder' => false,
         ])
-        ->add('photo', PhotoType::class, array_merge([
-            'required' => false,
-            'mapped' => false,
-            'label' => false,
-            'aspect_ratio' => 1,
-            'max_size' => 16 << 20,
-            'max_size_message' => t(
-                'job.max_file_size',
-                ['limit' => 16, 'suffix' => 'MB'],
-                'validators',
-            ),
-        ], ($options['field_options']['photo'] ?? [])))
         ->add('firstName', TextType::class, [
             'label' => t('trexima_european_cv.form_label.first_name_label', [], 'trexima_european_cv'),
             'attr' => [
@@ -223,6 +215,32 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
                 'placeholder' => t('trexima_european_cv.form_label.description_placeholder', [], 'trexima_european_cv')
             ]
         ]);
+
+        $builder->addEventSubscriber($this);
+    }
+
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            FormEvents::PRE_SET_DATA => 'onPreSetData',
+            FormEvents::SUBMIT => 'onSubmit',
+        ];
+    }
+
+    public function onPreSetData(FormEvent $formEvent): void
+    {
+        $this->addPhotoField($formEvent->getForm());
+    }
+
+    public function onSubmit(FormEvent $formEvent): void
+    {
+        $form = $formEvent->getForm();
+
+        if ($onSubmitCallback = $form->getConfig()->getOption('callback_options')['photo']['on_submit'] ?? null) {
+            $onSubmitCallback($form, $formEvent->getData());
+        }
+
+        $this->addPhotoField($form);
     }
 
     /**
@@ -233,7 +251,8 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
         parent::configureOptions($resolver);
         $resolver->setDefaults([
             'data_class' => EuropeanCV::class,
-            'field_options' => []
+            'field_options' => [],
+            'callback_options' => [],
          ]);
 
         $resolver->setRequired([
@@ -258,6 +277,26 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
 
         $this->mapPersonalWebsiteToForms($viewData, $forms);
         $this->mapPhoto($viewData, $forms);
+    }
+
+    private function addPhotoField(FormInterface $form): void
+    {
+        $options = $form->getConfig()->getOptions();
+
+        $form
+            ->add('photo', PhotoType::class, array_merge([
+                'required' => false,
+                'mapped' => false,
+                'label' => false,
+                'aspect_ratio' => 1,
+                'max_size' => 16 << 20,
+                'max_size_message' => t(
+                    'job.max_file_size',
+                    ['limit' => 16, 'suffix' => 'MB'],
+                    'validators',
+                ),
+            ], ($options['field_options']['photo'] ?? [])))
+        ;
     }
 
     private function mapPhoto(EuropeanCV|null $viewData, \Traversable $forms): void
