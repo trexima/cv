@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Persistence\Proxy;
 use Symfony\Component\Validator\Constraints as Assert;
 use Trexima\EuropeanCvBundle\Entity\Embeddable\YearRange;
+use Trexima\EuropeanCvBundle\Validator as AppAssert;
 
 /**
  * EuropeanCV certificate
@@ -35,7 +36,7 @@ class EuropeanCVCertificate
     #[ORM\Embedded(class: YearRange::class)]
     private YearRange $yearRange;
 
-    #[Assert\Length(max: 100, maxMessage: 'trexima_european_cv.max_length_reached')]
+    #[AppAssert\HtmlTextLength(max: 4000, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'text', nullable: true)]
     private ?string $description = null;
 

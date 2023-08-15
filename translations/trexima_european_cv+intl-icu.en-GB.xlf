@@ -106,19 +106,19 @@
     <unit id="C.PXKpL" name="trexima_european_cv.form_label.year_label">
       <segment>
         <source>trexima_european_cv.form_label.year_label</source>
-        <target>Year of birth</target>
+        <target>Year</target>
       </segment>
     </unit>
     <unit id="2J6J6xS" name="trexima_european_cv.form_label.month_label">
       <segment>
         <source>trexima_european_cv.form_label.month_label</source>
-        <target>Month of birth</target>
+        <target>Month</target>
       </segment>
     </unit>
     <unit id="ShKw_Nx" name="trexima_european_cv.form_label.day_label">
       <segment>
         <source>trexima_european_cv.form_label.day_label</source>
-        <target>Day of birth</target>
+        <target>Day</target>
       </segment>
     </unit>
     <unit id="k86wlaY" name="trexima_european_cv.form_label.email_label">

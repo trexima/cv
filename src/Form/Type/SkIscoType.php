@@ -3,7 +3,6 @@
 namespace Trexima\EuropeanCvBundle\Form\Type;
 
 use Trexima\EuropeanCvBundle\Facade\Harvey;
-use Trexima\EuropeanCvBundle\Form\Type\AbstractMappedAutocompleteType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 
@@ -57,20 +56,5 @@ class SkIscoType extends AbstractMappedAutocompleteType
             'iscoCode' => $value,
             'title' => $title
         ];
-    }
-
-    protected function createChoice(mixed &$data, mixed $retrievedData, array $options): void
-    {
-        $cls = $options['class'];
-
-        if (null === $data) {
-            $data = new $cls();
-        }
-
-        foreach ($options['choice_property_mapper'] as $k => $v) {
-            if ($this->propertyAccessor->isWritable($data, $k)) {
-                $this->propertyAccessor->setValue($data, $k, $retrievedData[$v]);
-            }
-        }
     }
 }

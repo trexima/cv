@@ -40,7 +40,7 @@
     <unit id="CtbQ5tG" name="trexima_european_cv.form_placeholder.work_break_description">
       <segment>
         <source>trexima_european_cv.form_placeholder.work_break_description</source>
-        <target>Opíšte prestávku v práci</target>
+        <target>Opíš prestávku v práci</target>
       </segment>
     </unit>
     <unit id="lLX5SQa" name="trexima_european_cv.form_label.photo_label">
@@ -106,19 +106,19 @@
     <unit id="C.PXKpL" name="trexima_european_cv.form_label.year_label">
       <segment>
         <source>trexima_european_cv.form_label.year_label</source>
-        <target>Rok narodenia</target>
+        <target>Rok</target>
       </segment>
     </unit>
     <unit id="2J6J6xS" name="trexima_european_cv.form_label.month_label">
       <segment>
         <source>trexima_european_cv.form_label.month_label</source>
-        <target>Mesiac narodenia</target>
+        <target>Mesiac</target>
       </segment>
     </unit>
     <unit id="ShKw_Nx" name="trexima_european_cv.form_label.day_label">
       <segment>
         <source>trexima_european_cv.form_label.day_label</source>
-        <target>Deň narodenia</target>
+        <target>Deň</target>
       </segment>
     </unit>
     <unit id="k86wlaY" name="trexima_european_cv.form_label.email_label">
