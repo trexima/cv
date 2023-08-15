@@ -51,4 +51,6 @@ enum LanguageEnum: string
     case LANGUAGE_MK = 'mk';        // mk: macedónsky
     case LANGUAGE_TH = 'th';        // th: thajský
     case LANGUAGE_TR = 'tr';        // tr: turecký
+    case LANGUAGE_TL = 'tl';        // tl: filipínsky
+    case LANGUAGE_RM = 'rm';        // rm: rómsky - custom shortened version
 }

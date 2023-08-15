@@ -7,6 +7,7 @@ use Doctrine\Persistence\Proxy;
 use Symfony\Component\Validator\Constraints as Assert;
 use Trexima\EuropeanCvBundle\Entity\Embeddable\MonthYearRange;
 use Trexima\EuropeanCvBundle\Entity\Enum\WorkBreakEnum;
+use Trexima\EuropeanCvBundle\Validator as AppAssert;
 
 /**
  * EuropeanCV work break
@@ -34,7 +35,7 @@ class EuropeanCVWorkBreak
     #[ORM\Column(type: 'smallint', nullable: true, enumType: WorkBreakEnum::class)]
     private ?WorkBreakEnum $type = null;
 
-    #[Assert\Length(max: 4000, maxMessage: 'trexima_european_cv.max_length_reached')]
+    #[AppAssert\HtmlTextLength(max: 4000, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'text', length: 65535, nullable: true)]
     private ?string $description = null;
 
