@@ -45,4 +45,5 @@ enum CompetenceEnum: string
     case COMPETENCE_39 = 'Trpezlivosť';
     case COMPETENCE_40 = 'Umelecký talent (napr. hudobný, pohybový, literárny)';
     case COMPETENCE_41 = 'Vnútorná stabilita';
+    case COMPETENCE_42 = 'Osobnostný rozvoj';
 }
