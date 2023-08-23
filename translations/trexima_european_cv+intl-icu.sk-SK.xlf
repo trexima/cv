@@ -487,6 +487,18 @@
         <target>Iný</target>
       </segment>
     </unit>
+    <unit id="eiUhcaH" name="trexima_european_cv.form_label.nationality_tl">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_tl</source>
+        <target>Filipínsky</target>
+      </segment>
+    </unit>
+    <unit id="IVuMNnH" name="trexima_european_cv.form_label.nationality_rm">
+      <segment>
+        <source>trexima_european_cv.form_label.nationality_rm</source>
+        <target>Rómsky</target>
+      </segment>
+    </unit>
     <unit id=".6hXQMH" name="trexima_european_cv.form_label.nationality_gb">
       <segment>
         <source>trexima_european_cv.form_label.nationality_gb</source>
