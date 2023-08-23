@@ -487,15 +487,15 @@
         <target>Iný</target>
       </segment>
     </unit>
-    <unit id="eiUhcaH" name="trexima_european_cv.form_label.nationality_tl">
+    <unit id="GYOaOpg" name="trexima_european_cv.form_label.language_tl">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_tl</source>
+        <source>trexima_european_cv.form_label.language_tl</source>
         <target>Filipínsky</target>
       </segment>
     </unit>
-    <unit id="IVuMNnH" name="trexima_european_cv.form_label.nationality_rm">
+    <unit id="d70id3P" name="trexima_european_cv.form_label.language_rm">
       <segment>
-        <source>trexima_european_cv.form_label.nationality_rm</source>
+        <source>trexima_european_cv.form_label.language_rm</source>
         <target>Rómsky</target>
       </segment>
     </unit>
