@@ -139,12 +139,6 @@
         <target>Adresa</target>
       </segment>
     </unit>
-    <unit id="76Pcpk0" name="trexima_european_cv.form_label.address_placeholder">
-      <segment>
-        <source>trexima_european_cv.form_label.address_placeholder</source>
-        <target>Vzorová 3, 841 01 Bratislava IV, Slovenská republika</target>
-      </segment>
-    </unit>
     <unit id="olSDb4F" name="trexima_european_cv.form_label.personal_websites_label">
       <segment>
         <source>trexima_european_cv.form_label.personal_websites_label</source>
@@ -191,12 +185,6 @@
       <segment>
         <source>trexima_european_cv.form_label.practice_employee_placeholder</source>
         <target>Zamestnávateľ</target>
-      </segment>
-    </unit>
-    <unit id="6E_mx7N" name="trexima_european_cv.form_label.practice_description_placeholder">
-      <segment>
-        <source>trexima_european_cv.form_label.practice_description_placeholder</source>
-        <target>Opíšte Vaše pracovné skúsenosti</target>
       </segment>
     </unit>
     <unit id="wLwYnrP" name="trexima_european_cv.form_label.practice_description_label">
@@ -1241,12 +1229,6 @@
       <segment>
         <source>trexima_european_cv.form_label.education_not_finished</source>
         <target>Neukončená</target>
-      </segment>
-    </unit>
-    <unit id="wLwYnrP" name="trexima_european_cv.form_label.practice_description_label">
-      <segment>
-        <source>trexima_european_cv.form_label.practice_description_label</source>
-        <target>Opis práce</target>
       </segment>
     </unit>
     <unit id="6E_mx7N" name="trexima_european_cv.form_label.practice_description_placeholder">
