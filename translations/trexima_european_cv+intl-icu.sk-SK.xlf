@@ -988,7 +988,7 @@
     <unit id="y247oYk" name="trexima_european_cv.form_label.phone_number_label">
       <segment>
         <source>trexima_european_cv.form_label.phone_number_label</source>
-        <target>Vyplňte číslo</target>
+        <target>Vyplň číslo</target>
       </segment>
     </unit>
     <unit id="kTX8Ss4" name="trexima_european_cv.form_label.phone_number_placeholder">
