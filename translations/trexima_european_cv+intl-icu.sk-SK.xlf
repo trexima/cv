@@ -82,7 +82,7 @@
     <unit id="b_n1Cas" name="trexima_european_cv.form_label.titles_before_placeholder">
       <segment>
         <source>trexima_european_cv.form_label.titles_before_placeholder</source>
-        <target>Prosím, vyberte možnosť</target>
+        <target>Prosím, vyber možnosť</target>
       </segment>
     </unit>
     <unit id="xHLw8UC" name="trexima_european_cv.form_label.titles_after_label">
@@ -94,7 +94,7 @@
     <unit id="rG5Fqjr" name="trexima_european_cv.form_label.titles_after_placeholder">
       <segment>
         <source>trexima_european_cv.form_label.titles_after_placeholder</source>
-        <target>Prosím, vyberte možnosť</target>
+        <target>Prosím, vyber možnosť</target>
       </segment>
     </unit>
     <unit id="K2RmJ4x" name="trexima_european_cv.form_label.nationalities_label">
@@ -148,13 +148,13 @@
     <unit id="zcgSI25" name="trexima_european_cv.form_label.description_label">
       <segment>
         <source>trexima_european_cv.form_label.description_label</source>
-        <target>Stručný text o vás, ktorý sa zobrazí v hlavičke životopisu</target>
+        <target>Stručný text o mne, ktorý sa zobrazí v hlavičke životopisu</target>
       </segment>
     </unit>
     <unit id="gXltsGg" name="trexima_european_cv.form_label.description_placeholder">
       <segment>
         <source>trexima_european_cv.form_label.description_placeholder</source>
-        <target>O vás</target>
+        <target>O mne</target>
       </segment>
     </unit>
     <unit id="ag.BcRc" name="trexima_european_cv.form_label.practice_isco_code_label">
@@ -166,7 +166,7 @@
     <unit id="VOfvMwE" name="trexima_european_cv.form_label.practice_isco_code_placeholder">
       <segment>
         <source>trexima_european_cv.form_label.practice_isco_code_placeholder</source>
-        <target>Prosím, vyberte možnosť</target>
+        <target>Prosím, vyber možnosť</target>
       </segment>
     </unit>
     <unit id="bHvSDLZ" name="trexima_european_cv.form_label.practice_isco_code_help">
@@ -196,7 +196,7 @@
     <unit id="FFql.ZN" name="trexima_european_cv.form_placeholder.language">
       <segment>
         <source>trexima_european_cv.form_placeholder.language</source>
-        <target>Vyberte jazyk</target>
+        <target>Vyber jazyk</target>
       </segment>
     </unit>
     <unit id="J6qW5Ie" name="trexima_european_cv.form_label.language">
@@ -766,7 +766,7 @@
     <unit id="KNfVUN0" name="trexima_european_cv.form_placeholder.additional_informations">
       <segment>
         <source>trexima_european_cv.form_placeholder.additional_informations</source>
-        <target>Uveďte vaše ďalšie vedomosti alebo zručnosti, ktoré nebolo možné definovať na základe predchádzajúcich položiek a na ktoré chcete upozorniť vášho potenciálneho zamestnávateľa.</target>
+        <target>Uveď tvoje ďalšie vedomosti alebo zručnosti, ktoré nebolo možné definovať na základe predchádzajúcich položiek a na ktoré chceš upozorniť tvojho potenciálneho zamestnávateľa.</target>
       </segment>
     </unit>
     <unit id="nDudS0I" name="trexima_european_cv.form_label.hobbies">
@@ -778,13 +778,13 @@
     <unit id="pVxS4Yz" name="trexima_european_cv.form_sub_label.hobbies">
       <segment>
         <source>trexima_european_cv.form_sub_label.hobbies</source>
-        <target>Vhodne napísané záľuby môžu vzbudiť záujem zamestnávateľov a spraviť z vás zaujímavého uchádzača</target>
+        <target>Vhodne napísané záľuby môžu vzbudiť záujem zamestnávateľov a spraviť z teba zaujímavého uchádzača</target>
       </segment>
     </unit>
     <unit id="nF2O5Ge" name="trexima_european_cv.form_placeholder.hobbies">
       <segment>
         <source>trexima_european_cv.form_placeholder.hobbies</source>
-        <target>Uveďte vaše záujmy alebo koníčky, ktorým sa venujete vo svojom voľnom čase.</target>
+        <target>Uveď tvoje záujmy alebo koníčky, ktorým sa venuješ vo svojom voľnom čase.</target>
       </segment>
     </unit>
     <unit id="TyMUIG7" name="trexima_european_cv.form_label.digital_skill_level_1">
@@ -814,7 +814,7 @@
     <unit id="upYgCIr" name="trexima_european_cv.form_placeholder.digital_skill_title">
       <segment>
         <source>trexima_european_cv.form_placeholder.digital_skill_title</source>
-        <target>Prosím, vyberte možnosť</target>
+        <target>Prosím, vyber možnosť</target>
       </segment>
     </unit>
     <unit id="WP8Jr3e" name="trexima_european_cv.form_label.digital_skill_level">
@@ -892,7 +892,7 @@
     <unit id="OyZ2eoQ" name="trexima_european_cv.form_label.competences_placeholder">
       <segment>
         <source>trexima_european_cv.form_label.competences_placeholder</source>
-        <target>Prosím, vyberte možnosť</target>
+        <target>Prosím, vyber možnosť</target>
       </segment>
     </unit>
     <unit id="T.r7iTJ" name="trexima_european_cv.form_label.driving_license_owner_label">
@@ -952,7 +952,7 @@
     <unit id="Lgx9rLr" name="trexima_european_cv.form_label.education_description_placeholder">
       <segment>
         <source>trexima_european_cv.form_label.education_description_placeholder</source>
-        <target>Opíšte vaše štúdium</target>
+        <target>Opíš tvoje štúdium</target>
       </segment>
     </unit>
     <unit id="OQ8rIIJ" name="trexima_european_cv.form_label.language_label">
@@ -964,7 +964,7 @@
     <unit id="tGaeDFt" name="trexima_european_cv.form_label.language_placeholder">
       <segment>
         <source>trexima_european_cv.form_label.language_placeholder</source>
-        <target>Prosím, vyberte možnosť</target>
+        <target>Prosím, vyber možnosť</target>
       </segment>
     </unit>
     <unit id="U5kiGoE" name="trexima_european_cv.form_label.language_level_label">
@@ -982,7 +982,7 @@
     <unit id="_isPTvM" name="trexima_european_cv.form_label.phone_type_placeholder">
       <segment>
         <source>trexima_european_cv.form_label.phone_type_placeholder</source>
-        <target>Prosím, vyberte</target>
+        <target>Prosím, vyber</target>
       </segment>
     </unit>
     <unit id="y247oYk" name="trexima_european_cv.form_label.phone_number_label">
@@ -1180,19 +1180,19 @@
     <unit id="zr5i8Wx" name="trexima_european_cv.form_label.year_placeholder">
       <segment>
         <source>trexima_european_cv.form_label.year_placeholder</source>
-        <target>Vyberte rok</target>
+        <target>Vyber rok</target>
       </segment>
     </unit>
     <unit id="4u4nz8D" name="trexima_european_cv.form_label.month_placeholder">
       <segment>
         <source>trexima_european_cv.form_label.month_placeholder</source>
-        <target>Vyberte mesiac</target>
+        <target>Vyber mesiac</target>
       </segment>
     </unit>
     <unit id="d8U2csr" name="trexima_european_cv.form_label.day_placeholder">
       <segment>
         <source>trexima_european_cv.form_label.day_placeholder</source>
-        <target>Vyberte deň</target>
+        <target>Vyber deň</target>
       </segment>
     </unit>
     <unit id="YWWgmvy" name="trexima_european_cv.education_type_enum.education_elementary_school">
@@ -1240,7 +1240,7 @@
     <unit id="pVqiJSB" name="trexima_european_cv.form_placeholder.education_kov">
       <segment>
         <source>trexima_european_cv.form_placeholder.education_kov</source>
-        <target>Vyberte študijný/učebný odbor</target>
+        <target>Vyber študijný/učebný odbor</target>
       </segment>
     </unit>
     <unit id="alsYpV9" name="trexima_european_cv.form_label.add_next_phone_button">
