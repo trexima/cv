@@ -573,8 +573,18 @@ class EuropeanCV
         return $this;
     }
 
+    #[Assert\Date(message: 'trexima_european_cv.birth_date.constraint.valid_date')]
+    public function getBirthDate(): ?string
+    {
+        if (($year = $this->getYear()) && ($month = $this->getMonth()) && ($day = $this->getDay())) {
+            return $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-' . str_pad($day, 2, '0', STR_PAD_LEFT);
+        }
+
+        return null;
+    }
+
     #[Assert\LessThanOrEqual('today', message: 'trexima_european_cv.birth_date.constraint.less_than_or_equal')]
-    public function getBirthDate(): ?\DateTimeImmutable
+    public function getBirthDateTime(): ?\DateTimeImmutable
     {
         if (($year = $this->getYear()) && ($month = $this->getMonth()) && ($day = $this->getDay())) {
             return (new \DateTimeImmutable())->setDate($year, $month, $day)->setTime(0, 0);
