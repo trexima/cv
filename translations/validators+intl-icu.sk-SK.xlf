@@ -49,5 +49,11 @@
         <target>Príď si urobiť životopis až po narodení &#x1f60a; Prosím, skontroluj dátum narodenia.</target>
       </segment>
     </unit>
+    <unit id="tXD_L.h" name="trexima_european_cv.birth_date.constraint.valid_date">
+      <segment>
+        <source>trexima_european_cv.birth_date.constraint.valid_date</source>
+        <target>Prosím, vyplň dátum narodenia v správnom tvare.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
