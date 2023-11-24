@@ -28,7 +28,7 @@ class EuropeanCVPractice
     private MonthYearRange $dateRange;
 
     #[Assert\NotBlank]
-    #[Assert\Length(max: 100, maxMessage: 'trexima_european_cv.max_length_reached')]
+    #[Assert\Length(max: 256, maxMessage: 'trexima_european_cv.max_length_reached')]
     #[ORM\Column(type: 'string', length: 256, nullable: true)]
     private ?string $title = null;
 
