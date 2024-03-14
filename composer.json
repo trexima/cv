@@ -2,8 +2,9 @@
     "name": "trexima/cv",
     "description": "Bundle provides form for creating CV in european format.",
     "type": "symfony-bundle",
-	"version": "1.6.2",
+	"version": "1.7.0",
     "license": "MIT",
+    "keywords": ["cv"],
     "authors": [
         {
             "name": "TREXIMA Bratislava, spol. s r.o.",
@@ -13,18 +14,18 @@
     "minimum-stability": "stable",
     "require": {
         "php": "^8.1",
-        "symfony/framework-bundle": "^6.2",
-        "symfony/twig-bundle": "^6.2",
+        "symfony/framework-bundle": "^6.0",
+        "symfony/twig-bundle": "^6.0",
         "claviska/simpleimage": "^3.3",
         "pelago/emogrifier": "^7.0",
-        "symfony/translation": "^6.2",
-        "symfony/asset": "^6.2",
-        "symfony/yaml": "^6.2",
+        "symfony/translation": "^6.0",
+        "symfony/asset": "^6.0",
+        "symfony/yaml": "^6.0",
         "symfony/webpack-encore-bundle": "^1.15",
-        "symfony/form": "^6.2",
-        "doctrine/orm": "^2.13",
+        "symfony/form": "^6.0",
+        "doctrine/orm": "^2 || ^3",
         "trexima/harvey-client": "^1.2",
-        "symfony/validator": "^6.2",
+        "symfony/validator": "^6.0",
         "mpdf/mpdf": "^8.1"
     },
     "require-dev": {
