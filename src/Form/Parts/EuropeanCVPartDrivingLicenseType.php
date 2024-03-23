@@ -5,6 +5,8 @@ namespace Trexima\EuropeanCvBundle\Form\Parts;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Trexima\EuropeanCvBundle\Form\Type\DrivingLicenseType;
@@ -22,13 +24,6 @@ class EuropeanCVPartDrivingLicenseType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $entity = $builder->getData();
-
-        $drivingLicenses = [];
-        foreach ($entity->getDrivingLicenses() as $drivingLicense) {
-            $drivingLicenses[] = $drivingLicense->getDrivingLicense()->value;
-        }
-
         $builder
             ->add('drivingLicenseOwner', CheckboxType::class, [
                 'required' => false,
@@ -53,9 +48,12 @@ class EuropeanCVPartDrivingLicenseType extends AbstractType
                     ]
                 ],
                 'required' => false,
-                'hidden' => empty($entity?->getDrivingLicenseOwner()),
-                'existing_licenses' => $drivingLicenses,
             ]);
+    }
+
+    public function finishView(FormView $view, FormInterface $form, array $options)
+    {
+        $view->children['drivingLicenses']->vars['hidden'] = !$form->getData()?->getDrivingLicenseOwner();
     }
 
     /**

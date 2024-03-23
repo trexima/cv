@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 use Trexima\EuropeanCvBundle\Entity\Enum\DrivingLicenseEnum;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVDrivingLicense;
 
@@ -44,12 +45,13 @@ class EuropeanCVDrivingLicenseType extends AbstractType
             'required' => false, 'attr' => [
                 'placeholder' => t('trexima_european_cv.form_label.driving_license_distance_traveled_placeholder', [], 'trexima_european_cv')
             ],
-            'hidden' => !in_array($drivingLicense->value, $options['existing_licenses'])
+            'constraints' => [
+                new Assert\Range(min: 0, max: 2 ** 32 - 1),
+            ],
         ])
         ->add('activeDriver', CheckboxType::class, [
             'label' => t('trexima_european_cv.form_label.driving_license_active_driver_label', [], 'trexima_european_cv'),
             'required' => false,
-            'hidden' => !in_array($drivingLicense->value, $options['existing_licenses'])
         ])
         ;
 
@@ -82,6 +84,14 @@ class EuropeanCVDrivingLicenseType extends AbstractType
         $view->vars['driving_license'] = $options['driving_license'];
     }
 
+    public function finishView(FormView $view, FormInterface $form, array $options)
+    {
+        $drivingLicense = $form->getData()?->getDrivingLicense();
+
+        $view->children['distanceTraveled']->vars['hidden'] = !$drivingLicense;
+        $view->children['activeDriver']->vars['hidden'] = !$drivingLicense;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -90,7 +100,6 @@ class EuropeanCVDrivingLicenseType extends AbstractType
         parent::configureOptions($resolver);
         $resolver->setDefaults([
             'data_class' => EuropeanCVDrivingLicense::class,
-            'existing_licenses' => []
         ]);
 
         $resolver->setRequired([

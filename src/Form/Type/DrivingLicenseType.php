@@ -69,7 +69,6 @@ class DrivingLicenseType extends AbstractType
                         'attr' => [
                             'class' => 'form-inline'
                         ],
-                        'existing_licenses' => $options['existing_licenses']
                     ], $options['entry_options'])
                 );
             }
@@ -122,7 +121,6 @@ class DrivingLicenseType extends AbstractType
             'entry_options' => [
                 'required' => false,
             ],
-            'existing_licenses' => []
         ]);
     }
 
