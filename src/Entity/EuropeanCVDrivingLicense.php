@@ -35,7 +35,7 @@ class EuropeanCVDrivingLicense
             'comment' => 'Distance traveled in kilometers'
         ],
     )]
-    private ?string $distanceTraveled = null;
+    private ?int $distanceTraveled = null;
 
     #[ORM\Column(type: 'boolean')]
     private ?bool $activeDriver = null;
@@ -69,12 +69,12 @@ class EuropeanCVDrivingLicense
         return $this;
     }
 
-    public function getDistanceTraveled(): ?string
+    public function getDistanceTraveled(): ?int
     {
         return $this->distanceTraveled;
     }
 
-    public function setDistanceTraveled(?string $distanceTraveled): self
+    public function setDistanceTraveled(?int $distanceTraveled): self
     {
         $this->distanceTraveled = $distanceTraveled;
 
