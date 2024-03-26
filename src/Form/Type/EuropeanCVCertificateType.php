@@ -60,7 +60,7 @@ class EuropeanCVCertificateType extends AbstractType implements EventSubscriberI
                     ],
                     'endYear' => [
                         'label' => t('trexima_european_cv.form_label.certificate_end_label', [], 'trexima_european_cv'),
-                        'choices' => [t('trexima_european_cv.form_label.certificate_no_end_date', [], 'trexima_european_cv')->trans($this->translator) => -1] + array_reverse(array_combine(range(date('Y')-100, date('Y')), range(date('Y')-100, date('Y'))), true),
+                        'choices' => [t('trexima_european_cv.form_label.certificate_no_end_date', [], 'trexima_european_cv')->trans($this->translator) => -1] + array_reverse(array_combine(range(date('Y')-100, date('Y')+20), range(date('Y')-100, date('Y')+20)), true),
                         'attr' => [
                             'data-trexima-european-cv-dynamic-collection-sort-by' => 1,
                             'data-controller' => 'ui--select2',
