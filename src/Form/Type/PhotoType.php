@@ -50,6 +50,16 @@ class PhotoType extends AbstractType
             ->add('options', HiddenType::class, [
                 'required' => false,
                 'error_bubbling' => true,
+                'constraints' => [
+                    new Assert\Type('array'),
+                    new Assert\Collection([
+                        'x' => new Assert\GreaterThanOrEqual(0, message: 'trexima_european_cv.photo.constraint.options.x'),
+                        'y' => new Assert\GreaterThanOrEqual(0, message: 'trexima_european_cv.photo.constraint.options.y'),
+                        'width' => new Assert\GreaterThan(0, message: 'trexima_european_cv.photo.constraint.options.width'),
+                        'height' => new Assert\GreaterThan(0, message: 'trexima_european_cv.photo.constraint.options.height'),
+                        'rotate' => new Assert\Range(min: -360, max: 360, notInRangeMessage: 'trexima_european_cv.photo.constraint.options.rotate'),
+                    ], missingFieldsMessage: 'trexima_european_cv.photo.constraint.options'),
+                ],
             ])
             ->addEventListener(FormEvents::POST_SET_DATA, $this->postSetData(...));
 

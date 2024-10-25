@@ -55,5 +55,41 @@
         <target>Prosím, vyplň dátum narodenia v správnom tvare.</target>
       </segment>
     </unit>
+    <unit id="hkrJKVB" name="trexima_european_cv.photo.constraint.options">
+      <segment>
+        <source>trexima_european_cv.photo.constraint.options</source>
+        <target>Pole {field} chýba.</target>
+      </segment>
+    </unit>
+    <unit id="fVXjjmH" name="trexima_european_cv.photo.constraint.options.x">
+      <segment>
+        <source>trexima_european_cv.photo.constraint.options.x</source>
+        <target>Hodnota pre "X-ovú súradnicu" musí byť väčšia alebo rovná 0</target>
+      </segment>
+    </unit>
+    <unit id="69nWrlF" name="trexima_european_cv.photo.constraint.options.y">
+      <segment>
+        <source>trexima_european_cv.photo.constraint.options.y</source>
+        <target>Hodnota pre "Y-ovú súradnicu" musí byť väčšia alebo rovná 0</target>
+      </segment>
+    </unit>
+    <unit id="9q16aMK" name="trexima_european_cv.photo.constraint.options.width">
+      <segment>
+        <source>trexima_european_cv.photo.constraint.options.width</source>
+        <target>Šírka musí byť väčšia ako 0</target>
+      </segment>
+    </unit>
+    <unit id="1_2SANY" name="trexima_european_cv.photo.constraint.options.height">
+      <segment>
+        <source>trexima_european_cv.photo.constraint.options.height</source>
+        <target>Výška musí byť väčšia ako 0</target>
+      </segment>
+    </unit>
+    <unit id="1z1w_wr" name="trexima_european_cv.photo.constraint.options.rotate">
+      <segment>
+        <source>trexima_european_cv.photo.constraint.options.rotate</source>
+        <target>Uhol otočenia musí byť v rozmedzí -360° až 360°</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
