@@ -16,23 +16,20 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class SubmitIconType extends AbstractType implements SubmitButtonTypeInterface
 {
-    public function buildView(FormView $view, FormInterface $form, array $options)
+    public function buildView(FormView $view, FormInterface $form, array $options): void
     {
         $view->vars['icon_left'] = $options['icon_left'];
         $view->vars['icon_right'] = $options['icon_right'];
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'icon_left' => null,
-            'icon_right' => null
+            'icon_right' => null,
         ]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getParent(): ?string
     {
         return SubmitType::class;

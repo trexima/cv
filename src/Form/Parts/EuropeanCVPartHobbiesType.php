@@ -4,21 +4,18 @@ namespace Trexima\EuropeanCvBundle\Form\Parts;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 
 use function Symfony\Component\Translation\t;
 
 /**
- * Hobbies
+ * Hobbies.
  */
 class EuropeanCVPartHobbiesType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('hobbies', TextareaType::class, [
@@ -26,15 +23,12 @@ class EuropeanCVPartHobbiesType extends AbstractType
                 'attr' => [
                     'placeholder' => t('trexima_european_cv.form_placeholder.hobbies', [], 'trexima_european_cv'),
                 ],
-                'required' => false
+                'required' => false,
             ])
         ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
@@ -47,10 +41,10 @@ class EuropeanCVPartHobbiesType extends AbstractType
             'educations_min' => 0,
             'languages_min' => 0,
             'additional_informations_min' => 0,
-         ]);
+        ]);
 
         $resolver->setRequired([
-            'photo_upload_route'
+            'photo_upload_route',
         ]);
     }
 }

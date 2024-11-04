@@ -2,14 +2,14 @@
 
 namespace Trexima\EuropeanCvBundle\Entity;
 
-use App\Entity\Job\PcSkill;                     //todo
-use App\Enum\Job\JobPcSkillEntityLevelEnum;     //todo
+use App\Entity\Job\PcSkill;                     // todo
+use App\Enum\Job\JobPcSkillEntityLevelEnum;     // todo
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Persistence\Proxy;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * EuropeanCV digital skill
+ * EuropeanCV digital skill.
  */
 #[ORM\Table(name: 'european_cv_digital_skill')]
 #[ORM\Entity]
@@ -27,7 +27,7 @@ class EuropeanCVDigitalSkill
     #[Assert\When(
         expression: 'this.getLevel() !== null',
         constraints: [
-            new Assert\NotNull(message: 'trexima_european_cv.pc_skill_not_empty')
+            new Assert\NotNull(message: 'trexima_european_cv.pc_skill_not_empty'),
         ],
     )]
     #[ORM\ManyToOne(targetEntity: PcSkill::class)]
@@ -37,7 +37,7 @@ class EuropeanCVDigitalSkill
     #[Assert\When(
         expression: 'this.getPcSkill() !== null',
         constraints: [
-            new Assert\NotNull(message: 'trexima_european_cv.level_not_empty')
+            new Assert\NotNull(message: 'trexima_european_cv.level_not_empty'),
         ]
     )]
     #[ORM\Column(type: 'string', length: 16, nullable: false, enumType: JobPcSkillEntityLevelEnum::class)]

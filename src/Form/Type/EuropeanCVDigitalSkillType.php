@@ -14,10 +14,7 @@ use function Symfony\Component\Translation\t;
 
 class EuropeanCVDigitalSkillType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('pcSkill', ChoiceType::class, [
@@ -34,20 +31,17 @@ class EuropeanCVDigitalSkillType extends AbstractType
                 'label' => t('trexima_european_cv.form_label.digital_skill_level', [], 'trexima_european_cv'),
                 'multiple' => false,
                 'choice_label' => fn (DigitalSkillLevelEnum $choice) => match ($choice) {
-                    default => t('trexima_european_cv.form_label.digital_skill_level_' . strtolower($choice->value), [], 'trexima_european_cv'),
+                    default => t('trexima_european_cv.form_label.digital_skill_level_'.strtolower($choice->value), [], 'trexima_european_cv'),
                 },
             ])
         ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
-            'data_class' => EuropeanCVDigitalSkill::class
+            'data_class' => EuropeanCVDigitalSkill::class,
         ]);
     }
 
@@ -57,13 +51,13 @@ class EuropeanCVDigitalSkillType extends AbstractType
         $digitalSkills = [];
         $skillCategories = [];
         foreach ($digitalSkillList as $itemId => $item) {
-            if ($item['level'] === 1) {
+            if (1 === $item['level']) {
                 $skillCategories[$itemId] = $item['label'];
             }
         }
 
         foreach ($digitalSkillList as $itemId => $item) {
-            if ($item['level'] === 2) {
+            if (2 === $item['level']) {
                 $digitalSkills[$skillCategories[$item['parent']]][$item['label']] = $item['label'];
             }
         }

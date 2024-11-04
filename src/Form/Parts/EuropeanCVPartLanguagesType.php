@@ -5,23 +5,20 @@ namespace Trexima\EuropeanCvBundle\Form\Parts;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Valid;
+use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVLanguage;
 
 /**
- * Languages
+ * Languages.
  */
 class EuropeanCVPartLanguagesType extends AbstractType implements EventSubscriberInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('languages', CollectionType::class, [
@@ -45,7 +42,7 @@ class EuropeanCVPartLanguagesType extends AbstractType implements EventSubscribe
                 'prototype' => true,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'delete_empty' => fn ($data) => $data?->getLanguage() === null,
+                'delete_empty' => fn ($data) => null === $data?->getLanguage(),
                 'error_bubbling' => false,
                 'constraints' => [
                     new Valid(),
@@ -53,27 +50,23 @@ class EuropeanCVPartLanguagesType extends AbstractType implements EventSubscribe
                 'required' => false,
                 'child_config' => [
                     'level' => [
-                        'transform' => true
-                    ]
-                ]
+                        'transform' => true,
+                    ],
+                ],
             ])
             ->addEventSubscriber($this);
-        ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
             'data_class' => EuropeanCV::class,
             'languageTypeClass' => null,
-         ]);
+        ]);
 
         $resolver->setRequired([
-            'photo_upload_route'
+            'photo_upload_route',
         ]);
     }
 

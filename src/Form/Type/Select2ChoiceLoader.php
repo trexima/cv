@@ -39,9 +39,9 @@ class Select2ChoiceLoader implements ChoiceLoaderInterface
      * The callable receives the choice as only argument.
      * Null may be passed when the choice list contains the empty value.
      *
-     * @param string[] $values An array of choice values. Non-existing
+     * @param string[]      $values An array of choice values. Non-existing
      *                              values in this array are ignored
-     * @param callable|null $value The callable generating the choice values
+     * @param callable|null $value  The callable generating the choice values
      *
      * @return array An array of choices
      */
@@ -49,7 +49,7 @@ class Select2ChoiceLoader implements ChoiceLoaderInterface
     {
         // Ignore placeholder and allow Symfony to handle empty_data
         return array_filter($values, function ($value) {
-            return $value !== '';
+            return '' !== $value;
         });
     }
 
@@ -63,9 +63,9 @@ class Select2ChoiceLoader implements ChoiceLoaderInterface
      * The callable receives the choice as only argument.
      * Null may be passed when the choice list contains the empty value.
      *
-     * @param array $choices An array of choices. Non-existing choices in
+     * @param array         $choices An array of choices. Non-existing choices in
      *                               this array are ignored
-     * @param callable|null $value The callable generating the choice values
+     * @param callable|null $value   The callable generating the choice values
      *
      * @return string[] An array of choice values
      */

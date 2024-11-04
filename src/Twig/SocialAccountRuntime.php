@@ -11,10 +11,7 @@ class SocialAccountRuntime implements RuntimeExtensionInterface
     public const PATTERN_LINKEDIN = '/https?:\/\/(?:www\.)?linkedin\.com\/in\/([^\/?&]+)/i';
 
     /**
-     * Return a 'nick' from a social account
-     *
-     * @param string $url
-     * @return string
+     * Return a 'nick' from a social account.
      */
     public function socialAccount(string $url): string
     {

@@ -343,9 +343,9 @@ class AbstractGoogleAddress
     }
 
     /**
-     * Helper function to copy data from Google address to this one
+     * Helper function to copy data from Google address to this one.
      */
-    public function copyFrom(AbstractGoogleAddress $to): self
+    public function copyFrom(self $to): self
     {
         $to->copyTo($this);
 
@@ -353,9 +353,9 @@ class AbstractGoogleAddress
     }
 
     /**
-     * Helper function to copy data from this Google address to another one
+     * Helper function to copy data from this Google address to another one.
      */
-    public function copyTo(AbstractGoogleAddress $to): void
+    public function copyTo(self $to): void
     {
         $to->setGooglePlaceId($this->getGooglePlaceId());
         $to->setLanguageCode($this->getLanguageCode());

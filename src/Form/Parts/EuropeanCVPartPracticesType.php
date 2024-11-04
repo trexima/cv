@@ -5,66 +5,59 @@ namespace Trexima\EuropeanCvBundle\Form\Parts;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
-use Trexima\EuropeanCvBundle\Entity\EuropeanCVPracticeProcessed;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
+use Trexima\EuropeanCvBundle\Entity\EuropeanCVPracticeProcessed;
 use Trexima\EuropeanCvBundle\Form\Type\EuropeanCVPracticeType;
 use Trexima\EuropeanCvBundle\Form\Type\EuropeanCVWorkBreakType;
 
 /**
- * Practices
+ * Practices.
  */
 class EuropeanCVPartPracticesType extends AbstractType implements EventSubscriberInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('practices', CollectionType::class, [
                 'entry_type' => EuropeanCVPracticeType::class,
                 'entry_options' => [
-                    'label' => false
+                    'label' => false,
                 ],
                 'by_reference' => false,
                 'label' => false,
                 'prototype' => true,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'delete_empty' => true
+                'delete_empty' => true,
             ])
             ->add('workBreaks', CollectionType::class, [
                 'entry_type' => EuropeanCVWorkBreakType::class,
                 'entry_options' => [
-                    'label' => false
+                    'label' => false,
                 ],
                 'by_reference' => false,
                 'label' => false,
                 'prototype' => true,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'delete_empty' => true
+                'delete_empty' => true,
             ])
             ->addEventSubscriber($this);
-        ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
             'data_class' => EuropeanCV::class,
-         ]);
+        ]);
 
         $resolver->setRequired([
-            'photo_upload_route'
+            'photo_upload_route',
         ]);
     }
 
@@ -87,7 +80,7 @@ class EuropeanCVPartPracticesType extends AbstractType implements EventSubscribe
             if (empty($months[$practice->getIscoCode()])) {
                 $months[$practice->getIscoCode()] = [
                     'title' => $practice->getTitle(),
-                    'values' => []
+                    'values' => [],
                 ];
             }
             $months[$practice->getIscoCode()]['values'] = array_unique(array_merge(
@@ -104,7 +97,7 @@ class EuropeanCVPartPracticesType extends AbstractType implements EventSubscribe
         // remove not iscos which were removed
         $iscoCodes = array_keys($months);
         foreach ($practicesProcessed as $practiceProcessed) {
-            if (!in_array($practiceProcessed->getIscoCode(), $iscoCodes)) {
+            if (!\in_array($practiceProcessed->getIscoCode(), $iscoCodes)) {
                 $europeanCV->removePracticeProcessed($practiceProcessed);
             }
         }
@@ -126,7 +119,7 @@ class EuropeanCVPartPracticesType extends AbstractType implements EventSubscribe
             }
             // set months
             $practiceProcessed->setTitle($month['title']);
-            $practiceProcessed->setMonths(count($month['values']));
+            $practiceProcessed->setMonths(\count($month['values']));
             $europeanCV->addPracticeProcessed($practiceProcessed);
         }
 
@@ -139,10 +132,10 @@ class EuropeanCVPartPracticesType extends AbstractType implements EventSubscribe
         $months = [];
 
         // set today values if monthTo and yearTo are null
-        if ($monthTo === null) {
+        if (null === $monthTo) {
             $monthTo = (int) $now->format('m');
         }
-        if ($yearTo === null) {
+        if (null === $yearTo) {
             $yearTo = (int) $now->format('Y');
         }
 
@@ -155,15 +148,15 @@ class EuropeanCVPartPracticesType extends AbstractType implements EventSubscribe
         }
 
         // add all year-month combinataions from range to array
-        for ($i = $yearFrom; $i <= $yearTo; $i++) {
-            for ($j = 1; $j <= 12; $j++) {
+        for ($i = $yearFrom; $i <= $yearTo; ++$i) {
+            for ($j = 1; $j <= 12; ++$j) {
                 if ($i === $yearFrom && $j < $monthFrom) {
                     continue;
                 }
                 if ($i === $yearTo && $j > $monthTo) {
                     continue;
                 }
-                $months[] = $i . '-' . $j;
+                $months[] = $i.'-'.$j;
             }
         }
 

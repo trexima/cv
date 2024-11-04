@@ -2,7 +2,6 @@
 
 namespace Trexima\EuropeanCvBundle\Export;
 
-use InvalidArgumentException;
 use Mpdf\Mpdf;
 use Mpdf\MpdfException;
 use Trexima\EuropeanCvBundle\Entity\Enum\StyleEnum;
@@ -28,7 +27,7 @@ class EuropeanCvExporter
     {
         $config = array_merge([
             'format' => 'A4',
-            'tempDir' => sys_get_temp_dir() . '/mpdf',
+            'tempDir' => sys_get_temp_dir().'/mpdf',
         ], $config);
 
         $mpdf = new Mpdf($config);
@@ -42,43 +41,41 @@ class EuropeanCvExporter
     /**
      * Generate HTML content for DOC or PDF.
      *
-     * @param EuropeanCV $europeanCV
      * @param string $exportType self::TYPE_PDF|self::TYPE_DOC
-     * @return string
+     *
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
-     * @throws InvalidArgumentException When exportType is not supported
+     * @throws \InvalidArgumentException When exportType is not supported
      */
     public function generateContent(EuropeanCV $europeanCV, string $exportType): string
     {
-        if (!in_array($exportType, [self::TYPE_PDF, self::TYPE_DOC])) {
-            throw new InvalidArgumentException('Invalid export type provided');
+        if (!\in_array($exportType, [self::TYPE_PDF, self::TYPE_DOC])) {
+            throw new \InvalidArgumentException('Invalid export type provided');
         }
 
         $style = ($europeanCV->getStyle() ?? StyleEnum::STYLE_01)->value;
 
-        return $this->twig->render('@TreximaEuropeanCv/export/styles/' . $style . '.html.twig', [
+        return $this->twig->render('@TreximaEuropeanCv/export/styles/'.$style.'.html.twig', [
             'exportType' => $exportType,
             'european_cv' => $europeanCV,
-            'image_upload_url' => rtrim($this->uploadUrl, '\\/') . '/images/',
+            'image_upload_url' => rtrim($this->uploadUrl, '\\/').'/images/',
             // PDF requires absolute paths because mPDF needs to download images and connecting
             // to foreign hosts (Cloudflare) is disabled
-            'img_use_absolute_path' => $exportType === self::TYPE_PDF,
+            'img_use_absolute_path' => self::TYPE_PDF === $exportType,
         ]);
     }
 
     /**
      * Generate PDF or DOC content.
      *
-     * @param EuropeanCV $europeanCV
      * @param string $exportType self::TYPE_PDF|self::TYPE_DOC
-     * @param array $config Custom mPDF's configuration
-     * @return string
+     * @param array  $config     Custom mPDF's configuration
+     *
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
-     * @throws InvalidArgumentException When exportType is not supported
+     * @throws \InvalidArgumentException When exportType is not supported
      * @throws MpdfException
      */
     public function generate(EuropeanCV $europeanCV, string $exportType, array $config = []): string
@@ -89,11 +86,12 @@ class EuropeanCvExporter
             case self::TYPE_PDF:
                 $mpdf = $this->createMpdf($config);
                 $mpdf->WriteHTML($html);
+
                 return $mpdf->Output('', 'S');
             case self::TYPE_DOC:
                 return $html;
             default:
-                throw new InvalidArgumentException('Invalid export type provided');
+                throw new \InvalidArgumentException('Invalid export type provided');
         }
     }
 }

@@ -14,7 +14,7 @@ if (!file_exists(__DIR__.'/src')) {
 }
 
 $fileHeaderComment = <<<'EOF'
-This file is part of the Worki project.
+This file is part of the Trexima/CV project.
 
 (c) TREXIMA Bratislava, spol. s r.o. <itmgmt@trexima.sk>
 
@@ -30,7 +30,7 @@ return (new PhpCsFixer\Config())
         '@Symfony:risky' => true,
         'protected_to_private' => false,
         'native_constant_invocation' => ['strict' => false],
-        'header_comment' => ['header' => $fileHeaderComment],
+        // 'header_comment' => ['header' => $fileHeaderComment],
         'modernize_strpos' => true,
         'get_class_to_class_keyword' => true,
         // 'phpdoc_to_return_type' => true,

@@ -14,13 +14,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class Select2Type extends AbstractType
 {
-    public function buildView(FormView $view, FormInterface $form, array $options)
+    public function buildView(FormView $view, FormInterface $form, array $options): void
     {
         if ($options['ajax_route_path']) {
             $values = $view->vars['value'];
             if (!$options['multiple']) {
                 // Ignore empty value
-                $values = $values === '' ? [] : [$values];
+                $values = '' === $values ? [] : [$values];
             }
 
             $choices = [];
@@ -40,7 +40,7 @@ class Select2Type extends AbstractType
         }
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'expanded' => false,
@@ -50,9 +50,6 @@ class Select2Type extends AbstractType
         ]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getParent(): ?string
     {
         return ChoiceType::class;

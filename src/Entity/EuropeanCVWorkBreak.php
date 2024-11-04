@@ -10,7 +10,7 @@ use Trexima\EuropeanCvBundle\Entity\Enum\WorkBreakEnum;
 use Trexima\EuropeanCvBundle\Validator as AppAssert;
 
 /**
- * EuropeanCV work break
+ * EuropeanCV work break.
  */
 #[ORM\Table(name: 'european_cv_work_break')]
 #[ORM\Entity]

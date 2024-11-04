@@ -3,9 +3,9 @@
 namespace Trexima\EuropeanCvBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartAdditionalInformationsType;
 use Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartBasicInfoType;
 use Trexima\EuropeanCvBundle\Form\Parts\EuropeanCVPartCompetencesType;
@@ -22,10 +22,7 @@ use function Symfony\Component\Translation\t;
 
 class EuropeanCVType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add('template', EuropeanCVPartCVTemplateType::class);
         $builder->add('basicInfo', EuropeanCVPartBasicInfoType::class);
@@ -43,16 +40,13 @@ class EuropeanCVType extends AbstractType
                 'label' => t('trexima_european_cv.form_label.submit_label', [], 'trexima_european_cv'),
                 'icon_left' => '<i class="far fa-save"></i>',
                 'attr' => [
-                    'class' => 'btn btn-block btn-primary'
-                ]
+                    'class' => 'btn btn-block btn-primary',
+                ],
             ]);
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
@@ -65,10 +59,10 @@ class EuropeanCVType extends AbstractType
             'educations_min' => 0,
             'languages_min' => 0,
             'additional_informations_min' => 0,
-         ]);
+        ]);
 
         $resolver->setRequired([
-            'photo_upload_route'
+            'photo_upload_route',
         ]);
     }
 }

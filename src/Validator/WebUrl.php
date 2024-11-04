@@ -25,11 +25,11 @@ class WebUrl extends Constraint
 
     public function __construct(
         ?string $pattern = null,
-        string $message = null,
-        array $protocols = null,
-        bool $relativeProtocol = null,
-        callable $normalizer = null,
-        array $groups = null,
+        ?string $message = null,
+        ?array $protocols = null,
+        ?bool $relativeProtocol = null,
+        ?callable $normalizer = null,
+        ?array $groups = null,
         mixed $payload = null,
         array $options = [],
     ) {
@@ -42,12 +42,7 @@ class WebUrl extends Constraint
         $this->normalizer = $normalizer ?? $this->normalizer;
 
         if (null !== $this->normalizer && !\is_callable($this->normalizer)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    'The "normalizer" option must be a valid callable ("%s" given).',
-                    get_debug_type($this->normalizer)
-                )
-            );
+            throw new \InvalidArgumentException(\sprintf('The "normalizer" option must be a valid callable ("%s" given).', get_debug_type($this->normalizer)));
         }
     }
 }

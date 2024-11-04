@@ -19,6 +19,6 @@ class EmogrifierRuntime implements RuntimeExtensionInterface
             $cssContent .= file_get_contents($this->fileLocator->locate($cssFilePath));
         }
 
-        return CssInliner::fromHtml($content)->inlineCss(strip_tags($cssContent).PHP_EOL.strip_tags($extraCssContent))->render();
+        return CssInliner::fromHtml($content)->inlineCss(strip_tags($cssContent).\PHP_EOL.strip_tags($extraCssContent))->render();
     }
 }

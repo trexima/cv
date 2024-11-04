@@ -4,22 +4,19 @@ namespace Trexima\EuropeanCvBundle\Form\Parts;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
-use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Trexima\EuropeanCvBundle\Entity\Enum\CompetenceEnum;
+use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 
 use function Symfony\Component\Translation\t;
 
 /**
- * Competences
+ * Competences.
  */
 class EuropeanCVPartCompetencesType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('competences', EnumType::class, [
@@ -38,18 +35,15 @@ class EuropeanCVPartCompetencesType extends AbstractType
         ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
             'data_class' => EuropeanCV::class,
-         ]);
+        ]);
 
         $resolver->setRequired([
-            'photo_upload_route'
+            'photo_upload_route',
         ]);
     }
 }

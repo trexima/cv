@@ -11,7 +11,7 @@ use Trexima\EuropeanCvBundle\Entity\Enum\GooglePlacesAutocompleteTypeEnum;
 use Trexima\EuropeanCvBundle\Exception\GooglePlacesException;
 
 /**
- * Facade for working with Google Places API
+ * Facade for working with Google Places API.
  */
 class GooglePlaces
 {
@@ -41,8 +41,7 @@ class GooglePlaces
 
     /**
      * @param string $placeId The place id received from google api
-     * @param string $language
-     * @return array|null
+     *
      * @throws GooglePlacesException
      */
     public function findById(string $placeId, string $language = 'sk'): ?array
@@ -50,7 +49,7 @@ class GooglePlaces
         $query = [
             'place_id' => $placeId,
             'language' => $language,
-            'fields' => \implode(',', [
+            'fields' => implode(',', [
                 'address_component',
                 'formatted_address',
                 'geometry',
@@ -64,14 +63,12 @@ class GooglePlaces
     }
 
     /**
-     * @param string $query
-     * @param string[] $countries
-     * @param string $language
-     * @param float|null $locationLat Latitude around which to search places. Default is the center of Slovakia.
-     * @param float|null $locationLng Longitude around which to search places. Default is the center of Slovakia.
-     * @param int|null $radius Radius in meters in which results have a higher priority. Default is 100km from the center of Slovakia.
-     * @param GooglePlacesAutocompleteTypeEnum[] $types Types to restrict autocomplete search to.
-     * @return array
+     * @param string[]                           $countries
+     * @param float|null                         $locationLat Latitude around which to search places. Default is the center of Slovakia.
+     * @param float|null                         $locationLng Longitude around which to search places. Default is the center of Slovakia.
+     * @param int|null                           $radius      Radius in meters in which results have a higher priority. Default is 100km from the center of Slovakia.
+     * @param GooglePlacesAutocompleteTypeEnum[] $types       types to restrict autocomplete search to
+     *
      * @throws GooglePlacesException
      * @throws \InvalidArgumentException When tne number of countries is more than 5
      */
@@ -111,7 +108,7 @@ class GooglePlaces
             throw new \InvalidArgumentException('At least one type must be specified');
         }
 
-        $types = \array_unique($types, \SORT_REGULAR);
+        $types = array_unique($types, \SORT_REGULAR);
 
         if (
             \in_array(GooglePlacesAutocompleteTypeEnum::Geocode, $types) && \count($types) > 1
@@ -120,9 +117,7 @@ class GooglePlaces
             || \in_array(GooglePlacesAutocompleteTypeEnum::Regions, $types) && \count($types) > 1
             || \in_array(GooglePlacesAutocompleteTypeEnum::Cities, $types) && \count($types) > 1
         ) {
-            throw new \InvalidArgumentException(
-                'Geocode, Establishment, Address, Regions and Cities, Address types can\'t be combined with other types',
-            );
+            throw new \InvalidArgumentException('Geocode, Establishment, Address, Regions and Cities, Address types can\'t be combined with other types');
         } elseif (\count($types) > 5) {
             throw new \InvalidArgumentException('Maximum number of types supported is 5');
         }
@@ -141,10 +136,10 @@ class GooglePlaces
         }
 
         if (\count($countries) > 0) {
-            $query['components'] = \implode('|', \array_map(fn ($v) => 'country:' . $v, $countries));
+            $query['components'] = implode('|', array_map(fn ($v) => 'country:'.$v, $countries));
         }
 
-        $query['types'] = \implode('|', \array_map(fn (GooglePlacesAutocompleteTypeEnum $type) => $type->value, $types));
+        $query['types'] = implode('|', array_map(fn (GooglePlacesAutocompleteTypeEnum $type) => $type->value, $types));
 
         return $this->doAutocomplete($query);
     }
@@ -165,9 +160,7 @@ class GooglePlaces
 
             $validStatuses = ['OK', 'ZERO_RESULTS', 'NOT_FOUND'];
             if (!isset($result['status']) || !\in_array($result['status'], $validStatuses)) {
-                throw new GooglePlacesException(
-                    \sprintf('Received error code from Google Places details API: %s', $result['status']),
-                );
+                throw new GooglePlacesException(\sprintf('Received error code from Google Places details API: %s', $result['status']));
             }
 
             if (empty($result['result'])) {
@@ -208,12 +201,10 @@ class GooglePlaces
             if (!isset($result['status']) || !\in_array($result['status'], $validStatuses)) {
                 $error = $result['status'];
                 if (isset($result['error_message'])) {
-                    $error .= ', ' . $result['error_message'];
+                    $error .= ', '.$result['error_message'];
                 }
 
-                throw new GooglePlacesException(
-                    \sprintf('Received error code from Google Places autocomplete API: %s', $error),
-                );
+                throw new GooglePlacesException(\sprintf('Received error code from Google Places autocomplete API: %s', $error));
             }
 
             if (empty($result['predictions'])) {
@@ -241,7 +232,7 @@ class GooglePlaces
      */
     private function get(string $uri, $query): array
     {
-        $query = \array_merge($query, ['key' => $this->apiKey]);
+        $query = array_merge($query, ['key' => $this->apiKey]);
 
         $jsonResponse = $this
             ->client
@@ -259,12 +250,13 @@ class GooglePlaces
     {
         return $this->cache->get($key, function (CacheItemInterface $cacheItem) use ($cacheTTL, $callback) {
             $cacheItem->expiresAfter($cacheTTL);
+
             return $callback();
         });
     }
 
     private function buildCacheKey(string $prefix, array $query): string
     {
-        return $prefix . \md5(\implode('&', $query));
+        return $prefix.md5(implode('&', $query));
     }
 }

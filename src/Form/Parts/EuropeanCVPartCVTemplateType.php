@@ -4,26 +4,23 @@ namespace Trexima\EuropeanCvBundle\Form\Parts;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Trexima\EuropeanCvBundle\Entity\Enum\LanguageEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\StyleEnum;
+use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 
 use function Symfony\Component\Translation\t;
 
 /**
- * Language and template selection
+ * Language and template selection.
  */
 class EuropeanCVPartCVTemplateType extends AbstractType implements EventSubscriberInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -56,7 +53,8 @@ class EuropeanCVPartCVTemplateType extends AbstractType implements EventSubscrib
             'multiple' => false,
             'choice_filter' => function (StyleEnum $choice) use ($options) {
                 $styles = $options['styles'] ?? [];
-                return empty($styles) || in_array($choice, $options['styles'], true);
+
+                return empty($styles) || \in_array($choice, $options['styles'], true);
             },
             'choice_label' => 'value',
         ])
@@ -67,9 +65,6 @@ class EuropeanCVPartCVTemplateType extends AbstractType implements EventSubscrib
         ->addEventSubscriber($this);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);

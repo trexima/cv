@@ -5,23 +5,20 @@ namespace Trexima\EuropeanCvBundle\Form\Parts;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Valid;
+use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Trexima\EuropeanCvBundle\Entity\EuropeanCVDigitalSkill;
 
 /**
- * Digital skills
+ * Digital skills.
  */
 class EuropeanCVPartDigitalSkillsType extends AbstractType implements EventSubscriberInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('digitalSkills', CollectionType::class, [
@@ -36,7 +33,7 @@ class EuropeanCVPartDigitalSkillsType extends AbstractType implements EventSubsc
                 'prototype' => true,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'delete_empty' => fn ($data) => $data?->getPcSkill() === null,
+                'delete_empty' => fn ($data) => null === $data?->getPcSkill(),
                 'error_bubbling' => false,
                 'constraints' => [
                     new Valid(),
@@ -44,22 +41,18 @@ class EuropeanCVPartDigitalSkillsType extends AbstractType implements EventSubsc
                 'required' => false,
             ])
             ->addEventSubscriber($this);
-        ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
             'data_class' => EuropeanCV::class,
             'digitalSkillTypeClass' => null,
-         ]);
+        ]);
 
         $resolver->setRequired([
-            'photo_upload_route'
+            'photo_upload_route',
         ]);
     }
 

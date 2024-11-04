@@ -17,9 +17,6 @@ use function Symfony\Component\Translation\t;
 
 class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $entity = $builder->getData();
@@ -39,15 +36,15 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
                     'trexima_european_cv',
                 ),
                 'row_attr' => [
-                    'class' => 'mt-3.5'
+                    'class' => 'mt-3.5',
                 ],
-            ], ($options['field_options']['iscoCode'] ?? [])))
+            ], $options['field_options']['iscoCode'] ?? []))
             ->add('employee', TextType::class, [
                 'label' => t('trexima_european_cv.form_label.practice_employee_label', [], 'trexima_european_cv'),
                 'required' => false,
                 'attr' => [
                     'placeholder' => t('trexima_european_cv.form_label.practice_employee_placeholder', [], 'trexima_european_cv'),
-                ]
+                ],
             ])
             ->add('dateRange', MonthYearRangeType::class, [
                 'label' => false,
@@ -72,21 +69,18 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
                         'label' => t('trexima_european_cv.form_label.month_year_range_end_year_placeholder', [], 'trexima_european_cv'),
                         'placeholder' => t('trexima_european_cv.form_label.month_year_range_end_year_placeholder', [], 'trexima_european_cv'),
                     ],
-                ]
+                ],
             ])
             ->add('description', TextareaType::class, [
                 'label' => t('trexima_european_cv.form_label.practice_description_label', [], 'trexima_european_cv'),
                 'required' => false,
                 'attr' => [
-                    'placeholder' => t('trexima_european_cv.form_label.practice_description_placeholder', [], 'trexima_european_cv')
-                ]
+                    'placeholder' => t('trexima_european_cv.form_label.practice_description_placeholder', [], 'trexima_european_cv'),
+                ],
             ])
             ->addEventSubscriber($this);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
@@ -96,9 +90,9 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
                 'title' => 'iscoCode',
             ],
             'attr' => [
-                'id' => 'EuropeanCVPracticeType'
+                'id' => 'EuropeanCVPracticeType',
             ],
-            'field_options' => []
+            'field_options' => [],
         ]);
     }
 
@@ -135,7 +129,7 @@ class EuropeanCVPracticeType extends AbstractType implements EventSubscriberInte
             return;
         }
 
-        if ($data->getIscoCode() === null && $data->getTitle() !== null) {
+        if (null === $data->getIscoCode() && null !== $data->getTitle()) {
             $data->setIscoCode($data->getTitle());
         }
     }

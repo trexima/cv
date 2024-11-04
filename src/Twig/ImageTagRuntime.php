@@ -45,7 +45,6 @@ class ImageTagRuntime implements RuntimeExtensionInterface
     }
 
     /**
-     * @param string $imagePath
      * @return array An array with absolute path and web url
      */
     private function getPaths(string $imagePath): array
@@ -55,9 +54,9 @@ class ImageTagRuntime implements RuntimeExtensionInterface
             $webPath = $this->urlHelper->getAbsoluteUrl($this->assetsPackages->getUrl($bundlePublicPath));
             $absolutePath = $this->fileLocator->locate($imagePath);
         } else {
-            $uploadImagePath = '/images/' . ltrim($imagePath, '\\/');
-            $webPath = $this->uploadUrl . $uploadImagePath;
-            $absolutePath = $this->uploadDir . $uploadImagePath;
+            $uploadImagePath = '/images/'.ltrim($imagePath, '\\/');
+            $webPath = $this->uploadUrl.$uploadImagePath;
+            $absolutePath = $this->uploadDir.$uploadImagePath;
         }
 
         return [$absolutePath, $webPath];
