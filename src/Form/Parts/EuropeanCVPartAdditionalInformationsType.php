@@ -15,7 +15,6 @@ use function Symfony\Component\Translation\t;
  */
 class EuropeanCVPartAdditionalInformationsType extends AbstractType
 {
-
     /**
      * {@inheritdoc}
      */

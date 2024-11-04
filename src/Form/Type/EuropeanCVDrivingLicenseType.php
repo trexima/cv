@@ -60,7 +60,7 @@ class EuropeanCVDrivingLicenseType extends AbstractType
          */
         $builder->get('drivingLicense')->addModelTransformer(new CallbackTransformer(
             // Value is already filled if array with driver license data is recieved
-            fn($isChecked) => $isChecked ? true : $isChecked,
+            fn ($isChecked) => $isChecked ? true : $isChecked,
             function ($isChecked) use ($drivingLicense) {
                 if ($isChecked) {
                     // Field is checked, save entity to parent entity

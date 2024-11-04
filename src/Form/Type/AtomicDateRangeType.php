@@ -34,7 +34,7 @@ class AtomicDateRangeType extends AbstractType
             'label' => false,
             'required' => false,
             'placeholder' => 'Rok',
-            'choices' => array_reverse(array_combine(range(date('Y')-100, date('Y')), range(date('Y')-100, date('Y'))), true),
+            'choices' => array_reverse(array_combine(range(date('Y') - 100, date('Y')), range(date('Y') - 100, date('Y'))), true),
             'attr' => [
                 'data-trexima-european-cv-dynamic-collection-sort-by' => 1
             ]
@@ -52,7 +52,7 @@ class AtomicDateRangeType extends AbstractType
             'label' => false,
             'required' => false,
             'placeholder' => 'Rok',
-            'choices' => array_reverse(array_combine(range(date('Y')-100, date('Y')), range(date('Y')-100, date('Y'))), true)
+            'choices' => array_reverse(array_combine(range(date('Y') - 100, date('Y')), range(date('Y') - 100, date('Y'))), true)
         ]);
     }
 
@@ -64,7 +64,7 @@ class AtomicDateRangeType extends AbstractType
              * Callback for empty_data is required because object
              * must be instantiate for every form element not only once!
              */
-            'empty_data' => fn() => new DateRange()
+            'empty_data' => fn () => new DateRange()
         ]);
     }
 }

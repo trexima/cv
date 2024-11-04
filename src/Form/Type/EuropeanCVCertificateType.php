@@ -21,11 +21,11 @@ use function Symfony\Component\Translation\t;
 
 class EuropeanCVCertificateType extends AbstractType implements EventSubscriberInterface
 {
-
     public function __construct(
         private readonly UrlGeneratorInterface $urlGenerator,
         private readonly TranslatorInterface $translator
-    ) {}
+    ) {
+    }
 
     /**
      * {@inheritdoc}
@@ -60,7 +60,7 @@ class EuropeanCVCertificateType extends AbstractType implements EventSubscriberI
                     ],
                     'endYear' => [
                         'label' => t('trexima_european_cv.form_label.certificate_end_label', [], 'trexima_european_cv'),
-                        'choices' => [t('trexima_european_cv.form_label.certificate_no_end_date', [], 'trexima_european_cv')->trans($this->translator) => -1] + array_reverse(array_combine(range(date('Y')-100, date('Y')+20), range(date('Y')-100, date('Y')+20)), true),
+                        'choices' => [t('trexima_european_cv.form_label.certificate_no_end_date', [], 'trexima_european_cv')->trans($this->translator) => -1] + array_reverse(array_combine(range(date('Y') - 100, date('Y') + 20), range(date('Y') - 100, date('Y') + 20)), true),
                         'attr' => [
                             'data-trexima-european-cv-dynamic-collection-sort-by' => 1,
                             'data-controller' => 'ui--select2',
@@ -77,8 +77,8 @@ class EuropeanCVCertificateType extends AbstractType implements EventSubscriberI
                     'placeholder' => t('trexima_european_cv.form_label.education_description_placeholder', [], 'trexima_european_cv')
                 ]
             ], ($options['field_options']['description'] ?? [])));
-            $builder->addEventSubscriber($this);
-            
+        $builder->addEventSubscriber($this);
+
     }
 
     /**

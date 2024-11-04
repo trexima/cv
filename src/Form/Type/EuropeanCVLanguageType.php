@@ -14,7 +14,6 @@ use function Symfony\Component\Translation\t;
 
 class EuropeanCVLanguageType extends AbstractType
 {
-
     /**
      * {@inheritdoc}
      */
@@ -26,21 +25,21 @@ class EuropeanCVLanguageType extends AbstractType
                 'label' => t('trexima_european_cv.form_label.language_label', [], 'trexima_european_cv'),
                 'placeholder' => t('trexima_european_cv.form_label.language_placeholder', [], 'trexima_european_cv'),
                 'required' => false,
-                'choice_label' => fn(LanguageEnum $choice) => match ($choice) {
+                'choice_label' => fn (LanguageEnum $choice) => match ($choice) {
                     default => t('trexima_european_cv.form_label.language_' . $choice->value, [], 'trexima_european_cv'),
                 },
-                'preferred_choices' => fn($value, $key) => in_array($value, ['en', 'fr', 'de', 'ru', 'es', 'it'])
+                'preferred_choices' => fn ($value, $key) => in_array($value, ['en', 'fr', 'de', 'ru', 'es', 'it'])
             ])
             ->add('level', EnumType::class, [
                 'class' => LanguageLevelEnum::class,
                 'required' => true,
                 'label' => t('trexima_european_cv.form_label.language_level_label', [], 'trexima_european_cv'),
                 'multiple' => false,
-                'choice_label' => fn(LanguageLevelEnum $choice) => match ($choice) {
+                'choice_label' => fn (LanguageLevelEnum $choice) => match ($choice) {
                     default => t('trexima_european_cv.form_label.language_level_' . strtolower($choice->value), [], 'trexima_european_cv'),
                 },
             ])
-            ;
+        ;
     }
 
     /**

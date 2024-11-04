@@ -69,7 +69,7 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
             'required' => false,
             'expanded' => true,
             'multiple' => false,
-            'choice_label' => fn(SexEnum $choice) => match ($choice) {
+            'choice_label' => fn (SexEnum $choice) => match ($choice) {
                 SexEnum::MALE => t('trexima_european_cv.form_label.sex_male', [], 'trexima_european_cv'),
                 SexEnum::FEMALE => t('trexima_european_cv.form_label.sex_female', [], 'trexima_european_cv'),
                 SexEnum::DO_NOT_STATE => t('trexima_european_cv.form_label.sex_do_not_state', [], 'trexima_european_cv'),
@@ -126,7 +126,7 @@ class EuropeanCVPartBasicInfoType extends AbstractType implements DataMapperInte
         ->add('nationalities', EnumType::class, [
             'class' => NationalityEnum::class,
             'label' => t('trexima_european_cv.form_label.nationalities_label', [], 'trexima_european_cv'),
-            'choice_label' => function(NationalityEnum $choice) {
+            'choice_label' => function (NationalityEnum $choice) {
                 return t('trexima_european_cv.form_label.nationality_' . strtolower($choice->value), [], 'trexima_european_cv')->trans($this->translator);
             },
             'transform' => true,

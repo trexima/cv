@@ -101,7 +101,7 @@ abstract class AbstractAutocompleteType extends AbstractType implements DataMapp
 
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $emptyData = fn(Options $options) => $options['multiple'] ? [] : null;
+        $emptyData = fn (Options $options) => $options['multiple'] ? [] : null;
 
         $placeholderDefault = function (Options $options) {
             return $options['required'] ? null : '';

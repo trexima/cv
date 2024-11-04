@@ -15,8 +15,7 @@ class EuropeanCvManager
     public function __construct(
         private readonly string $uploadDir,
         private readonly EuropeanCvExporter $europeanCvExporter
-    )
-    {
+    ) {
     }
 
     /**

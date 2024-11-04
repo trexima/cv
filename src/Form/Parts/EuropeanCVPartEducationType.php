@@ -20,7 +20,6 @@ use function Symfony\Component\Translation\t;
  */
 class EuropeanCVPartEducationType extends AbstractType implements EventSubscriberInterface
 {
-
     /**
      * {@inheritdoc}
      */
@@ -114,7 +113,7 @@ class EuropeanCVPartEducationType extends AbstractType implements EventSubscribe
         if ($education->getTitle()) {
             $data->addEducation($education);
         }
-    
+
         $education = $formEvent->getForm()->get('addUniversity')->getData();
         if ($education->getTitle()) {
             $data->addEducation($education);

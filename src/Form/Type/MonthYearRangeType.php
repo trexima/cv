@@ -82,7 +82,7 @@ class MonthYearRangeType extends AbstractType
              * Callback for empty_data is required because object
              * must be instantiate for every form element not only once!
              */
-            'empty_data' => fn() => new MonthYearRange(),
+            'empty_data' => fn () => new MonthYearRange(),
             'field_options' => [],
         ]);
     }

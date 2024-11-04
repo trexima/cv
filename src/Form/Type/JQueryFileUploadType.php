@@ -22,8 +22,7 @@ class JQueryFileUploadType extends AbstractType
     public function __construct(
         private readonly string $uploadUrl,
         private readonly RouterInterface $router
-    )
-    {
+    ) {
         $this->accessor = PropertyAccess::createPropertyAccessor();
     }
 

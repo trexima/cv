@@ -15,7 +15,6 @@ use function Symfony\Component\Translation\t;
  */
 class EuropeanCVPartHobbiesType extends AbstractType
 {
-
     /**
      * {@inheritdoc}
      */

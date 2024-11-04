@@ -2,7 +2,6 @@
 
 namespace Trexima\EuropeanCvBundle\Form\DataTransformer;
 
-
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
 

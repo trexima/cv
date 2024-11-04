@@ -20,14 +20,13 @@ use Trexima\EuropeanCvBundle\Entity\EuropeanCVDrivingLicense;
  */
 class DrivingLicenseType extends AbstractType
 {
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $drivingLicenses = DrivingLicenseEnum::cases();
         /**
          * Prefill form with all available driving licenses
          */
-        $builder->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event) use ($drivingLicenses, $options) {
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($drivingLicenses, $options) {
             $event->stopPropagation(); // Prevent CollectionType default behaviour
 
             $form = $event->getForm();
@@ -77,7 +76,7 @@ class DrivingLicenseType extends AbstractType
         /**
          * Delete empty collections. Option 'delete_empty' with callback is allowed from Symfony 3.
          */
-        $builder->addEventListener(FormEvents::SUBMIT, function(FormEvent $event){
+        $builder->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
             $data = $event->getData();
 
             $toDelete = [];

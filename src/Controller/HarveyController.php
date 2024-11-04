@@ -57,7 +57,8 @@ class HarveyController extends AbstractController
         return $this->json($results);
     }
 
-    private function getKovLevelTitle($kov) {
+    private function getKovLevelTitle($kov)
+    {
         $kovLevel = $this->harvey->getClient()->getKovLevel(str_replace('/api/kov-level/', '', $kov));
         return $kovLevel['title'] ?? '';
     }

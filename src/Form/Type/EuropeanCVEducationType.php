@@ -20,7 +20,6 @@ use function Symfony\Component\Translation\t;
 
 class EuropeanCVEducationType extends AbstractType implements EventSubscriberInterface
 {
-
     public function __construct(private readonly TranslatorInterface $translator)
     {
     }
@@ -53,7 +52,7 @@ class EuropeanCVEducationType extends AbstractType implements EventSubscriberInt
                 ],
                 'field_options' => [
                     'endYear' => [
-                        'choices' => [t('trexima_european_cv.form_label.education_not_finished', [], 'trexima_european_cv')->trans($this->translator) => -1] + array_reverse(array_combine(range(date('Y')-100, date('Y')), range(date('Y')-100, date('Y'))), true),
+                        'choices' => [t('trexima_european_cv.form_label.education_not_finished', [], 'trexima_european_cv')->trans($this->translator) => -1] + array_reverse(array_combine(range(date('Y') - 100, date('Y')), range(date('Y') - 100, date('Y'))), true),
                     ]
                 ]
             ], ($options['field_options']['yearRange'] ?? [])));

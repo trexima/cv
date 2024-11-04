@@ -14,7 +14,6 @@ use function Symfony\Component\Translation\t;
 
 class EuropeanCVDigitalSkillType extends AbstractType
 {
-
     /**
      * {@inheritdoc}
      */
@@ -34,11 +33,11 @@ class EuropeanCVDigitalSkillType extends AbstractType
                 'required' => true,
                 'label' => t('trexima_european_cv.form_label.digital_skill_level', [], 'trexima_european_cv'),
                 'multiple' => false,
-                'choice_label' => fn(DigitalSkillLevelEnum $choice) => match ($choice) {
+                'choice_label' => fn (DigitalSkillLevelEnum $choice) => match ($choice) {
                     default => t('trexima_european_cv.form_label.digital_skill_level_' . strtolower($choice->value), [], 'trexima_european_cv'),
                 },
             ])
-            ;
+        ;
     }
 
     /**
@@ -52,18 +51,23 @@ class EuropeanCVDigitalSkillType extends AbstractType
         ]);
     }
 
-    private function getDigitalSkillsArray() {
+    private function getDigitalSkillsArray()
+    {
         $digitalSkillList = [];
         $digitalSkills = [];
         $skillCategories = [];
         foreach ($digitalSkillList as $itemId => $item) {
-            if ($item['level'] === 1) $skillCategories[$itemId] = $item['label'];
+            if ($item['level'] === 1) {
+                $skillCategories[$itemId] = $item['label'];
+            }
         }
 
         foreach ($digitalSkillList as $itemId => $item) {
-            if ($item['level'] === 2) $digitalSkills[$skillCategories[$item['parent']]][$item['label']] = $item['label'];
+            if ($item['level'] === 2) {
+                $digitalSkills[$skillCategories[$item['parent']]][$item['label']] = $item['label'];
+            }
         }
-        
+
         return $digitalSkills;
     }
 }

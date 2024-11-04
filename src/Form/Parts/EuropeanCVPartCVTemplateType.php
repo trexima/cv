@@ -36,7 +36,7 @@ class EuropeanCVPartCVTemplateType extends AbstractType implements EventSubscrib
                 LanguageEnum::LANGUAGE_DE,
                 LanguageEnum::LANGUAGE_HU,
             ],
-            'choice_label' => fn(LanguageEnum $choice) => match ($choice) {
+            'choice_label' => fn (LanguageEnum $choice) => match ($choice) {
                 LanguageEnum::LANGUAGE_SK => t('trexima_european_cv.form_label.language_sk', [], 'trexima_european_cv'),
                 LanguageEnum::LANGUAGE_EN => t('trexima_european_cv.form_label.language_en', [], 'trexima_european_cv'),
                 LanguageEnum::LANGUAGE_DE => t('trexima_european_cv.form_label.language_de', [], 'trexima_european_cv'),

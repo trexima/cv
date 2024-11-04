@@ -37,7 +37,7 @@ abstract class AbstractMappedAutocompleteType extends AbstractAutocompleteType i
 
     protected function createChoices(array $actualData, array $submitData, array $options): array
     {
-        $externalData = \array_map(fn($it) => $this->retrieveDataForValue($it), $submitData);
+        $externalData = \array_map(fn ($it) => $this->retrieveDataForValue($it), $submitData);
         $externalData = \array_filter($externalData);
 
         // Map data to desired type, either create a new instance or update an existing old value

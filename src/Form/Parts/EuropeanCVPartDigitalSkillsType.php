@@ -36,7 +36,7 @@ class EuropeanCVPartDigitalSkillsType extends AbstractType implements EventSubsc
                 'prototype' => true,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'delete_empty' => fn($data) => $data?->getPcSkill() === null,
+                'delete_empty' => fn ($data) => $data?->getPcSkill() === null,
                 'error_bubbling' => false,
                 'constraints' => [
                     new Valid(),

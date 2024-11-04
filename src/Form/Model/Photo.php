@@ -10,7 +10,7 @@ class Photo
     #[Assert\When(
         expression: 'this.getFile() !== null',
         constraints: [
-            new Assert\NotNull,
+            new Assert\NotNull(),
         ]
     )]
     private ?array $options = null;

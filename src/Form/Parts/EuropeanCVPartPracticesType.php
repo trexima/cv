@@ -19,7 +19,6 @@ use Trexima\EuropeanCvBundle\Form\Type\EuropeanCVWorkBreakType;
  */
 class EuropeanCVPartPracticesType extends AbstractType implements EventSubscriberInterface
 {
-
     /**
      * {@inheritdoc}
      */
@@ -92,7 +91,7 @@ class EuropeanCVPartPracticesType extends AbstractType implements EventSubscribe
                 ];
             }
             $months[$practice->getIscoCode()]['values'] = array_unique(array_merge(
-                $months[$practice->getIscoCode()]['values'], 
+                $months[$practice->getIscoCode()]['values'],
                 $this->getMonthsFromMonthYearRange(
                     $practice->getDateRange()->getBeginMonth(),
                     $practice->getDateRange()->getBeginYear(),
@@ -134,23 +133,36 @@ class EuropeanCVPartPracticesType extends AbstractType implements EventSubscribe
         $event->setData($europeanCV);
     }
 
-    private function getMonthsFromMonthYearRange($monthFrom, $yearFrom, $monthTo=null, $yearTo=null) {
+    private function getMonthsFromMonthYearRange($monthFrom, $yearFrom, $monthTo = null, $yearTo = null)
+    {
         $now = new \DateTime();
         $months = [];
 
         // set today values if monthTo and yearTo are null
-        if ($monthTo === null) $monthTo = (int) $now->format('m');
-        if ($yearTo === null) $yearTo = (int) $now->format('Y');
+        if ($monthTo === null) {
+            $monthTo = (int) $now->format('m');
+        }
+        if ($yearTo === null) {
+            $yearTo = (int) $now->format('Y');
+        }
 
         // handle invalied ranges
-        if ($yearFrom > $yearTo) return $months;
-        if ($yearFrom === $yearTo && $monthFrom > $monthTo) return $months;
+        if ($yearFrom > $yearTo) {
+            return $months;
+        }
+        if ($yearFrom === $yearTo && $monthFrom > $monthTo) {
+            return $months;
+        }
 
         // add all year-month combinataions from range to array
         for ($i = $yearFrom; $i <= $yearTo; $i++) {
             for ($j = 1; $j <= 12; $j++) {
-                if ($i === $yearFrom && $j < $monthFrom) continue;
-                if ($i === $yearTo && $j > $monthTo) continue;
+                if ($i === $yearFrom && $j < $monthFrom) {
+                    continue;
+                }
+                if ($i === $yearTo && $j > $monthTo) {
+                    continue;
+                }
                 $months[] = $i . '-' . $j;
             }
         }

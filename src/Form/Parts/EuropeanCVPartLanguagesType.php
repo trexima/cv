@@ -45,7 +45,7 @@ class EuropeanCVPartLanguagesType extends AbstractType implements EventSubscribe
                 'prototype' => true,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'delete_empty' => fn($data) => $data?->getLanguage() === null,
+                'delete_empty' => fn ($data) => $data?->getLanguage() === null,
                 'error_bubbling' => false,
                 'constraints' => [
                     new Valid(),

@@ -141,10 +141,10 @@ class GooglePlaces
         }
 
         if (\count($countries) > 0) {
-            $query['components'] = \implode('|', \array_map(fn($v) => 'country:' . $v, $countries));
+            $query['components'] = \implode('|', \array_map(fn ($v) => 'country:' . $v, $countries));
         }
 
-        $query['types'] = \implode('|', \array_map(fn(GooglePlacesAutocompleteTypeEnum $type) => $type->value, $types));
+        $query['types'] = \implode('|', \array_map(fn (GooglePlacesAutocompleteTypeEnum $type) => $type->value, $types));
 
         return $this->doAutocomplete($query);
     }
