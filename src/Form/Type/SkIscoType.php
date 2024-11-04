@@ -2,9 +2,9 @@
 
 namespace Trexima\EuropeanCvBundle\Form\Type;
 
-use Trexima\EuropeanCvBundle\Facade\Harvey;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
+use Trexima\EuropeanCvBundle\Facade\Harvey;
 
 /**
  * It is expected that data used with this form type contains all necessary properties.
@@ -13,7 +13,7 @@ class SkIscoType extends AbstractMappedAutocompleteType
 {
     public function __construct(
         protected readonly Harvey $harvey,
-        PropertyAccessorInterface $propertyAccessor = null,
+        ?PropertyAccessorInterface $propertyAccessor = null,
     ) {
         parent::__construct($propertyAccessor);
     }
@@ -31,7 +31,7 @@ class SkIscoType extends AbstractMappedAutocompleteType
                     'title' => 'title',
                 ],
                 'error_bubbling' => false,
-                'select2_tags' => true
+                'select2_tags' => true,
             ]);
     }
 
@@ -54,7 +54,7 @@ class SkIscoType extends AbstractMappedAutocompleteType
 
         return [
             'iscoCode' => $value,
-            'title' => $title
+            'title' => $title,
         ];
     }
 }

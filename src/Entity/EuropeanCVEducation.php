@@ -10,7 +10,7 @@ use Trexima\EuropeanCvBundle\Entity\Enum\EducationTypeEnum;
 use Trexima\EuropeanCvBundle\Validator as AppAssert;
 
 /**
- * EuropeanCV education
+ * EuropeanCV education.
  */
 #[ORM\Table(name: 'european_cv_education')]
 #[ORM\Entity]

@@ -2,16 +2,16 @@
 
 namespace Trexima\EuropeanCvBundle\DependencyInjection;
 
-use Trexima\EuropeanCvBundle\Model\UserInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Trexima\EuropeanCvBundle\Model\UserInterface;
 
 class TreximaEuropeanCvExtension extends Extension implements PrependExtensionInterface
 {
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new YamlFileLoader(
             $container,
@@ -30,7 +30,7 @@ class TreximaEuropeanCvExtension extends Extension implements PrependExtensionIn
         $container->setParameter('trexima_european_cv_google_apikey', $config['google']['apikey']);
     }
 
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
         $configuration = new Configuration();
         $configs = $container->getExtensionConfig($this->getAlias());

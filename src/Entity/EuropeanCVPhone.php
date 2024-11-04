@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Persistence\Proxy;
 
 /**
- * EuropeanCV phone
+ * EuropeanCV phone.
  */
 #[ORM\Table(name: 'european_cv_phone')]
 #[ORM\Entity]

@@ -35,7 +35,7 @@ class PhotoType extends AbstractType
             ->add('file', FileType::class, [
                 'required' => false,
                 'label' => false,
-                'attr' => ['accept' => \implode(',', self::MIME_TYPES) . ',.jpg,.jpeg,.png'],
+                'attr' => ['accept' => implode(',', self::MIME_TYPES).',.jpg,.jpeg,.png'],
                 'error_bubbling' => true,
                 'constraints' => [
                     new Assert\Image(
@@ -66,7 +66,7 @@ class PhotoType extends AbstractType
         $builder->get('options')->addModelTransformer($this->arrayToJsonTransformer);
     }
 
-    public function postSetData(FormEvent $formEvent)
+    public function postSetData(FormEvent $formEvent): void
     {
         $form = $formEvent->getForm();
         /** @var Photo|null $viewData */
@@ -75,7 +75,7 @@ class PhotoType extends AbstractType
         $this->addExistingFileSubform($form, $viewData);
     }
 
-    private function addExistingFileSubform(FormInterface $form, Photo|null $viewData)
+    private function addExistingFileSubform(FormInterface $form, ?Photo $viewData): void
     {
         $constraints = [];
         if (null !== $viewData) {

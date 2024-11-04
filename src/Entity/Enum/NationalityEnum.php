@@ -3,7 +3,7 @@
 namespace Trexima\EuropeanCvBundle\Entity\Enum;
 
 /**
- * Country codes by ISO 3166-1 Alpha-2 standard
+ * Country codes by ISO 3166-1 Alpha-2 standard.
  */
 enum NationalityEnum: string
 {

@@ -19,7 +19,7 @@ use Symfony\Component\Translation\TranslatableMessage;
 /**
  * Type rendering a ChoiceType with dynamically created choices appropriate for autocomplete.
  * Must be extended to implement {@link AbstractMappedAutocompleteType::createChoices()} method
- * that should dynamically create choices based on currently selected values
+ * that should dynamically create choices based on currently selected values.
  */
 abstract class AbstractAutocompleteType extends AbstractType implements DataMapperInterface
 {
@@ -37,14 +37,14 @@ abstract class AbstractAutocompleteType extends AbstractType implements DataMapp
     }
 
     /**
-     * Create autocomplete ChoiceType with options from current data
+     * Create autocomplete ChoiceType with options from current data.
      */
     private function postSetData(FormEvent $event): void
     {
         $form = $event->getForm();
         $data = $form->getData() ?? [];
 
-        if (!$data instanceof \Traversable && !is_array($data)) {
+        if (!$data instanceof \Traversable && !\is_array($data)) {
             $data = [$data];
         }
 
@@ -52,7 +52,7 @@ abstract class AbstractAutocompleteType extends AbstractType implements DataMapp
     }
 
     /**
-     * Create autocomplete ChoiceType with options from current submitted data
+     * Create autocomplete ChoiceType with options from current submitted data.
      */
     private function preSubmit(FormEvent $event): void
     {
@@ -66,7 +66,7 @@ abstract class AbstractAutocompleteType extends AbstractType implements DataMapp
         // Map data to native array
         $actualData = $form->getData() ?? [];
         if ($actualData instanceof Collection) {
-            $actualData = \array_values($actualData->getValues());
+            $actualData = array_values($actualData->getValues());
         } elseif ($actualData instanceof \Traversable) {
             $mapped = [];
             foreach ($actualData as $actual) {
@@ -87,7 +87,7 @@ abstract class AbstractAutocompleteType extends AbstractType implements DataMapp
     {
         $parentOptions = $form->getConfig()->getOptions();
 
-        $options = \array_merge($parentOptions, [
+        $options = array_merge($parentOptions, [
             'choices' => $choices,
             'error_bubbling' => true,
             'compound' => false,
@@ -101,7 +101,7 @@ abstract class AbstractAutocompleteType extends AbstractType implements DataMapp
 
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $emptyData = fn(Options $options) => $options['multiple'] ? [] : null;
+        $emptyData = fn (Options $options) => $options['multiple'] ? [] : null;
 
         $placeholderDefault = function (Options $options) {
             return $options['required'] ? null : '';
@@ -124,7 +124,7 @@ abstract class AbstractAutocompleteType extends AbstractType implements DataMapp
         };
 
         $classNormalizer = function (Options $options, $value) {
-            if (!\class_exists($value)) {
+            if (!class_exists($value)) {
                 throw new \RuntimeException('Invalid class provided');
             }
 
@@ -187,10 +187,11 @@ abstract class AbstractAutocompleteType extends AbstractType implements DataMapp
 
     public function mapDataToForms(mixed $viewData, \Traversable $forms): void
     {
-        $forms = \iterator_to_array($forms);
+        $forms = iterator_to_array($forms);
 
         if (null === $viewData) {
             $forms['autocomplete']->setData(null);
+
             return;
         }
 
@@ -204,13 +205,13 @@ abstract class AbstractAutocompleteType extends AbstractType implements DataMapp
 
     public function mapFormsToData(\Traversable $forms, mixed &$viewData): void
     {
-        $forms = \iterator_to_array($forms);
+        $forms = iterator_to_array($forms);
         $viewData = $forms['autocomplete']->getData();
     }
 
     /**
      * A method that can be used to further update options assigned to ChoiceType,
-     * e.g. as a cleanup to remove custom options
+     * e.g. as a cleanup to remove custom options.
      */
     protected function preAddAutocomplete(array &$options): void
     {
@@ -219,7 +220,7 @@ abstract class AbstractAutocompleteType extends AbstractType implements DataMapp
 
     /**
      * Method that should retrieve all data needed for currently
-     * selected options and use them as choices
+     * selected options and use them as choices.
      */
     abstract protected function createChoices(array $actualData, array $submitData, array $options): array;
 }

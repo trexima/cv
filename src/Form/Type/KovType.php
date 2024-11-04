@@ -2,10 +2,9 @@
 
 namespace Trexima\EuropeanCvBundle\Form\Type;
 
-use Trexima\EuropeanCvBundle\Facade\Harvey;
-use Trexima\EuropeanCvBundle\Form\Type\AbstractMappedAutocompleteType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
+use Trexima\EuropeanCvBundle\Facade\Harvey;
 
 /**
  * It is expected that data used with this form type contains all necessary properties.
@@ -14,7 +13,7 @@ class KovType extends AbstractMappedAutocompleteType
 {
     public function __construct(
         protected readonly Harvey $harvey,
-        PropertyAccessorInterface $propertyAccessor = null,
+        ?PropertyAccessorInterface $propertyAccessor = null,
     ) {
         parent::__construct($propertyAccessor);
     }
@@ -32,7 +31,7 @@ class KovType extends AbstractMappedAutocompleteType
                     'kovTitle' => 'kovTitle',
                 ],
                 'error_bubbling' => false,
-                'select2_tags' => true
+                'select2_tags' => true,
             ]);
     }
 
@@ -48,7 +47,7 @@ class KovType extends AbstractMappedAutocompleteType
             $kovs = $this->harvey->getClient()->searchKov(null, $value);
             if (!empty($kovs)) {
                 $kov = $kovs[0];
-                $title = $kov['code'] . ' ' . $kov['title'] . ' (' . $this->getKovLevelTitle($kov['kovLevel']) . ')';
+                $title = $kov['code'].' '.$kov['title'].' ('.$this->getKovLevelTitle($kov['kovLevel']).')';
             }
         } catch (\Exception) {
             return null;
@@ -56,7 +55,7 @@ class KovType extends AbstractMappedAutocompleteType
 
         return [
             'kovCode' => $value,
-            'kovTitle' => $title
+            'kovTitle' => $title,
         ];
     }
 
@@ -75,8 +74,10 @@ class KovType extends AbstractMappedAutocompleteType
         }
     }
 
-    private function getKovLevelTitle($kov) {
+    private function getKovLevelTitle($kov)
+    {
         $kovLevel = $this->harvey->getClient()->getKovLevel(str_replace('/api/kov-level/', '', $kov));
+
         return $kovLevel['title'] ?? '';
     }
 }

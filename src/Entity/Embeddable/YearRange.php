@@ -11,7 +11,7 @@ class YearRange
     #[Assert\When(
         expression: 'this.getEndYear() !== null',
         constraints: [
-            new Assert\NotNull(message: 'trexima_european_cv.select_choice')
+            new Assert\NotNull(message: 'trexima_european_cv.select_choice'),
         ]
     )]
     #[ORM\Column(type: 'smallint', nullable: true)]
@@ -24,9 +24,9 @@ class YearRange
             new Assert\When(
                 expression: 'value >= 0',
                 constraints: [
-                    new Assert\GreaterThanOrEqual(propertyPath: 'beginYear')
+                    new Assert\GreaterThanOrEqual(propertyPath: 'beginYear'),
                 ]
-            )
+            ),
         ]
     )]
     #[ORM\Column(type: 'smallint', nullable: true)]

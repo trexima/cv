@@ -11,7 +11,7 @@ class GooglePlaceUtil
     }
 
     /**
-     * Map data from google place result to a more readable data appropriate for {@link AbstractGoogleAddress}
+     * Map data from google place result to a more readable data appropriate for {@link AbstractGoogleAddress}.
      */
     public static function mapComponents(array $place, string $language = 'sk'): array
     {

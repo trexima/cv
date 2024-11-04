@@ -15,46 +15,46 @@ use function Symfony\Component\Translation\t;
  */
 class YearRangeType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
         ->add('beginYear', ChoiceType::class, array_merge([
             'label' => t('trexima_european_cv.form_label.year_range_begin_year_placeholder', [], 'trexima_european_cv'),
             'required' => false,
-            'choices' => array_reverse(array_combine(range(date('Y')-100, date('Y')), range(date('Y')-100, date('Y'))), true),
+            'choices' => array_reverse(array_combine(range(date('Y') - 100, date('Y')), range(date('Y') - 100, date('Y'))), true),
             'attr' => [
                 'data-trexima-european-cv-dynamic-collection-sort-by' => 1,
                 'data-controller' => 'ui--select2',
                 'data-ui--select2-placeholder-value' => 'Vyberte rok',
                 'data-ui--select2-theme-value' => 'worki-floating',
                 'data-ui--select2-allow-clear-value' => true,
-            ]
-        ], ($options['field_options']['beginYear'] ?? [])))
+            ],
+        ], $options['field_options']['beginYear'] ?? []))
         ->add('endYear', ChoiceType::class, array_merge([
             'required' => false,
             'label' => t('trexima_european_cv.form_label.year_range_end_year_placeholder', [], 'trexima_european_cv'),
-            'choices' => array_reverse(array_combine(range(date('Y')-100, date('Y')), range(date('Y')-100, date('Y'))), true),
+            'choices' => array_reverse(array_combine(range(date('Y') - 100, date('Y')), range(date('Y') - 100, date('Y'))), true),
             'attr' => [
                 'data-trexima-european-cv-dynamic-collection-sort-by' => 1,
                 'data-controller' => 'ui--select2',
                 'data-ui--select2-placeholder-value' => 'Vyberte rok',
                 'data-ui--select2-theme-value' => 'worki-floating',
                 'data-ui--select2-allow-clear-value' => true,
-            ]
-        ], ($options['field_options']['endYear'] ?? [])))
+            ],
+        ], $options['field_options']['endYear'] ?? []))
         ;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => YearRange::class,
-            /**
+            /*
              * Callback for empty_data is required because object
              * must be instantiate for every form element not only once!
              */
-            'empty_data' => fn() => new YearRange(),
-            'field_options' => []
+            'empty_data' => fn () => new YearRange(),
+            'field_options' => [],
         ]);
     }
 }

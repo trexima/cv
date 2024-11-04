@@ -1,4 +1,5 @@
 <?php
+
 namespace Trexima\EuropeanCvBundle\Twig;
 
 use Twig\Extension\RuntimeExtensionInterface;

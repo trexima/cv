@@ -2,21 +2,21 @@
 
 namespace Trexima\EuropeanCvBundle\Form\Type;
 
-use Trexima\EuropeanCvBundle\Entity\AbstractGoogleAddress;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
+use Trexima\EuropeanCvBundle\Entity\AbstractGoogleAddress;
 use Trexima\EuropeanCvBundle\Facade\GooglePlaces;
 use Trexima\EuropeanCvBundle\Util\GooglePlaceUtil;
 
 /**
  * It is expected that data used with this form type contains all necessary properties.
- * Used mainly with {@link AbstractGoogleAddress}
+ * Used mainly with {@link AbstractGoogleAddress}.
  */
 class GooglePlaceAutocompleteType extends AbstractMappedAutocompleteType
 {
     public function __construct(
         protected readonly GooglePlaces $googlePlaces,
-        PropertyAccessorInterface $propertyAccessor = null,
+        ?PropertyAccessorInterface $propertyAccessor = null,
     ) {
         parent::__construct($propertyAccessor);
     }

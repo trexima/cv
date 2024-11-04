@@ -9,25 +9,25 @@ use Trexima\EuropeanCvBundle\Export\EuropeanCvExporter;
 
 class EuropeanCvManager
 {
-    private const THUMB_WIDTH = 250,
-        THUMB_HEIGHT = 250;
+    private const THUMB_WIDTH = 250;
+    private const THUMB_HEIGHT = 250;
 
     public function __construct(
         private readonly string $uploadDir,
-        private readonly EuropeanCvExporter $europeanCvExporter
-    )
-    {
+        private readonly EuropeanCvExporter $europeanCvExporter,
+    ) {
     }
 
     /**
      * Save thumbnail to file.
      * Output is always jpeg file.
      *
-     * @param string $dir Directory for saving thumbnail
+     * @param string $dir      Directory for saving thumbnail
      * @param string $filename Filename of thumbnail
+     *
      * @throws \Exception
      */
-    public function saveThumbnail(File $file, string $dir, string $filename)
+    public function saveThumbnail(File $file, string $dir, string $filename): void
     {
         $image = new SimpleImage($file->getRealPath());
         $image->thumbnail(self::THUMB_WIDTH, self::THUMB_HEIGHT);

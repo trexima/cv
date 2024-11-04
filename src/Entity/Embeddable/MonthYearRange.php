@@ -79,22 +79,23 @@ class MonthYearRange
         $endYear = $this->getEndYear();
         $endMonth = $this->getEndMonth();
 
-        if ($endYear === null && $endMonth === null) {
+        if (null === $endYear && null === $endMonth) {
             return;
         }
 
-        if ($endYear === null || $endMonth === null) {
+        if (null === $endYear || null === $endMonth) {
             $context->buildViolation('trexima_european_cv.range_not_valid')
                 ->atPath('endMonth')
                 ->addViolation();
             $context->buildViolation('trexima_european_cv.range_not_valid')
                 ->atPath('endYear')
                 ->addViolation();
+
             return;
         }
 
-        $from = $this->getBeginYear() . sprintf('%02d', $this->getBeginMonth());
-        $to = $endYear . sprintf('%02d', $endMonth);
+        $from = $this->getBeginYear().\sprintf('%02d', $this->getBeginMonth());
+        $to = $endYear.\sprintf('%02d', $endMonth);
 
         if ($from > $to) {
             $context->buildViolation('trexima_european_cv.range_not_valid')

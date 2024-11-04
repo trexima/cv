@@ -9,7 +9,7 @@ use Trexima\EuropeanCvBundle\Entity\Enum\LanguageEnum;
 use Trexima\EuropeanCvBundle\Entity\Enum\LanguageLevelEnum;
 
 /**
- * EuropeanCV language
+ * EuropeanCV language.
  */
 #[ORM\Table(name: 'european_cv_language')]
 #[ORM\Index(columns: ['language'], name: 'language_idx')]
@@ -28,7 +28,7 @@ class EuropeanCVLanguage
     #[Assert\When(
         expression: 'this.getLevel() !== null',
         constraints: [
-            new Assert\NotNull(message: 'trexima_european_cv.level_not_empty')
+            new Assert\NotNull(message: 'trexima_european_cv.level_not_empty'),
         ]
     )]
     #[ORM\Column(
@@ -43,7 +43,7 @@ class EuropeanCVLanguage
     #[Assert\When(
         expression: 'this.getLanguage() !== null',
         constraints: [
-            new Assert\NotNull(message: 'trexima_european_cv.level_not_empty')
+            new Assert\NotNull(message: 'trexima_european_cv.level_not_empty'),
         ]
     )]
     #[ORM\Column(type: 'string', length: 2, nullable: true, enumType: LanguageLevelEnum::class)]

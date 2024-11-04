@@ -5,26 +5,22 @@ namespace Trexima\EuropeanCvBundle\Form\Parts;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Trexima\EuropeanCvBundle\Entity\Enum\EducationTypeEnum;
+use Trexima\EuropeanCvBundle\Entity\EuropeanCV;
 use Trexima\EuropeanCvBundle\Form\Type\EuropeanCVEducationType;
 
 use function Symfony\Component\Translation\t;
 
 /**
- * Education
+ * Education.
  */
 class EuropeanCVPartEducationType extends AbstractType implements EventSubscriberInterface
 {
-
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('addElementarySchool', EuropeanCVEducationType::class, [
@@ -37,8 +33,8 @@ class EuropeanCVPartEducationType extends AbstractType implements EventSubscribe
             ->add('saveElementarySchool', SubmitType::class, [
                 'label' => t('trexima_european_cv.form_label.save_education_button', [], 'trexima_european_cv'),
                 'attr' => [
-                    'class' => 'btn-lg-lg btn-primary text-wrap'
-                ]
+                    'class' => 'btn-lg-lg btn-primary text-wrap',
+                ],
             ])
             ->add('addHighSchool', EuropeanCVEducationType::class, [
                 'education_type' => EducationTypeEnum::EDUCATION_HIGH_SCHOOL,
@@ -50,8 +46,8 @@ class EuropeanCVPartEducationType extends AbstractType implements EventSubscribe
             ->add('saveHighSchool', SubmitType::class, [
                 'label' => t('trexima_european_cv.form_label.save_education_button', [], 'trexima_european_cv'),
                 'attr' => [
-                    'class' => 'btn-lg-lg btn-primary text-wrap'
-                ]
+                    'class' => 'btn-lg-lg btn-primary text-wrap',
+                ],
             ])
             ->add('addUniversity', EuropeanCVEducationType::class, [
                 'education_type' => EducationTypeEnum::EDUCATION_UNIVERSITY,
@@ -63,17 +59,14 @@ class EuropeanCVPartEducationType extends AbstractType implements EventSubscribe
             ->add('saveUniversity', SubmitType::class, [
                 'label' => t('trexima_european_cv.form_label.save_education_button', [], 'trexima_european_cv'),
                 'attr' => [
-                    'class' => 'btn-lg-lg btn-primary text-wrap'
-                ]
+                    'class' => 'btn-lg-lg btn-primary text-wrap',
+                ],
             ])
             ->addEventSubscriber($this)
         ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
@@ -86,10 +79,10 @@ class EuropeanCVPartEducationType extends AbstractType implements EventSubscribe
             'educations_min' => 0,
             'languages_min' => 0,
             'additional_informations_min' => 0,
-         ]);
+        ]);
 
         $resolver->setRequired([
-            'photo_upload_route'
+            'photo_upload_route',
         ]);
     }
 
@@ -114,7 +107,7 @@ class EuropeanCVPartEducationType extends AbstractType implements EventSubscribe
         if ($education->getTitle()) {
             $data->addEducation($education);
         }
-    
+
         $education = $formEvent->getForm()->get('addUniversity')->getData();
         if ($education->getTitle()) {
             $data->addEducation($education);

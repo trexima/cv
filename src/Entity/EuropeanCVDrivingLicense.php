@@ -7,7 +7,7 @@ use Doctrine\Persistence\Proxy;
 use Trexima\EuropeanCvBundle\Entity\Enum\DrivingLicenseEnum;
 
 /**
- * EuropeanCV driving license
+ * EuropeanCV driving license.
  */
 #[ORM\Table(name: 'european_cv_driving_license')]
 #[ORM\Index(columns: ['driving_license'], name: 'driving_license_idx')]
@@ -32,7 +32,7 @@ class EuropeanCVDrivingLicense
         nullable: true,
         options: [
             'unsigned' => true,
-            'comment' => 'Distance traveled in kilometers'
+            'comment' => 'Distance traveled in kilometers',
         ],
     )]
     private ?int $distanceTraveled = null;

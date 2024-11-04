@@ -3,7 +3,7 @@
 namespace Trexima\EuropeanCvBundle\Entity\Enum;
 
 /**
- * Enum for Work break types
+ * Enum for Work break types.
  */
 enum WorkBreakEnum: int
 {

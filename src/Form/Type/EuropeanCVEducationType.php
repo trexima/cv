@@ -20,14 +20,10 @@ use function Symfony\Component\Translation\t;
 
 class EuropeanCVEducationType extends AbstractType implements EventSubscriberInterface
 {
-
     public function __construct(private readonly TranslatorInterface $translator)
     {
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $entity = $builder->getData();
@@ -36,15 +32,15 @@ class EuropeanCVEducationType extends AbstractType implements EventSubscriberInt
                 'data' => $options['education_type'],
                 'class' => EducationTypeEnum::class,
                 'mapped' => true,
-                'hidden' => true
-            ], ($options['field_options']['type'] ?? [])))
+                'hidden' => true,
+            ], $options['field_options']['type'] ?? []))
             ->add('title', TextType::class, array_merge([
                 'label' => t('trexima_european_cv.form_label.education_title_label', [], 'trexima_european_cv'),
                 'required' => false,
                 'attr' => [
-                    'placeholder' => t('trexima_european_cv.form_label.education_title_placeholder', [], 'trexima_european_cv')
-                ]
-            ], ($options['field_options']['title'] ?? [])))
+                    'placeholder' => t('trexima_european_cv.form_label.education_title_placeholder', [], 'trexima_european_cv'),
+                ],
+            ], $options['field_options']['title'] ?? []))
             ->add('yearRange', YearRangeType::class, array_merge([
                 'required' => false,
                 'label' => t('trexima_european_cv.form_label.education_year_range_label', [], 'trexima_european_cv'),
@@ -53,10 +49,10 @@ class EuropeanCVEducationType extends AbstractType implements EventSubscriberInt
                 ],
                 'field_options' => [
                     'endYear' => [
-                        'choices' => [t('trexima_european_cv.form_label.education_not_finished', [], 'trexima_european_cv')->trans($this->translator) => -1] + array_reverse(array_combine(range(date('Y')-100, date('Y')), range(date('Y')-100, date('Y'))), true),
-                    ]
-                ]
-            ], ($options['field_options']['yearRange'] ?? [])));
+                        'choices' => [t('trexima_european_cv.form_label.education_not_finished', [], 'trexima_european_cv')->trans($this->translator) => -1] + array_reverse(array_combine(range(date('Y') - 100, date('Y')), range(date('Y') - 100, date('Y'))), true),
+                    ],
+                ],
+            ], $options['field_options']['yearRange'] ?? []));
 
         if ($options['education_type']->value !== EducationTypeEnum::EDUCATION_ELEMENTARY_SCHOOL->value) {
             $builder->add('kov', KovType::class, array_merge([
@@ -74,25 +70,22 @@ class EuropeanCVEducationType extends AbstractType implements EventSubscriberInt
                     'trexima_european_cv',
                 ),
                 'row_attr' => [
-                    'class' => 'mt-3.5'
+                    'class' => 'mt-3.5',
                 ],
-            ], ($options['field_options']['kov'] ?? [])));
+            ], $options['field_options']['kov'] ?? []));
 
             $builder->add('description', TextareaType::class, array_merge([
                 'label' => t('trexima_european_cv.form_label.education_description_label', [], 'trexima_european_cv'),
                 'required' => false,
                 'attr' => [
-                    'placeholder' => t('trexima_european_cv.form_label.education_description_placeholder', [], 'trexima_european_cv')
-                ]
-            ], ($options['field_options']['description'] ?? [])));
+                    'placeholder' => t('trexima_european_cv.form_label.education_description_placeholder', [], 'trexima_european_cv'),
+                ],
+            ], $options['field_options']['description'] ?? []));
         }
 
         $builder->addEventSubscriber($this);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
@@ -100,9 +93,9 @@ class EuropeanCVEducationType extends AbstractType implements EventSubscriberInt
             'data_class' => EuropeanCVEducation::class,
             'education_type' => EducationTypeEnum::EDUCATION_ELEMENTARY_SCHOOL,
             'attr' => [
-                'id' => 'EuropeanCVEducationType'
+                'id' => 'EuropeanCVEducationType',
             ],
-            'field_options' => []
+            'field_options' => [],
         ]);
     }
 
@@ -145,7 +138,7 @@ class EuropeanCVEducationType extends AbstractType implements EventSubscriberInt
             return;
         }
 
-        if ($data->getKovCode() === null && $data->getKovTitle() !== null) {
+        if (null === $data->getKovCode() && null !== $data->getKovTitle()) {
             $data->setKovCode($data->getKovTitle());
         }
     }

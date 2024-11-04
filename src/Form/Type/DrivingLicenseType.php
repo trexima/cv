@@ -20,14 +20,13 @@ use Trexima\EuropeanCvBundle\Entity\EuropeanCVDrivingLicense;
  */
 class DrivingLicenseType extends AbstractType
 {
-
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $drivingLicenses = DrivingLicenseEnum::cases();
-        /**
+        /*
          * Prefill form with all available driving licenses
          */
-        $builder->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event) use ($drivingLicenses, $options) {
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($drivingLicenses, $options): void {
             $event->stopPropagation(); // Prevent CollectionType default behaviour
 
             $form = $event->getForm();
@@ -37,7 +36,7 @@ class DrivingLicenseType extends AbstractType
                 $data = [];
             }
 
-            if (!is_array($data) && !($data instanceof Collection)) {
+            if (!\is_array($data) && !($data instanceof Collection)) {
                 throw new UnexpectedTypeException($data, 'Collection');
             }
 
@@ -67,26 +66,26 @@ class DrivingLicenseType extends AbstractType
                         'data' => $actualDrivingLicenseData,
                         'help' => '',
                         'attr' => [
-                            'class' => 'form-inline'
+                            'class' => 'form-inline',
                         ],
                     ], $options['entry_options'])
                 );
             }
         }, 1); // We need greater priority than in CollectionType
 
-        /**
+        /*
          * Delete empty collections. Option 'delete_empty' with callback is allowed from Symfony 3.
          */
-        $builder->addEventListener(FormEvents::SUBMIT, function(FormEvent $event){
+        $builder->addEventListener(FormEvents::SUBMIT, function (FormEvent $event): void {
             $data = $event->getData();
 
             $toDelete = [];
             /**
-             * @var string $name
+             * @var string                   $name
              * @var EuropeanCVDrivingLicense $child
              */
             foreach ($data as $name => $child) {
-                /**
+                /*
                  * Field driving_license_id is primary key. Rows without primary keys aren't allowed.
                  * And we don't want row without checked driving license!
                  */
@@ -103,14 +102,14 @@ class DrivingLicenseType extends AbstractType
         });
     }
 
-    public function buildView(FormView $view, FormInterface $form, array $options)
+    public function buildView(FormView $view, FormInterface $form, array $options): void
     {
         parent::buildView($view, $form, $options);
 
         $view->vars['driving_licenses'] = DrivingLicenseEnum::cases();
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
 

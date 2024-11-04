@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Persistence\Proxy;
 
 /**
- * EuropeanCV practice processed
+ * EuropeanCV practice processed.
  */
 #[ORM\Table(name: 'european_cv_practice_processed')]
 #[ORM\Entity]
@@ -22,7 +22,7 @@ class EuropeanCVPracticeProcessed
     private ?EuropeanCV $europeanCV = null;
 
     /**
-     * Max length is 256 because this field can be filled from Harvey where field max length is 256
+     * Max length is 256 because this field can be filled from Harvey where field max length is 256.
      */
     #[ORM\Column(type: 'string', length: 256, nullable: true)]
     private ?string $title = null;

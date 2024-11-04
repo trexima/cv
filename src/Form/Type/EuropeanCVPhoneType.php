@@ -16,9 +16,6 @@ use function Symfony\Component\Translation\t;
 
 class EuropeanCVPhoneType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $prefixChoices = [];
@@ -52,11 +49,11 @@ class EuropeanCVPhoneType extends AbstractType
                 'required' => false,
                 'placeholder' => false,
                 'attr' => [
-                    'class' => "form-select border-end-1 pe-5",
-                    'data-controller' => "ui--select2",
-                    'data-ui--select2-theme-value' => "worki-floating",
-                    'data-ui--select2-minimum-results-for-search-value' => "Infinity",
-                   ' data-ui--select2-selection-css-class-value' => "rounded-end-0 pe-5",
+                    'class' => 'form-select border-end-1 pe-5',
+                    'data-controller' => 'ui--select2',
+                    'data-ui--select2-theme-value' => 'worki-floating',
+                    'data-ui--select2-minimum-results-for-search-value' => 'Infinity',
+                    ' data-ui--select2-selection-css-class-value' => 'rounded-end-0 pe-5',
                 ],
                 'form_floating' => true,
             ] + $prefixExtraOptions)
@@ -65,20 +62,17 @@ class EuropeanCVPhoneType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => t('trexima_european_cv.form_label.phone_number_placeholder', [], 'trexima_european_cv'),
-                    'class' => 'form-control-md'
+                    'class' => 'form-control-md',
                 ],
-                'form_floating' => true
+                'form_floating' => true,
             ]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
-            'data_class' => EuropeanCVPhone::class
+            'data_class' => EuropeanCVPhone::class,
         ]);
     }
 }

@@ -9,7 +9,7 @@ use Trexima\EuropeanCvBundle\Entity\Embeddable\MonthYearRange;
 use Trexima\EuropeanCvBundle\Validator as AppAssert;
 
 /**
- * EuropeanCV practice
+ * EuropeanCV practice.
  */
 #[ORM\Table(name: 'european_cv_practice')]
 #[ORM\Entity]

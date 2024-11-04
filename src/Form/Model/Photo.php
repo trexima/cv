@@ -2,15 +2,15 @@
 
 namespace Trexima\EuropeanCvBundle\Form\Model;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Photo
 {
     #[Assert\When(
         expression: 'this.getFile() !== null',
         constraints: [
-            new Assert\NotNull,
+            new Assert\NotNull(),
         ]
     )]
     private ?array $options = null;

@@ -34,8 +34,8 @@ class MonthYearRangeType extends AbstractType
                     'data-controller' => 'ui--select2',
                     'data-ui--select2-placeholder-value' => 'Vyberte mesiac',
                     'data-ui--select2-theme-value' => 'worki-floating',
-                ]
-            ], ($options['field_options']['beginMonth'] ?? [])))
+                ],
+            ], $options['field_options']['beginMonth'] ?? []))
             ->add('beginYear', ChoiceType::class, array_merge([
                 'label' => false,
                 'required' => false,
@@ -46,8 +46,8 @@ class MonthYearRangeType extends AbstractType
                     'data-controller' => 'ui--select2',
                     'data-ui--select2-placeholder-value' => 'Vyberte rok',
                     'data-ui--select2-theme-value' => 'worki-floating',
-                ]
-            ], ($options['field_options']['beginYear'] ?? [])))
+                ],
+            ], $options['field_options']['beginYear'] ?? []))
             ->add('endMonth', ChoiceType::class, array_merge([
                 'label' => t('trexima_european_cv.form_label.month_year_range_end_month_label', [], 'trexima_european_cv'),
                 'required' => false,
@@ -58,8 +58,8 @@ class MonthYearRangeType extends AbstractType
                     'data-controller' => 'ui--select2',
                     'data-ui--select2-placeholder-value' => 'Vyberte mesiac',
                     'data-ui--select2-theme-value' => 'worki-floating',
-                ]
-            ], ($options['field_options']['endMonth'] ?? [])))
+                ],
+            ], $options['field_options']['endMonth'] ?? []))
             ->add('endYear', ChoiceType::class, array_merge([
                 'label' => false,
                 'required' => false,
@@ -70,19 +70,19 @@ class MonthYearRangeType extends AbstractType
                     'data-controller' => 'ui--select2',
                     'data-ui--select2-placeholder-value' => 'Vyberte rok',
                     'data-ui--select2-theme-value' => 'worki-floating',
-                ]
-            ], ($options['field_options']['endYear'] ?? [])));
+                ],
+            ], $options['field_options']['endYear'] ?? []));
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => MonthYearRange::class,
-            /**
+            /*
              * Callback for empty_data is required because object
              * must be instantiate for every form element not only once!
              */
-            'empty_data' => fn() => new MonthYearRange(),
+            'empty_data' => fn () => new MonthYearRange(),
             'field_options' => [],
         ]);
     }

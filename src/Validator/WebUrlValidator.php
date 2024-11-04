@@ -21,7 +21,7 @@ class WebUrlValidator extends ConstraintValidator
             (?:\# (?:[\pL\pN\-._\~!$&\'()*+,;=:@/?]|%%[0-9A-Fa-f]{2})* )?       # a fragment (optional)
         $~ixu';
 
-    public function validate(mixed $value, Constraint $constraint)
+    public function validate(mixed $value, Constraint $constraint): void
     {
         if (!$constraint instanceof WebUrl) {
             throw new UnexpectedTypeException($constraint, WebUrl::class);
@@ -35,7 +35,7 @@ class WebUrlValidator extends ConstraintValidator
             throw new UnexpectedValueException($value, 'string');
         }
 
-        $value = (string)$value;
+        $value = (string) $value;
         if ('' === $value) {
             return;
         }
@@ -44,17 +44,17 @@ class WebUrlValidator extends ConstraintValidator
             $value = ($constraint->normalizer)($value);
         }
 
-        $pattern = $constraint->relativeProtocol ? \str_replace(
+        $pattern = $constraint->relativeProtocol ? str_replace(
             '(?:(%s)://)',
             '(?:(%s)://)?',
             static::PATTERN
         ) : static::PATTERN;
 
-        $pattern = \sprintf($pattern, \implode('|', $constraint->protocols));
+        $pattern = \sprintf($pattern, implode('|', $constraint->protocols));
 
         if (
-            !\preg_match($pattern, $value)
-            || ($constraint->pattern && !\preg_match($constraint->pattern, $value))
+            !preg_match($pattern, $value)
+            || ($constraint->pattern && !preg_match($constraint->pattern, $value))
         ) {
             $this->context->buildViolation($constraint->message)
                 ->setParameter('{{ value }}', $this->formatValue($value))

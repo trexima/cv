@@ -113,7 +113,7 @@ class EuropeanCV
     #[Assert\When(
         expression: 'this.getMonth() !== null || this.getDay() !== null',
         constraints: [
-            new Assert\NotNull(message: 'trexima_european_cv.select_choice')
+            new Assert\NotNull(message: 'trexima_european_cv.select_choice'),
         ]
     )]
     #[ORM\Column(type: 'integer', nullable: true, options: ['unsigned' => true])]
@@ -122,7 +122,7 @@ class EuropeanCV
     #[Assert\When(
         expression: 'this.getYear() !== null || this.getDay() !== null',
         constraints: [
-            new Assert\NotNull(message: 'trexima_european_cv.select_choice')
+            new Assert\NotNull(message: 'trexima_european_cv.select_choice'),
         ]
     )]
     #[ORM\Column(type: 'integer', nullable: true, options: ['unsigned' => true])]
@@ -131,7 +131,7 @@ class EuropeanCV
     #[Assert\When(
         expression: 'this.getYear() !== null || this.getMonth() !== null',
         constraints: [
-            new Assert\NotNull(message: 'trexima_european_cv.select_choice')
+            new Assert\NotNull(message: 'trexima_european_cv.select_choice'),
         ]
     )]
     #[ORM\Column(type: 'integer', nullable: true, options: ['unsigned' => true])]
@@ -577,7 +577,7 @@ class EuropeanCV
     public function getBirthDate(): ?string
     {
         if (($year = $this->getYear()) && ($month = $this->getMonth()) && ($day = $this->getDay())) {
-            return $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '-' . str_pad($day, 2, '0', STR_PAD_LEFT);
+            return $year.'-'.str_pad($month, 2, '0', \STR_PAD_LEFT).'-'.str_pad($day, 2, '0', \STR_PAD_LEFT);
         }
 
         return null;
@@ -778,7 +778,6 @@ class EuropeanCV
         return $this;
     }
 
-
     public function getCompetences(): array
     {
         return $this->competences;
@@ -792,22 +791,23 @@ class EuropeanCV
     }
 
     /**
-     * Function returns date of birth in datetime format
+     * Function returns date of birth in datetime format.
      */
     public function getFormattedDateOfBirth(): string
     {
         $date = '';
         if (!empty($this->day) && !empty($this->month)) {
-            $date .= $this->day . '.' . $this->month . '. ';
+            $date .= $this->day.'.'.$this->month.'. ';
         }
 
         $date .= $this->year;
+
         return $date;
     }
 
     public function getFullName(): string
     {
-        return trim($this->firstName . ' ' . $this->lastName);
+        return trim($this->firstName.' '.$this->lastName);
     }
 
     public function getFullNameWithTitles(): string
@@ -815,13 +815,13 @@ class EuropeanCV
         $fullName = '';
 
         if (!empty($this->titlesBefore)) {
-            $fullName .= implode(' ', $this->titlesBefore) . ' ';
+            $fullName .= implode(' ', $this->titlesBefore).' ';
         }
 
         $fullName .= $this->getFullName();
 
         if (!empty($this->titlesAfter)) {
-            $fullName .= ', ' . implode(', ', $this->titlesAfter);
+            $fullName .= ', '.implode(', ', $this->titlesAfter);
         }
 
         return $fullName;
