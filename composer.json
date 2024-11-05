@@ -2,7 +2,7 @@
     "name": "trexima/cv",
     "description": "Bundle provides form for creating CV in european format.",
     "type": "symfony-bundle",
-	"version": "1.9.0",
+	"version": "1.9.1",
     "license": "MIT",
     "keywords": ["cv"],
     "authors": [
@@ -21,7 +21,7 @@
         "symfony/translation": "^6.0",
         "symfony/asset": "^6.0",
         "symfony/yaml": "^6.0",
-        "symfony/webpack-encore-bundle": "^1.15",
+        "symfony/webpack-encore-bundle": "^1.15 || ^2.0",
         "symfony/form": "^6.0",
         "doctrine/orm": "^2 || ^3",
         "trexima/harvey-client": "^1.2",
